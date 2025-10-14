@@ -1,6 +1,5 @@
 /* Defaults */
 :root {
-
 	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 }
 
@@ -45,7 +44,6 @@ html,
 body {
 	padding: 0;
 	margin: 0 auto;
-
 	color: var(--text-color);
 	background-color: var(--background-color);
 }
@@ -266,7 +264,6 @@ header {
 
 .postlist-date {
 	font-size: var(--t-s-m);
-
 	color: var(--color-gray-90);
 }
 
