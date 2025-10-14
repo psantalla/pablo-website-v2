@@ -66,8 +66,10 @@ export default async function(eleventyConfig) {
 		stylesheet: "pretty-atom-feed.xsl",
 		templateData: {
 			eleventyNavigation: {
-				key: "Feed",
-				order: 4
+				key: "RSS",
+				parent: "footer",
+				order: 1,
+				blank: true
 			}
 		},
 		collection: {
@@ -76,11 +78,11 @@ export default async function(eleventyConfig) {
 		},
 		metadata: {
 			language: "en",
-			title: "Blog Title",
-			subtitle: "This is a longer description about your blog.",
-			base: "https://example.com/",
+			title: "Pablo Santalla's Blog",
+			subtitle: "Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.",
+			base: "https://pablosantalla.com/blog",
 			author: {
-				name: "Your Name"
+				name: "Pablo Santalla"
 			}
 		}
 	});

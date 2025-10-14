@@ -1,0 +1,182 @@
+/**
+ * N27 by Atipo Foundry
+ * Webfont License - Licensed for pablosantalla.com
+ * https://www.atipofoundry.com/
+ */
+@font-face {
+  font-family: "N27";
+  src: url("/fonts/n27/n27-regular-webfont.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "N27";
+  src: url("/fonts/n27/n27-regularitalic-webfont.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "N27";
+  src: url("/fonts/n27/n27-bold-webfont.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "N27";
+  src: url("/fonts/n27/n27-bolditalic-webfont.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+:root {
+  --t-ff-h: "N27", -apple-system, system-ui, sans-serif;
+  --t-ff-p: "N27", -apple-system, system-ui, sans-serif;
+  --t-lh-flat: 100%;
+  --t-lh-dense: 130%;
+  --t-lh-loose: 150%;
+  --t-base-size: 16px;
+  --t-fw-r: 400;
+  --t-fw-m: 700;
+  --t-ls-tight: 0;
+  --t-ls-normal: 0;
+  --t-ls-wide: 0;
+}
+
+:root {
+  --t-s-s: clamp(0.8398109244rem, -0.0662135956vi + 0.8595922361rem, 0.8rem);
+  --t-s-m: clamp(0.999375rem, 0.001039501vi + 0.9990644491rem, 1rem);
+  --t-s-l: clamp(1.18925625rem, 0.101029106vi + 1.1590738046rem, 1.25rem);
+  --t-s-xl: clamp(1.4152149375rem, 0.2449647609vi + 1.3420317152rem, 1.5625rem);
+  --t-s-2xl: clamp(1.6841057756rem, 0.4474332214vi + 1.5504351007rem, 1.953125rem);
+}
+
+html,
+body {
+  font-family: var(--t-ff-p);
+}
+
+html {
+  font-size: var(--t-base-size);
+}
+
+body {
+  font-size: var(--t-s-m);
+  font-weight: var(--t-fw-r);
+  line-height: var(--t-lh-loose);
+  letter-spacing: var(--t-ls-normal);
+}
+
+small, .t-s-s {
+  font-size: var(--t-s-s);
+  line-height: var(--t-lh-loose);
+  font-weight: var(--t-fw-r);
+  font-family: var(--t-ff-p);
+  letter-spacing: var(--t-ls-normal);
+}
+
+p, a, .t-s-m {
+  font-size: var(--t-s-m);
+  line-height: var(--t-lh-loose);
+  font-weight: var(--t-fw-r);
+  font-family: var(--t-ff-p);
+  letter-spacing: var(--t-ls-normal);
+}
+
+h3, .t-s-l {
+  font-size: var(--t-s-l);
+  line-height: var(--t-lh-dense);
+  font-weight: var(--t-fw-m);
+  font-family: var(--t-ff-p);
+  letter-spacing: var(--t-ls-normal);
+}
+
+h2, .t-s-xl {
+  font-size: var(--t-s-xl);
+  line-height: var(--t-lh-dense);
+  font-weight: var(--t-fw-m);
+  font-family: var(--t-ff-h);
+  letter-spacing: var(--t-ls-tight);
+}
+
+h1, .t-s-2xl {
+  font-size: var(--t-s-2xl);
+  line-height: var(--t-lh-dense);
+  font-weight: var(--t-fw-m);
+  font-family: var(--t-ff-h);
+  letter-spacing: var(--t-ls-tight);
+}
+
+.t-lh-flat {
+  line-height: var(--t-lh-flat);
+}
+
+.t-lh-dense {
+  line-height: var(--t-lh-dense);
+}
+
+.t-lh-loose {
+  line-height: var(--t-lh-loose);
+}
+
+.t-fw-r {
+  font-weight: var(--t-fw-r);
+}
+
+.t-fw-m {
+  font-weight: var(--t-fw-m);
+}
+
+.t-ff-p {
+  font-family: var(--t-ff-p);
+}
+
+.t-ff-h {
+  font-family: var(--t-ff-h);
+}
+
+.t-ls-tight {
+  letter-spacing: var(--t-ls-tight);
+}
+
+.t-ls-normal {
+  letter-spacing: var(--t-ls-normal);
+}
+
+.t-ls-wide {
+  letter-spacing: var(--t-ls-wide);
+}
+
+.t-tt-none {
+  text-transform: none;
+}
+
+.t-tt-uppercase {
+  text-transform: uppercase;
+}
+
+.t-ta-center {
+  text-align: center;
+}
+
+.t-ta-left {
+  text-align: left;
+}
+
+.t-ta-right {
+  text-align: right;
+}
+
+.t-tw-pretty {
+  text-wrap: pretty;
+}
+
+.t-tw-balance {
+  text-wrap: balance;
+}
+
+.t-tw-nowrap {
+  text-wrap: nowrap;
+}/*# sourceMappingURL=typography.css.map */

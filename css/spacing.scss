@@ -1,0 +1,146 @@
+@use "sass:map";
+
+$breakpoints: (
+    "tablet": 991px,
+    "mobile": 767px
+);
+
+@media only screen and (min-width: #{map.get($breakpoints, 'tablet') + 1px}) {
+    /* desktop */
+}
+
+@media only screen and (min-width: #{map.get($breakpoints, 'mobile') + 1px}) {
+    /* desktop and tablet */
+}
+
+@media only screen and (min-width: #{map.get($breakpoints, 'mobile') + 1px}) and (max-width: #{map.get($breakpoints, 'tablet')}) {
+    /* tablet */
+}
+
+@media only screen and (max-width: #{map.get($breakpoints, 'tablet')}) {
+    /* tablet and mobile */
+}
+
+@media only screen and (max-width: #{map.get($breakpoints, 'mobile')}) {
+    /* mobile */
+}
+
+/* additional breakpoints: */
+@media only screen and (min-width: 992px) and (max-width: 1279px) {
+  /* narrow desktop: header adjustment */
+}
+
+$spacing-sizes: (
+    "nil": 0,
+    "2xs": 0.25rem,
+    "xs": 0.5rem,
+    "s": 0.75rem,
+    "m": 1rem,
+    "l": 1.5rem,
+    "xl": 2rem,
+    "2xl": 3rem,
+    "3xl": 4rem,
+    "section-py": 5rem,
+    "4xl": 6rem,
+    "5xl": 8rem,
+    "6xl": 12rem,
+    "7xl": 16rem
+);
+
+$spacing-sizes-tablet: (
+    "2xl": 2.5rem,
+    "3xl": 3.5rem,
+    "section-py": 4rem,
+    "4xl": 4.5rem,
+    "5xl": 5.5rem,
+    "6xl": 7.5rem,
+    "7xl": 9.5rem
+);
+
+$spacing-sizes-mobile: (
+    "2xl": 3rem,
+    "3xl": 3rem,
+    "section-py": 3.5rem,
+    "4xl": 4rem,
+    "5xl": 5rem,
+    "6xl": 6rem,
+    "7xl": 7rem
+);
+
+:root {
+    @each $size, $value in $spacing-sizes {
+        --sp-#{$size}: #{$value};
+    }
+    --sp-site-width: 45em;
+}
+
+@media only screen and (max-width: #{map.get($breakpoints, 'mobile')}) {
+    :root {
+        @each $size, $value in $spacing-sizes-mobile {
+            --sp-#{$size}: #{$value};
+        }
+    }
+}
+
+@media only screen and (min-width: #{map.get($breakpoints, 'mobile') + 1px}) and (max-width: #{map.get($breakpoints, 'tablet')}) {
+    :root {
+        @each $size, $value in $spacing-sizes-tablet {
+            --sp-#{$size}: #{$value};
+        }
+    }
+}
+
+$max-width-sizes: (95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5);
+
+@each $size in $max-width-sizes {
+    .sp-mw-#{$size} {
+        max-width: calc(#{$size * 0.01} * var(--sp-site-width));
+    }
+}
+
+$spacing-properties: (
+    "p": "padding",
+    "py": "padding-block",
+    "px": "padding-inline",
+    "pt": "padding-top",
+    "pr": "padding-right",
+    "pb": "padding-bottom",
+    "pl": "padding-left",
+    "m": "margin",
+    "my": "margin-block",
+    "mx": "margin-inline",
+    "mt": "margin-top",
+    "mr": "margin-right",
+    "mb": "margin-bottom",
+    "ml": "margin-left",
+    "g": "gap"
+);
+
+@each $size, $value in $spacing-sizes {
+    @each $prefix, $property in $spacing-properties {
+        .sp-#{$prefix}-#{$size} {
+            #{$property}: var(--sp-#{$size});
+        }
+    }
+}
+
+@media only screen and (max-width: #{map.get($breakpoints, 'tablet')}) {
+    @each $size, $value in $spacing-sizes {
+        @each $prefix, $property in $spacing-properties {
+            .sp-#{$prefix}-#{$size}-tablet-mobile {
+                #{$property}: var(--sp-#{$size});
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: #{map.get($breakpoints, 'mobile')}) {
+    @each $size, $value in $spacing-sizes {
+        @each $prefix, $property in $spacing-properties {
+            .sp-#{$prefix}-#{$size}-mobile {
+                #{$property}: var(--sp-#{$size});
+            }
+        }
+    }
+}
+

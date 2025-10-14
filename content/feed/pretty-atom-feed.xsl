@@ -25,7 +25,7 @@ https://nicolas-hoizey.com/feeds/all.xml
       </head>
       <body class="bg-white">
         <nav class="container-md px-3 py-2 mt-2 mt-md-5 mb-5 markdown-body">
-          <p class="bg-yellow-light ml-n1 px-1 py-1 mb-1">
+          <p class="bg-yellow-light ml-n1 px-3 py-3 mb-2">
             <strong>This is a web feed,</strong> also known as an RSS or Atom feed. <strong>Subscribe</strong> by copying the URL from the address bar into your newsreader.
           </p>
           <p class="text-gray">

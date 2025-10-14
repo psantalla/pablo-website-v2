@@ -1,0 +1,197 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+
+/**
+ * N27 by Atipo Foundry
+ * Webfont License - Licensed for pablosantalla.com
+ * https://www.atipofoundry.com/
+ */
+
+@font-face {
+	font-family: 'N27';
+	src: url('/fonts/n27/n27-regular-webfont.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'N27';
+	src: url('/fonts/n27/n27-regularitalic-webfont.woff2') format('woff2');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'N27';
+	src: url('/fonts/n27/n27-bold-webfont.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'N27';
+	src: url('/fonts/n27/n27-bolditalic-webfont.woff2') format('woff2');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+:root {
+	--t-ff-h: 'N27', -apple-system, system-ui, sans-serif;
+	--t-ff-p: 'N27', -apple-system, system-ui, sans-serif;
+	--t-lh-flat: 100%;
+	--t-lh-dense: 130%;
+	--t-lh-loose: 150%;
+	--t-base-size: 16px;
+	--t-fw-r: 400;
+	--t-fw-m: 700;
+	--t-ls-tight: 0;
+	--t-ls-normal: 0;
+	--t-ls-wide: 0;
+}
+
+$min-font-size: 15.99;
+$max-font-size: 16;
+$min-width: 478;
+$max-width: 1440;
+$min-ratio: 1.19;
+$max-ratio: 1.25;
+
+@function calc-fluid-size($step) {
+	$min-size: $min-font-size * math.pow($min-ratio, $step);
+	$max-size: $max-font-size * math.pow($max-ratio, $step);
+
+	$slope: math.div($max-size - $min-size, $max-width - $min-width);
+	$intercept: $min-size - $slope * $min-width;
+
+	@return clamp(#{math.div($min-size, 16)}rem, calc(#{$slope * 100}vi + #{math.div($intercept, 16)}rem), #{math.div($max-size, 16)}rem);
+}
+
+$typography-properties: (
+	fs: font-size,
+	lh: line-height,
+	fw: font-weight,
+	ff: font-family,
+	ls: letter-spacing,
+	tt: text-transform,
+	ta: text-align,
+	tw: text-wrap
+);
+
+$property-values: (
+	lh: (flat: var(--t-lh-flat),
+		dense: var(--t-lh-dense),
+		loose: var(--t-lh-loose)),
+	fw: (r: var(--t-fw-r),
+		m: var(--t-fw-m)),
+	ff: (p: var(--t-ff-p),
+		h: var(--t-ff-h)),
+	ls: (tight: var(--t-ls-tight),
+		normal: var(--t-ls-normal),
+		wide: var(--t-ls-wide)),
+	tt: (none: none,
+		uppercase: uppercase),
+	ta: (center: center,
+		left: left,
+		right: right),
+	tw: (pretty: pretty,
+		balance: balance,
+		nowrap: nowrap)
+);
+
+$typography-steps: (
+	s: (step: -1,
+		elements: (small),
+		tokens: (lh-loose, fw-r, ff-p, ls-normal)),
+	m: (step: 0,
+		elements: (p, a),
+		tokens: (lh-loose, fw-r, ff-p, ls-normal)),
+	l: (step: 1,
+		elements: (h3),
+		tokens: (lh-dense, fw-m, ff-p, ls-normal)),
+	xl: (step: 2,
+		elements: (h2),
+		tokens: (lh-dense, fw-m, ff-h, ls-tight)),
+	2xl: (step: 3,
+		elements: (h1),
+		tokens: (lh-dense, fw-m, ff-h, ls-tight))
+);
+
+:root {
+	@each $name, $config in $typography-steps {
+		--t-s-#{$name}: #{calc-fluid-size(map.get($config, step))};
+	}
+}
+
+html,
+body {
+	font-family: var(--t-ff-p);
+}
+
+html {
+	font-size: var(--t-base-size);
+}
+
+body {
+	font-size: var(--t-s-m);
+	font-weight: var(--t-fw-r);
+	line-height: var(--t-lh-loose);
+	letter-spacing: var(--t-ls-normal);
+}
+
+@each $name, $config in $typography-steps {
+	$elements: map.get($config, elements);
+	$tokens: map.get($config, tokens);
+
+	$selector: ".t-s-#{$name}";
+
+	@if length($elements)>0 {
+		$element-list: (
+		);
+
+	@each $element in $elements {
+		$element-list: append($element-list, $element, comma);
+	}
+
+	$selector: "#{$element-list}, #{$selector}";
+}
+
+#{$selector} {
+	font-size: var(--t-s-#{$name});
+
+	@each $token in $tokens {
+		$dash-index: string.index($token, "-");
+
+		@if $dash-index {
+			$prop-key: string.slice($token, 1, $dash-index - 1);
+			$prop-value: string.slice($token, $dash-index + 1);
+
+			$values-map: map.get($property-values, $prop-key);
+
+			@if $values-map {
+				$css-value: map.get($values-map, $prop-value);
+
+				@if $css-value {
+					$css-property: map.get($typography-properties, $prop-key);
+					#{$css-property}: #{$css-value};
+				}
+			}
+		}
+	}
+}
+}
+
+@each $prop-key, $values-map in $property-values {
+	$css-property: map.get($typography-properties, $prop-key);
+
+	@each $value-key, $css-value in $values-map {
+		.t-#{$prop-key}-#{$value-key} {
+			#{$css-property}: #{$css-value};
+		}
+	}
+}
