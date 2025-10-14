@@ -1,46 +1,27 @@
 /* This is an arbitrary CSS string added to the bundle */
-/**
- * N27 by Atipo Foundry
- * Webfont License - Licensed for pablosantalla.com
- * https://www.atipofoundry.com/
- */
 @font-face {
-  font-family: "N27";
-  src: url("/fonts/n27/n27-regular-webfont.woff2") format("woff2");
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "N27";
-  src: url("/fonts/n27/n27-regularitalic-webfont.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "N27";
-  src: url("/fonts/n27/n27-bold-webfont.woff2") format("woff2");
-  font-weight: 700;
+  font-family: "Inter Tight";
+  src: url("/fonts/inter-tight-latin-500-normal.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "N27";
-  src: url("/fonts/n27/n27-bolditalic-webfont.woff2") format("woff2");
-  font-weight: 700;
-  font-style: italic;
   font-display: swap;
 }
 :root {
-  --t-ff-h: "N27", -apple-system, system-ui, sans-serif;
-  --t-ff-p: "N27", -apple-system, system-ui, sans-serif;
+  --t-ff-h: "Inter Tight", -apple-system, system-ui, sans-serif;
+  --t-ff-p: "Inter", -apple-system, system-ui, sans-serif;
   --t-lh-flat: 100%;
   --t-lh-dense: 130%;
   --t-lh-loose: 150%;
   --t-base-size: 16px;
   --t-fw-r: 400;
-  --t-fw-m: 700;
+  --t-fw-m: 500;
   --t-ls-tight: 0;
   --t-ls-normal: 0;
   --t-ls-wide: 0;
@@ -2422,7 +2403,6 @@ h1, .t-s-2xl {
 }/*# sourceMappingURL=spacing.css.map */
 			/* Defaults */
 :root {
-
 	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 }
 
@@ -2467,7 +2447,6 @@ html,
 body {
 	padding: 0;
 	margin: 0 auto;
-
 	color: var(--text-color);
 	background-color: var(--background-color);
 }
@@ -2688,7 +2667,6 @@ header {
 
 .postlist-date {
 	font-size: var(--t-s-m);
-
 	color: var(--color-gray-90);
 }
 
