@@ -1,8 +1,8 @@
 @use "sass:map";
 
 $breakpoints: (
-    "tablet": 991px,
-    "mobile": 767px
+    "tablet": 768px,
+    "mobile": 480px
 );
 
 @media only screen and (min-width: #{map.get($breakpoints, 'tablet') + 1px}) {
@@ -25,11 +25,6 @@ $breakpoints: (
     /* mobile */
 }
 
-/* additional breakpoints: */
-@media only screen and (min-width: 992px) and (max-width: 1279px) {
-  /* narrow desktop: header adjustment */
-}
-
 $spacing-sizes: (
     "nil": 0,
     "2xs": 0.25rem,
@@ -40,7 +35,6 @@ $spacing-sizes: (
     "xl": 2rem,
     "2xl": 3rem,
     "3xl": 4rem,
-    "section-py": 5rem,
     "4xl": 6rem,
     "5xl": 8rem,
     "6xl": 12rem,
@@ -50,7 +44,6 @@ $spacing-sizes: (
 $spacing-sizes-tablet: (
     "2xl": 2.5rem,
     "3xl": 3.5rem,
-    "section-py": 4rem,
     "4xl": 4.5rem,
     "5xl": 5.5rem,
     "6xl": 7.5rem,
@@ -58,13 +51,12 @@ $spacing-sizes-tablet: (
 );
 
 $spacing-sizes-mobile: (
-    "2xl": 3rem,
-    "3xl": 3rem,
-    "section-py": 3.5rem,
-    "4xl": 4rem,
-    "5xl": 5rem,
-    "6xl": 6rem,
-    "7xl": 7rem
+    "2xl": 2rem,
+    "3xl": 2.5rem,
+    "4xl": 3.5rem,
+    "5xl": 4rem,
+    "6xl": 5rem,
+    "7xl": 6rem
 );
 
 :root {
@@ -113,7 +105,9 @@ $spacing-properties: (
     "mr": "margin-right",
     "mb": "margin-bottom",
     "ml": "margin-left",
-    "g": "gap"
+    "g": "gap",
+    "gr": "row-gap",
+    "gc": "column-gap"
 );
 
 @each $size, $value in $spacing-sizes {
@@ -143,4 +137,3 @@ $spacing-properties: (
         }
     }
 }
-

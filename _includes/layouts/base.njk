@@ -10,8 +10,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-		<link rel="preload" href="/fonts/n27/n27-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
-		<link rel="preload" href="/fonts/n27/n27-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
+
 
 		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
 		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
@@ -33,11 +32,12 @@
 		</style>
 
 		{#- Add the contents of a file to the bundle #}
-		<style>
-			{% include "css/typography.css" %}
-			{% include "css/spacing.css" %}
-			{% include "css/index.css" %}
-		</style>
+<style>
+	{% include "css/typography.css" %}
+	{% include "css/spacing.css" %}
+	{% include "css/index.css" %}
+	{% include "css/color.css" %}
+</style>
 
 		{#- Or you can add from node_modules #}
 		{# <style>{% include "node_modules/something.css" %}</style> #}

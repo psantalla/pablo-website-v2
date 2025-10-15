@@ -6,32 +6,33 @@
   font-display: swap;
 }
 @font-face {
-  font-family: "Inter Tight";
-  src: url("/fonts/inter-tight-latin-500-normal.woff") format("woff");
+  font-family: "Inter";
+  src: url("/fonts/Inter-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 :root {
-  --t-ff-h: "Inter Tight", -apple-system, system-ui, sans-serif;
+  --t-ff-h: "Inter", -apple-system, system-ui, sans-serif;
   --t-ff-p: "Inter", -apple-system, system-ui, sans-serif;
+  --t-ff-mono: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
   --t-lh-flat: 100%;
   --t-lh-dense: 130%;
   --t-lh-loose: 150%;
   --t-base-size: 16px;
   --t-fw-r: 400;
   --t-fw-m: 500;
-  --t-ls-tight: 0;
+  --t-ls-tight: -.015em;
   --t-ls-normal: 0;
-  --t-ls-wide: 0;
+  --t-ls-wide: .15em;
 }
 
 :root {
-  --t-s-s: clamp(0.8398109244rem, -0.0662135956vi + 0.8595922361rem, 0.8rem);
-  --t-s-m: clamp(0.999375rem, 0.001039501vi + 0.9990644491rem, 1rem);
-  --t-s-l: clamp(1.18925625rem, 0.101029106vi + 1.1590738046rem, 1.25rem);
-  --t-s-xl: clamp(1.4152149375rem, 0.2449647609vi + 1.3420317152rem, 1.5625rem);
-  --t-s-2xl: clamp(1.6841057756rem, 0.4474332214vi + 1.5504351007rem, 1.953125rem);
+  --t-s-s: clamp(0.8690217391rem, -0.1982689211vi + 0.9285024155rem, 0.8333333333rem);
+  --t-s-m: clamp(0.999375rem, 0.0034722222vi + 0.9983333333rem, 1rem);
+  --t-s-l: clamp(1.14928125rem, 0.2817708333vi + 1.06475rem, 1.2rem);
+  --t-s-xl: clamp(1.3216734375rem, 0.6573697917vi + 1.1244625rem, 1.44rem);
+  --t-s-2xl: clamp(1.5199244531rem, 1.1559752604vi + 1.173131875rem, 1.728rem);
 }
 
 html,
@@ -118,6 +119,10 @@ h1, .t-s-2xl {
   font-family: var(--t-ff-h);
 }
 
+.t-ff-mono {
+  font-family: var(--t-ff-mono);
+}
+
 .t-ls-tight {
   letter-spacing: var(--t-ls-tight);
 }
@@ -160,4 +165,4 @@ h1, .t-s-2xl {
 
 .t-tw-nowrap {
   text-wrap: nowrap;
-}/*# sourceMappingURL=typography.css.map */
+}
