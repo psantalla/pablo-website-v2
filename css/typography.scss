@@ -12,22 +12,22 @@
 }
 
 @font-face {
-	font-family: 'Inter Tight';
-	src: url('/fonts/inter-tight-latin-500-normal.woff') format('woff');
-	font-weight: 500;
+	font-family: 'Inter';
+	src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
 }
 
 :root {
-	--t-ff-h: 'Inter Tight', -apple-system, system-ui, sans-serif;
+	--t-ff-h: 'Inter', -apple-system, system-ui, sans-serif;
 	--t-ff-p: 'Inter', -apple-system, system-ui, sans-serif;
 	--t-lh-flat: 100%;
 	--t-lh-dense: 130%;
 	--t-lh-loose: 150%;
 	--t-base-size: 16px;
 	--t-fw-r: 400;
-	--t-fw-m: 500;
+	--t-fw-sb: 600;
 	--t-ls-tight: 0;
 	--t-ls-normal: 0;
 	--t-ls-wide: 0;
@@ -43,10 +43,8 @@ $max-ratio: 1.25;
 @function calc-fluid-size($step) {
 	$min-size: $min-font-size * math.pow($min-ratio, $step);
 	$max-size: $max-font-size * math.pow($max-ratio, $step);
-
 	$slope: math.div($max-size - $min-size, $max-width - $min-width);
 	$intercept: $min-size - $slope * $min-width;
-
 	@return clamp(#{math.div($min-size, 16)}rem, calc(#{$slope * 100}vi + #{math.div($intercept, 16)}rem), #{math.div($max-size, 16)}rem);
 }
 
@@ -66,7 +64,7 @@ $property-values: (
 		dense: var(--t-lh-dense),
 		loose: var(--t-lh-loose)),
 	fw: (r: var(--t-fw-r),
-		m: var(--t-fw-m)),
+		sb: var(--t-fw-sb)),
 	ff: (p: var(--t-ff-p),
 		h: var(--t-ff-h)),
 	ls: (tight: var(--t-ls-tight),
@@ -91,13 +89,13 @@ $typography-steps: (
 		tokens: (lh-loose, fw-r, ff-p, ls-normal)),
 	l: (step: 1,
 		elements: (h3),
-		tokens: (lh-dense, fw-m, ff-p, ls-normal)),
+		tokens: (lh-dense, fw-sb, ff-p, ls-normal)),
 	xl: (step: 2,
 		elements: (h2),
-		tokens: (lh-dense, fw-m, ff-h, ls-tight)),
+		tokens: (lh-dense, fw-sb, ff-h, ls-tight)),
 	2xl: (step: 3,
 		elements: (h1),
-		tokens: (lh-dense, fw-m, ff-h, ls-tight))
+		tokens: (lh-dense, fw-sb, ff-h, ls-tight))
 );
 
 :root {
@@ -125,35 +123,25 @@ body {
 @each $name, $config in $typography-steps {
 	$elements: map.get($config, elements);
 	$tokens: map.get($config, tokens);
-
 	$selector: ".t-s-#{$name}";
-
 	@if length($elements)>0 {
 		$element-list: (
 		);
-
 	@each $element in $elements {
 		$element-list: append($element-list, $element, comma);
 	}
-
 	$selector: "#{$element-list}, #{$selector}";
 }
-
 #{$selector} {
 	font-size: var(--t-s-#{$name});
-
 	@each $token in $tokens {
 		$dash-index: string.index($token, "-");
-
 		@if $dash-index {
 			$prop-key: string.slice($token, 1, $dash-index - 1);
 			$prop-value: string.slice($token, $dash-index + 1);
-
 			$values-map: map.get($property-values, $prop-key);
-
 			@if $values-map {
 				$css-value: map.get($values-map, $prop-value);
-
 				@if $css-value {
 					$css-property: map.get($typography-properties, $prop-key);
 					#{$css-property}: #{$css-value};
@@ -166,7 +154,6 @@ body {
 
 @each $prop-key, $values-map in $property-values {
 	$css-property: map.get($typography-properties, $prop-key);
-
 	@each $value-key, $css-value in $values-map {
 		.t-#{$prop-key}-#{$value-key} {
 			#{$css-property}: #{$css-value};
