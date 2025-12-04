@@ -1,57 +1,65 @@
-@use "sass:map";
+$auto-theme: true;
+$default-theme: "dark";
+$generate-classes: false;
 
-$colors: (
-    "pine": #131117,
-    "pine-dim": #3f3d42,
-    "pine-muted": #6c696d,
-    "pine-soft": #989598,
-    "pine-subtle": #c5c4c5,
-    "alabaster": #f5f5f5,
-    "alabaster-dim": #f7f7f7,
-    "alabaster-muted": #f9f9f9,
-    "alabaster-soft": #fbfbfb,
-    "alabaster-subtle": #fdfdfd,
-    "coral": #f55d3e
+$colors-light: (
+    "foreground": #131117,
+    "foreground-hint": #131117db,
+    "foreground-reduced": #131117cc,
+    "foreground-muted": #13111780,
+    "background": #f5f5f5,
+    "accent": #F55D3E,
+    "accent-a": #f55d3ea7,
+    "code-keyword": #F55D3E,
+    "code-string": #3EF5DF,
+    "code-number": #3EF5DF,
+    "code-comment": #13111750,
+    "code-bg": #e8e8e8,
+    "code-deleted-bg": #F55D3E,
+    "code-inserted-bg": #3EF5DF
 );
 
-$properties: (
-    "c-el": "color",
-    "c-bg": "background-color",
-    "c-bor": "border-color"
+$colors-dark: (
+    "foreground": #f5f5f5,
+    "foreground-hint": #f5f5f5e9,
+    "foreground-reduced": #f5f5f5cc,
+    "foreground-muted": #f5f5f580,
+    "background": #131117,
+    "accent": #F55D3E,
+    "accent-a": #f55d3ea7,
+    "code-keyword": #F55D3E,
+    "code-string": #3EF5DF,
+    "code-number": #3EF5DF,
+    "code-comment": #ffffff68,
+    "code-bg": #27242c,
+    "code-deleted-bg": #F55D3E,
+    "code-inserted-bg": #3EF5DF
 );
 
 :root {
-    @each $name, $color in $colors {
-        --c-#{$name}: #{$color};
-    }
-
-    --foreground: var(--c-pine);
-    --foreground-secondary: var(--c-pine-muted);
-    --background: var(--c-alabaster);
-    --surface: #ffffff;
-    --border: var(--c-pine-subtle);
-    --border-muted: var(--c-alabaster-muted);
-    --accent: var(--c-pine);
-    --accent-hover: var(--c-pine-soft);
-}
-
-@each $name, $color in $colors {
-    @each $prop-name, $css-property in $properties {
-        .#{$prop-name}-#{$name} {
-            #{$css-property}: var(--c-#{$name});
+    @if $auto-theme {
+        @each $name, $color in $colors-light {
+            --c-#{$name}: #{$color};
+        }
+    } @else {
+        @if $default-theme == "dark" {
+            @each $name, $color in $colors-dark {
+                --c-#{$name}: #{$color};
+            }
+        } @else {
+            @each $name, $color in $colors-light {
+                --c-#{$name}: #{$color};
+            }
         }
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground: var(--c-alabaster);
-        --foreground-secondary: var(--c-alabaster-soft);
-        --background: var(--c-pine);
-        --surface: var(--c-pine-dim);
-        --border: var(--c-pine-muted);
-        --border-muted: var(--c-pine-dim);
-        --accent: var(--c-alabaster);
-        --accent-hover: var(--c-alabaster-muted);
+@if $auto-theme {
+    @media (prefers-color-scheme: dark) {
+        :root {
+            @each $name, $color in $colors-dark {
+                --c-#{$name}: #{$color};
+            }
+        }
     }
 }

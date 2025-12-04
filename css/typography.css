@@ -15,7 +15,7 @@
 :root {
   --t-ff-h: "Inter", -apple-system, system-ui, sans-serif;
   --t-ff-p: "Inter", -apple-system, system-ui, sans-serif;
-  --t-ff-mono: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  --t-ff-mono: "Andale Mono", Consolas, Menlo, Monaco, "Courier New", monospace;
   --t-lh-flat: 100%;
   --t-lh-dense: 130%;
   --t-lh-loose: 150%;
@@ -28,11 +28,11 @@
 }
 
 :root {
-  --t-s-s: clamp(0.8690217391rem, -0.1982689211vi + 0.9285024155rem, 0.8333333333rem);
+  --t-s-s: clamp(0.8883333333rem, -0.0330802213vi + 0.8982573997rem, 0.8823788935rem);
   --t-s-m: clamp(0.999375rem, 0.0034722222vi + 0.9983333333rem, 1rem);
-  --t-s-l: clamp(1.14928125rem, 0.2817708333vi + 1.06475rem, 1.2rem);
-  --t-s-xl: clamp(1.3216734375rem, 0.6573697917vi + 1.1244625rem, 1.44rem);
-  --t-s-2xl: clamp(1.5199244531rem, 1.1559752604vi + 1.173131875rem, 1.728rem);
+  --t-s-l: clamp(1.124296875rem, 0.0500173611vi + 1.1092916667rem, 1.1333rem);
+  --t-s-xl: clamp(1.2648339844rem, 0.1085272535vi + 1.2322758083rem, 1.28436889rem);
+  --t-s-2xl: clamp(1.4229382324rem, 0.1813168368vi + 1.3685431814rem, 1.455575263rem);
 }
 
 html,
@@ -49,6 +49,10 @@ body {
   font-weight: var(--t-fw-r);
   line-height: var(--t-lh-loose);
   letter-spacing: var(--t-ls-normal);
+}
+
+strong {
+  font-weight: 500;
 }
 
 small, .t-s-s {

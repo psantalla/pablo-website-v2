@@ -1,166 +1,35 @@
 :root {
-  --c-pine: #131117;
-  --c-pine-dim: #3f3d42;
-  --c-pine-muted: #6c696d;
-  --c-pine-soft: #989598;
-  --c-pine-subtle: #c5c4c5;
-  --c-alabaster: #f5f5f5;
-  --c-alabaster-dim: #f7f7f7;
-  --c-alabaster-muted: #f9f9f9;
-  --c-alabaster-soft: #fbfbfb;
-  --c-alabaster-subtle: #fdfdfd;
-  --c-coral: #f55d3e;
-  --foreground: var(--c-pine);
-  --foreground-secondary: var(--c-pine-muted);
-  --background: var(--c-alabaster);
-  --surface: #ffffff;
-  --border: var(--c-pine-subtle);
-  --border-muted: var(--c-alabaster-muted);
-  --accent: var(--c-pine);
-  --accent-hover: var(--c-pine-soft);
-}
-
-.c-el-pine {
-  color: var(--c-pine);
-}
-
-.c-bg-pine {
-  background-color: var(--c-pine);
-}
-
-.c-bor-pine {
-  border-color: var(--c-pine);
-}
-
-.c-el-pine-dim {
-  color: var(--c-pine-dim);
-}
-
-.c-bg-pine-dim {
-  background-color: var(--c-pine-dim);
-}
-
-.c-bor-pine-dim {
-  border-color: var(--c-pine-dim);
-}
-
-.c-el-pine-muted {
-  color: var(--c-pine-muted);
-}
-
-.c-bg-pine-muted {
-  background-color: var(--c-pine-muted);
-}
-
-.c-bor-pine-muted {
-  border-color: var(--c-pine-muted);
-}
-
-.c-el-pine-soft {
-  color: var(--c-pine-soft);
-}
-
-.c-bg-pine-soft {
-  background-color: var(--c-pine-soft);
-}
-
-.c-bor-pine-soft {
-  border-color: var(--c-pine-soft);
-}
-
-.c-el-pine-subtle {
-  color: var(--c-pine-subtle);
-}
-
-.c-bg-pine-subtle {
-  background-color: var(--c-pine-subtle);
-}
-
-.c-bor-pine-subtle {
-  border-color: var(--c-pine-subtle);
-}
-
-.c-el-alabaster {
-  color: var(--c-alabaster);
-}
-
-.c-bg-alabaster {
-  background-color: var(--c-alabaster);
-}
-
-.c-bor-alabaster {
-  border-color: var(--c-alabaster);
-}
-
-.c-el-alabaster-dim {
-  color: var(--c-alabaster-dim);
-}
-
-.c-bg-alabaster-dim {
-  background-color: var(--c-alabaster-dim);
-}
-
-.c-bor-alabaster-dim {
-  border-color: var(--c-alabaster-dim);
-}
-
-.c-el-alabaster-muted {
-  color: var(--c-alabaster-muted);
-}
-
-.c-bg-alabaster-muted {
-  background-color: var(--c-alabaster-muted);
-}
-
-.c-bor-alabaster-muted {
-  border-color: var(--c-alabaster-muted);
-}
-
-.c-el-alabaster-soft {
-  color: var(--c-alabaster-soft);
-}
-
-.c-bg-alabaster-soft {
-  background-color: var(--c-alabaster-soft);
-}
-
-.c-bor-alabaster-soft {
-  border-color: var(--c-alabaster-soft);
-}
-
-.c-el-alabaster-subtle {
-  color: var(--c-alabaster-subtle);
-}
-
-.c-bg-alabaster-subtle {
-  background-color: var(--c-alabaster-subtle);
-}
-
-.c-bor-alabaster-subtle {
-  border-color: var(--c-alabaster-subtle);
-}
-
-.c-el-coral {
-  color: var(--c-coral);
-}
-
-.c-bg-coral {
-  background-color: var(--c-coral);
-}
-
-.c-bor-coral {
-  border-color: var(--c-coral);
+  --c-foreground: #131117;
+  --c-foreground-hint: rgba(19, 17, 23, 0.8588235294);
+  --c-foreground-reduced: rgba(19, 17, 23, 0.8);
+  --c-foreground-muted: rgba(19, 17, 23, 0.5019607843);
+  --c-background: #f5f5f5;
+  --c-accent: #F55D3E;
+  --c-accent-a: rgba(245, 93, 62, 0.6549019608);
+  --c-code-keyword: #F55D3E;
+  --c-code-string: #3EF5DF;
+  --c-code-number: #3EF5DF;
+  --c-code-comment: rgba(19, 17, 23, 0.3137254902);
+  --c-code-bg: #e8e8e8;
+  --c-code-deleted-bg: #F55D3E;
+  --c-code-inserted-bg: #3EF5DF;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground: var(--c-alabaster);
-    --foreground-secondary: var(--c-alabaster-soft);
-    --background: var(--c-pine);
-    --surface: var(--c-pine-dim);
-    --border: var(--c-pine-muted);
-    --border-muted: var(--c-pine-dim);
-    --accent: var(--c-alabaster);
-    --accent-hover: var(--c-alabaster-muted);
+    --c-foreground: #f5f5f5;
+    --c-foreground-hint: rgba(245, 245, 245, 0.9137254902);
+    --c-foreground-reduced: rgba(245, 245, 245, 0.8);
+    --c-foreground-muted: rgba(245, 245, 245, 0.5019607843);
+    --c-background: #131117;
+    --c-accent: #F55D3E;
+    --c-accent-a: rgba(245, 93, 62, 0.6549019608);
+    --c-code-keyword: #F55D3E;
+    --c-code-string: #3EF5DF;
+    --c-code-number: #3EF5DF;
+    --c-code-comment: rgba(255, 255, 255, 0.4078431373);
+    --c-code-bg: #27242c;
+    --c-code-deleted-bg: #F55D3E;
+    --c-code-inserted-bg: #3EF5DF;
   }
 }

@@ -1,0 +1,274 @@
+@view-transition {
+	navigation: auto;
+}
+
+:root {
+	--horizontal-gutter: var(--sp-l);
+}
+
+html,
+body {
+	margin: 0 auto;
+	color: var(--c-foreground);
+	background-color: var(--c-background);
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	max-width: var(--sp-site-width);
+}
+
+main,
+footer {
+	padding: var(--sp-xl) var(--horizontal-gutter);
+}
+
+main :first-child {
+	margin-top: 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+img[width][height] {
+	height: auto;
+}
+
+video,
+iframe {
+	width: 100%;
+	height: auto;
+}
+
+iframe {
+	aspect-ratio: 16/9;
+}
+
+a[href],
+a[href]:visited {
+	color: inherit;
+}
+
+a[href]:hover,
+a[href]:active {
+	color: var(--c-foreground-reduced);
+}
+
+a[target="_blank"] {
+	position: relative;
+	padding-right: .95em;
+}
+
+a[target="_blank"]::after {
+	content: "↗";
+	position: absolute;
+	top: 45%;
+	transform: translateY(-50%);
+	right: 0;
+	color: var(--c-foreground-muted);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: /* generic way to avoid "#" stay orphan in long headlines */ balance;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+#skip-link {
+	text-decoration: none;
+	background: var(--c-background);
+	color: var(--c-foreground);
+	padding: var(--sp-s) var(--sp-l);
+	border: 1px solid var(--c-foreground);
+}
+
+#skip-link.visually-hidden:focus {
+	position: absolute;
+	top: var(--sp-m);
+	left: var(--sp-m);
+	z-index: 999;
+}
+
+header {
+	padding: var(--sp-xl) var(--horizontal-gutter);
+	display: flex;
+	gap: var(--sp-m);
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.home-link {
+	flex-grow: 1;
+	font-size: 1em;
+	font-weight: var(--t-fw-m);
+}
+
+.home-link:link:not(:hover),
+.home-link:link:hover {
+	text-decoration: none;
+}
+
+.nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	gap: var(--sp-xs) var(--sp-m);
+}
+
+.nav-item {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+.nav a[href] {
+	text-decoration: none;
+}
+
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+footer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--sp-m);
+}
+
+footer p {
+	margin: 0;
+	color: var(--c-foreground);
+}
+
+.postlist {
+	counter-reset: start-from var(--postlist-index);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--sp-xs);
+}
+
+.postlist-item {
+	margin: 0;
+	padding: 0;
+}
+
+* + .postlist {
+	margin-top: var(--sp-xl);
+}
+
+:is(h1, h2, h3, h4, h5, h6) + .postlist {
+	margin-top: var(--sp-m);
+}
+
+
+
+
+
+.postlist + * {
+	margin-top: var(--sp-m);
+}
+
+.postlist-link {
+	display: flex;
+	flex-direction: row;
+	gap: var(--sp-m);
+	text-decoration: none;
+	flex-wrap: nowrap;
+}
+
+.postlist-date {
+	color: var(--c-foreground-muted);
+	white-space: nowrap;
+}
+
+.postlist-title {
+	font-weight: var(--t-fw-m);
+	color: var(--c-foreground);
+	overflow-wrap: break-word;
+}
+
+.postlist-link:hover .postlist-title {
+	color: var(--c-foreground-reduced);
+}
+
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: var(--sp-s);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+* + .post-metadata {
+	margin-top: var(--sp-xl);
+}
+
+h1 + .post-metadata {
+	margin-top: var(--sp-xs);
+}
+
+.post-date {
+	color: var(--c-foreground-muted);
+	font-size: var(--t-s-m);
+}
+
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: lowercase;
+	text-decoration: none;
+	font-size: var(--t-s-s);
+	color: var(--c-foreground-hint);
+	padding: var(--sp-2xs) var(--sp-s) var(--sp-2xs) calc(.9 * var(--sp-s));
+	border: 1px dashed var(--c-foreground-muted);
+	border-radius: 999rem;
+}
+
+.post-tag:hover {
+	color: var(--c-foreground-reduced);
+}
+
+.post-tag::before {
+	content: "#";
+	margin-right: 0.2em;
+	color: var(--c-foreground-muted);
+}
+
+#tags + ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--sp-xs);
+	margin-top: var(--sp-m);
+}
+
+#tags + ul li {
+	margin: 0;
+	padding: 0;
+}

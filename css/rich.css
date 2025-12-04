@@ -1,0 +1,142 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: var(--t-fw-m);
+}
+
+:is(h1, h2, h3, h4, h5, h6):has(+ *) {
+	margin-bottom: var(--sp-l);
+}
+
+h1:has(+ .post-metadata) {
+	margin-bottom: 0;
+}
+
+
+.post-metadata + * {
+	margin-top: 0;
+}
+
+.post-metadata {
+	margin-bottom: var(--sp-2xl);
+}
+
+
+/* h1:has(+ *) {
+	margin-bottom: 0.34em;
+}
+
+h2:has(+ *) {
+	margin-bottom: 0.45em;
+}
+
+h3:has(+ *) {
+	margin-bottom: 0.56em;
+} */
+
+/*
+ * Content color
+ * Text content uses foreground-hint for more confortable readability
+ */
+p,
+blockquote p,
+li,
+td {
+	color: var(--c-foreground-hint);
+}
+
+th,
+li::marker {
+	color: var(--c-foreground);
+}
+
+p {
+	margin: 0;
+}
+
+p:not(:has(img, video, picture, iframe)) + p:not(:has(img, video, picture, iframe)) {
+	margin-top: var(--sp-l);
+}
+
+* + :is(h1, h2, h3, h4, h5, h6) {
+	margin-top: var(--sp-xl);
+}
+
+:is(h1, h2, h3, h4, h5) + :is(h2, h3, h4, h5, h6) {
+	margin-top: var(--sp-m);
+}
+
+:is(ul, ol):not([class]) {
+	margin: var(--sp-l) 0;
+	padding-left: var(--sp-xl);
+	list-style-type: disc;
+}
+
+ol:not([class]) {
+	list-style-type: decimal;
+}
+
+:is(ul, ol):not([class]) li + li {
+	margin-top: var(--sp-xs);
+}
+
+:is(ul, ol):not([class]) :is(ul, ol) {
+	margin-top: var(--sp-xs);
+	padding-left: var(--sp-l);
+	list-style-type: circle;
+}
+
+:is(ul, ol):not([class]) :is(ul, ol) :is(ul, ol) {
+	list-style-type: square;
+}
+
+img,
+video,
+picture,
+iframe {
+	display: block;
+	width: 100%;
+}
+
+picture,
+p:has(> img),
+p:has(> video),
+p:has(> picture),
+p:has(> iframe),
+blockquote,
+table {
+	margin: var(--sp-xl) 0;
+}
+
+h1 + picture,
+:is(h1, h2, h3, h4, h5, h6) + :is(picture, p:has(> img), p:has(> video), p:has(> picture), p:has(> iframe), blockquote, table) {
+	margin-top: var(--sp-l);
+}
+
+blockquote {
+	padding: var(--sp-m);
+	border-left: 3px solid var(--c-foreground);
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,
+td {
+	border: 1px solid var(--c-foreground);
+	padding: var(--sp-xs);
+	text-align: left;
+}
+
+hr {
+	margin: var(--sp-xl) 0;
+	border: 0;
+	border-top: 1px solid var(--c-foreground);
+}

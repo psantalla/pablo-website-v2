@@ -22,7 +22,7 @@
 :root {
 	--t-ff-h: 'Inter', -apple-system, system-ui, sans-serif;
 	--t-ff-p: 'Inter', -apple-system, system-ui, sans-serif;
-	--t-ff-mono: Consolas, Menlo, Monaco, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Courier New', Courier, monospace;
+	--t-ff-mono: 'Andale Mono', Consolas, Menlo, Monaco, 'Courier New', monospace;
 	--t-lh-flat: 100%;
 	--t-lh-dense: 130%;
 	--t-lh-loose: 150%;
@@ -38,8 +38,8 @@ $min-font-size: 15.99;
 $max-font-size: 16;
 $min-width: 480;
 $max-width: 768;
-$min-ratio: 1.15;
-$max-ratio: 1.2;
+$min-ratio: 1.125;
+$max-ratio: 1.1333;
 
 @function calc-fluid-size($step) {
 	$min-size: $min-font-size * math.pow($min-ratio, $step);
@@ -124,6 +124,10 @@ body {
 	letter-spacing: var(--t-ls-normal);
 }
 
+strong {
+	font-weight: 500;
+}
+
 @each $name, $config in $typography-steps {
 	$elements: map.get($config, elements);
 	$tokens: map.get($config, tokens);
@@ -131,39 +135,38 @@ body {
 	$selector: ".t-s-#{$name}";
 
 	@if list.length($elements)>0 {
-		$element-list: (
-		);
+		$element-list: ();
 
-	@each $element in $elements {
-		$element-list: list.append($element-list, $element, comma);
+		@each $element in $elements {
+			$element-list: list.append($element-list, $element, comma);
+		}
+
+		$selector: "#{$element-list}, #{$selector}";
 	}
 
-	$selector: "#{$element-list}, #{$selector}";
-}
+	#{$selector} {
+		font-size: var(--t-s-#{$name});
 
-#{$selector} {
-	font-size: var(--t-s-#{$name});
+		@each $token in $tokens {
+			$dash-index: string.index($token, "-");
 
-	@each $token in $tokens {
-		$dash-index: string.index($token, "-");
+			@if $dash-index {
+				$prop-key: string.slice($token, 1, $dash-index - 1);
+				$prop-value: string.slice($token, $dash-index + 1);
 
-		@if $dash-index {
-			$prop-key: string.slice($token, 1, $dash-index - 1);
-			$prop-value: string.slice($token, $dash-index + 1);
+				$values-map: map.get($property-values, $prop-key);
 
-			$values-map: map.get($property-values, $prop-key);
+				@if $values-map {
+					$css-value: map.get($values-map, $prop-value);
 
-			@if $values-map {
-				$css-value: map.get($values-map, $prop-value);
-
-				@if $css-value {
-					$css-property: map.get($typography-properties, $prop-key);
-					#{$css-property}: #{$css-value};
+					@if $css-value {
+						$css-property: map.get($typography-properties, $prop-key);
+						#{$css-property}: #{$css-value};
+					}
 				}
 			}
 		}
 	}
-}
 }
 
 @each $prop-key, $values-map in $property-values {
