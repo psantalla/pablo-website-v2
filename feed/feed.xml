@@ -3,20 +3,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title>Pablo Santalla&#39;s Blog</title>
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
-  <link href="https://pablosantalla.com/pablo-website-v2/feed/feed.xml" rel="self" />
-  <link href="https://pablosantalla.com/pablo-website-v2/blog" />
+  <link href="https://pablosantalla.com/feed/feed.xml" rel="self" />
+  <link href="https://pablosantalla.com/blog" />
   <updated>2025-07-17T00:00:00Z</updated>
-  <id>https://pablosantalla.com/pablo-website-v2/blog</id>
+  <id>https://pablosantalla.com/blog</id>
   <author>
     <name>Pablo Santalla</name>
   </author>
   <entry>
     <title>Time to switch</title>
-    <link href="https://pablosantalla.com/pablo-website-v2/blog/time-to-switch/" />
+    <link href="https://pablosantalla.com/blog/time-to-switch/" />
     <updated>2025-07-17T00:00:00Z</updated>
-    <id>https://pablosantalla.com/pablo-website-v2/blog/time-to-switch/</id>
+    <id>https://pablosantalla.com/blog/time-to-switch/</id>
     <content type="html">&lt;figure&gt;
-  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/time-to-switch/z6l8jwsDjN-1160.avif 1160w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/time-to-switch/z6l8jwsDjN-1160.webp 1160w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/pablo-website-v2/blog/time-to-switch/z6l8jwsDjN-1160.svg&quot; alt=&quot;Screenshot of nyxrobey.com showcasing a minimal WordPress theme.&quot; width=&quot;1160&quot; height=&quot;523&quot;&gt;&lt;/picture&gt;
+  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/blog/time-to-switch/z6l8jwsDjN-1160.avif 1160w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/blog/time-to-switch/z6l8jwsDjN-1160.webp 1160w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/blog/time-to-switch/z6l8jwsDjN-1160.svg&quot; alt=&quot;Screenshot of nyxrobey.com showcasing a minimal WordPress theme.&quot; width=&quot;1160&quot; height=&quot;523&quot;&gt;&lt;/picture&gt;
   &lt;figcaption&gt;&lt;a href=&quot;https://nyxrobey.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;nyxrobey.com&lt;/a&gt; running a minimal theme by &lt;a href=&quot;https://andersnoren.se/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anders Norén&lt;/a&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;This is an excerpt from a reflection I’ve overthought way too much. And since it’s been ages since I last wrote here, I figured: why not just drop it?&lt;/p&gt;
@@ -33,10 +33,10 @@
   </entry>
   <entry>
     <title>Spacing in Web Design and How to Implement It</title>
-    <link href="https://pablosantalla.com/pablo-website-v2/blog/spacing-intro/" />
+    <link href="https://pablosantalla.com/blog/spacing-intro/" />
     <updated>2023-10-10T00:00:00Z</updated>
-    <id>https://pablosantalla.com/pablo-website-v2/blog/spacing-intro/</id>
-    <content type="html">&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/spacing-intro/rP2e-vFnQs-2040.avif 2040w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/spacing-intro/rP2e-vFnQs-2040.webp 2040w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/pablo-website-v2/blog/spacing-intro/rP2e-vFnQs-2040.svg&quot; alt=&quot;&quot; width=&quot;2040&quot; height=&quot;1240&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+    <id>https://pablosantalla.com/blog/spacing-intro/</id>
+    <content type="html">&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/blog/spacing-intro/rP2e-vFnQs-2040.avif 2040w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/blog/spacing-intro/rP2e-vFnQs-2040.webp 2040w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/blog/spacing-intro/rP2e-vFnQs-2040.svg&quot; alt=&quot;&quot; width=&quot;2040&quot; height=&quot;1240&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;p&gt;When discussing spacing in web design, it&#39;s essential to distinguish between two types:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Two-dimensional spacing&lt;/li&gt;
@@ -91,11 +91,11 @@
   </entry>
   <entry>
     <title>Writing CSS Without Compromising Your Project&#39;s Scalability</title>
-    <link href="https://pablosantalla.com/pablo-website-v2/blog/organising-css/" />
+    <link href="https://pablosantalla.com/blog/organising-css/" />
     <updated>2023-08-13T00:00:00Z</updated>
-    <id>https://pablosantalla.com/pablo-website-v2/blog/organising-css/</id>
+    <id>https://pablosantalla.com/blog/organising-css/</id>
     <content type="html">&lt;figure&gt;
-  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/organising-css/PAdCtu3mPD-2040.avif 2040w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/organising-css/PAdCtu3mPD-2040.webp 2040w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/pablo-website-v2/blog/organising-css/PAdCtu3mPD-2040.svg&quot; alt=&quot;&quot; width=&quot;2040&quot; height=&quot;1240&quot;&gt;&lt;/picture&gt;
+  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/blog/organising-css/PAdCtu3mPD-2040.avif 2040w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/blog/organising-css/PAdCtu3mPD-2040.webp 2040w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/blog/organising-css/PAdCtu3mPD-2040.svg&quot; alt=&quot;&quot; width=&quot;2040&quot; height=&quot;1240&quot;&gt;&lt;/picture&gt;
   &lt;figcaption&gt;Website mockup // wireframes // blueprint by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Martina&lt;/a&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;There&#39;s a difference between knowing CSS and knowing how to write CSS. When I started applying styles to my early websites, I remember creating classes haphazardly, without paying much attention to how those lines would impact the scalability of the project. I wanted to style a button, so I created .button; I wanted a bordered text block, so I created .text-block.&lt;/p&gt;
@@ -196,11 +196,11 @@
   </entry>
   <entry>
     <title>The gap between web design and development that shouldn&#39;t exist</title>
-    <link href="https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/" />
+    <link href="https://pablosantalla.com/blog/gap-design-development/" />
     <updated>2023-07-23T00:00:00Z</updated>
-    <id>https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/</id>
+    <id>https://pablosantalla.com/blog/gap-design-development/</id>
     <content type="html">&lt;figure&gt;
-  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/2mrjjOosV1-2040.avif 2040w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/2mrjjOosV1-2040.webp 2040w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/2mrjjOosV1-2040.svg&quot; alt=&quot;&quot; width=&quot;2040&quot; height=&quot;1239&quot;&gt;&lt;/picture&gt;
+  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/blog/gap-design-development/2mrjjOosV1-2040.avif 2040w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/blog/gap-design-development/2mrjjOosV1-2040.webp 2040w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/blog/gap-design-development/2mrjjOosV1-2040.svg&quot; alt=&quot;&quot; width=&quot;2040&quot; height=&quot;1239&quot;&gt;&lt;/picture&gt;
   &lt;figcaption&gt;Website mockup // wireframes // blueprint by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Martina&lt;/a&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;As I was reading the job offer posted by the company I now work for, something caught my attention: they were looking for a 60% web designer and 40% &amp;quot;code ninja.&amp;quot; Perhaps each marketing agency has different requirements, but rarely do these two numbers vary significantly.&lt;/p&gt;
@@ -219,7 +219,7 @@
   &lt;figcaption&gt;Using auto layout by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Figma.com&lt;/a&gt;&lt;/figcaption&gt;
 &lt;/figure&gt; --&gt;
 &lt;figure&gt;
-  &lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/bKiDx6_U_q-1440.webp 1440w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/bKiDx6_U_q-1440.gif&quot; alt=&quot;Screenshot of an example showing the auto-layout feature in Figma.&quot; width=&quot;1440&quot; height=&quot;878&quot;&gt;&lt;/picture&gt;
+  &lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/blog/gap-design-development/bKiDx6_U_q-1440.webp 1440w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/blog/gap-design-development/bKiDx6_U_q-1440.gif&quot; alt=&quot;Screenshot of an example showing the auto-layout feature in Figma.&quot; width=&quot;1440&quot; height=&quot;878&quot;&gt;&lt;/picture&gt;
   &lt;figcaption&gt;Using auto layout by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Figma.com&lt;/a&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;Now, here&#39;s the CSS equivalent of Figma&#39;s auto-layout feature:&lt;/p&gt;
