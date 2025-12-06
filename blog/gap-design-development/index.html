@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The gap between web design and development that shouldn&#39;t exist</title>
+		<meta name="description" content="In my vision, creative teams should facilitate seamless communication between non-technical personnel and developers.">
+		<link rel="apple-touch-icon" sizes="180x180" href="/pablo-website-v2/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/pablo-website-v2/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/pablo-website-v2/favicon-16x16.png">
+		<link rel="manifest" href="/pablo-website-v2/site.webmanifest">
+		<link rel="alternate" href="/pablo-website-v2/feed/feed.xml" type="application/atom+xml" title="Pablo Santalla">
+		
+
+		
+		<link rel="stylesheet" href="/pablo-website-v2/dist/2oCkoaHOaN.css">
+	</head>
+	<body>
+		<a href="#main" id="skip-link" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/pablo-website-v2/" class="home-link">Pablo Santalla</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/pablo-website-v2/blog/">Writing</a>
+						</li>
+						<li class="nav-item">
+							<a href="/pablo-website-v2/now/">Now</a>
+						</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main">
+				
+
+<h1 id="the-gap-between-web-design-and-development-that-shouldnt-exist">The gap between web design and development that shouldn&#39;t exist</h1>
+
+<ul class="post-metadata">
+	<li class="post-date">
+		<time datetime="2023-07-23">23 July 2023</time>
+	</li>
+</ul>
+
+<figure>
+  <picture><source type="image/avif" srcset="/pablo-website-v2/blog/gap-design-development/2mrjjOosV1-2040.avif 2040w"><source type="image/webp" srcset="/pablo-website-v2/blog/gap-design-development/2mrjjOosV1-2040.webp 2040w"><img loading="lazy" decoding="async" src="/pablo-website-v2/blog/gap-design-development/2mrjjOosV1-2040.svg" alt="" width="2040" height="1239"></picture>
+  <figcaption>Website mockup // wireframes // blueprint by <a href="https://www.figma.com/@martina" target="_blank" rel="noopener noreferrer">Martina</a></figcaption>
+</figure>
+<p>As I was reading the job offer posted by the company I now work for, something caught my attention: they were looking for a 60% web designer and 40% &quot;code ninja.&quot; Perhaps each marketing agency has different requirements, but rarely do these two numbers vary significantly.</p>
+<p>I understand that job roles can be quite specific, but in the common market, the exchange of information between designers and developers seems to be increasingly blurred.</p>
+<hr>
+<h2 id="new-technologies-new-terminology">New technologies, new terminology</h2>
+<p>No-code, automation, visual development—just take a look at tools like Figma. They appear colorful and design-oriented, but recently they have expanded their functionality to allow developers to explore component structure and design using HTML and CSS.</p>
+<p>If you're just starting out, whether as a designer or a web developer, you will inevitably come across moments where you wish you had knowledge seemingly more aligned with the other field.</p>
+<p><em>Consider this: if you're a designer, there's a developer sharing that same feeling of frustration, and vice versa.</em></p>
+<h3 id="not-essential-but-beneficial-understanding-the-basics-of-web-design-and-development">Not essential, but beneficial: understanding the basics of web design and development</h3>
+<p>A skilled web designer provides all the guidelines and directions to ensure that their design can be replicated 100% in a web environment. So, here comes the big question: what should a web designer know to effectively convey their design to a developer?</p>
+<h4 id="grasp-common-and-equivalent-terminology">Grasp common and equivalent terminology</h4>
+<p>Let's illustrate this with an example. Figma allows you to create almost any type of two-dimensional visual composition. Elements can be freely moved, spaced apart, scaled, and more. It also allows you to follow predefined patterns: you can move elements along a specific axis, space them using defined pixel units, separate them as much as the available space permits, or align them to a side. Essentially, it lets you establish the measurements that make a design meaningful.</p>
+<!-- <figure>
+  <img src="https://help.figma.com/hc/article_attachments/15808389735703" alt="Screenshot of an example showing the auto-layout feature in Figma.">
+  <figcaption>Using auto layout by <a href="https://www.figma.com/@martina" target="_blank" rel="noopener noreferrer">Figma.com</a></figcaption>
+</figure> -->
+<figure>
+  <picture><source type="image/webp" srcset="/pablo-website-v2/blog/gap-design-development/bKiDx6_U_q-1440.webp 1440w"><img loading="lazy" decoding="async" src="/pablo-website-v2/blog/gap-design-development/bKiDx6_U_q-1440.gif" alt="Screenshot of an example showing the auto-layout feature in Figma." width="1440" height="878"></picture>
+  <figcaption>Using auto layout by <a href="https://www.figma.com/@martina" target="_blank" rel="noopener noreferrer">Figma.com</a></figcaption>
+</figure>
+<p>Now, here's the CSS equivalent of Figma's auto-layout feature:</p>
+<pre class="language-css" tabindex="0"><code class="language-css"><span class="token selector">.st-row</span> <span class="token punctuation">{</span> <span class="token comment">/* vertical layout */</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.sp-ga--m</span> <span class="token punctuation">{</span>
+    <span class="token property">gap</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Doesn't it seem like designers and developers are sculpting the same artwork but with different chisels? I don't know if it's the perfect analogy, but designers often find themselves working around this concept: &quot;design using my tool, and that'll explain to you what I've done.&quot;</p>
+<h4 id="the-reason-for-misunderstanding-between-developers-and-designers">The reason for misunderstanding between developers and designers</h4>
+<p>When a fully skilled developer struggles to bring a design to production, it can be attributed to different factors. However, in this article, let's focus on one factor—the unavoidable one: designers and developers speak different languages.</p>
+<p>Let's go back to Figma for a better understanding. If we place two elements randomly in a frame, we end up with some freely positioned objects; in other words, elements with dreaded position: absolute. While Figma shows what a web browser would interpret for that design, the developer will do the same and try to interpret it. Of course, the developer won't fill a website with absolute positioning everywhere—it's not a good practice. Instead, they'll find the closest approach to this non-specific design. On the other hand, if the designer explains the relationship between these two elements, the developer won't need to guess. Are these elements within the same block? Do they have a specific aspect ratio? Are they aligned along any axis? Does either of them need additional space when they get too close on narrower screens?</p>
+<p>The more information the designer provides, the more effective the communication will be in creating the final product.</p>
+<h2 id="how-i-would-approach-the-issue">How I would approach the issue</h2>
+<p>Now, let me share my personal perspective on this matter. I believe the real solution isn't about training designers in coding or developers in design. Yes, that would be an ideal solution, but I don't consider it very effective. Instead, the key lies in creating a motivating environment for designers. Personally, I think I was fortunate enough to be equally interested in exploring both fields—maybe leaning more towards one on some days and the other on different days. And I've found that whether you work for an agency or as a freelance, clients appreciate this versatility. Not only that, but I believe a multidisciplinary profile in this regard is infectious.</p>
+<p>In conclusion, bridging the gap between design and web development brings numerous advantages for both professionals and the final product. Improved collaboration, informed decision-making, and consideration of scalability and defined styles lead to more efficient development and an enhanced user experience. Embracing a multidisciplinary mindset can boost creativity and innovation, benefiting the overall design and development process.</p>
+
+
+
+<ul class="post-metadata">
+</ul>
+
+
+
+		</main>
+
+		<footer>
+
+			<nav>
+				<h2 class="visually-hidden" id="footer-navigation-menu">Footer navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/pablo-website-v2/contact/">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a href="/pablo-website-v2/feed/feed.xml" target="_blank" rel="noopener noreferrer">RSS</a>
+						</li>
+				</ul>
+			</nav>
+
+			<p>
+				
+				Sketched in <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">Figma</a> and mainly coded in <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VS Code</a>.
+				
+				Read the <a href="/pablo-website-v2/colophon/">colophon</a> or view the <a href="https://github.com/psantalla/pablo-website-v2" target="_blank" rel="noopener noreferrer">source code</a>.
+				
+			</p>
+
+		</footer>
+
+		<!-- This page `/blog/gap-design-development/` was built on 2025-12-06T08:49:08.823Z -->
+		<script type="module" src="/pablo-website-v2"></script>
+	</body>
+</html>

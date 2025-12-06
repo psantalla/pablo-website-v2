@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Writing CSS Without Compromising Your Project&#39;s Scalability</title>
+		<meta name="description" content="Learn CSS best practices for scalability in web projects. Explore class grouping, naming, and organization tips for efficient stylesheets.">
+		<link rel="apple-touch-icon" sizes="180x180" href="/pablo-website-v2/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/pablo-website-v2/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/pablo-website-v2/favicon-16x16.png">
+		<link rel="manifest" href="/pablo-website-v2/site.webmanifest">
+		<link rel="alternate" href="/pablo-website-v2/feed/feed.xml" type="application/atom+xml" title="Pablo Santalla">
+		
+
+		
+		<link rel="stylesheet" href="/pablo-website-v2/dist/2oCkoaHOaN.css">
+	</head>
+	<body>
+		<a href="#main" id="skip-link" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/pablo-website-v2/" class="home-link">Pablo Santalla</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/pablo-website-v2/blog/">Writing</a>
+						</li>
+						<li class="nav-item">
+							<a href="/pablo-website-v2/now/">Now</a>
+						</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main">
+				
+
+<h1 id="writing-css-without-compromising-your-projects-scalability">Writing CSS Without Compromising Your Project&#39;s Scalability</h1>
+
+<ul class="post-metadata">
+	<li class="post-date">
+		<time datetime="2023-08-13">13 August 2023</time>
+	</li>
+</ul>
+
+<figure>
+  <picture><source type="image/avif" srcset="/pablo-website-v2/blog/organising-css/PAdCtu3mPD-2040.avif 2040w"><source type="image/webp" srcset="/pablo-website-v2/blog/organising-css/PAdCtu3mPD-2040.webp 2040w"><img loading="lazy" decoding="async" src="/pablo-website-v2/blog/organising-css/PAdCtu3mPD-2040.svg" alt="" width="2040" height="1240"></picture>
+  <figcaption>Website mockup // wireframes // blueprint by <a href="https://www.figma.com/@martina" target="_blank" rel="noopener noreferrer">Martina</a></figcaption>
+</figure>
+<p>There's a difference between knowing CSS and knowing how to write CSS. When I started applying styles to my early websites, I remember creating classes haphazardly, without paying much attention to how those lines would impact the scalability of the project. I wanted to style a button, so I created .button; I wanted a bordered text block, so I created .text-block.</p>
+<p>It's normal to work this way, and in small projects, it might even be the most efficient option. However, you should be aware that the way you structure your classes, even how you name them, can be crucial in limiting whether your project continues to grow or reaches a point where making changes becomes more complicated than it should be.</p>
+<hr>
+<h2 id="what-to-consider-before-writing-your-first-line-of-css">What to Consider Before Writing Your First Line of CSS</h2>
+<p>There are different aspects to consider when writing code in general, but to simplify things, let's focus on two very important ones:</p>
+<ul>
+<li>Classification</li>
+<li>Naming</li>
+</ul>
+<p>The truth is, browsers don't care about how you name your classes or where you place them. As long as they're valid, the outcome won't change. Keep this in mind so you don't obsess over it too much, because we're not talking about performance optimization here; we're talking about how we and our colleagues will be able to reinterpret and understand what that CSS does and how changes affect the overall web.</p>
+<p>A premise I always consider when writing CSS is that the purpose of creating a class should fulfill one of the following two objectives: either we create a class because we anticipate making changes to an element in the future, or we create a class because we want to apply styles more than once to different elements.</p>
+<h3 id="classification">Classification</h3>
+<p>How we group our classes is crucial for future locating and making changes to them. For me, classification or grouping has two properties: localization and segmentation.</p>
+<ul>
+<li>Localization: it's the path where this style guide exist.</li>
+<li>Segmentation: it's how we group classes. For example, we put classes that affect structures like grid, flex, or block together, and others that affect font size or typographic styles in another place.</li>
+</ul>
+<p><em>We can even localize further and say that a certain class should be at a certain point in our document, but personally, this feature varies a lot depending on each project, and establishing rules is complicated. Still, I think it's normal to follow certain criteria, such as using font styles higher up in the document and importing font families at the beginning, or leaving classes that apply embellishment styles like shadows for the end. But this is subjective and also depends on the project.</em></p>
+<p>Localization is easy to understand. We need to determine where we put our styles; perhaps in /styles/css or in /styles/css/buttons. It's important to be aware of where these styles are routed and know which parts of our HTML they link to.</p>
+<p>Segmentation, however, deserves a slightly more extensive explanation.</p>
+<h4 id="css-segmentation">CSS segmentation</h4>
+<p>By segmentation, I mean how we isolate classes — and as we'll see, properties too — that share similar functions. Over time, I've realized that I can group CSS classes in different documents to keep everything more organized:</p>
+<h5 id="reset-css">reset.css</h5>
+<p>Also sometimes named normalize.css, depending on its function, this is usually a document that resets properties browsers set by default. Without going into too much detail, browsers add predefined styles to make our HTML produce minimally readable, responsive pages with spacing between elements, even without writing a single line of CSS.</p>
+<p>Personally, I use a modified version of the reset by <a href="https://meyerweb.com/eric/tools/css/reset/" target="_blank" rel="noopener noreferrer">Meyerweb</a>.</p>
+<h5 id="structural-css">structural.css</h5>
+<p>Here are the classes that affect the structure of elements, and by element, I mean any HTML tag, such as <code>&lt;body&gt;</code> or <code>&lt;p&gt;</code>. Structural classes allow us to modify the layout of sub-elements. Examples of this include using flex or grid properties.</p>
+<pre class="language-css" tabindex="0"><code class="language-css"><span class="token comment">/* examples of structural classes */</span>
+<span class="token selector">.st-row</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.st-col</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.st-inline</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.st-grid</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h5 id="typography-css">typography.css</h5>
+<p>This is where all the classes and CSS related to fonts go. From importing the font family to the weight and size of each text block, it should all go here. To make it clearer, while there are properties like margin that affect any element, others like text-transform will only affect typographic style. Here, only those that exclusively modify text go.</p>
+<h5 id="color-css">color.css</h5>
+<p>You can probably guess what goes here. I'll always put classes that affect color in this document, whether it's a border, background, or directly an element's color. Here's an excerpt:</p>
+<pre class="language-css" tabindex="0"><code class="language-css"><span class="token selector">.c-el--pine</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--c--pine<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+                                
+<span class="token selector">.c-bg--pine</span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--c--pine<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h5 id="spacing-css">spacing.css</h5>
+<p>Margins, paddings, and gaps essentially. I like combining structural classes with spacing. For example, look at this consistent way of spacing text blocks in an article.</p>
+<pre class="language-html" tabindex="0"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+    <span class="token selector">.st-col</span> <span class="token punctuation">{</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+        <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+                            
+    <span class="token selector">.sp-ga--m</span> <span class="token punctuation">{</span>
+        <span class="token property">gap</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--sp--m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>st-col sp-ga--m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>This is an H1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>This is the first paragraph<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>This is the second paragraph<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p><em>The .st-col class creates a flex with a column direction and enables the use of the gap property, used in the following class. This way, we consistently space elements without repeatedly applying bottom margins.</em></p>
+<h5 id="utils-css">utils.css</h5>
+<p>Here go classes containing specific properties that intuitively don't fit into the previous groups. These properties include opacity, which affects color and we could place it in color, but we use it without considering color and for purposes other than &quot;coloring&quot; structures; also borders, corner radii, or even classes that hide or reveal elements. As you can see, some classes arguably fit into other groups: display: none is itself a type of structure, just like display: flex, but intuitively we struggle to place it here. My recommendation is to explore the type of properties you usually use in your projects, find it hard to locate or assign dependencies to other properties, and put them here.</p>
+<h5 id="components-css">components.css</h5>
+<p>Honesty above all: I hate this document. Here go styles that use unrelated properties. A clear example is a card or .card, which we use to style padding, border, or background color. We could apply classes from previous groups to this element to style it without using the .card class, but we'd need too many classes. My rule is: if I need to apply more than 4 classes to an element, I consolidate all the properties of these classes into a component-type class.</p>
+<pre class="language-html" tabindex="0"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>st-col c-bg--alabaster sp-pa--m ut-border--sc<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com-card<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>And that's all about how I group CSS classes!</p>
+<h3 id="naming-of-classes">Naming of classes</h3>
+<p>If you end up naming your classes with names that are hard to remember or difficult for others to interpret, I recommend looking into established naming conventions; an example of this is <a href="https://getbem.com/introduction/" target="_blank" rel="noopener noreferrer">BEM</a>, but you can also explore how some frameworks like <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind</a> or <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a> do it.</p>
+<p>As a general rule, we should use naming to explain what properties the class contains. And in my particular case, I like the class name to point to its group. I do this because when I see an applied class on an element, I can go directly to its group and make changes faster. It's also useful for organizing classes that affect an element and working on order; as we saw in a previous example, if I find a gap spacing class applied without a preceding flex structure, I'll know I'm making an inconsistency.</p>
+<p>This starting naming convention is as follows:</p>
+<ul>
+<li>structural.css (.st-)</li>
+<li>color.css (.c-)</li>
+<li>utils.css (.ut-)</li>
+<li>components.css (.com-)</li>
+<li>typography.css (.t-)</li>
+<li>spacing.css (.sp-)</li>
+</ul>
+<p>I hope this guide provides a starting point for better organization and semantic meaning in your CSS. If you want to take a look at the complete code or reuse structures, check out this class system I named <a href="https://github.com/psantalla/catalyst" target="_blank" rel="noopener noreferrer">Catalyst</a>.</p>
+
+
+
+<ul class="post-metadata">
+</ul>
+
+
+
+		</main>
+
+		<footer>
+
+			<nav>
+				<h2 class="visually-hidden" id="footer-navigation-menu">Footer navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/pablo-website-v2/contact/">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a href="/pablo-website-v2/feed/feed.xml" target="_blank" rel="noopener noreferrer">RSS</a>
+						</li>
+				</ul>
+			</nav>
+
+			<p>
+				
+				Sketched in <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">Figma</a> and mainly coded in <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VS Code</a>.
+				
+				Read the <a href="/pablo-website-v2/colophon/">colophon</a> or view the <a href="https://github.com/psantalla/pablo-website-v2" target="_blank" rel="noopener noreferrer">source code</a>.
+				
+			</p>
+
+		</footer>
+
+		<!-- This page `/blog/organising-css/` was built on 2025-12-06T08:49:08.823Z -->
+		<script type="module" src="/pablo-website-v2"></script>
+	</body>
+</html>

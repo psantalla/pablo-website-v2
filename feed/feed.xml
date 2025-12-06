@@ -5,9 +5,239 @@
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
   <link href="https://pablosantalla.com/pablo-website-v2/feed/feed.xml" rel="self" />
   <link href="https://pablosantalla.com/pablo-website-v2/blog" />
-  <updated>2025-12-04T04:03:21Z</updated>
+  <updated>2025-07-17T00:00:00Z</updated>
   <id>https://pablosantalla.com/pablo-website-v2/blog</id>
   <author>
     <name>Pablo Santalla</name>
   </author>
+  <entry>
+    <title>Time to switch</title>
+    <link href="https://pablosantalla.com/pablo-website-v2/blog/time-to-switch/" />
+    <updated>2025-07-17T00:00:00Z</updated>
+    <id>https://pablosantalla.com/pablo-website-v2/blog/time-to-switch/</id>
+    <content type="html">&lt;figure&gt;
+  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/time-to-switch/z6l8jwsDjN-1160.avif 1160w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/time-to-switch/z6l8jwsDjN-1160.webp 1160w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/pablo-website-v2/blog/time-to-switch/z6l8jwsDjN-1160.svg&quot; alt=&quot;Screenshot of nyxrobey.com showcasing a minimal WordPress theme.&quot; width=&quot;1160&quot; height=&quot;523&quot;&gt;&lt;/picture&gt;
+  &lt;figcaption&gt;&lt;a href=&quot;https://nyxrobey.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;nyxrobey.com&lt;/a&gt; running a minimal theme by &lt;a href=&quot;https://andersnoren.se/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anders Norén&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This is an excerpt from a reflection I’ve overthought way too much. And since it’s been ages since I last wrote here, I figured: why not just drop it?&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Technology has always been a double-edged sword for me. Software that aligns with how I think lifts me up and helps me perform at my best. Outdated tools, on the other hand, just weigh me down.&lt;/p&gt;
+&lt;p&gt;I’ve often felt like sharing my thoughts—personal, professional, and somewhere in between—but I knew it’d probably turn into something too clunky or overcomplicated. So I usually keep them to myself. Best case? They end up in a note in Obsidian.&lt;/p&gt;
+&lt;p&gt;Another double-edged sword of mine: I&#39;m a purist, a perfectionist, an overthinker (just spent 15 seconds debating whether &lt;em&gt;purifectionist&lt;/em&gt; was legit—just so you get the idea). What does that even mean? I’d lose a night of sleep just to understand the basics of some random idea I came up with. Sometimes it puts me way ahead of the curve; other times it pulls my attention away from actual fires.&lt;/p&gt;
+&lt;p&gt;A couple of weeks ago, my wife asked me to set up a blog for her so she could write about pregnancy and our newborn daughter. So I swallowed my developer pride and spun up a simple WordPress site for her. And she’s rocking it—posting every few days, writing from the couch, wherever.&lt;/p&gt;
+&lt;p&gt;Meanwhile, for me to write this tiny post? I had to sit at my desk, pull a local copy of my site from the GitHub repo, and write this thing in markdown with proper formatting. Not ideal. Not practical.&lt;/p&gt;
+&lt;p&gt;And don’t get me wrong—sometimes you have to get your hands dirty. It’s the only way to build real skill, to be ready to row in any direction when the current changes. But right now? Honestly, I value simplicity. And I can choose it.&lt;/p&gt;
+&lt;p&gt;This might be the last post in this (semi-)organized chaos. I’ve been toying with the idea of using &lt;a href=&quot;https://www.11ty.dev/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Eleventy&lt;/a&gt; for a while, so I’ll probably go that route.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Simplicity always wins.&lt;/strong&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Spacing in Web Design and How to Implement It</title>
+    <link href="https://pablosantalla.com/pablo-website-v2/blog/spacing-intro/" />
+    <updated>2023-10-10T00:00:00Z</updated>
+    <id>https://pablosantalla.com/pablo-website-v2/blog/spacing-intro/</id>
+    <content type="html">&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/spacing-intro/rP2e-vFnQs-2040.avif 2040w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/spacing-intro/rP2e-vFnQs-2040.webp 2040w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/pablo-website-v2/blog/spacing-intro/rP2e-vFnQs-2040.svg&quot; alt=&quot;&quot; width=&quot;2040&quot; height=&quot;1240&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;When discussing spacing in web design, it&#39;s essential to distinguish between two types:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Two-dimensional spacing&lt;/li&gt;
+&lt;li&gt;Depth&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;why-spacing-matters&quot;&gt;Why Spacing Matters&lt;/h2&gt;
+&lt;p&gt;Even though website visitors may not pinpoint visual inconsistencies precisely, they do notice them.&lt;/p&gt;
+&lt;p&gt;As web designers, we use terminology to identify visual patterns, hierarchies, and consistencies.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;A web designer&#39;s role is to guide the user&#39;s natural gaze to their desired content.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The most frequently visited websites, not necessarily the flashiest ones, establish visual patterns that make users feel comfortable. The repetition of navigation flows, similar to walking or driving along familiar routes, creates a sense of security. It&#39;s not just the flows; what users encounter along the way greatly influences their experience. We navigate more comfortably when we understand how streets and highways connect, the width of lanes, or the locations of intersections. Visual references like traffic signs or lane markings also contribute to our comfort. Most importantly, we appreciate knowing that for different routes, we&#39;ll have a similar experience if our references follow these learned patterns. You&#39;ve probably noticed the close relationship between &amp;quot;experience&amp;quot; and &amp;quot;user.&amp;quot;&lt;/p&gt;
+&lt;p&gt;Spacing is another element of this experience. It&#39;s crucial because it&#39;s intrinsic to our understanding of the world. We bring related objects closer together, sometimes grouping them tightly or placing them at specific distances, making room for other objects or ourselves.&lt;/p&gt;
+&lt;p&gt;If I give you four chairs and a square table, you&#39;ll arrange them similarly to how I would. If I add another chair, you&#39;ll face the same challenge. If I provide a sixth chair and a second table with two more chairs, we&#39;ll rearrange them similarly. Following familiar patterns allows us to navigate the world with confidence. These behaviors also apply to the digital realm.&lt;/p&gt;
+&lt;h2 id=&quot;spacing-direction&quot;&gt;Spacing Direction&lt;/h2&gt;
+&lt;p&gt;In our two-dimensional web world, we can break down spacing into two main categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vertical spacing&lt;/li&gt;
+&lt;li&gt;Horizontal spacing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Some designers work with both types equally. Personally, I don&#39;t consider it a major mistake, but it can significantly impact the final user experience.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I distinguish between vertical and horizontal spacing for a straightforward reason: space serves functionality, not aesthetics. Vertical and horizontal spacing serve different functions.&lt;/p&gt;
+&lt;p&gt;Reading or analyzing elements horizontally is continuous. We read sentences without stopping as we move from one letter to the next, one symbol to the next, or one element to the next. Line breaks are the most disruptive, as they interrupt the flow of information. A double space between lines can separate two paragraphs, a slightly larger space separates different statements, and so on. Websites follow the same principle. Greater vertical spacing disrupts continuity, isolating sections and preventing interaction when the space between them is significant.&lt;/p&gt;
+&lt;p&gt;Vertical spacing is not a new concept in interface design; magazines and newspapers use it.&lt;/p&gt;
+&lt;h3 id=&quot;vertical-spacing&quot;&gt;Vertical Spacing&lt;/h3&gt;
+&lt;p&gt;Few websites limit themselves to vertical scrolling. Webpages have virtually infinite space to display content, with no specific limit on how much can be added above or below.&lt;/p&gt;
+&lt;p&gt;Vertical spacing allows us to categorize elements and suggest relationships based on their proximity. This infinite nature of vertical spacing allows for flexibility along the y-axis.&lt;/p&gt;
+&lt;h4 id=&quot;vertical-spacing-uses-fixed-units&quot;&gt;Vertical Spacing Uses Fixed Units&lt;/h4&gt;
+&lt;p&gt;Vertical spacing maintains a constant number of pixels, REMs, or other units of measurement, regardless of the viewport&#39;s height. It&#39;s not advisable to use percentage units (%) or VH for vertical spacing. If the spacing between two paragraphs is 12px, it remains the same regardless of the browser window&#39;s height.&lt;/p&gt;
+&lt;p&gt;Many highly visited websites employ an 8-pixel vertical spacing system.&lt;/p&gt;
+&lt;h3 id=&quot;horizontal-spacing&quot;&gt;Horizontal Spacing&lt;/h3&gt;
+&lt;p&gt;In web design, horizontal spacing serves convenience and facilitation. Navigation menu links are horizontally spaced for user convenience, displaying essential information while offering the option to navigate to another page. Horizontal spacing is also used to separate two columns of text, making reading easier by preventing long strings of words that can be challenging to follow when transitioning to a new line.&lt;/p&gt;
+&lt;p&gt;Various factors lead to horizontal spacing, including inherited practices from print formats and common design patterns. However, the primary goal is to enhance the user&#39;s browsing experience.&lt;/p&gt;
+&lt;p&gt;Horizontal spacing presents challenges in design, which is why new guidelines have emerged to ensure consistency across different environments. For instance, the twelve-column system for interface design adapts well to narrower screens.&lt;/p&gt;
+&lt;h4 id=&quot;horizontal-spacing-uses-relative-units&quot;&gt;Horizontal Spacing Uses Relative Units&lt;/h4&gt;
+&lt;p&gt;Unlike vertical spacing, horizontal space is constrained by the width of the browser window, determined by the screen size. While horizontal scrolling is an option, it should not become the norm.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Mixing two types of scrolling confuses users. Reserve it for specific situations, clearly indicating the possibility of horizontal scrolling. Additionally, remember that not all screens support touch input, and not all mice have horizontal scrolling capabilities.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;To address this constraint, we need an adaptive horizontal spacing system that scales proportionally with the screen width. Horizontal spacing rules determine the number of columns that fit on a smaller screen, stacking those that don&#39;t fit.&lt;/p&gt;
+&lt;h2 id=&quot;the-element-of-surprise&quot;&gt;The Element Of Surprise&lt;/h2&gt;
+&lt;p&gt;Maintaining design homogeneity can sometimes dilute a website&#39;s distinctiveness. However, these rules prioritize the user experience, making navigation flows intuitive and predictable.&lt;/p&gt;
+&lt;p&gt;Nevertheless, there&#39;s room for surprise and novelty. Just as we might discover a new arrangement of furniture in a new house that improves functionality, adhering to known design rules allows for unique variations. Knowing the rules well enables designers to decide when to break them for a surprising twist.&lt;/p&gt;
+&lt;h2 id=&quot;how-learning-this-methodology-benefits-you&quot;&gt;How Learning This Methodology Benefits You&lt;/h2&gt;
+&lt;p&gt;As you read this article, you may have identified areas where you&#39;d like to delve deeper. If not, you might have contemplated questions such as how close two elements should be to indicate their relationship or how far apart they should be to avoid appearing related. Our system of vertical and horizontal spacing provides clear answers, eliminating doubts and streamlining the creative process.&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;Much of this article draws from personal experience. It&#39;s challenging to list the extensive body of work in design systems, guidelines, website analyses, and videos on web scalability.&lt;/p&gt;
+&lt;p&gt;For those interested in exploring these topics further, here are some references that have personally enriched my understanding:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://m2.material.io/design/layout/responsive-layout-grid.html#columns-gutters-and-margins&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Responsive layout grid&lt;/a&gt; by Material Design, Google&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://atlassian.design/foundations/spacing/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Spacing&lt;/a&gt; by Atlassian&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.masterflowmaker.com/blog/a-vertical-spacing-system-for-scalable-and-maintainable-webflow-sites&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;A Vertical Spacing System for scalable and maintainable Webflow sites&lt;/a&gt; by Matías Pitters&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Writing CSS Without Compromising Your Project&#39;s Scalability</title>
+    <link href="https://pablosantalla.com/pablo-website-v2/blog/organising-css/" />
+    <updated>2023-08-13T00:00:00Z</updated>
+    <id>https://pablosantalla.com/pablo-website-v2/blog/organising-css/</id>
+    <content type="html">&lt;figure&gt;
+  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/organising-css/PAdCtu3mPD-2040.avif 2040w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/organising-css/PAdCtu3mPD-2040.webp 2040w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/pablo-website-v2/blog/organising-css/PAdCtu3mPD-2040.svg&quot; alt=&quot;&quot; width=&quot;2040&quot; height=&quot;1240&quot;&gt;&lt;/picture&gt;
+  &lt;figcaption&gt;Website mockup // wireframes // blueprint by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Martina&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;There&#39;s a difference between knowing CSS and knowing how to write CSS. When I started applying styles to my early websites, I remember creating classes haphazardly, without paying much attention to how those lines would impact the scalability of the project. I wanted to style a button, so I created .button; I wanted a bordered text block, so I created .text-block.&lt;/p&gt;
+&lt;p&gt;It&#39;s normal to work this way, and in small projects, it might even be the most efficient option. However, you should be aware that the way you structure your classes, even how you name them, can be crucial in limiting whether your project continues to grow or reaches a point where making changes becomes more complicated than it should be.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;what-to-consider-before-writing-your-first-line-of-css&quot;&gt;What to Consider Before Writing Your First Line of CSS&lt;/h2&gt;
+&lt;p&gt;There are different aspects to consider when writing code in general, but to simplify things, let&#39;s focus on two very important ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Classification&lt;/li&gt;
+&lt;li&gt;Naming&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The truth is, browsers don&#39;t care about how you name your classes or where you place them. As long as they&#39;re valid, the outcome won&#39;t change. Keep this in mind so you don&#39;t obsess over it too much, because we&#39;re not talking about performance optimization here; we&#39;re talking about how we and our colleagues will be able to reinterpret and understand what that CSS does and how changes affect the overall web.&lt;/p&gt;
+&lt;p&gt;A premise I always consider when writing CSS is that the purpose of creating a class should fulfill one of the following two objectives: either we create a class because we anticipate making changes to an element in the future, or we create a class because we want to apply styles more than once to different elements.&lt;/p&gt;
+&lt;h3 id=&quot;classification&quot;&gt;Classification&lt;/h3&gt;
+&lt;p&gt;How we group our classes is crucial for future locating and making changes to them. For me, classification or grouping has two properties: localization and segmentation.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Localization: it&#39;s the path where this style guide exist.&lt;/li&gt;
+&lt;li&gt;Segmentation: it&#39;s how we group classes. For example, we put classes that affect structures like grid, flex, or block together, and others that affect font size or typographic styles in another place.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;We can even localize further and say that a certain class should be at a certain point in our document, but personally, this feature varies a lot depending on each project, and establishing rules is complicated. Still, I think it&#39;s normal to follow certain criteria, such as using font styles higher up in the document and importing font families at the beginning, or leaving classes that apply embellishment styles like shadows for the end. But this is subjective and also depends on the project.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Localization is easy to understand. We need to determine where we put our styles; perhaps in /styles/css or in /styles/css/buttons. It&#39;s important to be aware of where these styles are routed and know which parts of our HTML they link to.&lt;/p&gt;
+&lt;p&gt;Segmentation, however, deserves a slightly more extensive explanation.&lt;/p&gt;
+&lt;h4 id=&quot;css-segmentation&quot;&gt;CSS segmentation&lt;/h4&gt;
+&lt;p&gt;By segmentation, I mean how we isolate classes — and as we&#39;ll see, properties too — that share similar functions. Over time, I&#39;ve realized that I can group CSS classes in different documents to keep everything more organized:&lt;/p&gt;
+&lt;h5 id=&quot;reset-css&quot;&gt;reset.css&lt;/h5&gt;
+&lt;p&gt;Also sometimes named normalize.css, depending on its function, this is usually a document that resets properties browsers set by default. Without going into too much detail, browsers add predefined styles to make our HTML produce minimally readable, responsive pages with spacing between elements, even without writing a single line of CSS.&lt;/p&gt;
+&lt;p&gt;Personally, I use a modified version of the reset by &lt;a href=&quot;https://meyerweb.com/eric/tools/css/reset/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Meyerweb&lt;/a&gt;.&lt;/p&gt;
+&lt;h5 id=&quot;structural-css&quot;&gt;structural.css&lt;/h5&gt;
+&lt;p&gt;Here are the classes that affect the structure of elements, and by element, I mean any HTML tag, such as &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;. Structural classes allow us to modify the layout of sub-elements. Examples of this include using flex or grid properties.&lt;/p&gt;
+&lt;pre class=&quot;language-css&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/* examples of structural classes */&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.st-row&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;.st-col&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;flex-direction&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; column&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;.st-inline&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; inline&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;.st-grid&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; grid&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&quot;typography-css&quot;&gt;typography.css&lt;/h5&gt;
+&lt;p&gt;This is where all the classes and CSS related to fonts go. From importing the font family to the weight and size of each text block, it should all go here. To make it clearer, while there are properties like margin that affect any element, others like text-transform will only affect typographic style. Here, only those that exclusively modify text go.&lt;/p&gt;
+&lt;h5 id=&quot;color-css&quot;&gt;color.css&lt;/h5&gt;
+&lt;p&gt;You can probably guess what goes here. I&#39;ll always put classes that affect color in this document, whether it&#39;s a border, background, or directly an element&#39;s color. Here&#39;s an excerpt:&lt;/p&gt;
+&lt;pre class=&quot;language-css&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.c-el--pine&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--c--pine&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                                
+&lt;span class=&quot;token selector&quot;&gt;.c-bg--pine&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--c--pine&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&quot;spacing-css&quot;&gt;spacing.css&lt;/h5&gt;
+&lt;p&gt;Margins, paddings, and gaps essentially. I like combining structural classes with spacing. For example, look at this consistent way of spacing text blocks in an article.&lt;/p&gt;
+&lt;pre class=&quot;language-html&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style&quot;&gt;&lt;span class=&quot;token language-css&quot;&gt;
+    &lt;span class=&quot;token selector&quot;&gt;.st-col&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;flex-direction&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; column&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                            
+    &lt;span class=&quot;token selector&quot;&gt;.sp-ga--m&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;gap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--sp--m&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;st-col sp-ga--m&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;This is an H1&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;This is the first paragraph&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;This is the second paragraph&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;The .st-col class creates a flex with a column direction and enables the use of the gap property, used in the following class. This way, we consistently space elements without repeatedly applying bottom margins.&lt;/em&gt;&lt;/p&gt;
+&lt;h5 id=&quot;utils-css&quot;&gt;utils.css&lt;/h5&gt;
+&lt;p&gt;Here go classes containing specific properties that intuitively don&#39;t fit into the previous groups. These properties include opacity, which affects color and we could place it in color, but we use it without considering color and for purposes other than &amp;quot;coloring&amp;quot; structures; also borders, corner radii, or even classes that hide or reveal elements. As you can see, some classes arguably fit into other groups: display: none is itself a type of structure, just like display: flex, but intuitively we struggle to place it here. My recommendation is to explore the type of properties you usually use in your projects, find it hard to locate or assign dependencies to other properties, and put them here.&lt;/p&gt;
+&lt;h5 id=&quot;components-css&quot;&gt;components.css&lt;/h5&gt;
+&lt;p&gt;Honesty above all: I hate this document. Here go styles that use unrelated properties. A clear example is a card or .card, which we use to style padding, border, or background color. We could apply classes from previous groups to this element to style it without using the .card class, but we&#39;d need too many classes. My rule is: if I need to apply more than 4 classes to an element, I consolidate all the properties of these classes into a component-type class.&lt;/p&gt;
+&lt;pre class=&quot;language-html&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;st-col c-bg--alabaster sp-pa--m ut-border--sc&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;com-card&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And that&#39;s all about how I group CSS classes!&lt;/p&gt;
+&lt;h3 id=&quot;naming-of-classes&quot;&gt;Naming of classes&lt;/h3&gt;
+&lt;p&gt;If you end up naming your classes with names that are hard to remember or difficult for others to interpret, I recommend looking into established naming conventions; an example of this is &lt;a href=&quot;https://getbem.com/introduction/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;BEM&lt;/a&gt;, but you can also explore how some frameworks like &lt;a href=&quot;https://tailwindcss.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Tailwind&lt;/a&gt; or &lt;a href=&quot;https://getbootstrap.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Bootstrap&lt;/a&gt; do it.&lt;/p&gt;
+&lt;p&gt;As a general rule, we should use naming to explain what properties the class contains. And in my particular case, I like the class name to point to its group. I do this because when I see an applied class on an element, I can go directly to its group and make changes faster. It&#39;s also useful for organizing classes that affect an element and working on order; as we saw in a previous example, if I find a gap spacing class applied without a preceding flex structure, I&#39;ll know I&#39;m making an inconsistency.&lt;/p&gt;
+&lt;p&gt;This starting naming convention is as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;structural.css (.st-)&lt;/li&gt;
+&lt;li&gt;color.css (.c-)&lt;/li&gt;
+&lt;li&gt;utils.css (.ut-)&lt;/li&gt;
+&lt;li&gt;components.css (.com-)&lt;/li&gt;
+&lt;li&gt;typography.css (.t-)&lt;/li&gt;
+&lt;li&gt;spacing.css (.sp-)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I hope this guide provides a starting point for better organization and semantic meaning in your CSS. If you want to take a look at the complete code or reuse structures, check out this class system I named &lt;a href=&quot;https://github.com/psantalla/catalyst&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Catalyst&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>The gap between web design and development that shouldn&#39;t exist</title>
+    <link href="https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/" />
+    <updated>2023-07-23T00:00:00Z</updated>
+    <id>https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/</id>
+    <content type="html">&lt;figure&gt;
+  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/2mrjjOosV1-2040.avif 2040w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/2mrjjOosV1-2040.webp 2040w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/2mrjjOosV1-2040.svg&quot; alt=&quot;&quot; width=&quot;2040&quot; height=&quot;1239&quot;&gt;&lt;/picture&gt;
+  &lt;figcaption&gt;Website mockup // wireframes // blueprint by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Martina&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;As I was reading the job offer posted by the company I now work for, something caught my attention: they were looking for a 60% web designer and 40% &amp;quot;code ninja.&amp;quot; Perhaps each marketing agency has different requirements, but rarely do these two numbers vary significantly.&lt;/p&gt;
+&lt;p&gt;I understand that job roles can be quite specific, but in the common market, the exchange of information between designers and developers seems to be increasingly blurred.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;new-technologies-new-terminology&quot;&gt;New technologies, new terminology&lt;/h2&gt;
+&lt;p&gt;No-code, automation, visual development—just take a look at tools like Figma. They appear colorful and design-oriented, but recently they have expanded their functionality to allow developers to explore component structure and design using HTML and CSS.&lt;/p&gt;
+&lt;p&gt;If you&#39;re just starting out, whether as a designer or a web developer, you will inevitably come across moments where you wish you had knowledge seemingly more aligned with the other field.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Consider this: if you&#39;re a designer, there&#39;s a developer sharing that same feeling of frustration, and vice versa.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;not-essential-but-beneficial-understanding-the-basics-of-web-design-and-development&quot;&gt;Not essential, but beneficial: understanding the basics of web design and development&lt;/h3&gt;
+&lt;p&gt;A skilled web designer provides all the guidelines and directions to ensure that their design can be replicated 100% in a web environment. So, here comes the big question: what should a web designer know to effectively convey their design to a developer?&lt;/p&gt;
+&lt;h4 id=&quot;grasp-common-and-equivalent-terminology&quot;&gt;Grasp common and equivalent terminology&lt;/h4&gt;
+&lt;p&gt;Let&#39;s illustrate this with an example. Figma allows you to create almost any type of two-dimensional visual composition. Elements can be freely moved, spaced apart, scaled, and more. It also allows you to follow predefined patterns: you can move elements along a specific axis, space them using defined pixel units, separate them as much as the available space permits, or align them to a side. Essentially, it lets you establish the measurements that make a design meaningful.&lt;/p&gt;
+&lt;!-- &lt;figure&gt;
+  &lt;img src=&quot;https://help.figma.com/hc/article_attachments/15808389735703&quot; alt=&quot;Screenshot of an example showing the auto-layout feature in Figma.&quot;&gt;
+  &lt;figcaption&gt;Using auto layout by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Figma.com&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt; --&gt;
+&lt;figure&gt;
+  &lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/bKiDx6_U_q-1440.webp 1440w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/pablo-website-v2/blog/gap-design-development/bKiDx6_U_q-1440.gif&quot; alt=&quot;Screenshot of an example showing the auto-layout feature in Figma.&quot; width=&quot;1440&quot; height=&quot;878&quot;&gt;&lt;/picture&gt;
+  &lt;figcaption&gt;Using auto layout by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Figma.com&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Now, here&#39;s the CSS equivalent of Figma&#39;s auto-layout feature:&lt;/p&gt;
+&lt;pre class=&quot;language-css&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.st-row&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* vertical layout */&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;.sp-ga--m&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;gap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 16px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Doesn&#39;t it seem like designers and developers are sculpting the same artwork but with different chisels? I don&#39;t know if it&#39;s the perfect analogy, but designers often find themselves working around this concept: &amp;quot;design using my tool, and that&#39;ll explain to you what I&#39;ve done.&amp;quot;&lt;/p&gt;
+&lt;h4 id=&quot;the-reason-for-misunderstanding-between-developers-and-designers&quot;&gt;The reason for misunderstanding between developers and designers&lt;/h4&gt;
+&lt;p&gt;When a fully skilled developer struggles to bring a design to production, it can be attributed to different factors. However, in this article, let&#39;s focus on one factor—the unavoidable one: designers and developers speak different languages.&lt;/p&gt;
+&lt;p&gt;Let&#39;s go back to Figma for a better understanding. If we place two elements randomly in a frame, we end up with some freely positioned objects; in other words, elements with dreaded position: absolute. While Figma shows what a web browser would interpret for that design, the developer will do the same and try to interpret it. Of course, the developer won&#39;t fill a website with absolute positioning everywhere—it&#39;s not a good practice. Instead, they&#39;ll find the closest approach to this non-specific design. On the other hand, if the designer explains the relationship between these two elements, the developer won&#39;t need to guess. Are these elements within the same block? Do they have a specific aspect ratio? Are they aligned along any axis? Does either of them need additional space when they get too close on narrower screens?&lt;/p&gt;
+&lt;p&gt;The more information the designer provides, the more effective the communication will be in creating the final product.&lt;/p&gt;
+&lt;h2 id=&quot;how-i-would-approach-the-issue&quot;&gt;How I would approach the issue&lt;/h2&gt;
+&lt;p&gt;Now, let me share my personal perspective on this matter. I believe the real solution isn&#39;t about training designers in coding or developers in design. Yes, that would be an ideal solution, but I don&#39;t consider it very effective. Instead, the key lies in creating a motivating environment for designers. Personally, I think I was fortunate enough to be equally interested in exploring both fields—maybe leaning more towards one on some days and the other on different days. And I&#39;ve found that whether you work for an agency or as a freelance, clients appreciate this versatility. Not only that, but I believe a multidisciplinary profile in this regard is infectious.&lt;/p&gt;
+&lt;p&gt;In conclusion, bridging the gap between design and web development brings numerous advantages for both professionals and the final product. Improved collaboration, informed decision-making, and consideration of scalability and defined styles lead to more efficient development and an enhanced user experience. Embracing a multidisciplinary mindset can boost creativity and innovation, benefiting the overall design and development process.&lt;/p&gt;
+</content>
+  </entry>
 </feed>
