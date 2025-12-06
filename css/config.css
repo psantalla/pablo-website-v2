@@ -60,25 +60,18 @@ a[href]:active {
 
 a[target="_blank"] {
 	position: relative;
-	padding-right: .95em;
+	white-space:
+		/* pay attention to some weird overflowing cases */
+		nowrap;
 }
 
 a[target="_blank"]::after {
 	content: "↗";
-	position: absolute;
-	top: 45%;
-	transform: translateY(-50%);
-	right: 0;
+	/* position: absolute; */
+	margin-inline: .225em .05em;
 	color: var(--c-foreground-muted);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	text-wrap: /* generic way to avoid "#" stay orphan in long headlines */ balance;
+	display: inline-block;
+	transform: translateY(-5.5%);
 }
 
 .visually-hidden:not(:focus):not(:active) {
@@ -181,10 +174,6 @@ footer p {
 :is(h1, h2, h3, h4, h5, h6) + .postlist {
 	margin-top: var(--sp-m);
 }
-
-
-
-
 
 .postlist + * {
 	margin-top: var(--sp-m);

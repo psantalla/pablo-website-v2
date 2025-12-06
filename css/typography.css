@@ -55,6 +55,10 @@ strong {
   font-weight: 500;
 }
 
+em {
+  font-style: italic;
+}
+
 small, .t-s-s {
   font-size: var(--t-s-s);
   line-height: var(--t-lh-loose);
@@ -63,7 +67,7 @@ small, .t-s-s {
   letter-spacing: var(--t-ls-normal);
 }
 
-p, a, .t-s-m {
+p, .t-s-m {
   font-size: var(--t-s-m);
   line-height: var(--t-lh-loose);
   font-weight: var(--t-fw-r);

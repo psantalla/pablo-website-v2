@@ -17,7 +17,6 @@ h1:has(+ .post-metadata) {
 	margin-bottom: 0;
 }
 
-
 .post-metadata + * {
 	margin-top: 0;
 }
@@ -26,23 +25,6 @@ h1:has(+ .post-metadata) {
 	margin-bottom: var(--sp-2xl);
 }
 
-
-/* h1:has(+ *) {
-	margin-bottom: 0.34em;
-}
-
-h2:has(+ *) {
-	margin-bottom: 0.45em;
-}
-
-h3:has(+ *) {
-	margin-bottom: 0.56em;
-} */
-
-/*
- * Content color
- * Text content uses foreground-hint for more confortable readability
- */
 p,
 blockquote p,
 li,
@@ -103,7 +85,16 @@ iframe {
 	width: 100%;
 }
 
+figcaption {
+	margin-top: var(--sp-s);
+	color: var(--c-foreground-hint);
+	font-size: var(--t-s-s);
+	font-style: italic;
+	text-align: center;
+}
+
 picture,
+figure,
 p:has(> img),
 p:has(> video),
 p:has(> picture),
@@ -113,8 +104,11 @@ table {
 	margin: var(--sp-xl) 0;
 }
 
-h1 + picture,
-:is(h1, h2, h3, h4, h5, h6) + :is(picture, p:has(> img), p:has(> video), p:has(> picture), p:has(> iframe), blockquote, table) {
+figure :is(img, video, picture, iframe) {
+	margin: 0;
+}
+
+:is(h1, h2, h3, h4, h5, h6) + :is(picture, figure, p:has(> img), p:has(> video), p:has(> picture), p:has(> iframe), blockquote, table) {
 	margin-top: var(--sp-l);
 }
 

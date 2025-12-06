@@ -68,7 +68,7 @@ export default async function(eleventyConfig) {
 			eleventyNavigation: {
 				key: "RSS",
 				parent: "footer",
-				order: 1,
+				order: 2,
 				blank: true
 			}
 		},

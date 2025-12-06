@@ -89,7 +89,7 @@ $typography-steps: (
 		elements: (small),
 		tokens: (lh-loose, fw-r, ff-p, ls-normal)),
 	m: (step: 0,
-		elements: (p, a),
+		elements: (p),
 		tokens: (lh-loose, fw-r, ff-p, ls-normal)),
 	l: (step: 1,
 		elements: (h3),
@@ -126,6 +126,10 @@ body {
 
 strong {
 	font-weight: 500;
+}
+
+em {
+	font-style: italic;
 }
 
 @each $name, $config in $typography-steps {
