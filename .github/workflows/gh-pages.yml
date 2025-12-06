@@ -37,7 +37,8 @@ jobs:
 
 
       - run: npm install
-      - run: npm run build-ghpages
+      # Use 'build' (not 'build-ghpages') because custom domain serves from root
+      - run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
