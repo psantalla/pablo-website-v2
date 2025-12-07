@@ -45,7 +45,7 @@ Let's illustrate this with an example. Figma allows you to create almost any typ
 Now, here's the CSS equivalent of Figma's auto-layout feature:
 
 ```css
-.st-row { /* vertical layout */
+.st-row { /* browser default: horizontal */
     display: flex;
 }
 
