@@ -13,15 +13,15 @@ h6 {
 	margin-bottom: var(--sp-l);
 }
 
-h1:has(+ .post-metadata) {
+h1:has(+ .entry-metadata) {
 	margin-bottom: 0;
 }
 
-.post-metadata + * {
+.entry-metadata + * {
 	margin-top: 0;
 }
 
-.post-metadata {
+.entry-metadata {
 	margin-bottom: var(--sp-2xl);
 }
 

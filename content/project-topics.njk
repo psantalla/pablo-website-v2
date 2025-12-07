@@ -1,0 +1,19 @@
+<h1>Project Topics</h1>
+
+{% set allTopics = [] %}
+{% for project in collections.projects %}
+	{%- if project.data.projectTopics %}
+	{%- for topic in project.data.projectTopics %}
+	{% set allTopics = (allTopics.push(topic), allTopics) %}
+	{%- endfor %}
+	{%- endif %}
+{% endfor %}
+
+{% set uniqueTopics = allTopics | unique | sortAlphabetically %}
+
+<ul>
+{% for topic in uniqueTopics %}
+	{% set topicUrl %}/project-topics/{{ topic | slugify }}/{% endset %}
+	<li><a href="{{ topicUrl }}" class="entry-taxonomy">{{ topic }}</a></li>
+{% endfor %}
+</ul>

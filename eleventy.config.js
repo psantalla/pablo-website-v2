@@ -111,8 +111,22 @@ export default async function(eleventyConfig) {
 	// Filters
 	eleventyConfig.addPlugin(pluginFilters);
 
+	// Collections
+	eleventyConfig.addCollection("projectTopics", function(collectionApi) {
+		const allTopics = new Set();
+		const projects = collectionApi.getFilteredByTag("projects");
+
+		projects.forEach(project => {
+			if (project.data.projectTopics) {
+				project.data.projectTopics.forEach(topic => allTopics.add(topic));
+			}
+		});
+
+		return Array.from(allTopics).sort();
+	});
+
 	eleventyConfig.addPlugin(IdAttributePlugin, {
-		// by default we use Eleventy’s built-in `slugify` filter:
+		// by default we use Eleventy's built-in `slugify` filter:
 		// slugify: eleventyConfig.getFilter("slugify"),
 		// selector: "h1,h2,h3,h4,h5,h6", // default
 	});

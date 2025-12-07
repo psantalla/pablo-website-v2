@@ -5,12 +5,16 @@ date: 2025-07-17
 tags:
 draft: false
 ---
+
+
 <figure>
   <img src="./screenshot-nyxrobey-dot-com.svg" alt="Screenshot of nyxrobey.com showcasing a minimal WordPress theme.">
   <figcaption><a href="https://nyxrobey.com/" target="_blank" rel="noopener noreferrer">nyxrobey.com</a> running a minimal theme by <a href="https://andersnoren.se/" target="_blank" rel="noopener noreferrer">Anders Norén</a></figcaption>
 </figure>
 
 This is an excerpt from a reflection I’ve overthought way too much. And since it’s been ages since I last wrote here, I figured: why not just drop it?
+
+![](screenshot-nyxrobey-dot-com.svg)
 
 ---
 

@@ -1,0 +1,10 @@
+<ul class="entry-list">
+{%- for project in projectslist | reverse %}
+	<li class="entry-item{% if project.url == url %} entry-item-active{% endif %}">
+		<a href="{{ project.url }}" class="entry-link">
+			<time class="entry-date" datetime="{{ project.date | htmlDateString }}">{{ project.date | readableDate("yyyy") }}</time>
+			<span class="entry-title">{% if project.data.title %}{{ project.data.title }}{% else %}<code>{{ project.url }}</code>{% endif %}</span>
+		</a>
+	</li>
+{%- endfor %}
+</ul>

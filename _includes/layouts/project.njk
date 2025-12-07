@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+---
+<style>{% include "css/code.css" %}</style>
+
+<h1>{{ title }}</h1>
+
+<ul class="entry-metadata">
+	<li class="entry-date">
+		<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate("yyyy") }}</time>
+	</li>
+	{%- if madeAt and madeAt != "Freelance" %}
+	<li class="entry-date">
+		Made at
+		{%- if agencies[madeAt] %}
+		<a href="{{ agencies[madeAt] }}" target="_blank">{{ madeAt }}</a>
+		{%- else %}
+		{{ madeAt }}
+		{%- endif %}
+	</li>
+	{%- endif %}
+</ul>
+
+{{ content | safe }}
+
+{%- if projectTopics %}
+<ul class="entry-metadata">
+	{%- for topic in projectTopics %}
+	{%- set topicUrl %}/project-topics/{{ topic | slugify }}/{% endset %}
+	<li><a href="{{ topicUrl }}" class="entry-taxonomy">{{ topic }}</a></li>
+	{%- endfor %}
+</ul>
+{%- endif %}

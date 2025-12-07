@@ -1,0 +1,22 @@
+---js
+const pagination = {
+	data: "collections.projectTopics",
+	size: 1,
+	alias: "projectTopic"
+};
+
+const eleventyExcludeFromCollections = true;
+
+const eleventyComputed = {
+	title: data => `Projects: ${data.projectTopic}`,
+	permalink: function(data) {
+		return `/project-topics/${this.slugify(data.projectTopic)}/`;
+	}
+};
+---
+<h1>Projects: {{ projectTopic }}</h1>
+
+{% set projectslist = collections.projects | filterByProjectTopic(projectTopic) %}
+{% include "projectslist.njk" %}
+
+<p>See <a href="/project-topics/">all project topics</a>.</p>
