@@ -5,11 +5,19 @@
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
   <link href="https://pablosantalla.com/feed/feed.xml" rel="self" />
   <link href="https://pablosantalla.com/blog" />
-  <updated>2025-07-17T00:00:00Z</updated>
+  <updated>2025-12-01T00:00:00Z</updated>
   <id>https://pablosantalla.com/blog</id>
   <author>
     <name>Pablo Santalla</name>
   </author>
+  <entry>
+    <title>Robotic mess</title>
+    <link href="https://pablosantalla.com/blog/robotic-mess/" />
+    <updated>2025-12-01T00:00:00Z</updated>
+    <id>https://pablosantalla.com/blog/robotic-mess/</id>
+    <content type="html">&lt;p&gt;This post is about AI.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Time to switch</title>
     <link href="https://pablosantalla.com/blog/time-to-switch/" />
