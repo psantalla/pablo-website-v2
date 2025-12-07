@@ -19,40 +19,30 @@ export default async function(eleventyConfig) {
 		}
 	});
 
-	// Copy the contents of the `public` folder to the output folder
-	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
 		.addPassthroughCopy({
 			"./public/": "/"
 		})
-		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
+		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl")
+		.addPassthroughCopy("./content/**/*.svg")
+		.addPassthroughCopy("./content/**/*.gif");
 
-	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
-
-	// Watch CSS files
 	eleventyConfig.addWatchTarget("css/**/*.css");
-	// Watch images for the image pipeline.
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpg,jpeg,gif}");
 
-	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
-	// Bundle <style> content and adds a {% css %} paired shortcode
+	// Per-page bundles: https://github.com/11ty/eleventy-plugin-bundle
 	eleventyConfig.addBundle("css", {
 		toFileDirectory: "dist",
-		// Add all <style> content to `css` bundle (use <style eleventy:ignore> to opt-out)
 		// Supported selectors: https://www.npmjs.com/package/posthtml-match-helper
 		bundleHtmlContentFromSelector: "style",
 	});
 
-	// Bundle <script> content and adds a {% js %} paired shortcode
 	eleventyConfig.addBundle("js", {
 		toFileDirectory: "dist",
-		// Add all <script> content to the `js` bundle (use <script eleventy:ignore> to opt-out)
-		// Supported selectors: https://www.npmjs.com/package/posthtml-match-helper
 		bundleHtmlContentFromSelector: "script",
 	});
 
-	// Official plugins
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		preAttributes: { tabindex: 0 }
 	});
@@ -89,11 +79,8 @@ export default async function(eleventyConfig) {
 
 	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-		// Output formats for each image.
+		extensions: "jpg,jpeg,png,webp",
 		formats: ["avif", "webp", "auto"],
-
-		// widths: ["auto"],
-
 		failOnError: false,
 		htmlOptions: {
 			imgAttributes: {
@@ -102,16 +89,13 @@ export default async function(eleventyConfig) {
 				decoding: "async",
 			}
 		},
-
 		sharpOptions: {
 			animated: true,
 		},
 	});
 
-	// Filters
 	eleventyConfig.addPlugin(pluginFilters);
 
-	// Collections
 	eleventyConfig.addCollection("projectTopics", function(collectionApi) {
 		const allTopics = new Set();
 		const projects = collectionApi.getFilteredByTag("projects");
@@ -135,12 +119,9 @@ export default async function(eleventyConfig) {
 		return (new Date()).toISOString();
 	});
 
-	// Features to make your build faster (when you need them)
-
 	// If your passthrough copy gets heavy and cumbersome, add this line
-	// to emulate the file copy on the dev server. Learn more:
+	// to emulate the file copy on the dev server:
 	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
-
 	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 };
 

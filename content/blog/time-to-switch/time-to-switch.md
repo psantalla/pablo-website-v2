@@ -14,8 +14,6 @@ draft: false
 
 This is an excerpt from a reflection I’ve overthought way too much. And since it’s been ages since I last wrote here, I figured: why not just drop it?
 
-![](screenshot-nyxrobey-dot-com.svg)
-
 ---
 
 Technology has always been a double-edged sword for me. Software that aligns with how I think lifts me up and helps me perform at my best. Outdated tools, on the other hand, just weigh me down.
