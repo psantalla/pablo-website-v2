@@ -68,7 +68,7 @@ a[target="_blank"] {
 a[target="_blank"]::after {
 	content: "↗";
 	/* position: absolute; */
-	margin-inline: .225em .05em;
+	margin-inline: .2em .05em;
 	color: var(--c-foreground-muted);
 	display: inline-block;
 	transform: translateY(-5.5%);

@@ -2,6 +2,6 @@
 layout: layouts/home.njk
 numberOfLatestPostsToShow: 5
 ---
-I’m Pablo. I’m a web developer with a taste for clean, simple interfaces. I have multiple interests, all intersecting around understanding systems precisely.
+I’m Pablo. I’m a web developer with a taste for clean, simple interfaces.
 
-You can follow what I’m up to lately on my [now page](/now), or just browse around the site where I leave pieces I find worth sharing.
+You can follow what I’m up to lately on my [now page](now), or just browse around the site where I leave pieces I find worth sharing.

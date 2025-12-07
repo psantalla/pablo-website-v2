@@ -20,8 +20,8 @@
     --c-foreground: #f5f5f5;
     --c-foreground-hint: rgba(245, 245, 245, 0.9137254902);
     --c-foreground-reduced: rgba(245, 245, 245, 0.8);
-    --c-foreground-muted: rgba(245, 245, 245, 0.5019607843);
-    --c-background: #131117;
+    --c-foreground-muted: rgba(245, 245, 245, 0.7137254902);
+    --c-background: #0c0b0f;
     --c-accent: #F55D3E;
     --c-accent-a: rgba(245, 93, 62, 0.6549019608);
     --c-code-keyword: #F55D3E;

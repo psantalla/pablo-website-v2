@@ -3,6 +3,8 @@ title: Spacing in Web Design and How to Implement It
 description: Discover the significance of spacing in web design and its influence on user experience. Explore two-dimensional and depth spacing, vertical and horizontal spacing, and their role in creating user-friendly web layouts.
 date: 2023-10-10
 tags:
+  - web-design
+  - web-development
 draft: false
 ---
 
