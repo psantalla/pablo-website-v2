@@ -544,8 +544,8 @@ footer p {
 	color: var(--c-foreground);
 }
 
-.postlist {
-	counter-reset: start-from var(--postlist-index);
+.entry-list {
+	counter-reset: start-from var(--entry-list-index);
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -554,24 +554,24 @@ footer p {
 	gap: var(--sp-xs);
 }
 
-.postlist-item {
+.entry-item {
 	margin: 0;
 	padding: 0;
 }
 
-* + .postlist {
+* + .entry-list {
 	margin-top: var(--sp-xl);
 }
 
-:is(h1, h2, h3, h4, h5, h6) + .postlist {
+:is(h1, h2, h3, h4, h5, h6) + .entry-list {
 	margin-top: var(--sp-m);
 }
 
-.postlist + * {
+.entry-list + * {
 	margin-top: var(--sp-m);
 }
 
-.postlist-link {
+.entry-link {
 	display: flex;
 	flex-direction: row;
 	gap: var(--sp-m);
@@ -579,22 +579,22 @@ footer p {
 	flex-wrap: nowrap;
 }
 
-.postlist-date {
+.entry-date {
 	color: var(--c-foreground-muted);
 	white-space: nowrap;
 }
 
-.postlist-title {
+.entry-title {
 	font-weight: var(--t-fw-m);
 	color: var(--c-foreground);
 	overflow-wrap: break-word;
 }
 
-.postlist-link:hover .postlist-title {
+.entry-link:hover .entry-title {
 	color: var(--c-foreground-reduced);
 }
 
-.post-metadata {
+.entry-metadata {
 	display: inline-flex;
 	flex-wrap: wrap;
 	gap: var(--sp-s);
@@ -603,20 +603,20 @@ footer p {
 	list-style: none;
 }
 
-* + .post-metadata {
+* + .entry-metadata {
 	margin-top: var(--sp-xl);
 }
 
-h1 + .post-metadata {
+h1 + .entry-metadata {
 	margin-top: var(--sp-xs);
 }
 
-.post-date {
+.entry-date {
 	color: var(--c-foreground-muted);
 	font-size: var(--t-s-m);
 }
 
-.post-tag {
+.entry-taxonomy {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -629,17 +629,18 @@ h1 + .post-metadata {
 	border-radius: 999rem;
 }
 
-.post-tag:hover {
+.entry-taxonomy:hover {
 	color: var(--c-foreground-reduced);
 }
 
-.post-tag::before {
+.entry-taxonomy::before {
 	content: "#";
 	margin-right: 0.2em;
 	color: var(--c-foreground-muted);
 }
 
-#tags + ul {
+#tags + ul,
+#project-topics + ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -649,7 +650,8 @@ h1 + .post-metadata {
 	margin-top: var(--sp-m);
 }
 
-#tags + ul li {
+#tags + ul li,
+#project-topics + ul li {
 	margin: 0;
 	padding: 0;
 }
@@ -669,15 +671,15 @@ h6 {
 	margin-bottom: var(--sp-l);
 }
 
-h1:has(+ .post-metadata) {
+h1:has(+ .entry-metadata) {
 	margin-bottom: 0;
 }
 
-.post-metadata + * {
+.entry-metadata + * {
 	margin-top: 0;
 }
 
-.post-metadata {
+.entry-metadata {
 	margin-bottom: var(--sp-2xl);
 }
 
