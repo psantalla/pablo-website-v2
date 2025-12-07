@@ -130,7 +130,13 @@ td {
 }
 
 hr {
-	margin: var(--sp-xl) 0;
+	margin: var(--sp-2xl) 0;
 	border: 0;
-	border-top: 1px solid var(--c-foreground);
+
+}
+
+hr::before {
+	content: '———';
+	letter-spacing: .55em;
+	color: var(--c-foreground-muted);
 }
