@@ -131,12 +131,13 @@ td {
 
 hr {
 	margin: var(--sp-2xl) 0;
-	border: 0;
+	border: 0;text-align: center;
 
 }
 
 hr::before {
-	content: '———';
+	content: '***';
 	letter-spacing: .55em;
+
 	color: var(--c-foreground-muted);
 }
