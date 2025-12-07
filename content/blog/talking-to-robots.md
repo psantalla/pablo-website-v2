@@ -1,7 +1,7 @@
 ---
 title: We're still talking to robots
 description:
-date: 2025-12-01
+date: 2025-12-06
 tags:
   - AI
 draft: false
