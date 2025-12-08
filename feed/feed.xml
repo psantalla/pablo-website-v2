@@ -5,11 +5,93 @@
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
   <link href="https://pablosantalla.com/feed/feed.xml" rel="self" />
   <link href="https://pablosantalla.com/blog" />
-  <updated>2025-12-06T00:00:00Z</updated>
+  <updated>2025-12-07T00:00:00Z</updated>
   <id>https://pablosantalla.com/blog</id>
   <author>
     <name>Pablo Santalla</name>
   </author>
+  <entry>
+    <title>Procrastination deficit</title>
+    <link href="https://pablosantalla.com/blog/procrastination-deficit/" />
+    <updated>2025-12-07T00:00:00Z</updated>
+    <id>https://pablosantalla.com/blog/procrastination-deficit/</id>
+    <content type="html">&lt;p&gt;I&#39;m an avid procrastinator.&lt;/p&gt;
+&lt;p&gt;My mind would trick me every single time. It&#39;d make me feel hungry even when I wasn&#39;t, just so I could postpone doing the dishes. Or it&#39;d make me believe I&#39;d enter a state of hyper-productivity after taking a shower.&lt;/p&gt;
+&lt;p&gt;It looks like this is something every human experiences to a certain degree. Steven Pressfield expands this beautifully in the book &lt;a href=&quot;https://stevenpressfield.com/books/the-war-of-art/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;The War of Art&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As ridiculous as it may sound, I play tricks on my mind as well. Here&#39;s one trick I&#39;ve never seen before.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Activity&lt;/th&gt;
+&lt;th&gt;Previous heaviness&lt;/th&gt;
+&lt;th&gt;Estimated heaviness&lt;/th&gt;
+&lt;th&gt;Actual heaviness&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Take out the trash and walk the dog&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Walk the dog&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Load the dishwasher and put away dishes&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Walk the dog&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Make dinner (meat in sauce)&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Put away charger and walk the dog&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Get up to grab the camera&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;I rate the task based on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How heavy it feels before even starting it.&lt;/li&gt;
+&lt;li&gt;How I think it&#39;ll feel right after completing it.&lt;/li&gt;
+&lt;li&gt;How it actually felt when it&#39;s done.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And there are only two rules:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;After rating how heavy the task feels and your prediction, you have no other choice than move on to the task.&lt;/li&gt;
+&lt;li&gt;After you complete the task, you have to give it the last rating.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It works great for me with tasks under 20 minutes. I haven&#39;t tried it with longer ones, but I guess it&#39;d be a matter of dividing the project into these 20-minute tasks.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;The point of writing down the task and rating it is no other than making myself conscious of how hard it&#39;d be, instead of just letting my brain go into primitive mode to save some calories.&lt;/p&gt;
+&lt;p&gt;The cool thing is that you don&#39;t have to wait too long to see the effects. After a few tasks, you find yourself giving more realistic ratings and thinking, &amp;quot;well, actually it&#39;s not that hard.&amp;quot;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>We&#39;re still talking to robots</title>
     <link href="https://pablosantalla.com/blog/talking-to-robots/" />
