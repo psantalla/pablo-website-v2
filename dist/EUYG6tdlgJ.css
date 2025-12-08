@@ -710,6 +710,11 @@ h1 + .entry-metadata {
 	margin-top: var(--sp-2xs);
 }
 
+
+.frame-multimedia {
+	border: 2px solid var(--c-foreground-muted);
+}
+
 	h1,
 h2,
 h3,
