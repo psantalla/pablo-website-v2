@@ -596,6 +596,9 @@ footer p {
 
 .entry-metadata {
 	display: inline-flex;
+	&:has(.entry-taxonomy) {
+		display: flex;
+	}
 	flex-wrap: wrap;
 	gap: var(--sp-s);
 	margin: 0;
