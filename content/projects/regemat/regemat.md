@@ -55,7 +55,7 @@ Our project's target audience encompasses English and Spanish-speaking countries
 
 The success of this work hinges on effective communication, support, and the adept utilization of marketing tools. Media recognition continued to support Regemat 3D's endeavors following the campaign.
 
-In their articles, [3D Printing Industry](https://3dprintingindustry.com/news/regemat-3d-raises-over-e500k-in-effort-to-advance-its-3d-bioprinting-technology-210011/) recognized Regemat 3D's achievement in advancing its 3D bioprinting technology, while [VoxelMatters](https://www.voxelmatters.com/lab-grown-plant-material-for-3d-printing-developed-by-mit-researchers/) highlighted Regemat3D's success in raising funds through a second round of equity crowdfunding.
+In their articles, <a href="https://3dprintingindustry.com/news/regemat-3d-raises-over-e500k-in-effort-to-advance-its-3d-bioprinting-technology-210011/" target="_blank" rel="noopener noreferrer">3D Printing Industry</a> recognized Regemat 3D's achievement in advancing its 3D bioprinting technology, while <a href="https://www.voxelmatters.com/lab-grown-plant-material-for-3d-printing-developed-by-mit-researchers/" target="_blank" rel="noopener noreferrer">VoxelMatters</a> highlighted Regemat3D's success in raising funds through a second round of equity crowdfunding.
 
 This approach acknowledges that effective design is a blend of aesthetics, functionality, and empathy for the user's journey. It's about crafting a digital space that feels intuitive and purposeful, aligning with the user's expectations and objectives. In essence, it's the harmony between user-centricity and company goals.
 

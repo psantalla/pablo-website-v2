@@ -19,7 +19,7 @@ layout: layouts/base.njk
 
 {% set projectsCount = collections.projects | length %}
 {% set latestProjectsCount = projectsCount | min(numberOfLatestProjectsToShow) %}
-<h1>Latest {{ latestProjectsCount }} project{% if latestProjectsCount != 1 %}s{% endif %}</h1>
+<h1>Latest {{ latestProjectsCount }} showcased project{% if latestProjectsCount != 1 %}s{% endif %}</h1>
 
 {% set projectslist = collections.projects | head(-1 * numberOfLatestProjectsToShow) %}
 {% include "projectslist.njk" %}
