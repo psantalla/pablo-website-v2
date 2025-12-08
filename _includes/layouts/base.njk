@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{ title or metadata.title }}</title>
+		<title>{% if title and page.url != "/" %}{{ title }} | {% endif %}{{ metadata.title }}</title>
 		<meta name="description" content="{{ description or metadata.description }}">
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -11,6 +11,21 @@
 		<link rel="manifest" href="/site.webmanifest">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
 
+		{% if layout == "layouts/post.njk" %}
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"headline": {{ title | dump | safe }},
+			"datePublished": "{{ page.date | htmlDateString }}"{% if updated %},
+			"dateModified": "{{ updated | htmlDateString }}"{% endif %},
+			"author": {
+				"@type": "Person",
+				"name": "{{ metadata.author.name }}"
+			}
+		}
+		</script>
+		{% endif %}
 
 		{#- Uncomment this if you'd like folks to know that you used Eleventy to build your site!  #}
 		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
@@ -54,7 +69,7 @@
 		</script> #}
 	</head>
 	<body>
-		<a href="#main" id="skip-link" class="visually-hidden">Skip to main content</a>
+		<a href="#skip-link" id="skip-link" class="visually-hidden">Skip to main content</a>
 
 		<header>
 			<a href="/" class="home-link">{{ metadata.title }}</a>

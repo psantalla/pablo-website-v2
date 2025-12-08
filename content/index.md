@@ -1,6 +1,7 @@
 ---
 layout: layouts/home.njk
 numberOfLatestPostsToShow: 5
+numberOfLatestProjectsToShow: 3
 ---
 I’m Pablo. I’m a web developer with a taste for clean, simple interfaces.
 

@@ -3,9 +3,11 @@ title: Writing CSS Without Compromising Your Project's Scalability
 description: Learn CSS best practices for scalability in web projects. Explore class grouping, naming, and organization tips for efficient stylesheets.
 date: 2023-08-13
 tags:
+updated: 2025-12-07
+changelog:
+  - '2025-12-07: Fixed error on browser default direction for flex.'
 draft: false
 ---
-
 <figure>
   <img src="02.svg" alt="">
   <figcaption>Website mockup // wireframes // blueprint by <a href="https://www.figma.com/@martina" target="_blank" rel="noopener noreferrer">Martina</a></figcaption>
@@ -87,7 +89,7 @@ You can probably guess what goes here. I'll always put classes that affect color
 .c-el--pine {
     color: var(--c--pine);
 }
-                                
+
 .c-bg--pine {
     background-color: var(--c--pine);
 }
@@ -103,7 +105,7 @@ Margins, paddings, and gaps essentially. I like combining structural classes wit
         display: flex;
         flex-direction: column;
     }
-                            
+
     .sp-ga--m {
         gap: var(--sp--m);
     }

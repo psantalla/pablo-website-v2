@@ -24,8 +24,7 @@ export default async function(eleventyConfig) {
 			"./public/": "/"
 		})
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl")
-		.addPassthroughCopy("./content/**/*.svg")
-		.addPassthroughCopy("./content/**/*.gif");
+		.addPassthroughCopy("./content/**/*.mp4");
 
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 	eleventyConfig.addWatchTarget("css/**/*.css");
@@ -34,7 +33,6 @@ export default async function(eleventyConfig) {
 	// Per-page bundles: https://github.com/11ty/eleventy-plugin-bundle
 	eleventyConfig.addBundle("css", {
 		toFileDirectory: "dist",
-		// Supported selectors: https://www.npmjs.com/package/posthtml-match-helper
 		bundleHtmlContentFromSelector: "style",
 	});
 
@@ -51,7 +49,7 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 
 	eleventyConfig.addPlugin(feedPlugin, {
-		type: "atom", // or "rss", "json"
+		type: "atom",
 		outputPath: "/feed/feed.xml",
 		stylesheet: "pretty-atom-feed.xsl",
 		templateData: {
@@ -79,16 +77,19 @@ export default async function(eleventyConfig) {
 
 	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-		extensions: "jpg,jpeg,png,webp",
 		formats: ["avif", "webp", "auto"],
+
+		// widths: ["auto"],
+
 		failOnError: false,
+		svgShortCircuit: true,
 		htmlOptions: {
 			imgAttributes: {
-				// e.g. <img loading decoding> assigned on the HTML tag will override these values.
 				loading: "lazy",
 				decoding: "async",
 			}
 		},
+
 		sharpOptions: {
 			animated: true,
 		},
@@ -126,8 +127,6 @@ export default async function(eleventyConfig) {
 };
 
 export const config = {
-	// Control which files Eleventy will process
-	// e.g.: *.md, *.njk, *.html, *.liquid
 	templateFormats: [
 		"md",
 		"njk",
@@ -136,30 +135,15 @@ export const config = {
 		"11ty.js",
 	],
 
-	// Pre-process *.md files with: (default: `liquid`)
 	markdownTemplateEngine: "njk",
-
-	// Pre-process *.html files with: (default: `liquid`)
 	htmlTemplateEngine: "njk",
 
-	// These are all optional:
 	dir: {
-		input: "content",          // default: "."
-		includes: "../_includes",  // default: "_includes" (`input` relative)
-		data: "../_data",          // default: "_data" (`input` relative)
+		input: "content",
+		includes: "../_includes",
+		data: "../_data",
 		output: "_site"
 	},
-
-	// -----------------------------------------------------------------
-	// Optional items:
-	// -----------------------------------------------------------------
-
-	// If your site deploys to a subdirectory, change `pathPrefix`.
-	// Read more: https://www.11ty.dev/docs/config/#deploy-to-a-subdirectory-with-a-path-prefix
-
-	// When paired with the HTML <base> plugin https://www.11ty.dev/docs/plugins/html-base/
-	// it will transform any absolute URLs in your HTML to include this
-	// folder name and does **not** affect where things go in the output folder.
 
 	// pathPrefix: "/",
 };

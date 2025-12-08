@@ -263,3 +263,54 @@ h1 + .entry-metadata {
 	margin: 0;
 	padding: 0;
 }
+
+.entry-changelog {
+	margin-top: var(--sp-xl);
+	background: var(--c-code-bg);
+	padding: var(--sp-l);
+	font-family: var(--t-ff-mono);
+	font-size: var(--t-s-s);
+	line-height: var(--t-lh-dense);
+	letter-spacing: -0.02em;
+}
+
+.entry-changelog-summary {
+	cursor: pointer;
+	color: var(--c-foreground);
+	user-select: none;
+	list-style: none;
+	display: flex;
+	align-items: baseline;
+	gap: var(--sp-xs);
+}
+
+.entry-changelog-summary::-webkit-details-marker {
+	display: none;
+}
+
+.entry-changelog-summary::before {
+	content: "▸";
+	flex-shrink: 0;
+	color: var(--c-foreground-hint);
+	transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.entry-changelog[open] .entry-changelog-summary::before {
+	transform: rotate(90deg);
+}
+
+.entry-changelog-list {
+	margin: var(--sp-xs) 0 0 0;
+	padding: 0 0 0 calc(1ch + var(--sp-xs));
+	list-style: none;
+	color: var(--c-foreground-muted);
+}
+
+.entry-changelog-list li {
+	margin: 0;
+	padding: 0;
+}
+
+.entry-changelog-list li + li {
+	margin-top: var(--sp-2xs);
+}

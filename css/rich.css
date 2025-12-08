@@ -95,6 +95,7 @@ figcaption {
 
 picture,
 figure,
+video,
 p:has(> img),
 p:has(> video),
 p:has(> picture),
@@ -108,7 +109,7 @@ figure :is(img, video, picture, iframe) {
 	margin: 0;
 }
 
-:is(h1, h2, h3, h4, h5, h6) + :is(picture, figure, p:has(> img), p:has(> video), p:has(> picture), p:has(> iframe), blockquote, table) {
+:is(h1, h2, h3, h4, h5, h6) + :is(picture, figure, video, p:has(> img), p:has(> video), p:has(> picture), p:has(> iframe), blockquote, table) {
 	margin-top: var(--sp-l);
 }
 
@@ -131,13 +132,12 @@ td {
 
 hr {
 	margin: var(--sp-2xl) 0;
-	border: 0;text-align: center;
-
+	border: 0;
+	text-align: center;
 }
 
 hr::before {
 	content: '***';
 	letter-spacing: .55em;
-
 	color: var(--c-foreground-muted);
 }

@@ -7,7 +7,6 @@ tags:
   - web-development
 draft: false
 ---
-
 ![](sub-hero.svg)
 
 When discussing spacing in web design, it's essential to distinguish between two types:

@@ -13,15 +13,18 @@ layout: layouts/base.njk
 	<li class="entry-date">
 		Made at
 		{%- if agencies[madeAt] %}
-		<a href="{{ agencies[madeAt] }}" target="_blank">{{ madeAt }}</a>
+		<a href="{{ agencies[madeAt] }}" target="_blank" rel="noopener noreferrer">{{ madeAt }}</a>
 		{%- else %}
 		{{ madeAt }}
 		{%- endif %}
 	</li>
 	{%- endif %}
+	{%- if projectLink %}
+	<li class="entry-date">
+		<a href="{{ projectLink }}" target="_blank" rel="noopener noreferrer">View live site</a>
+	</li>
+	{%- endif %}
 </ul>
-
-{{ content | safe }}
 
 {%- if projectTopics %}
 <ul class="entry-metadata">
@@ -31,3 +34,5 @@ layout: layouts/base.njk
 	{%- endfor %}
 </ul>
 {%- endif %}
+
+{{ content | safe }}
