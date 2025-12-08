@@ -11,6 +11,7 @@ body {
 	margin: 0 auto;
 	color: var(--c-foreground);
 	background-color: var(--c-background);
+	overflow-x: hidden;
 }
 
 html {

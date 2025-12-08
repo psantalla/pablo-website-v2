@@ -120,7 +120,12 @@ blockquote {
 
 table {
 	border-collapse: collapse;
-	width: 100%;
+
+	display: block;
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+ /*  white-space: nowrap; */
 }
 
 th,
@@ -128,6 +133,9 @@ td {
 	border: 1px solid var(--c-foreground);
 	padding: var(--sp-xs);
 	text-align: left;
+
+
+
 }
 
 hr {
