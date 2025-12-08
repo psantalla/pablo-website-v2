@@ -317,3 +317,8 @@ h1 + .entry-metadata {
 .entry-changelog-list li + li {
 	margin-top: var(--sp-2xs);
 }
+
+
+.frame-multimedia {
+	border: 2px solid var(--c-foreground-muted);
+}

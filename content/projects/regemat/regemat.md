@@ -47,7 +47,7 @@ The navigation on the landing page is straightforward, using tooltips to expand 
 
 ## Expanding reach with a multilingual page
 
-![Screenshot of the landing page for the crowdfunding round made for Regemat 3D](regemat-3d-sp.png)
+<img class="frame-multimedia" src="regemat-3d-sp.png" alt="Screenshot of the landing page for the crowdfunding round made for Regemat 3D" loading="lazy" decoding="async">
 
 Our project's target audience encompasses English and Spanish-speaking countries, including Australia, Canada, the United States, England, Spain, and Latin America. The page's loading process detects the user's browser language and provides an optimized version accordingly. Additionally, statistical tracking is implemented across the various page versions. We've also taken into account all video and explanatory content.
 
