@@ -178,6 +178,9 @@ footer p {
 .entry-list + * {
 	margin-top: var(--sp-m);
 }
+/* .entry-list + :is(h1, h2, h3, h4, h5, h6) {
+	margin-top: var(--sp-2xl);
+} */
 
 .entry-link {
 	display: flex;
@@ -219,7 +222,7 @@ footer p {
 }
 
 h1 + .entry-metadata {
-	margin-top: var(--sp-xs);
+	margin-top: var(--sp-s);
 }
 
 .entry-date {

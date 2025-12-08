@@ -6,4 +6,4 @@ I create and edit markdown entries in <a href="https://obsidian.md" target="_bla
 
 This website is then hosted on <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
 
-Previous version: [Version 1](https://psantalla.github.io/pablo-website-v1/)
+Previous version: [v1](https://psantalla.github.io/pablo-website-v1/)

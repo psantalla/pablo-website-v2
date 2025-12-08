@@ -2,6 +2,9 @@
 title: Time to switch
 description:
 date: 2025-07-17
+updated: 2025-12-06
+changelog:
+  - '2025-12-07: Updated main photo.'
 tags:
 draft: false
 ---
