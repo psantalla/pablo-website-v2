@@ -5,11 +5,22 @@
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
   <link href="https://pablosantalla.com/feed/feed.xml" rel="self" />
   <link href="https://pablosantalla.com/blog" />
-  <updated>2025-12-10T00:00:00Z</updated>
+  <updated>2025-12-12T00:00:00Z</updated>
   <id>https://pablosantalla.com/blog</id>
   <author>
     <name>Pablo Santalla</name>
   </author>
+  <entry>
+    <title>Mediocrity is a choice</title>
+    <link href="https://pablosantalla.com/blog/Mediocrity%20is%20a%20choice/" />
+    <updated>2025-12-12T00:00:00Z</updated>
+    <id>https://pablosantalla.com/blog/Mediocrity%20is%20a%20choice/</id>
+    <content type="html">&lt;p&gt;I truly believe that if you use a system long enough, at some point you end up generating an ideology around it. That system can be a programming language, a framework, a tool – something complex enough to allow multiple ways of solving the same problem, even if some paths are clearly better than others.&lt;/p&gt;
+&lt;p&gt;Trying to constantly balance what’s optimal for you (saves you time or mental energy) with pushing the system to its absolute potential is, inevitably, unsustainable.&lt;/p&gt;
+&lt;p&gt;The right move is to build your own set of rules: rules that consistently get the job done at the level of quality you’re realistically able to deliver at any given moment. If you stick to those rules long enough, their flaws start to show. You refine them, make them more sophisticated, discard what doesn’t perform, and strengthen what does.&lt;/p&gt;
+&lt;p&gt;A system that delivers peak performance out of the box isn’t a good system. At the same time, an ideology that settles for delivering under a small, unchanging set of rules will always stay mediocre.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Trying to impress your competence</title>
     <link href="https://pablosantalla.com/blog/trying-impress-competence/" />
