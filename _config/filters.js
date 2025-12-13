@@ -1,8 +1,10 @@
 import { DateTime } from "luxon";
 
 export default function(eleventyConfig) {
+	// Changed default to DateTime.DATE_MED for more natural date formatting (e.g., "Dec 12, 2024")
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
-		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
+		const dt = DateTime.fromJSDate(dateObj, { zone: zone || "utc" });
+		return format ? dt.toFormat(format) : dt.toLocaleString(DateTime.DATE_MED);
 	});
 
 	eleventyConfig.addFilter("htmlDateString", (dateObj) => {
@@ -36,7 +38,6 @@ export default function(eleventyConfig) {
 		(strings || []).sort((b, a) => b.localeCompare(a))
 	);
 
-	// Deduplicate array (for projectTopics across multiple projects)
 	eleventyConfig.addFilter("unique", array => {
 		return [...new Set(array)];
 	});
