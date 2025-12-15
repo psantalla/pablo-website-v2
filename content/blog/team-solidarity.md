@@ -21,5 +21,5 @@ Some keys to be less of an accomplice villain in this:
 1. Don’t default to helping. Pause and ask whether your involvement is actually required.
 2. Understand the project as a whole and where your role fits.
 3. Make ownership explicit. One problem, one owner.
-4. Be explicit when you’re helping for convenience rather than necessity.
+4. Express when you’re helping for convenience rather than necessity.
 5. Add to your [set of rules](mediocrity-is-choice/mediocrity-is-choice.md) one principle: keep the team away from muddy roads.
