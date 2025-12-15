@@ -5,16 +5,38 @@
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
   <link href="https://pablosantalla.com/feed/feed.xml" rel="self" />
   <link href="https://pablosantalla.com/blog" />
-  <updated>2025-12-12T00:00:00Z</updated>
+  <updated>2025-12-14T23:00:00Z</updated>
   <id>https://pablosantalla.com/blog</id>
   <author>
     <name>Pablo Santalla</name>
   </author>
   <entry>
+    <title>Team solidarity</title>
+    <link href="https://pablosantalla.com/blog/team-solidarity/" />
+    <updated>2025-12-14T23:00:00Z</updated>
+    <id>https://pablosantalla.com/blog/team-solidarity/</id>
+    <content type="html">&lt;p&gt;When it comes to software development, having two people work on the same project &lt;strong&gt;does not mean&lt;/strong&gt; the shipping time is halved. &lt;strong&gt;Ever.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you get your car stuck in the mud and no one’s coming to help, you’ll likely get out and push it as hard as you possibly can.&lt;/p&gt;
+&lt;p&gt;Now, put yourself on that same road, same situation, but this time you’re traveling with a few buddies. Almost guaranteed: no one will push at 100%.&lt;/p&gt;
+&lt;p&gt;Software developers benefit from understanding this implicit human behavior. Acting deliberately around it helps mitigate this &lt;em&gt;team solidarity paradox&lt;/em&gt;. A simple example: task division. Keep one person focused on pressing the accelerator while the car is actually moving those few inches through the mud.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The paradox of the paradox is that some people will do more for others than they do for themselves. These are &amp;quot;heroes&amp;quot;. They show up occasionally, but under sustained conditions, they still perform like regular humans.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Some keys to be less of an accomplice villain in this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Don’t default to helping. Pause and ask whether your involvement is actually required.&lt;/li&gt;
+&lt;li&gt;Understand the project as a whole and where your role fits.&lt;/li&gt;
+&lt;li&gt;Make ownership explicit. One problem, one owner.&lt;/li&gt;
+&lt;li&gt;Be explicit when you’re helping for convenience rather than necessity.&lt;/li&gt;
+&lt;li&gt;Add to your &lt;a href=&quot;https://pablosantalla.com/blog/mediocrity-is-choice/&quot;&gt;set of rules&lt;/a&gt; one principle: keep the team away from muddy roads.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  <entry>
     <title>Mediocrity is a choice</title>
-    <link href="https://pablosantalla.com/blog/Mediocrity%20is%20a%20choice/" />
+    <link href="https://pablosantalla.com/blog/mediocrity-is-choice/" />
     <updated>2025-12-12T00:00:00Z</updated>
-    <id>https://pablosantalla.com/blog/Mediocrity%20is%20a%20choice/</id>
+    <id>https://pablosantalla.com/blog/mediocrity-is-choice/</id>
     <content type="html">&lt;p&gt;I truly believe that if you use a system long enough, at some point you end up generating an ideology around it. That system can be a programming language, a framework, a tool – something complex enough to allow multiple ways of solving the same problem, even if some paths are clearly better than others.&lt;/p&gt;
 &lt;p&gt;Trying to constantly balance what’s optimal for you (saves you time or mental energy) with pushing the system to its absolute potential is, inevitably, unsustainable.&lt;/p&gt;
 &lt;p&gt;The right move is to build your own set of rules: rules that consistently get the job done at the level of quality you’re realistically able to deliver at any given moment. If you stick to those rules long enough, their flaws start to show. You refine them, make them more sophisticated, discard what doesn’t perform, and strengthen what does.&lt;/p&gt;
