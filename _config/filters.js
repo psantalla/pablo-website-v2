@@ -30,7 +30,7 @@ export default function(eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-		return (tags || []).filter(tag => ["all", "posts", "projects"].indexOf(tag) === -1);
+		return (tags || []).filter(tag => ["all", "posts", "projects", "projectTopics"].indexOf(tag) === -1);
 	});
 
 	eleventyConfig.addFilter("sortAlphabetically", strings =>
