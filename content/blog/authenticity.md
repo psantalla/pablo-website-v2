@@ -2,7 +2,7 @@
 title: Keep it genuine
 description: In today's world, authenticity is more important than ever.
 date: 2025-12-01
-tags: nyx
+tags:
 draft: true
 ---
 People value things that feel real; they’ll pay more for something exclusive or made by hand.
