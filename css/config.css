@@ -4,6 +4,7 @@
 
 :root {
 	--horizontal-gutter: var(--sp-l);
+	--interaction: all .112s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 html,
@@ -118,6 +119,17 @@ header {
 .home-link:link:not(:hover),
 .home-link:link:hover {
 	text-decoration: none;
+}
+
+.home-link:has(> img) {
+	max-width: var(--sp-2xl);
+	border-radius: 999rem;
+	overflow: hidden;
+
+	&:link:hover {
+		opacity: .85;
+		transition: var(--interaction);
+	}
 }
 
 .nav {
@@ -299,7 +311,7 @@ h1 + .entry-metadata {
 	content: "▸";
 	flex-shrink: 0;
 	color: var(--c-foreground-hint);
-	transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+	transition: var(--interaction);
 }
 
 .entry-changelog[open] .entry-changelog-summary::before {

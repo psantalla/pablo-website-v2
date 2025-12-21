@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{% if title and page.url != "/" %}{{ title }} | {% endif %}{{ metadata.title }}</title>
+		<title>
+			{% if title and page.url != "/" %}{{ title }} | {% endif %}{{ metadata.title }}</title>
 		<meta name="description" content="{{ description or metadata.description }}">
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -12,19 +13,19 @@
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
 
 		{% if layout == "layouts/post.njk" %}
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "BlogPosting",
-			"headline": {{ title | dump | safe }},
-			"datePublished": "{{ page.date | htmlDateString }}"{% if updated %},
-			"dateModified": "{{ updated | htmlDateString }}"{% endif %},
-			"author": {
-				"@type": "Person",
-				"name": "{{ metadata.author.name }}"
-			}
-		}
-		</script>
+			<script type="application/ld+json">
+				{
+					"@context": "https://schema.org",
+					"@type": "BlogPosting",
+					"headline": {{ title | dump | safe }},
+					"datePublished": "{{ page.date | htmlDateString }}"{% if updated %},
+						"dateModified": "{{ updated | htmlDateString }}"{% endif %},
+					"author": {
+						"@type": "Person",
+						"name": "{{ metadata.author.name }}"
+					}
+				}
+			</script>
 		{% endif %}
 
 		{#- Uncomment this if you'd like folks to know that you used Eleventy to build your site!  #}
@@ -47,15 +48,14 @@
 		</style>
 
 		{#- Add the contents of a file to the bundle #}
-<style>
-	{% include "css/reset.css" %}
-	{% include "css/typography.css" %}
-	{% include "css/spacing.css" %}
-	{% include "css/color.css" %}
-	{% include "css/config.css" %}
-	{% include "css/rich.css" %}
-
-</style>
+		<style>
+			{% include "css/reset.css" %}
+			{% include "css/typography.css" %}
+			{% include "css/spacing.css" %}
+			{% include "css/color.css" %}
+			{% include "css/config.css" %}
+			{% include "css/rich.css" %}
+		</style>
 
 		{#- Or you can add from node_modules #}
 		{# <style>{% include "node_modules/something.css" %}</style> #}
@@ -72,7 +72,10 @@
 		<a href="#skip-link" id="skip-link" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
+			{# <a href="/" class="home-link">{{ metadata.title }}</a> #}
+			<a href="/" class="home-link">
+				<img src="/img/pablo-santalla-2024-small.webp" alt="Home" eleventy:ignore>
+			</a>
 
 			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
 			<nav>
@@ -89,7 +92,7 @@
 
 		<main id="main">
 			{#- <heading-anchors> #}
-				{{ content | safe }}
+			{{ content | safe }}
 			{#- </heading-anchors> #}
 		</main>
 
