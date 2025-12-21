@@ -3,7 +3,7 @@ title: We're still talking to robots
 description:
 date: 2025-12-06
 tags:
-  - AI
+  - ai
 draft: false
 ---
 *This post is about AI.*
