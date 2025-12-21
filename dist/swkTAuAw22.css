@@ -52,7 +52,7 @@ table {
 	box-sizing: border-box;
 }
 
-	@font-face {
+			@font-face {
   font-family: "Inter";
   src: url("/fonts/Inter-Regular.woff2") format("woff2");
   font-weight: 400;
@@ -228,7 +228,7 @@ h1, .t-s-2xl {
 .t-tw-nowrap {
   text-wrap: nowrap;
 }
-	@media only screen and (min-width: 769px) {
+			@media only screen and (min-width: 769px) {
   /* desktop */
 }
 @media only screen and (min-width: 481px) {
@@ -355,7 +355,7 @@ h1, .t-s-2xl {
 .sp-mw-5 {
   max-width: calc(0.05 * var(--sp-site-width));
 }
-	:root {
+			:root {
   --c-foreground: #131117;
   --c-foreground-hint: rgba(19, 17, 23, 0.8588235294);
   --c-foreground-reduced: rgba(19, 17, 23, 0.8);
@@ -390,12 +390,13 @@ h1, .t-s-2xl {
     --c-code-inserted-bg: #3EF5DF;
   }
 }
-	@view-transition {
+			@view-transition {
 	navigation: auto;
 }
 
 :root {
 	--horizontal-gutter: var(--sp-l);
+	--interaction: all .112s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 html,
@@ -510,6 +511,17 @@ header {
 .home-link:link:not(:hover),
 .home-link:link:hover {
 	text-decoration: none;
+}
+
+.home-link:has(> img) {
+	max-width: var(--sp-2xl);
+	border-radius: 999rem;
+	overflow: hidden;
+
+	&:link:hover {
+		opacity: .85;
+		transition: var(--interaction);
+	}
 }
 
 .nav {
@@ -691,7 +703,7 @@ h1 + .entry-metadata {
 	content: "▸";
 	flex-shrink: 0;
 	color: var(--c-foreground-hint);
-	transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+	transition: var(--interaction);
 }
 
 .entry-changelog[open] .entry-changelog-summary::before {
@@ -719,7 +731,7 @@ h1 + .entry-metadata {
 	border: 2px solid var(--c-foreground-muted);
 }
 
-	h1,
+			h1,
 h2,
 h3,
 h4,
