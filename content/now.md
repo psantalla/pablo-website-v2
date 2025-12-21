@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: "Now"
   order: 2
-date: Last Modified
+date: 2025-11-26
 ---
 # What I'm doing now
 
