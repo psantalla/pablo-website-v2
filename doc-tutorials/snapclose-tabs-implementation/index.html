@@ -16,7 +16,7 @@
 		
 		
 		
-		<link rel="stylesheet" href="/dist/OQ2HC7YYZ3.css">
+		<link rel="stylesheet" href="/dist/6TCsr5LFGq.css">
 	</head>
 	<body>
 		<a href="#skip-link" id="skip-link" class="visually-hidden">Skip to main content</a>
@@ -51,7 +51,7 @@
 </ul>
 
 <blockquote>
-This is a typical tab implementation in <a href="https://avada.com" target="_blank" rel="noopener noreferrer">Avada</a>. Some page builders don't include this functionality out of the box, but it's a basic JavaScript pattern. Here I've summarized my notes and process for tackling it, including some useful observations for improving team workflows.
+<p>This is a typical tab implementation in <a href="https://avada.com" target="_blank" rel="noopener noreferrer">Avada</a>. Some page builders don't include this functionality out of the box, but it's a basic JavaScript pattern. Here I've summarized my notes and process for tackling it, including some useful observations for improving team workflows.</p>
 </blockquote>
 <h2 id="general-notes">General Notes</h2>
 <p><picture><source type="image/avif" srcset="/doc-tutorials/snapclose-tabs-implementation/t-TtZG8M90-697.avif 697w"><source type="image/webp" srcset="/doc-tutorials/snapclose-tabs-implementation/t-TtZG8M90-697.webp 697w"><img loading="lazy" decoding="async" src="/doc-tutorials/snapclose-tabs-implementation/t-TtZG8M90-697.png" alt="tab-double.png" width="697" height="441"></picture></p>
@@ -99,11 +99,13 @@ This is a typical tab implementation in <a href="https://avada.com" target="_bla
 <p>There's a way to fix this in Avada, and it's forcing the following: <code>--typography_sensitivity: 0;</code></p>
 <p>This makes the font size definition unaffected by the scaling factor that Avada applies.</p>
 <p>One way to apply it per page, so it overrides the default values:</p>
-<pre class="language-css" tabindex="0"><code class="language-css"><span class="token selector">:root</span> <span class="token punctuation">{</span>
-  <span class="token property">--typography_sensitivity</span><span class="token punctuation">:</span> 0 <span class="token important">!important</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>That, applied as inline within a <code>style</code> tag would solve it, but if we want to apply it from a stylesheet, more appropriately, it would look like this:</p>
-<pre class="language-css" tabindex="0"><code class="language-css"><span class="token comment">/* where n is the page ID */</span>
+<pre class="language-html" tabindex="0"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+	<span class="token selector">:root</span> <span class="token punctuation">{</span>
+	  <span class="token property">--typography_sensitivity</span><span class="token punctuation">:</span> 0 <span class="token important">!important</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
+<p>That above, applied as inline within a <code>style</code> tag would solve it, but if we want to apply it from a stylesheet, more appropriately, it would look like this:</p>
+<pre class="language-css" tabindex="0"><code class="language-css"><span class="token comment">/* where n is the page ID you don't want the auto-scale to be applied */</span>
 <span class="token selector">.page-id-n *</span> <span class="token punctuation">{</span>
   <span class="token property">--typography_sensitivity</span><span class="token punctuation">:</span> 0 <span class="token important">!important</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
@@ -157,7 +159,7 @@ This is a typical tab implementation in <a href="https://avada.com" target="_bla
 
 		</footer>
 
-		<!-- This page `/doc-tutorials/snapclose-tabs-implementation/` was built on 2025-12-22T02:35:23.958Z -->
+		<!-- This page `/doc-tutorials/snapclose-tabs-implementation/` was built on 2025-12-22T02:43:30.547Z -->
 		
 		
 	</body>

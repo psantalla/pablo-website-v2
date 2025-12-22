@@ -886,6 +886,13 @@ hr::before {
 	--syntax-tab-size: 2;
 }
 
+:not(pre) > code:not([class*="language-"]) {
+  font-family: var(--t-ff-mono);
+  font-size: 0.9em;
+  color: var(--c-foreground);
+  white-space: nowrap;
+}
+
 pre:not([class*="language-"]) {
   background: var(--c-code-bg);
   padding: var(--sp-m);
