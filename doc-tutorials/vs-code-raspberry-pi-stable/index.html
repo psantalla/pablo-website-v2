@@ -57,12 +57,18 @@
 <p>VS Code v1.97+ crashes with &quot;code 5&quot; error on Pi5 due to incompatibility with 16K pagesize kernel.</p>
 <h2 id="solution">Solution</h2>
 <h3 id="kernel-fix-permanent">Kernel Fix (permanent)</h3>
-<p>Edit boot configuration:</p>
+<ol>
+<li>Edit boot configuration:</li>
+</ol>
 <pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">nano</span> /boot/firmware/config.txt</code></pre>
-<p>Add at the end:</p>
+<ol start="2">
+<li>Add at the end:</li>
+</ol>
 <pre><code>kernel=kernel8.img
 </code></pre>
-<p>Reboot:</p>
+<ol start="3">
+<li>Reboot:</li>
+</ol>
 <pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">reboot</span></code></pre>
 <h3 id="install-vs-code">Install VS Code</h3>
 <pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update
@@ -71,17 +77,27 @@
 <pre class="language-bash" tabindex="0"><code class="language-bash">code</code></pre>
 <p>On login: accept &quot;Use weaker encryption&quot; (keyring not available by default).</p>
 <h2 id="performance">Performance</h2>
-<p>Loss: ~2-5% with 4K kernel vs 16K (imperceptible in practice).</p>
-<p>Benefit: Stable VS Code + automatic updates.</p>
+<ul>
+<li>Loss: ~2-5% with 4K kernel vs 16K (imperceptible in practice).</li>
+<li>Benefit: Stable VS Code + automatic updates.</li>
+</ul>
 <h2 id="restore-16k-kernel-if-microsoft-fixes-the-bug">Restore 16K Kernel (if Microsoft fixes the bug)</h2>
-<p>Edit boot configuration:</p>
+<ol>
+<li>Edit boot configuration:</li>
+</ol>
 <pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">nano</span> /boot/firmware/config.txt</code></pre>
-<p>Remove this line:</p>
+<ol start="2">
+<li>Remove this line:</li>
+</ol>
 <pre><code>kernel=kernel8.img
 </code></pre>
-<p>Reboot:</p>
+<ol start="3">
+<li>Reboot:</li>
+</ol>
 <pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">reboot</span></code></pre>
-<p>Check if VS Code remains stable. If it crashes, revert the change.</p>
+<ol start="4">
+<li>Check if VS Code remains stable. If it crashes, revert the change.</li>
+</ol>
 <h2 id="known-issues">Known Issues</h2>
 <ul>
 <li><strong>Keyring warning:</strong> Normal behavior, use &quot;weaker encryption&quot;</li>
@@ -140,7 +156,7 @@
 
 		</footer>
 
-		<!-- This page `/doc-tutorials/vs-code-raspberry-pi-stable/` was built on 2025-12-22T01:59:10.623Z -->
+		<!-- This page `/doc-tutorials/vs-code-raspberry-pi-stable/` was built on 2025-12-22T02:06:20.412Z -->
 		
 		
 	</body>
