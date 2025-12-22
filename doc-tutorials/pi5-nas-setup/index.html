@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			Pi 5 NAS Setup | Pablo Santalla</title>
+		<meta name="description" content="Complete setup guide for Raspberry Pi 5 as NAS with Time Machine, Samba, and Syncthing">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Pablo Santalla">
+
+		
+		
+		
+		
+		<link rel="stylesheet" href="/dist/vsGv1hwhlj.css">
+	</head>
+	<body>
+		<a href="#skip-link" id="skip-link" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			
+			<a href="/" class="home-link">
+				<img src="/img/pablo-santalla-2024-small.webp" alt="Home">
+			</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/now/">Now</a>
+						</li>
+						<li class="nav-item">
+							<a href="/blog/">Writing</a>
+						</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main">
+			
+
+<h1 id="pi-5-nas-setup">Pi 5 NAS Setup</h1>
+
+<ul class="entry-metadata">
+	<li class="entry-date">
+		Revised on <time datetime="2025-12-14">December 13, 2025</time>
+	</li>
+</ul>
+
+<blockquote>
+This is my setup for turning a Raspberry Pi 5 into a home NAS server. It handles Time Machine backups, shared storage, and Android sync with ignore-delete functionality. Pretty straightforward once you know the steps.
+</blockquote>
+<h2 id="objective">Objective</h2>
+<p>NAS server: Time Machine (Mac), shared storage, Android→Pi sync with ignoreDelete (saves mobile space, files remain on server).</p>
+<p><strong>Recommended disk sizes:</strong></p>
+<ul>
+<li>Minimum 2TB for basic setup (1TB Time Machine + 1TB files)</li>
+<li>4-6TB sweet spot for home use (2TB Time Machine + rest for files)</li>
+<li>My setup: 4.5TB disk (1.8TB Time Machine + 2.7TB files, ext4)</li>
+</ul>
+<p>Services: Samba, Avahi (mDNS), Syncthing.</p>
+<h2 id="1-partitioning-and-mounting">1. Partitioning and Mounting</h2>
+<p>Create partitions and format:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">parted</span> /dev/sda
+mklabel gpt
+mkpart primary hfs+ <span class="token number">0</span>% 2TB
+mkpart primary ext4 2TB <span class="token number">100</span>%
+quit
+
+<span class="token function">sudo</span> mkfs.ext4 <span class="token parameter variable">-L</span> TimeMachine /dev/sda1
+<span class="token function">sudo</span> mkfs.ext4 <span class="token parameter variable">-L</span> Files /dev/sda2
+<span class="token function">sudo</span> <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /mnt/timemachine /mnt/files
+<span class="token function">sudo</span> <span class="token function">mount</span> /dev/sda1 /mnt/timemachine
+<span class="token function">sudo</span> <span class="token function">mount</span> /dev/sda2 /mnt/files
+<span class="token function">sudo</span> <span class="token function">chown</span> <span class="token parameter variable">-R</span> yourusername:yourusername /mnt/timemachine /mnt/files</code></pre>
+<p>Get your UUIDs:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash">lsblk <span class="token parameter variable">-o</span> NAME,UUID</code></pre>
+<p><em>Example UUIDs (yours will be different):</em></p>
+<ul>
+<li><em>TimeMachine: <code>a843d642-b9fa-444c-97c1-a40f80fafebf</code></em></li>
+<li><em>Files: <code>8d84844b-f35c-468c-a1fb-bfccd67fa17c</code></em></li>
+</ul>
+<p>Auto-mount in <code>/etc/fstab</code>:</p>
+<pre><code>UUID=your-timemachine-uuid /mnt/timemachine ext4 defaults,nofail 0 0
+UUID=your-files-uuid /mnt/files ext4 defaults,nofail 0 0
+</code></pre>
+<h2 id="2-samba-avahi">2. Samba + Avahi</h2>
+<p>Installation and configuration:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> samba avahi-daemon</code></pre>
+<p>Edit <code>/etc/samba/smb.conf</code> and add at the end:</p>
+<pre class="language-ini" tabindex="0"><code class="language-ini"><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">TimeMachine</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">comment</span> <span class="token punctuation">=</span> <span class="token value attr-value">Time Machine Backup</span>
+<span class="token key attr-name">path</span> <span class="token punctuation">=</span> <span class="token value attr-value">/mnt/timemachine</span>
+<span class="token key attr-name">browseable</span> <span class="token punctuation">=</span> <span class="token value attr-value">yes</span>
+<span class="token key attr-name">writeable</span> <span class="token punctuation">=</span> <span class="token value attr-value">yes</span>
+<span class="token key attr-name">create mask</span> <span class="token punctuation">=</span> <span class="token value attr-value">0600</span>
+<span class="token key attr-name">directory mask</span> <span class="token punctuation">=</span> <span class="token value attr-value">0700</span>
+<span class="token key attr-name">valid users</span> <span class="token punctuation">=</span> <span class="token value attr-value">yourusername</span>
+<span class="token key attr-name">vfs objects</span> <span class="token punctuation">=</span> <span class="token value attr-value">catia fruit streams_xattr</span>
+<span class="token key attr-name">fruit:aapl</span> <span class="token punctuation">=</span> <span class="token value attr-value">yes</span>
+<span class="token key attr-name">fruit:time machine</span> <span class="token punctuation">=</span> <span class="token value attr-value">yes</span>
+
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">Files</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">comment</span> <span class="token punctuation">=</span> <span class="token value attr-value">Shared Files</span>
+<span class="token key attr-name">path</span> <span class="token punctuation">=</span> <span class="token value attr-value">/mnt/files</span>
+<span class="token key attr-name">browseable</span> <span class="token punctuation">=</span> <span class="token value attr-value">yes</span>
+<span class="token key attr-name">writeable</span> <span class="token punctuation">=</span> <span class="token value attr-value">yes</span>
+<span class="token key attr-name">create mask</span> <span class="token punctuation">=</span> <span class="token value attr-value">0644</span>
+<span class="token key attr-name">directory mask</span> <span class="token punctuation">=</span> <span class="token value attr-value">0755</span>
+<span class="token key attr-name">valid users</span> <span class="token punctuation">=</span> <span class="token value attr-value">yourusername</span></code></pre>
+<p>Set Samba password and enable services:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> smbpasswd <span class="token parameter variable">-a</span> yourusername
+<span class="token function">sudo</span> systemctl restart smbd
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> smbd avahi-daemon</code></pre>
+<p>Create <code>/etc/avahi/services/samba.service</code>:</p>
+<pre class="language-xml" tabindex="0"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" standalone='no'?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">service-group</span> <span class="token name">SYSTEM</span> <span class="token string">"avahi-service.dtd"</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service-group</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span> <span class="token attr-name">replace-wildcards</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>yes<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>%h<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>n</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>_smb._tcp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>port</span><span class="token punctuation">></span></span>445<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>port</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>_device-info._tcp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>port</span><span class="token punctuation">></span></span>9<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>port</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>txt-record</span><span class="token punctuation">></span></span>model=TimeCapsule8,119<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>txt-record</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>_adisk._tcp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>port</span><span class="token punctuation">></span></span>9<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>port</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>txt-record</span><span class="token punctuation">></span></span>dk0=adVN=TimeMachine,adVF=0x82<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>txt-record</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>txt-record</span><span class="token punctuation">></span></span>sys=adVF=0x100<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>txt-record</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>service-group</span><span class="token punctuation">></span></span></code></pre>
+<p>Restart Avahi:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> systemctl restart avahi-daemon</code></pre>
+<h2 id="3-syncthing">3. Syncthing</h2>
+<p>Installation:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-s</span> https://syncthing.net/release-key.txt <span class="token operator">|</span> gpg <span class="token parameter variable">--dearmor</span> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /usr/share/keyrings/syncthing-archive-keyring.gpg <span class="token operator">></span>/dev/null
+<span class="token builtin class-name">echo</span> <span class="token string">"deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable"</span> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /etc/apt/sources.list.d/syncthing.list
+<span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> syncthing
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> syncthing@yourusername.service
+<span class="token function">sudo</span> systemctl start syncthing@yourusername.service</code></pre>
+<p>Web UI: <code>http://localhost:8384</code> or <code>http://your-pi-ip:8384</code></p>
+<p>Media folder with ignoreDelete (Android deletions don't affect Pi):</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">mkdir</span> /mnt/files/Media</code></pre>
+<p>After accepting share from Android in web UI, stop Syncthing and edit config:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> systemctl stop syncthing@yourusername.service
+<span class="token function">nano</span> /home/yourusername/.local/state/syncthing/config.xml</code></pre>
+<p>In the <code>&lt;folder&gt;</code> section for Media, change <code>&lt;ignoreDelete&gt;false&lt;/ignoreDelete&gt;</code> to <code>&lt;ignoreDelete&gt;true&lt;/ignoreDelete&gt;</code>.</p>
+<p>Restart Syncthing:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> systemctl start syncthing@yourusername.service</code></pre>
+<h2 id="access">Access</h2>
+<p><strong>Network:</strong></p>
+<ul>
+<li>IP: Your Pi's IP address</li>
+<li>Hostname: <code>your-hostname.local</code></li>
+</ul>
+<p><strong>Shares:</strong></p>
+<ul>
+<li>Mac Time Machine: <code>smb://your-hostname.local/TimeMachine</code></li>
+<li>Android TV: <code>smb://your-hostname.local/Files/Media</code></li>
+<li>Syncthing: <code>http://your-pi-ip:8384</code></li>
+</ul>
+<p><strong>User:</strong> your username</p>
+<h2 id="structure">Structure</h2>
+<pre><code>/mnt/timemachine/ (1.8TB, ext4)
+/mnt/files/ (2.7TB, ext4)
+  └── Media/ (ignoreDelete=true)
+</code></pre>
+<h2 id="verification">Verification</h2>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">df</span> <span class="token parameter variable">-h</span> <span class="token operator">|</span> <span class="token function">grep</span> sda
+<span class="token function">sudo</span> systemctl status smbd avahi-daemon syncthing@yourusername.service</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><strong>Auto-start:</strong> Services and mounts start with the Pi</li>
+<li><strong>ignoreDelete:</strong> Only Media folder. Other folders use normal bidirectional sync</li>
+<li><strong>ext4:</strong> Better performance than HFS+. Time Machine works via SMB</li>
+<li><strong>Hostname:</strong> Prefer <code>.local</code> hostname over IP (more robust)</li>
+</ul>
+<h2 id="quick-reference-ai-replication">Quick Reference (AI Replication)</h2>
+<pre><code>System: Pi 5, Raspberry Pi OS, 4-6TB USB disk
+Goal: NAS + Time Machine + Android sync
+
+1. Partition: 2TB ext4 (TimeMachine) + rest ext4 (Files)
+2. fstab auto-mount in /mnt/timemachine and /mnt/files
+3. samba + avahi-daemon
+4. smb.conf with fruit:time machine = yes
+5. Avahi samba.service (Time Capsule icon)
+6. Syncthing official repo
+7. /mnt/files/Media with ignoreDelete=true in config.xml
+8. systemctl enable everything
+</code></pre>
+<h2 id="quick-commands">Quick Commands</h2>
+<p>Restart services:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> systemctl restart smbd avahi-daemon syncthing@yourusername.service</code></pre>
+<p>Logs:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> journalctl <span class="token parameter variable">-u</span> smbd <span class="token parameter variable">-f</span>
+<span class="token function">sudo</span> journalctl <span class="token parameter variable">-u</span> syncthing@yourusername.service <span class="token parameter variable">-f</span></code></pre>
+<p>Add user:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> adduser username
+<span class="token function">sudo</span> smbpasswd <span class="token parameter variable">-a</span> username</code></pre>
+<p>Edit <code>/etc/samba/smb.conf</code> and add to <code>valid users</code>.</p>
+<p>Change password:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> smbpasswd yourusername</code></pre>
+
+
+
+<details class="entry-changelog">
+	<summary class="entry-changelog-summary">Changelog</summary>
+	<ul class="entry-changelog-list">
+	
+		<li>Translated from Spanish to English</li>
+	
+	</ul>
+</details>
+
+<ul class="entry-metadata">
+	<li><a href="/doc-topics/raspberry-pi/" class="entry-taxonomy">Raspberry Pi</a></li>
+	<li><a href="/doc-topics/nas/" class="entry-taxonomy">NAS</a></li>
+	<li><a href="/doc-topics/samba/" class="entry-taxonomy">Samba</a></li>
+	<li><a href="/doc-topics/syncthing/" class="entry-taxonomy">Syncthing</a></li>
+	<li><a href="/doc-topics/macos/" class="entry-taxonomy">macOS</a></li>
+</ul>
+
+		</main>
+
+		<footer>
+
+			<nav>
+				<h2 class="visually-hidden" id="footer-navigation-menu">Footer navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/contact/">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a href="/doc-tutorials/">Docs</a>
+						</li>
+						<li class="nav-item">
+							<a href="/feed/feed.xml" target="_blank" rel="noopener noreferrer">RSS</a>
+						</li>
+				</ul>
+			</nav>
+
+			<p>
+				
+				Sketched in <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">Figma</a> and mainly coded in <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VS Code</a>.
+				
+				Read the <a href="/colophon/">colophon</a> or view the <a href="https://github.com/psantalla/pablo-website-v2" target="_blank" rel="noopener noreferrer">source code</a>.
+				
+			</p>
+
+		</footer>
+
+		<!-- This page `/doc-tutorials/pi5-nas-setup/` was built on 2025-12-22T01:59:10.622Z -->
+		
+		
+	</body>
+</html>

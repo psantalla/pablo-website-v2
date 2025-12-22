@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			SnapClose Tabs Implementation | Pablo Santalla</title>
+		<meta name="description" content="Implementation guide for dynamic tab systems in WordPress using Avada, ACF/Pods, and custom JavaScript">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Pablo Santalla">
+
+		
+		
+		
+		
+		<link rel="stylesheet" href="/dist/vsGv1hwhlj.css">
+	</head>
+	<body>
+		<a href="#skip-link" id="skip-link" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			
+			<a href="/" class="home-link">
+				<img src="/img/pablo-santalla-2024-small.webp" alt="Home">
+			</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/now/">Now</a>
+						</li>
+						<li class="nav-item">
+							<a href="/blog/">Writing</a>
+						</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main">
+			
+
+<h1 id="snapclose-tabs-implementation">SnapClose Tabs Implementation</h1>
+
+<ul class="entry-metadata">
+	<li class="entry-date">
+		Revised on <time datetime="2024-12-21">December 20, 2024</time>
+	</li>
+</ul>
+
+<blockquote>
+This is a typical tab implementation in <a href="https://avada.com" target="_blank" rel="noopener noreferrer">Avada</a>. Some page builders don't include this functionality out of the box, but it's a basic JavaScript pattern. Here I've summarized my notes and process for tackling it, including some useful observations for improving team workflows.
+</blockquote>
+<h2 id="general-notes">General Notes</h2>
+<p><picture><source type="image/avif" srcset="/doc-tutorials/snapclose-tabs-implementation/t-TtZG8M90-697.avif 697w"><source type="image/webp" srcset="/doc-tutorials/snapclose-tabs-implementation/t-TtZG8M90-697.webp 697w"><img loading="lazy" decoding="async" src="/doc-tutorials/snapclose-tabs-implementation/t-TtZG8M90-697.png" alt="tab-double.png" width="697" height="441"></picture></p>
+<p>It's a double tab. The first one should be straightforward, but I'm already thinking I'll need ACF if I want to avoid a mess of conditional sections. The problem comes when each section is different.</p>
+<p>Something to communicate to the design team: from now on we should pay more attention to consistency, making it easier to implement without having to rely on conditionals.</p>
+<p><picture><source type="image/avif" srcset="/doc-tutorials/snapclose-tabs-implementation/eCKnv1AFps-698.avif 698w"><source type="image/webp" srcset="/doc-tutorials/snapclose-tabs-implementation/eCKnv1AFps-698.webp 698w"><img loading="lazy" decoding="async" src="/doc-tutorials/snapclose-tabs-implementation/eCKnv1AFps-698.png" alt="tab-double-text.png" width="698" height="431"></picture></p>
+<p>Sometimes, the column containing the video also has a text block above it. The only way to accommodate both situations—with and without the text block—is through a conditional.</p>
+<h2 id="technical-ideas-and-requirements">Technical Ideas &amp; Requirements</h2>
+<p>This might be a good time to test <a href="https://wordpress.org/plugins/pods/" target="_blank" rel="noopener noreferrer">Pods</a>, an alternative to ACF Pro. Either way, I still need to implement the design. If Pods works out, the steps would be:</p>
+<ol>
+<li>Implement a static layout</li>
+<li>Install Pods and test it. Check if it has a repeater field option, looks like there's some documentation <a href="https://docs.pods.io/fields/simple-repeatable-fields/" target="_blank" rel="noopener noreferrer">here</a></li>
+<li>Create the necessary fields in Pods</li>
+<li>Embed the setup into the static layout</li>
+<li>Create JavaScript logic to make the tabs work</li>
+</ol>
+<h3 id="javascript-logic">JavaScript Logic</h3>
+<pre class="language-javascript" tabindex="0"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">initTabs</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">wrapper<span class="token punctuation">,</span> tabSel<span class="token punctuation">,</span> panelSel</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> tabs <span class="token operator">=</span> wrapper<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span>tabSel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> panels <span class="token operator">=</span> wrapper<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span>panelSel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">activate</span> <span class="token operator">=</span> <span class="token parameter">i</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    tabs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">tab<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=></span> tab<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">toggle</span><span class="token punctuation">(</span><span class="token string">"active"</span><span class="token punctuation">,</span> index <span class="token operator">===</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    panels<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">panel<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=></span> panel<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> index <span class="token operator">===</span> i <span class="token operator">?</span> <span class="token string">"block"</span> <span class="token operator">:</span> <span class="token string">"none"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  tabs<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">tab<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token operator">=></span> tab<span class="token punctuation">.</span><span class="token function-variable function">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">activate</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">activate</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h3 id="if-not-using-pods">If Not Using Pods</h3>
+<ol>
+<li>Implement a static layout. Name sections so they can be easily located</li>
+<li>Duplicate the implementation as many times as needed</li>
+<li>Create JavaScript logic</li>
+</ol>
+<p>Basically, there are two implementation paths: one that prioritizes scalability and one that prioritizes time. Implementing a static layout is a common step for both, so that's where I can start.</p>
+<h3 id="avada-specific-approach">Avada-Specific Approach</h3>
+<p>In Avada I won't be able to properly implement a repeater field. What I could do instead is display elements through a shortcode generated in PHP that handles the logic. If I go down this implementation path, the right approach would be:</p>
+<ul>
+<li>Use postcards, so I can call the 'tutorial' CPT and ideally apply an entrance animation to the column</li>
+<li>Fill each postcard with a PHP structure that allows calling each video</li>
+</ul>
+<h2 id="tweaking-the-setup-to-my-liking">Tweaking the Setup to My Liking</h2>
+<p>Someone enabled responsive typography in Avada. I'd like to disable it to set my own font sizing rules.</p>
+<p>There's a way to fix this in Avada, and it's forcing the following: <code>--typography_sensitivity: 0;</code></p>
+<p>This makes the font size definition unaffected by the scaling factor that Avada applies.</p>
+<p>One way to apply it per page, so it overrides the default values:</p>
+<pre class="language-css" tabindex="0"><code class="language-css"><span class="token selector">:root</span> <span class="token punctuation">{</span>
+  <span class="token property">--typography_sensitivity</span><span class="token punctuation">:</span> 0 <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>That, applied as inline within a <code>style</code> tag would solve it, but if we want to apply it from a stylesheet, more appropriately, it would look like this:</p>
+<pre class="language-css" tabindex="0"><code class="language-css"><span class="token comment">/* where n is the page ID */</span>
+<span class="token selector">.page-id-n *</span> <span class="token punctuation">{</span>
+  <span class="token property">--typography_sensitivity</span><span class="token punctuation">:</span> 0 <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+
+
+
+<details class="entry-changelog">
+	<summary class="entry-changelog-summary">Changelog</summary>
+	<ul class="entry-changelog-list">
+	
+		<li>Removed personal notes and kept only technical documentation</li>
+	
+		<li>Translated from Spanish to English</li>
+	
+	</ul>
+</details>
+
+<ul class="entry-metadata">
+	<li><a href="/doc-topics/wordpress/" class="entry-taxonomy">WordPress</a></li>
+	<li><a href="/doc-topics/avada/" class="entry-taxonomy">Avada</a></li>
+	<li><a href="/doc-topics/acf/" class="entry-taxonomy">ACF</a></li>
+	<li><a href="/doc-topics/javascript/" class="entry-taxonomy">JavaScript</a></li>
+</ul>
+
+		</main>
+
+		<footer>
+
+			<nav>
+				<h2 class="visually-hidden" id="footer-navigation-menu">Footer navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/contact/">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a href="/doc-tutorials/">Docs</a>
+						</li>
+						<li class="nav-item">
+							<a href="/feed/feed.xml" target="_blank" rel="noopener noreferrer">RSS</a>
+						</li>
+				</ul>
+			</nav>
+
+			<p>
+				
+				Sketched in <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">Figma</a> and mainly coded in <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VS Code</a>.
+				
+				Read the <a href="/colophon/">colophon</a> or view the <a href="https://github.com/psantalla/pablo-website-v2" target="_blank" rel="noopener noreferrer">source code</a>.
+				
+			</p>
+
+		</footer>
+
+		<!-- This page `/doc-tutorials/snapclose-tabs-implementation/` was built on 2025-12-22T01:59:10.623Z -->
+		
+		
+	</body>
+</html>

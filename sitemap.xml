@@ -52,6 +52,13 @@
 	
 		
 		<url>
+			<loc>https://pablosantalla.com/doc-tutorials/snapclose-tabs-implementation/</loc>
+			<lastmod>2024-12-21</lastmod>
+		</url>
+	
+	
+		
+		<url>
 			<loc>https://pablosantalla.com/blog/time-to-switch/</loc>
 			<lastmod>2025-07-17</lastmod>
 		</url>
@@ -101,6 +108,13 @@
 	
 		
 		<url>
+			<loc>https://pablosantalla.com/doc-tutorials/pi5-nas-setup/</loc>
+			<lastmod>2025-12-14</lastmod>
+		</url>
+	
+	
+		
+		<url>
 			<loc>https://pablosantalla.com/blog/team-solidarity/</loc>
 			<lastmod>2025-12-14</lastmod>
 		</url>
@@ -108,57 +122,78 @@
 	
 		
 		<url>
-			<loc>https://pablosantalla.com/blog/</loc>
+			<loc>https://pablosantalla.com/doc-tutorials/vs-code-raspberry-pi-stable/</loc>
 			<lastmod>2025-12-21</lastmod>
+		</url>
+	
+	
+		
+		<url>
+			<loc>https://pablosantalla.com/blog/</loc>
+			<lastmod>2025-12-22</lastmod>
 		</url>
 	
 	
 		
 		<url>
 			<loc>https://pablosantalla.com/colophon/</loc>
-			<lastmod>2025-12-21</lastmod>
+			<lastmod>2025-12-22</lastmod>
 		</url>
 	
 	
 		
 		<url>
 			<loc>https://pablosantalla.com/contact/</loc>
-			<lastmod>2025-12-21</lastmod>
+			<lastmod>2025-12-22</lastmod>
+		</url>
+	
+	
+		
+		<url>
+			<loc>https://pablosantalla.com/doc-topics/</loc>
+			<lastmod>2025-12-22</lastmod>
+		</url>
+	
+	
+		
+		<url>
+			<loc>https://pablosantalla.com/doc-tutorials/</loc>
+			<lastmod>2025-12-22</lastmod>
 		</url>
 	
 	
 		
 		<url>
 			<loc>https://pablosantalla.com/</loc>
-			<lastmod>2025-12-21</lastmod>
+			<lastmod>2025-12-22</lastmod>
 		</url>
 	
 	
 		
 		<url>
 			<loc>https://pablosantalla.com/project-topics/</loc>
-			<lastmod>2025-12-21</lastmod>
+			<lastmod>2025-12-22</lastmod>
 		</url>
 	
 	
 		
 		<url>
 			<loc>https://pablosantalla.com/projects/</loc>
-			<lastmod>2025-12-21</lastmod>
+			<lastmod>2025-12-22</lastmod>
 		</url>
 	
 	
 		
 		<url>
 			<loc>https://pablosantalla.com/tags/</loc>
-			<lastmod>2025-12-21</lastmod>
+			<lastmod>2025-12-22</lastmod>
 		</url>
 	
 	
 		
 		<url>
 			<loc>https://pablosantalla.com/feed/feed.xml</loc>
-			<lastmod>2025-12-21</lastmod>
+			<lastmod>2025-12-22</lastmod>
 		</url>
 	
 </urlset>

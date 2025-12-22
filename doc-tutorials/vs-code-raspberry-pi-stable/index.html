@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			VS Code on Raspberry Pi 5 - Stable Setup | Pablo Santalla</title>
+		<meta name="description" content="Fix for VS Code crashes on Raspberry Pi 5 with 16K pagesize kernel">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Pablo Santalla">
+
+		
+		
+		
+		
+		<link rel="stylesheet" href="/dist/vsGv1hwhlj.css">
+	</head>
+	<body>
+		<a href="#skip-link" id="skip-link" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			
+			<a href="/" class="home-link">
+				<img src="/img/pablo-santalla-2024-small.webp" alt="Home">
+			</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/now/">Now</a>
+						</li>
+						<li class="nav-item">
+							<a href="/blog/">Writing</a>
+						</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main">
+			
+
+<h1 id="vs-code-on-raspberry-pi-5-stable-setup">VS Code on Raspberry Pi 5 - Stable Setup</h1>
+
+<ul class="entry-metadata">
+	<li class="entry-date">
+		Revised on <time datetime="2025-12-21">December 20, 2025</time>
+	</li>
+</ul>
+
+<blockquote>
+<p>VS Code v1.97+ crashes on Pi 5 with &quot;code 5&quot; error due to incompatibility with the 16K pagesize kernel. This is the workaround I've been using since the bug appeared. As of this revision date, Microsoft hasn't fixed it yet, but it's likely this will become unnecessary at some point.</p>
+</blockquote>
+<h2 id="problem">Problem</h2>
+<p>VS Code v1.97+ crashes with &quot;code 5&quot; error on Pi5 due to incompatibility with 16K pagesize kernel.</p>
+<h2 id="solution">Solution</h2>
+<h3 id="kernel-fix-permanent">Kernel Fix (permanent)</h3>
+<p>Edit boot configuration:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">nano</span> /boot/firmware/config.txt</code></pre>
+<p>Add at the end:</p>
+<pre><code>kernel=kernel8.img
+</code></pre>
+<p>Reboot:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">reboot</span></code></pre>
+<h3 id="install-vs-code">Install VS Code</h3>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> code <span class="token parameter variable">-y</span></code></pre>
+<h3 id="first-launch">First Launch</h3>
+<pre class="language-bash" tabindex="0"><code class="language-bash">code</code></pre>
+<p>On login: accept &quot;Use weaker encryption&quot; (keyring not available by default).</p>
+<h2 id="performance">Performance</h2>
+<p>Loss: ~2-5% with 4K kernel vs 16K (imperceptible in practice).</p>
+<p>Benefit: Stable VS Code + automatic updates.</p>
+<h2 id="restore-16k-kernel-if-microsoft-fixes-the-bug">Restore 16K Kernel (if Microsoft fixes the bug)</h2>
+<p>Edit boot configuration:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">nano</span> /boot/firmware/config.txt</code></pre>
+<p>Remove this line:</p>
+<pre><code>kernel=kernel8.img
+</code></pre>
+<p>Reboot:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">reboot</span></code></pre>
+<p>Check if VS Code remains stable. If it crashes, revert the change.</p>
+<h2 id="known-issues">Known Issues</h2>
+<ul>
+<li><strong>Keyring warning:</strong> Normal behavior, use &quot;weaker encryption&quot;</li>
+<li><strong>Mouse lag:</strong> <code>Ctrl+Shift+P</code> → &quot;Configure Runtime Arguments&quot; → uncomment <code>&quot;disable-hardware-acceleration&quot;: true</code></li>
+<li><strong>VNC:</strong> Degraded performance, use SSH Remote instead</li>
+</ul>
+<h2 id="system-info">System Info</h2>
+<ul>
+<li><strong>Bug affects:</strong> VS Code v1.97.x, v1.98.x (and possibly later versions)</li>
+<li><strong>Tested on:</strong> Raspberry Pi 5 (8GB), Raspberry Pi OS Bookworm 64-bit</li>
+</ul>
+
+
+
+<details class="entry-changelog">
+	<summary class="entry-changelog-summary">Changelog</summary>
+	<ul class="entry-changelog-list">
+	
+		<li>Translated from Spanish to English</li>
+	
+	</ul>
+</details>
+
+<ul class="entry-metadata">
+	<li><a href="/doc-topics/raspberry-pi/" class="entry-taxonomy">Raspberry Pi</a></li>
+	<li><a href="/doc-topics/vs-code/" class="entry-taxonomy">VS Code</a></li>
+	<li><a href="/doc-topics/linux/" class="entry-taxonomy">Linux</a></li>
+</ul>
+
+		</main>
+
+		<footer>
+
+			<nav>
+				<h2 class="visually-hidden" id="footer-navigation-menu">Footer navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/contact/">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a href="/doc-tutorials/">Docs</a>
+						</li>
+						<li class="nav-item">
+							<a href="/feed/feed.xml" target="_blank" rel="noopener noreferrer">RSS</a>
+						</li>
+				</ul>
+			</nav>
+
+			<p>
+				
+				Sketched in <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">Figma</a> and mainly coded in <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VS Code</a>.
+				
+				Read the <a href="/colophon/">colophon</a> or view the <a href="https://github.com/psantalla/pablo-website-v2" target="_blank" rel="noopener noreferrer">source code</a>.
+				
+			</p>
+
+		</footer>
+
+		<!-- This page `/doc-tutorials/vs-code-raspberry-pi-stable/` was built on 2025-12-22T01:59:10.623Z -->
+		
+		
+	</body>
+</html>
