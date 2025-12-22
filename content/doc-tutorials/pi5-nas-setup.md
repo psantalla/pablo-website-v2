@@ -13,9 +13,8 @@ changelog:
   - "Translated from Spanish to English"
 ---
 
-<blockquote>
-This is my setup for turning a Raspberry Pi 5 into a home NAS server. It handles Time Machine backups, shared storage, and Android sync with ignore-delete functionality. Pretty straightforward once you know the steps.
-</blockquote>
+
+> This is my setup for turning a Raspberry Pi 5 into a home NAS server. It handles Time Machine backups, shared storage, and Android sync with ignore-delete functionality. Pretty straightforward once you know the steps.
 
 ## Objective
 
@@ -54,6 +53,7 @@ lsblk -o NAME,UUID
 ```
 
 *Example UUIDs (yours will be different):*
+
 - *TimeMachine: `a843d642-b9fa-444c-97c1-a40f80fafebf`*
 - *Files: `8d84844b-f35c-468c-a1fb-bfccd67fa17c`*
 
