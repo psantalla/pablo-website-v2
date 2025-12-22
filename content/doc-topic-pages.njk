@@ -1,0 +1,22 @@
+---js
+const pagination = {
+	data: "collections.docTopics",
+	size: 1,
+	alias: "docTopic"
+};
+
+const eleventyExcludeFromCollections = true;
+
+const eleventyComputed = {
+	title: data => `Documentation: ${data.docTopic}`,
+	permalink: function(data) {
+		return `/doc-topics/${this.slugify(data.docTopic)}/`;
+	}
+};
+---
+<h1>Documentation: {{ docTopic }}</h1>
+
+{% set doctutorialslist = collections.docTutorials | filterByDocTopic(docTopic) %}
+{% include "doctutorialslist.njk" %}
+
+<p>See <a href="/doc-topics/">all documentation topics</a>.</p>

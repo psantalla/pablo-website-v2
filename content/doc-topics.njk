@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+---
+<h1>Documentation Topics</h1>
+
+<ul class="entry-list">
+{%- for topic in collections.docTopics %}
+	{%- set topicUrl %}/doc-topics/{{ topic | slugify }}/{% endset %}
+	<li class="entry-item">
+		<a href="{{ topicUrl }}" class="entry-link">
+			<span class="entry-title">{{ topic }}</span>
+		</a>
+	</li>
+{%- endfor %}
+</ul>

@@ -1,5 +1,5 @@
-$auto-theme: auto;
-$default-theme: "";
+$auto-theme: true;
+$default-theme: "light";
 $generate-classes: false;
 
 $colors-light: (
@@ -11,8 +11,8 @@ $colors-light: (
     "accent": #F55D3E,
     "accent-a": #f55d3ea7,
     "code-keyword": #F55D3E,
-    "code-string": #3EF5DF,
-    "code-number": #3EF5DF,
+    "code-string": #2eb8a7,
+    "code-number": #2eb8a7,
     "code-comment": #13111750,
     "code-bg": #e8e8e8,
     "code-deleted-bg": #F55D3E,

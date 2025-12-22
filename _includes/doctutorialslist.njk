@@ -1,0 +1,9 @@
+<ul class="entry-list">
+{%- for doc in doctutorialslist | sort(false, false, 'data.order') %}
+	<li class="entry-item{% if doc.url == url %} entry-item-active{% endif %}">
+		<a href="{{ doc.url }}" class="entry-link">
+			<span class="entry-title">{% if doc.data.title %}{{ doc.data.title }}{% else %}<code>{{ doc.url }}</code>{% endif %}</span>
+		</a>
+	</li>
+{%- endfor %}
+</ul>

@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+---
+<style>{% include "css/code.css" %}</style>
+
+<h1>{{ title }}</h1>
+
+<ul class="entry-metadata">
+	<li class="entry-date">
+		Revised on <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+	</li>
+</ul>
+
+{{ content | safe }}
+
+{% if changelog %}
+<details class="entry-changelog">
+	<summary class="entry-changelog-summary">Changelog</summary>
+	<ul class="entry-changelog-list">
+	{% for change in changelog %}
+		<li>{{ change }}</li>
+	{% endfor %}
+	</ul>
+</details>
+{% endif %}
+
+{%- if docTopics %}
+<ul class="entry-metadata">
+	{%- for topic in docTopics %}
+	{%- set topicUrl %}/doc-topics/{{ topic | slugify }}/{% endset %}
+	<li><a href="{{ topicUrl }}" class="entry-taxonomy">{{ topic }}</a></li>
+	{%- endfor %}
+</ul>
+{%- endif %}
