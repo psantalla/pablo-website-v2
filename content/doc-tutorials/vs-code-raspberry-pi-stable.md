@@ -21,19 +21,19 @@ VS Code v1.97+ crashes with "code 5" error on Pi5 due to incompatibility with 16
 
 ### Kernel Fix (permanent)
 
-Edit boot configuration:
+1. Edit boot configuration:
 
 ```bash
 sudo nano /boot/firmware/config.txt
 ```
 
-Add at the end:
+2. Add at the end:
 
 ```
 kernel=kernel8.img
 ```
 
-Reboot:
+3. Reboot:
 
 ```bash
 sudo reboot
@@ -56,31 +56,30 @@ On login: accept "Use weaker encryption" (keyring not available by default).
 
 ## Performance
 
-Loss: ~2-5% with 4K kernel vs 16K (imperceptible in practice).
-
-Benefit: Stable VS Code + automatic updates.
+- Loss: ~2-5% with 4K kernel vs 16K (imperceptible in practice).
+- Benefit: Stable VS Code + automatic updates.
 
 ## Restore 16K Kernel (if Microsoft fixes the bug)
 
-Edit boot configuration:
+1. Edit boot configuration:
 
 ```bash
 sudo nano /boot/firmware/config.txt
 ```
 
-Remove this line:
+2. Remove this line:
 
 ```
 kernel=kernel8.img
 ```
 
-Reboot:
+3. Reboot:
 
 ```bash
 sudo reboot
 ```
 
-Check if VS Code remains stable. If it crashes, revert the change.
+4. Check if VS Code remains stable. If it crashes, revert the change.
 
 ## Known Issues
 
