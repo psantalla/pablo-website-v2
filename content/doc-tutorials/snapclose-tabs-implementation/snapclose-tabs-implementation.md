@@ -13,9 +13,7 @@ changelog:
   - "Translated from Spanish to English"
 ---
 
-<blockquote>
-This is a typical tab implementation in <a href="https://avada.com" target="_blank" rel="noopener noreferrer">Avada</a>. Some page builders don't include this functionality out of the box, but it's a basic JavaScript pattern. Here I've summarized my notes and process for tackling it, including some useful observations for improving team workflows.
-</blockquote>
+> This is a typical tab implementation in <a href="https://avada.com" target="_blank" rel="noopener noreferrer">Avada</a>. Some page builders don't include this functionality out of the box, but it's a basic JavaScript pattern. Here I've summarized my notes and process for tackling it, including some useful observations for improving team workflows.
 
 ## General Notes
 
@@ -81,16 +79,18 @@ This makes the font size definition unaffected by the scaling factor that Avada 
 
 One way to apply it per page, so it overrides the default values:
 
-```css
-:root {
-  --typography_sensitivity: 0 !important;
-}
+```html
+<style>
+	:root {
+	  --typography_sensitivity: 0 !important;
+	}
+</style>
 ```
 
-That, applied as inline within a `style` tag would solve it, but if we want to apply it from a stylesheet, more appropriately, it would look like this:
+That above, applied as inline within a `style` tag would solve it, but if we want to apply it from a stylesheet, more appropriately, it would look like this:
 
 ```css
-/* where n is the page ID */
+/* where n is the page ID you don't want the auto-scale to be applied */
 .page-id-n * {
   --typography_sensitivity: 0 !important;
 }
