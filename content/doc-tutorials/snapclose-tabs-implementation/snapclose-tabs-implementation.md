@@ -1,16 +1,16 @@
 ---
-title: "SnapClose Tabs Implementation"
-description: "Implementation guide for dynamic tab systems in WordPress using Avada, ACF/Pods, and custom JavaScript"
+title: SnapClose Tabs Implementation
+description: Implementation guide for dynamic tab systems in WordPress using Avada, ACF/Pods, and custom JavaScript
 order: 1
-date: 2024-12-21
+date: 2025-07-27
 docTopics:
   - WordPress
   - Avada
   - ACF
   - JavaScript
 changelog:
-  - "Removed personal notes and kept only technical documentation"
-  - "Translated from Spanish to English"
+  - Removed personal notes and kept only technical documentation
+  - Translated from Spanish to English
 ---
 
 > This is a typical tab implementation in <a href="https://avada.com" target="_blank" rel="noopener noreferrer">Avada</a>. Some page builders don't include this functionality out of the box, but it's a basic JavaScript pattern. Here I've summarized my notes and process for tackling it, including some useful observations for improving team workflows.
