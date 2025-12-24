@@ -14,3 +14,5 @@ Bonus points:
 - Small, focused team (~7 people total: designers, devs, copy, PM).
 
 If this resonates, drop me a line at  [pablo@pablosantalla.com](mailto:pablo@pablosantalla.com).
+
+[Download my resume (PDF)](https://docs.google.com/document/u/0/export?format=pdf&id=1UWdXXE6bjjfsJcR9j_cKfjRXQ4pNLcWtlQvDg-ewwls&tab=t.0)
