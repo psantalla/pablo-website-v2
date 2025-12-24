@@ -1,3 +1,6 @@
+---
+title: "Hire Me"
+---
 # Hire me
 
 I’m genuinely busy and only open to new collaborations if (beyond compensation) they meet these baseline criteria:

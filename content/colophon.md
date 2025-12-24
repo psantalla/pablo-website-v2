@@ -1,3 +1,6 @@
+---
+title: "Colophon"
+---
 # Colophon
 
 *The stack behind this website aims to excel in stability, ease of content editing and publishing, while future-proofing the whole setup.*

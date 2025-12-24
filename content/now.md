@@ -1,7 +1,8 @@
 ---
+title: "Now"
 eleventyNavigation:
   key: "Now"
-  order: 2
+  order: 3
 date: 2025-11-26
 ---
 # What I'm doing now
