@@ -21,7 +21,8 @@ layout: layouts/base.njk
 	{%- endif %}
 	{%- if projectLink %}
 	<li class="entry-date">
-		<a href="{{ projectLink }}" target="_blank" rel="noopener noreferrer">View live site</a>
+		{%- set isRepo = "github.com/" in projectLink or "gitlab.com/" in projectLink or "bitbucket.org/" in projectLink %}
+		<a href="{{ projectLink }}" target="_blank" rel="noopener noreferrer">{{ "View repository" if isRepo else "View live site" }}</a>
 	</li>
 	{%- endif %}
 </ul>

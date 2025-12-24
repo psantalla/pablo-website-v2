@@ -8,6 +8,5 @@ eleventyNavigation:
 
 # Contact
 
-Get in touch at [pablo@pablosantalla.com](mailto:pablo@pablosantalla.com).
-
+Get in touch at [pablo@pablosantalla.com](mailto:pablo@pablosantalla.com).<br>
 Working together? Read the [hire me](/hire-me) page.
