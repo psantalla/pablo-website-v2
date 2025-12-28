@@ -53,31 +53,25 @@
 	</li>
 </ul>
 
-<h1 id="fast-content-injection-in-wordpress-2">Fast Content Injection in WordPress</h1>
-<p>When you need to create or update multiple WordPress posts quickly without clicking through the admin interface, this pattern provides a code-based alternative. Instead of relying on third-party import tools or manually publishing entries one by one through the WordPress backend, you can define your content in an array and inject it directly into the database with a single file save.</p>
-<p>This approach is especially useful when migrating content between environments, bulk updating post meta fields, or managing assignments between posts. The example below uses FAQs with page assignments, but the same pattern applies to any custom post type with ACF fields.</p>
-<h2 id="faqs-example">FAQs Example</h2>
-<p>This example serves as the base pattern for all content injection generators. The structure and logic can be adapted for any custom post type with ACF fields.</p>
-<p>Includes crosslet (page assignment based on ID or title). Assignment by ID is recommended.</p>
+<p>When you need to create or update multiple WordPress posts quickly, this pattern lets you define content in an array and inject it directly with a single file save. No clicking through the admin interface or relying on third-party import tools.</p>
+<p>This example uses FAQs with page assignments and categories, but the pattern works for any custom post type with ACF fields.</p>
+<h2 id="generator">Generator</h2>
+<p><strong>Features:</strong></p>
 <ul>
-<li>Control over trashing non-declared entries</li>
-<li>Override/update based on given editable properties</li>
-<li>Saves errors to log</li>
-<li>FAQ ID is optional and allows forced update based on ID matching</li>
-<li>Nuke option permanently deletes all FAQ posts (requires active: true to execute)</li>
+<li>Create or update posts by title match or ID</li>
+<li>Assign to pages and taxonomy terms</li>
+<li>Control over updating existing entries</li>
+<li>Bulk delete non-declared entries</li>
+<li>Nuke option for complete cleanup</li>
 </ul>
-<p><strong>IMPORTANT:</strong></p>
-<ul>
-<li>Fields are ACF-dependent</li>
-<li>Nuke only works when active is true</li>
-<li>Use nuke with extreme caution - deletion is permanent and irreversible</li>
-</ul>
+<p><strong>IMPORTANT:</strong> Fields are ACF-dependent. Nuke requires active: true.</p>
 <pre class="language-php" tabindex="0"><code class="language-php"><span class="token comment">// ============================================================================</span>
 <span class="token comment">// FAQ GENERATOR (DEVELOPMENT ONLY)</span>
 <span class="token comment">// ============================================================================</span>
 <span class="token comment">// Creates/updates FAQ posts with granular control</span>
 <span class="token comment">// Usage: Configure $config, set active true, save, refresh admin, set active false</span>
 <span class="token comment">//        Use page IDs in assignment for precision</span>
+<span class="token comment">//        Use category slug or ID for taxonomy assignment</span>
 <span class="token comment">//        Optional 'id' key in FAQ array forces update of specific post</span>
 
 <span class="token comment">// WARNING: nuke_all requires active: true and DELETES ALL FAQ POSTS PERMANENTLY</span>
@@ -90,15 +84,34 @@
 
 <span class="token variable">$faqs</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
 	<span class="token keyword">array</span><span class="token punctuation">(</span>
-		<span class="token string single-quoted-string">'question'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'Lorem ipsum dolor sit amet consectetur?'</span><span class="token punctuation">,</span>
-		<span class="token string single-quoted-string">'answer'</span>     <span class="token operator">=></span> <span class="token string single-quoted-string">'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'question'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'Will I be able to take my FTA pet home the same day?'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'answer'</span>     <span class="token operator">=></span> <span class="token string single-quoted-string">'&lt;p>Yes, once the adoption is finalized, you can take your new companion home immediately.&lt;/p>&lt;p>We provide all necessary documentation and initial care instructions.&lt;/p>'</span><span class="token punctuation">,</span>
 		<span class="token string single-quoted-string">'assignment'</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'category'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'foster-to-adopt'</span><span class="token punctuation">,</span>
 	<span class="token punctuation">)</span><span class="token punctuation">,</span>
 	<span class="token keyword">array</span><span class="token punctuation">(</span>
-		<span class="token string single-quoted-string">'id'</span>         <span class="token operator">=></span> <span class="token number">789</span><span class="token punctuation">,</span>
-		<span class="token string single-quoted-string">'question'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'Sed do eiusmod tempor incididunt?'</span><span class="token punctuation">,</span>
-		<span class="token string single-quoted-string">'answer'</span>     <span class="token operator">=></span> <span class="token string single-quoted-string">'Duis aute irure dolor in reprehenderit.'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'question'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'Are there any fees or payments for FTAs?'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'answer'</span>     <span class="token operator">=></span> <span class="token string single-quoted-string">'&lt;p>Foster to Adopt programs typically have reduced fees compared to standard adoptions.&lt;/p>&lt;p>Contact our office for specific pricing information.&lt;/p>'</span><span class="token punctuation">,</span>
 		<span class="token string single-quoted-string">'assignment'</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Services'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'category'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'foster-to-adopt'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'question'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'Can I take my FTA to an outside vet?'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'answer'</span>     <span class="token operator">=></span> <span class="token string single-quoted-string">'&lt;p>Yes, you are welcome to use your preferred veterinarian.&lt;/p>&lt;p>We recommend maintaining consistent veterinary care for your pet.&lt;/p>'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'assignment'</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">789</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'category'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'foster-to-adopt'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'question'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'What is the adoption process timeline?'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'answer'</span>     <span class="token operator">=></span> <span class="token string single-quoted-string">'&lt;p>The standard adoption process typically takes 3-5 business days from application to approval.&lt;/p>&lt;p>This includes background checks and home visits when required.&lt;/p>'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'assignment'</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Home'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'category'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'adopt'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token keyword">array</span><span class="token punctuation">(</span>
+		<span class="token string single-quoted-string">'question'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'What supplies do I need before bringing my pet home?'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'answer'</span>     <span class="token operator">=></span> <span class="token string single-quoted-string">'&lt;p>Basic supplies include food and water bowls, appropriate food, bedding, toys, and grooming supplies.&lt;/p>&lt;p>We provide a complete checklist during the adoption process.&lt;/p>'</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'assignment'</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token string single-quoted-string">'category'</span>   <span class="token operator">=></span> <span class="token string single-quoted-string">'adopt'</span><span class="token punctuation">,</span>
 	<span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -172,6 +185,16 @@
 			<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword type-casting">array</span><span class="token punctuation">)</span> <span class="token variable">$faq</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'assignment'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 			
 			<span class="token function">update_field</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'faq-crosslet'</span><span class="token punctuation">,</span> <span class="token variable">$page_ids</span><span class="token punctuation">,</span> <span class="token variable">$post_id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$faq</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'category'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token variable">$term</span> <span class="token operator">=</span> <span class="token function">is_numeric</span><span class="token punctuation">(</span><span class="token variable">$faq</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'category'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 
+					<span class="token operator">?</span> <span class="token function">get_term</span><span class="token punctuation">(</span><span class="token variable">$faq</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'category'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'faq-category'</span><span class="token punctuation">)</span>
+					<span class="token punctuation">:</span> <span class="token class-name return-type">get_term_by</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'slug'</span><span class="token punctuation">,</span> <span class="token variable">$faq</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'category'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'faq-category'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				
+				<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$term</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">is_wp_error</span><span class="token punctuation">(</span><span class="token variable">$term</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token function">wp_set_object_terms</span><span class="token punctuation">(</span><span class="token variable">$post_id</span><span class="token punctuation">,</span> <span class="token variable">$term</span><span class="token operator">-></span><span class="token property">term_id</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'faq-category'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">}</span>
 		<span class="token punctuation">}</span>
 		
 		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$config</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'delete_undeclared'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -192,6 +215,17 @@
 <span class="token punctuation">}</span></code></pre>
 
 
+
+<details class="entry-changelog">
+	<summary class="entry-changelog-summary">Changelog</summary>
+	<ul class="entry-changelog-list">
+	
+		<li>Added taxonomy category filtering</li>
+	
+		<li>Initial FAQ injection pattern</li>
+	
+	</ul>
+</details>
 
 <ul class="entry-metadata">
 	<li><a href="/doc-topics/wordpress/" class="entry-taxonomy">WordPress</a></li>
@@ -228,7 +262,7 @@
 
 		</footer>
 
-		<!-- This page `/doc-tutorials/wp-content-injection/` was built on 2025-12-27T01:11:48.794Z -->
+		<!-- This page `/doc-tutorials/wp-content-injection/` was built on 2025-12-28T06:22:56.322Z -->
 		
 		
 	</body>
