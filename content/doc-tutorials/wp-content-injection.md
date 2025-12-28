@@ -7,30 +7,25 @@ docTopics:
   - WordPress
   - ACF
   - PHP
+changelog:
+  - "Added taxonomy category filtering"
+  - "Initial FAQ injection pattern"
 ---
 
-# Fast Content Injection in WordPress
+When you need to create or update multiple WordPress posts quickly, this pattern lets you define content in an array and inject it directly with a single file save. No clicking through the admin interface or relying on third-party import tools.
 
-When you need to create or update multiple WordPress posts quickly without clicking through the admin interface, this pattern provides a code-based alternative. Instead of relying on third-party import tools or manually publishing entries one by one through the WordPress backend, you can define your content in an array and inject it directly into the database with a single file save.
+This example uses FAQs with page assignments and categories, but the pattern works for any custom post type with ACF fields.
 
-This approach is especially useful when migrating content between environments, bulk updating post meta fields, or managing assignments between posts. The example below uses FAQs with page assignments, but the same pattern applies to any custom post type with ACF fields.
+## Generator
 
-## FAQs Example
+**Features:**
+- Create or update posts by title match or ID
+- Assign to pages and taxonomy terms
+- Control over updating existing entries
+- Bulk delete non-declared entries
+- Nuke option for complete cleanup
 
-This example serves as the base pattern for all content injection generators. The structure and logic can be adapted for any custom post type with ACF fields.
-
-Includes crosslet (page assignment based on ID or title). Assignment by ID is recommended.
-
-- Control over trashing non-declared entries
-- Override/update based on given editable properties  
-- Saves errors to log
-- FAQ ID is optional and allows forced update based on ID matching
-- Nuke option permanently deletes all FAQ posts (requires active: true to execute)
-
-**IMPORTANT:** 
-- Fields are ACF-dependent
-- Nuke only works when active is true
-- Use nuke with extreme caution - deletion is permanent and irreversible
+**IMPORTANT:** Fields are ACF-dependent. Nuke requires active: true.
 ```php
 // ============================================================================
 // FAQ GENERATOR (DEVELOPMENT ONLY)
@@ -38,6 +33,7 @@ Includes crosslet (page assignment based on ID or title). Assignment by ID is re
 // Creates/updates FAQ posts with granular control
 // Usage: Configure $config, set active true, save, refresh admin, set active false
 //        Use page IDs in assignment for precision
+//        Use category slug or ID for taxonomy assignment
 //        Optional 'id' key in FAQ array forces update of specific post
 
 // WARNING: nuke_all requires active: true and DELETES ALL FAQ POSTS PERMANENTLY
@@ -50,15 +46,34 @@ $config = array(
 
 $faqs = array(
 	array(
-		'question'   => 'Lorem ipsum dolor sit amet consectetur?',
-		'answer'     => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+		'question'   => 'Will I be able to take my FTA pet home the same day?',
+		'answer'     => '<p>Yes, once the adoption is finalized, you can take your new companion home immediately.</p><p>We provide all necessary documentation and initial care instructions.</p>',
 		'assignment' => array(123, 456),
+		'category'   => 'foster-to-adopt',
 	),
 	array(
-		'id'         => 789,
-		'question'   => 'Sed do eiusmod tempor incididunt?',
-		'answer'     => 'Duis aute irure dolor in reprehenderit.',
+		'question'   => 'Are there any fees or payments for FTAs?',
+		'answer'     => '<p>Foster to Adopt programs typically have reduced fees compared to standard adoptions.</p><p>Contact our office for specific pricing information.</p>',
 		'assignment' => array('Services'),
+		'category'   => 'foster-to-adopt',
+	),
+	array(
+		'question'   => 'Can I take my FTA to an outside vet?',
+		'answer'     => '<p>Yes, you are welcome to use your preferred veterinarian.</p><p>We recommend maintaining consistent veterinary care for your pet.</p>',
+		'assignment' => array(789),
+		'category'   => 'foster-to-adopt',
+	),
+	array(
+		'question'   => 'What is the adoption process timeline?',
+		'answer'     => '<p>The standard adoption process typically takes 3-5 business days from application to approval.</p><p>This includes background checks and home visits when required.</p>',
+		'assignment' => array('Home'),
+		'category'   => 'adopt',
+	),
+	array(
+		'question'   => 'What supplies do I need before bringing my pet home?',
+		'answer'     => '<p>Basic supplies include food and water bowls, appropriate food, bedding, toys, and grooming supplies.</p><p>We provide a complete checklist during the adoption process.</p>',
+		'assignment' => array(123),
+		'category'   => 'adopt',
 	),
 );
 
@@ -132,6 +147,16 @@ if ($config['active']) {
 			}, (array) $faq['assignment']));
 			
 			update_field('faq-crosslet', $page_ids, $post_id);
+			
+			if (!empty($faq['category'])) {
+				$term = is_numeric($faq['category']) 
+					? get_term($faq['category'], 'faq-category')
+					: get_term_by('slug', $faq['category'], 'faq-category');
+				
+				if ($term && !is_wp_error($term)) {
+					wp_set_object_terms($post_id, $term->term_id, 'faq-category');
+				}
+			}
 		}
 		
 		if ($config['delete_undeclared']) {
