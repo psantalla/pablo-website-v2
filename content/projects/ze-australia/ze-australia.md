@@ -1,5 +1,5 @@
 ---
-title: Zero Eight Australia
+title: Zero Eight AU
 madeAt: Zero Eight
 date: 2025-08-01
 projectLink: https://zeroeight.com.au
