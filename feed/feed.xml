@@ -5,11 +5,29 @@
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
   <link href="https://pablosantalla.com/feed/feed.xml" rel="self" />
   <link href="https://pablosantalla.com/blog" />
-  <updated>2025-12-14T23:00:00Z</updated>
+  <updated>2026-01-30T00:00:00Z</updated>
   <id>https://pablosantalla.com/blog</id>
   <author>
     <name>Pablo Santalla</name>
   </author>
+  <entry>
+    <title>The high-value designer</title>
+    <link href="https://pablosantalla.com/blog/high-value-designer/" />
+    <updated>2026-01-30T00:00:00Z</updated>
+    <id>https://pablosantalla.com/blog/high-value-designer/</id>
+    <content type="html">&lt;p&gt;&lt;strong&gt;Owner:&lt;/strong&gt; we just need a simple login form.
+&lt;strong&gt;Designer:&lt;/strong&gt; no problem!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Designer presents design to client. Client approves it. Developer implements it.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;User:&lt;/strong&gt; mmh, I don&#39;t have an account. How can I register? I&#39;ll reach out to them.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Owner opens email inbox. 75 complaints.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Owner:&lt;/strong&gt; designer, developer, this is unacceptable. My customers need a way to register.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Designer mocks up a registration form. Developer implements it.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This may look obvious and trivial. For most professionals, it is — and most would just dive in and ship it as fast as possible.&lt;/p&gt;
+&lt;p&gt;Here&#39;s the thing: owners solve owner problems. Your experience guides the best path to the solution. Save them time and protect their reputation.&lt;/p&gt;
+&lt;p&gt;Don&#39;t design features. Present solutions.
+If you don&#39;t fully understand the problem, you&#39;ll offer an incomplete answer. Hold your yeses until you get the full picture.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Team solidarity</title>
     <link href="https://pablosantalla.com/blog/team-solidarity/" />
