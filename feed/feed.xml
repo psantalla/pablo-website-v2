@@ -5,11 +5,33 @@
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
   <link href="https://pablosantalla.com/feed/feed.xml" rel="self" />
   <link href="https://pablosantalla.com/blog" />
-  <updated>2026-01-30T00:00:00Z</updated>
+  <updated>2026-02-06T00:00:00Z</updated>
   <id>https://pablosantalla.com/blog</id>
   <author>
     <name>Pablo Santalla</name>
   </author>
+  <entry>
+    <title>The Web vs tools</title>
+    <link href="https://pablosantalla.com/blog/the-web-vs-tools/" />
+    <updated>2026-02-06T00:00:00Z</updated>
+    <id>https://pablosantalla.com/blog/the-web-vs-tools/</id>
+    <content type="html">&lt;p&gt;I&#39;m getting bombarded with WordPress vs Webflow these days.&lt;/p&gt;
+&lt;p&gt;The problem isn&#39;t the tools themselves. The problem is people choosing the tool over real technical knowledge. Learning the tool is fine, but understanding the Web is what sets you apart.&lt;/p&gt;
+&lt;p&gt;If we think of the Web as it really is—a set of rules for laying out content and multimedia in a browser, with optional interactivity—both WordPress and Webflow are just outdated toolboxes.&lt;/p&gt;
+&lt;p&gt;That said:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Webflow&lt;/strong&gt; avoids proprietary language in the elements panel, empowering level-zero builders to grow into competent pros without having to spend ages figuring out that &lt;em&gt;row settings&lt;/em&gt; are really just simple flexbox properties.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WordPress&lt;/strong&gt; has a messy dashboard, which makes all the old-school devs feel nostalgic, but it’s been around for decades and solves scalability problems many tools can&#39;t.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And yet, both fall short. You need custom code. They let you do it, knowing their software won’t always cover all the capabilities a web browser has.&lt;/p&gt;
+&lt;p&gt;A couple of unique tools to think beyond the standard web builder:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://11ty.dev/&quot;&gt;Eleventy&lt;/a&gt; – precompile markdown into HTML layouts with zero JS dependencies.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://etchwp.com/&quot;&gt;Etch&lt;/a&gt; – build visually like a traditional page builder &lt;strong&gt;or use&lt;/strong&gt; custom code, staying true to how the browser actually works. The output stays as stable and flexible as possible.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tools for the Web follow the Web’s rules, not the other way around. Understanding the Web puts you a step ahead of any new feature or update in the ocean of web software.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>The high-value designer</title>
     <link href="https://pablosantalla.com/blog/high-value-designer/" />
@@ -184,7 +206,7 @@ If you don&#39;t fully understand the problem, you&#39;ll offer an incomplete an
     <updated>2025-07-17T00:00:00Z</updated>
     <id>https://pablosantalla.com/blog/time-to-switch/</id>
     <content type="html">&lt;figure&gt;
-  &lt;img src=&quot;https://pablosantalla.com/blog/time-to-switch/3TngoqGEpT-1422.svg&quot; alt=&quot;Screenshot of nyxrobey.com showcasing a minimal WordPress theme.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1422&quot; height=&quot;809&quot;&gt;
+  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/blog/time-to-switch/kibmNlxgcc-2032.avif 2032w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/blog/time-to-switch/kibmNlxgcc-2032.webp 2032w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/blog/time-to-switch/kibmNlxgcc-2032.png&quot; alt=&quot;Screenshot of nyxrobey.com showcasing a minimal WordPress theme.&quot; width=&quot;2032&quot; height=&quot;1494&quot;&gt;&lt;/picture&gt;
   &lt;figcaption&gt;&lt;a href=&quot;https://nyxrobey.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;nyxrobey.com&lt;/a&gt; running a minimal theme by &lt;a href=&quot;https://andersnoren.se/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anders Norén&lt;/a&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;This is an excerpt from a reflection I’ve overthought way too much. And since it’s been ages since I last wrote here, I figured: why not just drop it?&lt;/p&gt;
@@ -360,52 +382,6 @@ If you don&#39;t fully understand the problem, you&#39;ll offer an incomplete an
 &lt;li&gt;spacing.css (.sp-)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;I hope this guide provides a starting point for better organization and semantic meaning in your CSS. If you want to take a look at the complete code or reuse structures, check out this class system I named &lt;a href=&quot;https://github.com/psantalla/catalyst&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Catalyst&lt;/a&gt;.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>The gap between web design and development that shouldn&#39;t exist</title>
-    <link href="https://pablosantalla.com/blog/gap-design-development/" />
-    <updated>2023-07-23T00:00:00Z</updated>
-    <id>https://pablosantalla.com/blog/gap-design-development/</id>
-    <content type="html">&lt;figure&gt;
-  &lt;img src=&quot;https://pablosantalla.com/blog/gap-design-development/2mrjjOosV1-2040.svg&quot; alt=&quot;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;2040&quot; height=&quot;1239&quot;&gt;
-  &lt;figcaption&gt;Website mockup // wireframes // blueprint by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Martina&lt;/a&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;As I was reading the job offer posted by the company I now work for, something caught my attention: they were looking for a 60% web designer and 40% &amp;quot;code ninja.&amp;quot; Perhaps each marketing agency has different requirements, but rarely do these two numbers vary significantly.&lt;/p&gt;
-&lt;p&gt;I understand that job roles can be quite specific, but in the common market, the exchange of information between designers and developers seems to be increasingly blurred.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;new-technologies-new-terminology&quot;&gt;New technologies, new terminology&lt;/h2&gt;
-&lt;p&gt;No-code, automation, visual development—just take a look at tools like Figma. They appear colorful and design-oriented, but recently they have expanded their functionality to allow developers to explore component structure and design using HTML and CSS.&lt;/p&gt;
-&lt;p&gt;If you&#39;re just starting out, whether as a designer or a web developer, you will inevitably come across moments where you wish you had knowledge seemingly more aligned with the other field.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Consider this: if you&#39;re a designer, there&#39;s a developer sharing that same feeling of frustration, and vice versa.&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&quot;not-essential-but-beneficial-understanding-the-basics-of-web-design-and-development&quot;&gt;Not essential, but beneficial: understanding the basics of web design and development&lt;/h3&gt;
-&lt;p&gt;A skilled web designer provides all the guidelines and directions to ensure that their design can be replicated 100% in a web environment. So, here comes the big question: what should a web designer know to effectively convey their design to a developer?&lt;/p&gt;
-&lt;h4 id=&quot;grasp-common-and-equivalent-terminology&quot;&gt;Grasp common and equivalent terminology&lt;/h4&gt;
-&lt;p&gt;Let&#39;s illustrate this with an example. Figma allows you to create almost any type of two-dimensional visual composition. Elements can be freely moved, spaced apart, scaled, and more. It also allows you to follow predefined patterns: you can move elements along a specific axis, space them using defined pixel units, separate them as much as the available space permits, or align them to a side. Essentially, it lets you establish the measurements that make a design meaningful.&lt;/p&gt;
-&lt;!-- &lt;figure&gt;
-  &lt;img src=&quot;https://help.figma.com/hc/article_attachments/15808389735703&quot; alt=&quot;Screenshot of an example showing the auto-layout feature in Figma.&quot;&gt;
-  &lt;figcaption&gt;Using auto layout by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Figma.com&lt;/a&gt;&lt;/figcaption&gt;
-&lt;/figure&gt; --&gt;
-&lt;figure&gt;
-  &lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/blog/gap-design-development/bKiDx6_U_q-1440.webp 1440w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/blog/gap-design-development/bKiDx6_U_q-1440.gif&quot; alt=&quot;Screenshot of an example showing the auto-layout feature in Figma.&quot; width=&quot;1440&quot; height=&quot;878&quot;&gt;&lt;/picture&gt;
-  &lt;figcaption&gt;Using auto layout by &lt;a href=&quot;https://www.figma.com/@martina&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Figma.com&lt;/a&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Now, here&#39;s the CSS equivalent of Figma&#39;s auto-layout feature:&lt;/p&gt;
-&lt;pre class=&quot;language-css&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.st-row&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* browser default: horizontal */&lt;/span&gt;
-    &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token selector&quot;&gt;.sp-ga--m&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token property&quot;&gt;gap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 16px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Doesn&#39;t it seem like designers and developers are sculpting the same artwork but with different chisels? I don&#39;t know if it&#39;s the perfect analogy, but designers often find themselves working around this concept: &amp;quot;design using my tool, and that&#39;ll explain to you what I&#39;ve done.&amp;quot;&lt;/p&gt;
-&lt;h4 id=&quot;the-reason-for-misunderstanding-between-developers-and-designers&quot;&gt;The reason for misunderstanding between developers and designers&lt;/h4&gt;
-&lt;p&gt;When a fully skilled developer struggles to bring a design to production, it can be attributed to different factors. However, in this article, let&#39;s focus on one factor—the unavoidable one: designers and developers speak different languages.&lt;/p&gt;
-&lt;p&gt;Let&#39;s go back to Figma for a better understanding. If we place two elements randomly in a frame, we end up with some freely positioned objects; in other words, elements with dreaded position: absolute. While Figma shows what a web browser would interpret for that design, the developer will do the same and try to interpret it. Of course, the developer won&#39;t fill a website with absolute positioning everywhere—it&#39;s not a good practice. Instead, they&#39;ll find the closest approach to this non-specific design. On the other hand, if the designer explains the relationship between these two elements, the developer won&#39;t need to guess. Are these elements within the same block? Do they have a specific aspect ratio? Are they aligned along any axis? Does either of them need additional space when they get too close on narrower screens?&lt;/p&gt;
-&lt;p&gt;The more information the designer provides, the more effective the communication will be in creating the final product.&lt;/p&gt;
-&lt;h2 id=&quot;how-i-would-approach-the-issue&quot;&gt;How I would approach the issue&lt;/h2&gt;
-&lt;p&gt;Now, let me share my personal perspective on this matter. I believe the real solution isn&#39;t about training designers in coding or developers in design. Yes, that would be an ideal solution, but I don&#39;t consider it very effective. Instead, the key lies in creating a motivating environment for designers. Personally, I think I was fortunate enough to be equally interested in exploring both fields—maybe leaning more towards one on some days and the other on different days. And I&#39;ve found that whether you work for an agency or as a freelance, clients appreciate this versatility. Not only that, but I believe a multidisciplinary profile in this regard is infectious.&lt;/p&gt;
-&lt;p&gt;In conclusion, bridging the gap between design and web development brings numerous advantages for both professionals and the final product. Improved collaboration, informed decision-making, and consideration of scalability and defined styles lead to more efficient development and an enhanced user experience. Embracing a multidisciplinary mindset can boost creativity and innovation, benefiting the overall design and development process.&lt;/p&gt;
 </content>
   </entry>
 </feed>
