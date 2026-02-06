@@ -11,7 +11,7 @@ draft: false
 
 
 <figure>
-  <img src="./screenshot-nyxrobey-dot-com.svg" alt="Screenshot of nyxrobey.com showcasing a minimal WordPress theme.">
+  <img src="./nyx-site-personal.png" alt="Screenshot of nyxrobey.com showcasing a minimal WordPress theme.">
   <figcaption><a href="https://nyxrobey.com/" target="_blank" rel="noopener noreferrer">nyxrobey.com</a> running a minimal theme by <a href="https://andersnoren.se/" target="_blank" rel="noopener noreferrer">Anders Norén</a></figcaption>
 </figure>
 
