@@ -3,6 +3,7 @@ title: Fusion ACF
 madeAt: IDG Advertising
 date: 2025-10-07
 projectLink: https://github.com/psantalla/acf-field-selector-avada
+description: WordPress plugin for Avada theme that displays ACF fields organized by group, streamlining workflow with repeater fields and builder conditionals.
 projectTopics:
   - WordPress Plugin
 draft: false

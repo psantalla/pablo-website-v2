@@ -3,6 +3,7 @@ title: New Blood 2.0
 madeAt: Reconecta Telecom
 date: 2021-01-01
 projectLink: https://newblood20.com/
+description: PrestaShop ecommerce store with real-time POS integration, syncing product images and inventory between online and physical retail locations.
 projectTopics:
   - PrestaShop
   - ecommerce

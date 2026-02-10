@@ -3,6 +3,7 @@ title: Web Practices
 madeAt: Freelance
 date: 2023-06-01
 projectLink: https://github.com/psantalla/web-practices
+description: Chrome extension for identifying technical SEO and accessibility issues during web development and quality assurance.
 projectTopics:
   - Chrome Extension
 ---

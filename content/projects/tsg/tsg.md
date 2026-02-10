@@ -3,6 +3,7 @@ title: Trade Sync Group
 madeAt: Zero Eight
 date: 2024-01-01
 projectLink: https://tradesyncgroup.com.au
+description: Corporate website with REST API integration for Australian trade services company.
 projectTopics:
   - rest-api
 draft: false
