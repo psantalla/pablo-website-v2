@@ -4,14 +4,14 @@
 	"description": "Files and Eleventy (11ty) magic to run my personal website.",
 	"type": "module",
 	"scripts": {
-		"build": "npx @11ty/eleventy",
-		"build-nocolor": "cross-env NODE_DISABLE_COLORS=1 npx @11ty/eleventy",
-		"build-ghpages": "npx @11ty/eleventy --pathprefix=/pablo-website-v2/",
-		"start": "npx @11ty/eleventy --serve --quiet",
-		"start-ghpages": "npx @11ty/eleventy --pathprefix=/pablo-website-v2/ --serve --quiet",
-		"debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
-		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
-		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
+		"build": "eleventy",
+		"build-nocolor": "cross-env NODE_DISABLE_COLORS=1 eleventy",
+		"build-ghpages": "eleventy --pathprefix=/pablo-website-v2/",
+		"start": "eleventy --serve --quiet",
+		"start-ghpages": "eleventy --pathprefix=/pablo-website-v2/ --serve --quiet",
+		"debug": "cross-env DEBUG=Eleventy* eleventy",
+		"debugstart": "cross-env DEBUG=Eleventy* eleventy --serve --quiet",
+		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* eleventy"
 	},
 	"repository": {
 		"type": "git",
