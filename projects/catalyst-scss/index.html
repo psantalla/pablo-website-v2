@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			Catalyst SCSS | Pablo Santalla</title>
-		<meta name="description" content="Sharing life experiences and thoughts on work in a very human way.">
+		<meta name="description" content="Component-first SCSS framework with system-driven variables, fluid typography using clamp(), and optional utility classes for scalable styling.">
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -65,21 +65,12 @@
 <h2 id="what-it-solves">What it solves</h2>
 <p>Catalyst SCSS came out of practical use. An earlier version, <a href="https://github.com/psantalla/catalyst" target="_blank">Catalyst CSS</a> (or just Catalyst), bundled the most commonly used utility classes to cover mid-complexity projects like marketing sites. It worked, but it hit a ceiling: real implementations need component-level styling — a card, a slider — not just piling utility classes on every element.</p>
 <p>This is a common issue in other utility-first systems like Tailwind, which also has a <a href="https://tailwindcss.com/plus/templates/catalyst" target="_blank">Catalyst</a>, purely a name coincidence.</p>
-<p>Learning from that, Catalyst SCSS doesn’t impose class rules or utility-heavy markup. It sticks to a component-first styling philosophy, similar to other methodologies like BEM. In this version, the focus is on system- and rule-driven variables, giving you the lowest-level styling layer while leaving the class structure decisions to you.</p>
+<p>Learning from that, Catalyst SCSS doesn't impose class rules or utility-heavy markup. It sticks to a component-first styling philosophy, similar to other methodologies like BEM. In this version, the focus is on system- and rule-driven variables, giving you the lowest-level styling layer while leaving the class structure decisions to you.</p>
 <h3 id="so-does-catalyst-scss-only-provide-variables">So does Catalyst SCSS only provide variables?</h3>
-<p>No. Catalyst can also generate classes, but not by default. You just enable a selector if you still want utility classes. On top of that, it gives you features that hand-written CSS usually doesn’t provide out of the box:</p>
+<p>No. Catalyst can also generate classes, but not by default. You just enable a selector if you still want utility classes. On top of that, it gives you features that hand-written CSS usually doesn't provide out of the box:</p>
 <ul>
 <li>automatic fluid typography scales using <code>clamp()</code></li>
-<li>spacing tokens with breakpoint overrides</li>
-<li>color tokens with consistent opacity variants</li>
-<li>predictable, grep-friendly naming</li>
-<li>centralized breakpoints via SCSS maps</li>
-<li>token-driven defaults for base elements</li>
-<li>optional utilities derived from variables, not hardcoded values</li>
-<li>system-wide changes through token edits and recompilation</li>
 </ul>
-<hr>
-<p><strong>Disclaimer:</strong> Nothing against utility classes if you can architect them and use search &amp; replace like a pro in a powerful IDE. Outside that, they can introduce rigidity in larger projects.</p>
 
 
 		</main>
@@ -111,7 +102,7 @@
 
 		</footer>
 
-		<!-- This page `/projects/catalyst-scss/` was built on 2026-02-10T05:09:49.071Z -->
+		<!-- This page `/projects/catalyst-scss/` was built on 2026-02-10T05:22:04.495Z -->
 		
 		
 	</body>
