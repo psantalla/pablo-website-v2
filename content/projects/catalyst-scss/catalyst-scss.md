@@ -29,3 +29,14 @@ Learning from that, Catalyst SCSS doesn't impose class rules or utility-heavy ma
 No. Catalyst can also generate classes, but not by default. You just enable a selector if you still want utility classes. On top of that, it gives you features that hand-written CSS usually doesn't provide out of the box:
 
 - automatic fluid typography scales using `clamp()`
+- spacing tokens with breakpoint overrides
+- color tokens with consistent opacity variants
+- predictable, grep-friendly naming
+- centralized breakpoints via SCSS maps
+- token-driven defaults for base elements
+- optional utilities derived from variables, not hardcoded values
+- system-wide changes through token edits and recompilation
+
+### Disclaimer
+
+Nothing against utility classes if you can architect them and use search & replace like a pro in a powerful IDE. Outside that, they can introduce rigidity in larger projects.
