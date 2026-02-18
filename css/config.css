@@ -177,10 +177,17 @@ footer p {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	display: grid;
-	grid-template-columns: max-content 1fr;
+	display: flex;
+	flex-direction: column;
+
+	&:has(time) {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+	}
+
 	gap: var(--sp-xs) var(--sp-s);
 	align-items: baseline;
+	width: fit-content;
 }
 
 .entry-item {
@@ -203,7 +210,10 @@ footer p {
 
 .entry-link {
 	text-decoration: none;
-	display: contents;
+
+	&:has(time) {
+		display: contents;
+	}
 }
 
 .entry-date {
@@ -216,14 +226,12 @@ footer p {
 	font-weight: var(--t-fw-m);
 	color: var(--c-foreground);
 	overflow-wrap: break-word;
+	width: fit-content;
 }
 
 .entry-link:hover .entry-title {
 	color: var(--c-foreground-reduced);
 }
-
-
-
 
 .entry-metadata {
 	display: inline-flex;

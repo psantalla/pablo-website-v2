@@ -3,6 +3,7 @@
   --c-foreground-hint: rgba(19, 17, 23, 0.8588235294);
   --c-foreground-reduced: rgba(19, 17, 23, 0.8);
   --c-foreground-muted: rgba(19, 17, 23, 0.7019607843);
+  --c-foreground-off: rgba(19, 17, 23, 0.5294117647);
   --c-background: #f5f5f5;
   --c-accent: #F55D3E;
   --c-accent-a: rgba(245, 93, 62, 0.6549019608);
@@ -21,6 +22,7 @@
     --c-foreground-hint: rgba(245, 245, 245, 0.9450980392);
     --c-foreground-reduced: rgba(245, 245, 245, 0.8784313725);
     --c-foreground-muted: rgba(245, 245, 245, 0.8509803922);
+    --c-foreground-off: rgba(245, 245, 245, 0.4901960784);
     --c-background: #0c0b0f;
     --c-accent: #F55D3E;
     --c-accent-a: rgba(245, 93, 62, 0.6549019608);
@@ -32,4 +34,4 @@
     --c-code-deleted-bg: #F55D3E;
     --c-code-inserted-bg: #3EF5DF;
   }
-}
+}/*# sourceMappingURL=color.css.map */
