@@ -18,4 +18,4 @@ It’s reusable within the project. Global where it makes sense, specific where 
 
 Implementation isn’t just following the design; it’s about making decisions that survive change.
 
-That’s where pillars come in. They define what cannot break. User and permission management and the main database tables are pillars: they must stay stable. UI components, design system variables, and feature experiments can evolve freely, even fail, without breaking the system.
+That’s where pillars come in. They define what cannot break. Core functionality like user and permission management, payment processing, or main data structures are functional pillars: they must stay stable. Design pillars, like the layout system, spacing, or color tokens in the design system, also must remain consistent.
