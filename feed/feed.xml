@@ -16,11 +16,12 @@
     <updated>2026-03-29T00:00:00Z</updated>
     <id>https://pablosantalla.com/blog/what-good-software-means/</id>
     <content type="html">&lt;p&gt;Good software… what does that even mean?&lt;/p&gt;
-&lt;p&gt;It’s one of those terms people throw around without really knowing. It can be UX, a polished UI, low bugs… or all of it at once. The phrase is so broad it’s lost meaning.&lt;/p&gt;
+&lt;p&gt;It’s a term people use without thinking much. UX, polished UI, low bugs… or all of it at once. Broad phrases like that stop meaning anything.&lt;/p&gt;
 &lt;p&gt;Good software is readable. Not just for machines, but for humans who will have to work with it later. Short, intentional pieces of code make it clear what’s happening.&lt;/p&gt;
 &lt;p&gt;It’s reusable within the project. Global where it makes sense, specific where it needs to be. Dependencies stay low, internal and external. DRY applies to code, files, and components.&lt;/p&gt;
-&lt;p&gt;Implementation isn’t just following the design; it’s about making decisions that survive change.&lt;/p&gt;
+&lt;p&gt;Implementation isn’t just following a design; it’s about making decisions that survive change.&lt;/p&gt;
 &lt;p&gt;That’s where pillars come in. They define what cannot break. Core functionality like user and permission management, payment processing, or main data structures are functional pillars: they must stay stable. Design pillars, like the layout system, spacing, or color tokens in the design system, also must remain consistent.&lt;/p&gt;
+&lt;p&gt;Within both, you can experiment. New UI components, feature variations, or design variables can change, fail, or be replaced—without breaking the system.&lt;/p&gt;
 </content>
   </entry>
   <entry>
