@@ -1,5 +1,5 @@
 ---
-title: What good software really is
+title: Good software, old friend
 description: How to define quality beyond UX, UI, or bug counts.
 date: 2026-03-29
 tags:
