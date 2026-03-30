@@ -18,4 +18,4 @@ It’s reusable within the project. Global where it makes sense, specific where 
 
 Implementation isn’t just following the design; it’s about making decisions that survive change.
 
-That’s where pillars come in. They define what cannot break. In a large app, for example, authentication flow and core data models are pillars: they must remain stable. At the same time, UI components or feature experiments can evolve freely, even fail, without breaking the system.
+That’s where pillars come in. They define what cannot break. User and permission management and the main database tables are pillars: they must stay stable. UI components, design system variables, and feature experiments can evolve freely, even fail, without breaking the system.
