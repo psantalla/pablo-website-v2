@@ -5,11 +5,24 @@
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
   <link href="https://pablosantalla.com/feed/feed.xml" rel="self" />
   <link href="https://pablosantalla.com/blog" />
-  <updated>2026-02-09T00:00:00Z</updated>
+  <updated>2026-03-29T00:00:00Z</updated>
   <id>https://pablosantalla.com/blog</id>
   <author>
     <name>Pablo Santalla</name>
   </author>
+  <entry>
+    <title>What good software really is</title>
+    <link href="https://pablosantalla.com/blog/what-good-software-means/" />
+    <updated>2026-03-29T00:00:00Z</updated>
+    <id>https://pablosantalla.com/blog/what-good-software-means/</id>
+    <content type="html">&lt;p&gt;Good software… what does that even mean?&lt;/p&gt;
+&lt;p&gt;It’s one of those terms people throw around without really knowing. It can be UX, a polished UI, low bugs… or all of it at once. The phrase is so broad it’s lost meaning.&lt;/p&gt;
+&lt;p&gt;Good software is readable. Not just for machines, but for humans who will have to work with it later. Short, intentional pieces of code make it clear what’s happening.&lt;/p&gt;
+&lt;p&gt;It’s reusable within the project. Global where it makes sense, specific where it needs to be. Dependencies stay low, internal and external. DRY applies to code, files, and components.&lt;/p&gt;
+&lt;p&gt;Implementation isn’t just following the design; it’s about making decisions that survive change.&lt;/p&gt;
+&lt;p&gt;That’s where pillars come in. They define what cannot break. In a large app, for example, authentication flow and core data models are pillars: they must remain stable. At the same time, UI components or feature experiments can evolve freely, even fail, without breaking the system.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Experience as motion</title>
     <link href="https://pablosantalla.com/blog/experience-motion/" />
@@ -229,64 +242,6 @@ If you don&#39;t fully understand the problem, you&#39;ll offer an incomplete an
 &lt;p&gt;And don’t get me wrong—sometimes you have to get your hands dirty. It’s the only way to build real skill, to be ready to row in any direction when the current changes. But right now? Honestly, I value simplicity. And I can choose it.&lt;/p&gt;
 &lt;p&gt;This might be the last post in this (semi-)organized chaos. I’ve been toying with the idea of using &lt;a href=&quot;https://www.11ty.dev/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Eleventy&lt;/a&gt; for a while, so I’ll probably go that route.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Simplicity always wins.&lt;/strong&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Spacing in Web Design and How to Implement It</title>
-    <link href="https://pablosantalla.com/blog/spacing-intro/" />
-    <updated>2023-10-10T00:00:00Z</updated>
-    <id>https://pablosantalla.com/blog/spacing-intro/</id>
-    <content type="html">&lt;p&gt;&lt;img src=&quot;https://pablosantalla.com/blog/spacing-intro/rP2e-vFnQs-2040.svg&quot; alt=&quot;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;2040&quot; height=&quot;1240&quot;&gt;&lt;/p&gt;
-&lt;p&gt;When discussing spacing in web design, it&#39;s essential to distinguish between two types:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Two-dimensional spacing&lt;/li&gt;
-&lt;li&gt;Depth&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;why-spacing-matters&quot;&gt;Why Spacing Matters&lt;/h2&gt;
-&lt;p&gt;Even though website visitors may not pinpoint visual inconsistencies precisely, they do notice them.&lt;/p&gt;
-&lt;p&gt;As web designers, we use terminology to identify visual patterns, hierarchies, and consistencies.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;A web designer&#39;s role is to guide the user&#39;s natural gaze to their desired content.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The most frequently visited websites, not necessarily the flashiest ones, establish visual patterns that make users feel comfortable. The repetition of navigation flows, similar to walking or driving along familiar routes, creates a sense of security. It&#39;s not just the flows; what users encounter along the way greatly influences their experience. We navigate more comfortably when we understand how streets and highways connect, the width of lanes, or the locations of intersections. Visual references like traffic signs or lane markings also contribute to our comfort. Most importantly, we appreciate knowing that for different routes, we&#39;ll have a similar experience if our references follow these learned patterns. You&#39;ve probably noticed the close relationship between &amp;quot;experience&amp;quot; and &amp;quot;user.&amp;quot;&lt;/p&gt;
-&lt;p&gt;Spacing is another element of this experience. It&#39;s crucial because it&#39;s intrinsic to our understanding of the world. We bring related objects closer together, sometimes grouping them tightly or placing them at specific distances, making room for other objects or ourselves.&lt;/p&gt;
-&lt;p&gt;If I give you four chairs and a square table, you&#39;ll arrange them similarly to how I would. If I add another chair, you&#39;ll face the same challenge. If I provide a sixth chair and a second table with two more chairs, we&#39;ll rearrange them similarly. Following familiar patterns allows us to navigate the world with confidence. These behaviors also apply to the digital realm.&lt;/p&gt;
-&lt;h2 id=&quot;spacing-direction&quot;&gt;Spacing Direction&lt;/h2&gt;
-&lt;p&gt;In our two-dimensional web world, we can break down spacing into two main categories:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Vertical spacing&lt;/li&gt;
-&lt;li&gt;Horizontal spacing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;Some designers work with both types equally. Personally, I don&#39;t consider it a major mistake, but it can significantly impact the final user experience.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I distinguish between vertical and horizontal spacing for a straightforward reason: space serves functionality, not aesthetics. Vertical and horizontal spacing serve different functions.&lt;/p&gt;
-&lt;p&gt;Reading or analyzing elements horizontally is continuous. We read sentences without stopping as we move from one letter to the next, one symbol to the next, or one element to the next. Line breaks are the most disruptive, as they interrupt the flow of information. A double space between lines can separate two paragraphs, a slightly larger space separates different statements, and so on. Websites follow the same principle. Greater vertical spacing disrupts continuity, isolating sections and preventing interaction when the space between them is significant.&lt;/p&gt;
-&lt;p&gt;Vertical spacing is not a new concept in interface design; magazines and newspapers use it.&lt;/p&gt;
-&lt;h3 id=&quot;vertical-spacing&quot;&gt;Vertical Spacing&lt;/h3&gt;
-&lt;p&gt;Few websites limit themselves to vertical scrolling. Webpages have virtually infinite space to display content, with no specific limit on how much can be added above or below.&lt;/p&gt;
-&lt;p&gt;Vertical spacing allows us to categorize elements and suggest relationships based on their proximity. This infinite nature of vertical spacing allows for flexibility along the y-axis.&lt;/p&gt;
-&lt;h4 id=&quot;vertical-spacing-uses-fixed-units&quot;&gt;Vertical Spacing Uses Fixed Units&lt;/h4&gt;
-&lt;p&gt;Vertical spacing maintains a constant number of pixels, REMs, or other units of measurement, regardless of the viewport&#39;s height. It&#39;s not advisable to use percentage units (%) or VH for vertical spacing. If the spacing between two paragraphs is 12px, it remains the same regardless of the browser window&#39;s height.&lt;/p&gt;
-&lt;p&gt;Many highly visited websites employ an 8-pixel vertical spacing system.&lt;/p&gt;
-&lt;h3 id=&quot;horizontal-spacing&quot;&gt;Horizontal Spacing&lt;/h3&gt;
-&lt;p&gt;In web design, horizontal spacing serves convenience and facilitation. Navigation menu links are horizontally spaced for user convenience, displaying essential information while offering the option to navigate to another page. Horizontal spacing is also used to separate two columns of text, making reading easier by preventing long strings of words that can be challenging to follow when transitioning to a new line.&lt;/p&gt;
-&lt;p&gt;Various factors lead to horizontal spacing, including inherited practices from print formats and common design patterns. However, the primary goal is to enhance the user&#39;s browsing experience.&lt;/p&gt;
-&lt;p&gt;Horizontal spacing presents challenges in design, which is why new guidelines have emerged to ensure consistency across different environments. For instance, the twelve-column system for interface design adapts well to narrower screens.&lt;/p&gt;
-&lt;h4 id=&quot;horizontal-spacing-uses-relative-units&quot;&gt;Horizontal Spacing Uses Relative Units&lt;/h4&gt;
-&lt;p&gt;Unlike vertical spacing, horizontal space is constrained by the width of the browser window, determined by the screen size. While horizontal scrolling is an option, it should not become the norm.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Mixing two types of scrolling confuses users. Reserve it for specific situations, clearly indicating the possibility of horizontal scrolling. Additionally, remember that not all screens support touch input, and not all mice have horizontal scrolling capabilities.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;To address this constraint, we need an adaptive horizontal spacing system that scales proportionally with the screen width. Horizontal spacing rules determine the number of columns that fit on a smaller screen, stacking those that don&#39;t fit.&lt;/p&gt;
-&lt;h2 id=&quot;the-element-of-surprise&quot;&gt;The Element Of Surprise&lt;/h2&gt;
-&lt;p&gt;Maintaining design homogeneity can sometimes dilute a website&#39;s distinctiveness. However, these rules prioritize the user experience, making navigation flows intuitive and predictable.&lt;/p&gt;
-&lt;p&gt;Nevertheless, there&#39;s room for surprise and novelty. Just as we might discover a new arrangement of furniture in a new house that improves functionality, adhering to known design rules allows for unique variations. Knowing the rules well enables designers to decide when to break them for a surprising twist.&lt;/p&gt;
-&lt;h2 id=&quot;how-learning-this-methodology-benefits-you&quot;&gt;How Learning This Methodology Benefits You&lt;/h2&gt;
-&lt;p&gt;As you read this article, you may have identified areas where you&#39;d like to delve deeper. If not, you might have contemplated questions such as how close two elements should be to indicate their relationship or how far apart they should be to avoid appearing related. Our system of vertical and horizontal spacing provides clear answers, eliminating doubts and streamlining the creative process.&lt;/p&gt;
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-&lt;p&gt;Much of this article draws from personal experience. It&#39;s challenging to list the extensive body of work in design systems, guidelines, website analyses, and videos on web scalability.&lt;/p&gt;
-&lt;p&gt;For those interested in exploring these topics further, here are some references that have personally enriched my understanding:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://m2.material.io/design/layout/responsive-layout-grid.html#columns-gutters-and-margins&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Responsive layout grid&lt;/a&gt; by Material Design, Google&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://atlassian.design/foundations/spacing/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Spacing&lt;/a&gt; by Atlassian&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.masterflowmaker.com/blog/a-vertical-spacing-system-for-scalable-and-maintainable-webflow-sites&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;A Vertical Spacing System for scalable and maintainable Webflow sites&lt;/a&gt; by Matías Pitters&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>
