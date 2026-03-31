@@ -78,15 +78,16 @@ quit
 <span class="token function">sudo</span> <span class="token function">chown</span> <span class="token parameter variable">-R</span> yourusername:yourusername /mnt/timemachine /mnt/files</code></pre>
 <p>Get your UUIDs:</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash">lsblk <span class="token parameter variable">-o</span> NAME,UUID</code></pre>
-<p><em>Example UUIDs (yours will be different):</em></p>
+<p>Example UUIDs (yours will be different):</p>
 <ul>
-<li><em>TimeMachine: <code>a843d642-b9fa-444c-97c1-a40f80fafebf</code></em></li>
-<li><em>Files: <code>8d84844b-f35c-468c-a1fb-bfccd67fa17c</code></em></li>
+<li>TimeMachine: <code>a843d642-b9fa-444c-97c1-a40f80fafebf</code></li>
+<li>Files: <code>8d84844b-f35c-468c-a1fb-bfccd67fa17c</code></li>
 </ul>
-<p>Auto-mount in <code>/etc/fstab</code>:</p>
-<pre><code>UUID=your-timemachine-uuid /mnt/timemachine ext4 defaults,nofail 0 0
-UUID=your-files-uuid /mnt/files ext4 defaults,nofail 0 0
+<p>Auto-mount in <code>/etc/fstab</code> (robust version):</p>
+<pre><code>UUID=a843d642-b9fa-444c-97c1-a40f80fafebf /mnt/timemachine ext4 defaults,nofail,x-systemd.device-timeout=10 0 0
+UUID=8d84844b-f35c-468c-a1fb-bfccd67fa17c /mnt/files ext4 defaults,nofail,x-systemd.device-timeout=10 0 0
 </code></pre>
+<p>Optional extra for guaranteed auto-mount at first access: add <code>x-systemd.automount</code> to options.</p>
 <h2 id="2-samba-avahi">2. Samba + Avahi</h2>
 <p>Installation and configuration:</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> samba avahi-daemon</code></pre>
@@ -119,7 +120,7 @@ UUID=your-files-uuid /mnt/files ext4 defaults,nofail 0 0
 <pre class="language-xml" tabindex="0"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" standalone='no'?></span>
 <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">service-group</span> <span class="token name">SYSTEM</span> <span class="token string">"avahi-service.dtd"</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service-group</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span> <span class="token attr-name">replace-wildcards</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>yes<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>%h<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>n</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span> <span class="token attr-name">replace-wildcards</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>yes<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>%h<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>_smb._tcp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>port</span><span class="token punctuation">></span></span>445<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>port</span><span class="token punctuation">></span></span>
@@ -151,7 +152,10 @@ UUID=your-files-uuid /mnt/files ext4 defaults,nofail 0 0
 <p>After accepting share from Android in web UI, stop Syncthing and edit config:</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> systemctl stop syncthing@yourusername.service
 <span class="token function">nano</span> /home/yourusername/.local/state/syncthing/config.xml</code></pre>
-<p>In the <code>&lt;folder&gt;</code> section for Media, change <code>&lt;ignoreDelete&gt;false&lt;/ignoreDelete&gt;</code> to <code>&lt;ignoreDelete&gt;true&lt;/ignoreDelete&gt;</code>.</p>
+<p>In the <code>&lt;folder&gt;</code> section for Media, change:</p>
+<pre class="language-xml" tabindex="0"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ignoreDelete</span><span class="token punctuation">></span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ignoreDelete</span><span class="token punctuation">></span></span></code></pre>
+<p>to</p>
+<pre class="language-xml" tabindex="0"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ignoreDelete</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ignoreDelete</span><span class="token punctuation">></span></span></code></pre>
 <p>Restart Syncthing:</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> systemctl start syncthing@yourusername.service</code></pre>
 <h2 id="access">Access</h2>
@@ -181,20 +185,21 @@ UUID=your-files-uuid /mnt/files ext4 defaults,nofail 0 0
 <li><strong>ignoreDelete:</strong> Only Media folder. Other folders use normal bidirectional sync</li>
 <li><strong>ext4:</strong> Better performance than HFS+. Time Machine works via SMB</li>
 <li><strong>Hostname:</strong> Prefer <code>.local</code> hostname over IP (more robust)</li>
+<li><strong>Robust fstab:</strong> <code>x-systemd.device-timeout=10</code> + optional <code>x-systemd.automount</code> reduce mount failures</li>
 </ul>
-<h2 id="quick-reference-ai-replication">Quick Reference (AI Replication)</h2>
-<pre><code>System: Pi 5, Raspberry Pi OS, 4-6TB USB disk
-Goal: NAS + Time Machine + Android sync
-
-1. Partition: 2TB ext4 (TimeMachine) + rest ext4 (Files)
-2. fstab auto-mount in /mnt/timemachine and /mnt/files
-3. samba + avahi-daemon
-4. smb.conf with fruit:time machine = yes
-5. Avahi samba.service (Time Capsule icon)
-6. Syncthing official repo
-7. /mnt/files/Media with ignoreDelete=true in config.xml
-8. systemctl enable everything
-</code></pre>
+<h2 id="quick-reference">Quick Reference</h2>
+<p>System: Pi 5, Raspberry Pi OS, 4-6TB USB disk
+Goal: NAS + Time Machine + Android sync</p>
+<ol>
+<li>Partition: 2TB ext4 (TimeMachine) + rest ext4 (Files)</li>
+<li>fstab auto-mount in <code>/mnt/timemachine</code> and <code>/mnt/files</code></li>
+<li>samba + avahi-daemon</li>
+<li><code>smb.conf</code> with <code>fruit:time machine = yes</code></li>
+<li>Avahi <code>samba.service</code> (Time Capsule icon)</li>
+<li>Syncthing official repo</li>
+<li><code>/mnt/files/Media</code> with <code>ignoreDelete=true</code> in <code>config.xml</code></li>
+<li><code>systemctl enable</code> everything</li>
+</ol>
 <h2 id="quick-commands">Quick Commands</h2>
 <p>Restart services:</p>
 <pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">sudo</span> systemctl restart smbd avahi-daemon syncthing@yourusername.service</code></pre>
@@ -214,7 +219,9 @@ Goal: NAS + Time Machine + Android sync
 	<summary class="entry-changelog-summary">Changelog</summary>
 	<ul class="entry-changelog-list">
 	
-		<li>Translated from Spanish to English</li>
+		<li>2025-12-14: Translated from Spanish to English</li>
+	
+		<li>2026-03-31: Updated fstab with robust auto-mount options, added optional x-systemd.automount, cleaned XML for Avahi, verified commands for Time Machine, Samba, and Syncthing</li>
 	
 	</ul>
 </details>
@@ -256,7 +263,7 @@ Goal: NAS + Time Machine + Android sync
 
 		</footer>
 
-		<!-- This page `/doc-tutorials/pi5-nas-setup/` was built on 2026-03-30T06:40:57.294Z -->
+		<!-- This page `/doc-tutorials/pi5-nas-setup/` was built on 2026-03-31T21:20:54.283Z -->
 		
 		
 	</body>
