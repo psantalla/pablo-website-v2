@@ -10,9 +10,9 @@ docTopics:
   - Syncthing
   - macOS
 changelog:
-  - "Translated from Spanish to English"
+  - "2025-12-14: Translated from Spanish to English"
+  - "2026-03-31: Updated fstab with robust auto-mount options, added optional x-systemd.automount, cleaned XML for Avahi, verified commands for Time Machine, Samba, and Syncthing"
 ---
-
 
 > This is my setup for turning a Raspberry Pi 5 into a home NAS server. It handles Time Machine backups, shared storage, and Android sync with ignore-delete functionality. Pretty straightforward once you know the steps.
 
@@ -21,6 +21,7 @@ changelog:
 NAS server: Time Machine (Mac), shared storage, Android→Pi sync with ignoreDelete (saves mobile space, files remain on server).
 
 **Recommended disk sizes:**
+
 - Minimum 2TB for basic setup (1TB Time Machine + 1TB files)
 - 4-6TB sweet spot for home use (2TB Time Machine + rest for files)
 - My setup: 4.5TB disk (1.8TB Time Machine + 2.7TB files, ext4)
@@ -52,17 +53,19 @@ Get your UUIDs:
 lsblk -o NAME,UUID
 ```
 
-*Example UUIDs (yours will be different):*
+Example UUIDs (yours will be different):
 
-- *TimeMachine: `a843d642-b9fa-444c-97c1-a40f80fafebf`*
-- *Files: `8d84844b-f35c-468c-a1fb-bfccd67fa17c`*
+- TimeMachine: `a843d642-b9fa-444c-97c1-a40f80fafebf`
+- Files: `8d84844b-f35c-468c-a1fb-bfccd67fa17c`
 
-Auto-mount in `/etc/fstab`:
+Auto-mount in `/etc/fstab` (robust version):
 
 ```
-UUID=your-timemachine-uuid /mnt/timemachine ext4 defaults,nofail 0 0
-UUID=your-files-uuid /mnt/files ext4 defaults,nofail 0 0
+UUID=a843d642-b9fa-444c-97c1-a40f80fafebf /mnt/timemachine ext4 defaults,nofail,x-systemd.device-timeout=10 0 0
+UUID=8d84844b-f35c-468c-a1fb-bfccd67fa17c /mnt/files ext4 defaults,nofail,x-systemd.device-timeout=10 0 0
 ```
+
+Optional extra for guaranteed auto-mount at first access: add `x-systemd.automount` to options.
 
 ## 2. Samba + Avahi
 
@@ -111,7 +114,7 @@ Create `/etc/avahi/services/samba.service`:
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
-  <name replace-wildcards="yes">%h</n>
+  <name replace-wildcards="yes">%h</name>
   <service>
     <type>_smb._tcp</type>
     <port>445</port>
@@ -163,7 +166,17 @@ sudo systemctl stop syncthing@yourusername.service
 nano /home/yourusername/.local/state/syncthing/config.xml
 ```
 
-In the `<folder>` section for Media, change `<ignoreDelete>false</ignoreDelete>` to `<ignoreDelete>true</ignoreDelete>`.
+In the `<folder>` section for Media, change:
+
+```xml
+<ignoreDelete>false</ignoreDelete>
+```
+
+to
+
+```xml
+<ignoreDelete>true</ignoreDelete>
+```
 
 Restart Syncthing:
 
@@ -174,10 +187,12 @@ sudo systemctl start syncthing@yourusername.service
 ## Access
 
 **Network:**
+
 - IP: Your Pi's IP address
 - Hostname: `your-hostname.local`
 
 **Shares:**
+
 - Mac Time Machine: `smb://your-hostname.local/TimeMachine`
 - Android TV: `smb://your-hostname.local/Files/Media`
 - Syncthing: `http://your-pi-ip:8384`
@@ -205,22 +220,21 @@ sudo systemctl status smbd avahi-daemon syncthing@yourusername.service
 - **ignoreDelete:** Only Media folder. Other folders use normal bidirectional sync
 - **ext4:** Better performance than HFS+. Time Machine works via SMB
 - **Hostname:** Prefer `.local` hostname over IP (more robust)
+- **Robust fstab:** `x-systemd.device-timeout=10` + optional `x-systemd.automount` reduce mount failures
 
-## Quick Reference (AI Replication)
+## Quick Reference
 
-```
 System: Pi 5, Raspberry Pi OS, 4-6TB USB disk
 Goal: NAS + Time Machine + Android sync
 
 1. Partition: 2TB ext4 (TimeMachine) + rest ext4 (Files)
-2. fstab auto-mount in /mnt/timemachine and /mnt/files
+2. fstab auto-mount in `/mnt/timemachine` and `/mnt/files`
 3. samba + avahi-daemon
-4. smb.conf with fruit:time machine = yes
-5. Avahi samba.service (Time Capsule icon)
+4. `smb.conf` with `fruit:time machine = yes`
+5. Avahi `samba.service` (Time Capsule icon)
 6. Syncthing official repo
-7. /mnt/files/Media with ignoreDelete=true in config.xml
-8. systemctl enable everything
-```
+7. `/mnt/files/Media` with `ignoreDelete=true` in `config.xml`
+8. `systemctl enable` everything
 
 ## Quick Commands
 
