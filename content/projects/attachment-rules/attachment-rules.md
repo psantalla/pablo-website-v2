@@ -1,7 +1,7 @@
 ---
 title: Attachment Rules
 madeAt: Freelance
-date: 2026-02-22
+date: 2026-04-02
 projectLink: https://github.com/psantalla/obsidian-attachment-rules
 description: Obsidian plugin that lets you define custom attachment destination rules per folder, overriding the global attachment setting for specific parts of your vault.
 projectTopics:

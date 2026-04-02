@@ -1,7 +1,7 @@
 ---
 title: Catalyst SCSS
 madeAt: Freelance
-date: 2026-06-01
+date: 2026-04-01
 projectLink: https://github.com/psantalla/catalyst-scss
 description: Component-first SCSS framework with system-driven variables, fluid typography using clamp(), and optional utility classes for scalable styling.
 projectTopics:
