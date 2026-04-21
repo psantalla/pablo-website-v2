@@ -5,11 +5,24 @@
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
   <link href="https://pablosantalla.com/feed/feed.xml" rel="self" />
   <link href="https://pablosantalla.com/blog" />
-  <updated>2026-03-29T00:00:00Z</updated>
+  <updated>2026-04-21T10:00:00Z</updated>
   <id>https://pablosantalla.com/blog</id>
   <author>
     <name>Pablo Santalla</name>
   </author>
+  <entry>
+    <title>Attention doesn&#39;t scale</title>
+    <link href="https://pablosantalla.com/blog/attention-doesnt-scale/" />
+    <updated>2026-04-21T10:00:00Z</updated>
+    <id>https://pablosantalla.com/blog/attention-doesnt-scale/</id>
+    <content type="html">&lt;p&gt;Products are evolving fast, but like too fast. I was used to see that app of my toolset promoting that feature I was excited about, giving me that sense of &lt;em&gt;this is what I needed&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;That peace was naturally living on cycles of user analysis and communication. Brand and software aligned to satisfy real user needs.&lt;/p&gt;
+&lt;p&gt;The market has shifted. I see products promoting features just because they&#39;ve been in their backlog for a little while and engineers are able to iterate fast.&lt;/p&gt;
+&lt;p&gt;I&#39;m just not sure where this form of creativity is leading to. I guess the market and users, just being human, will adjust.&lt;/p&gt;
+&lt;p&gt;The cost of keeping the trash flow isn&#39;t zero. It&#39;s not monetary, it&#39;s attention. And attention doesn&#39;t scale. There&#39;s no real mechanism that elevates it, no way to compound it. It stays almost linear: more inputs competing for it, less depth per thing. It fragments, and once that happens everything gets thinner.&lt;/p&gt;
+&lt;p&gt;And maybe that&#39;s the real shift. Not that people stop caring, but that care gets split until it spreads flat everywhere.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Good software, old friend</title>
     <link href="https://pablosantalla.com/blog/what-good-software-means/" />
@@ -222,27 +235,6 @@ If you don&#39;t fully understand the problem, you&#39;ll offer an incomplete an
 &lt;p&gt;I get it. That doesn’t sell. An AI that can’t keep the conversation going or that shows uncertainty isn’t exactly marketable.&lt;/p&gt;
 &lt;p&gt;But “I don’t know” is a powerful answer. It keeps the conversation open and makes others want to help. It creates a pause instead of pretending something is already solved. And even if it feels inconvenient in the moment, that pause matters.&lt;/p&gt;
 &lt;p&gt;That’s the whole point.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Time to switch</title>
-    <link href="https://pablosantalla.com/blog/time-to-switch/" />
-    <updated>2025-07-17T00:00:00Z</updated>
-    <id>https://pablosantalla.com/blog/time-to-switch/</id>
-    <content type="html">&lt;figure&gt;
-  &lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://pablosantalla.com/blog/time-to-switch/kibmNlxgcc-2032.avif 2032w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://pablosantalla.com/blog/time-to-switch/kibmNlxgcc-2032.webp 2032w&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://pablosantalla.com/blog/time-to-switch/kibmNlxgcc-2032.png&quot; alt=&quot;Screenshot of nyxrobey.com showcasing a minimal WordPress theme.&quot; width=&quot;2032&quot; height=&quot;1494&quot;&gt;&lt;/picture&gt;
-  &lt;figcaption&gt;&lt;a href=&quot;https://nyxrobey.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;nyxrobey.com&lt;/a&gt; running a minimal theme by &lt;a href=&quot;https://andersnoren.se/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anders Norén&lt;/a&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;This is an excerpt from a reflection I’ve overthought way too much. And since it’s been ages since I last wrote here, I figured: why not just drop it?&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Technology has always been a double-edged sword for me. Software that aligns with how I think lifts me up and helps me perform at my best. Outdated tools, on the other hand, just weigh me down.&lt;/p&gt;
-&lt;p&gt;I’ve often felt like sharing my thoughts—personal, professional, and somewhere in between—but I knew it’d probably turn into something too clunky or overcomplicated. So I usually keep them to myself. Best case? They end up in a note in Obsidian.&lt;/p&gt;
-&lt;p&gt;Another double-edged sword of mine: I&#39;m a purist, a perfectionist, an overthinker (just spent 15 seconds debating whether &lt;em&gt;purifectionist&lt;/em&gt; was legit—just so you get the idea). What does that even mean? I’d lose a night of sleep just to understand the basics of some random idea I came up with. Sometimes it puts me way ahead of the curve; other times it pulls my attention away from actual fires.&lt;/p&gt;
-&lt;p&gt;A couple of weeks ago, my wife asked me to set up a blog for her so she could write about pregnancy and our newborn daughter. So I swallowed my developer pride and spun up a simple WordPress site for her. And she’s rocking it—posting every few days, writing from the couch, wherever.&lt;/p&gt;
-&lt;p&gt;Meanwhile, for me to write this tiny post? I had to sit at my desk, pull a local copy of my site from the GitHub repo, and write this thing in markdown with proper formatting. Not ideal. Not practical.&lt;/p&gt;
-&lt;p&gt;And don’t get me wrong—sometimes you have to get your hands dirty. It’s the only way to build real skill, to be ready to row in any direction when the current changes. But right now? Honestly, I value simplicity. And I can choose it.&lt;/p&gt;
-&lt;p&gt;This might be the last post in this (semi-)organized chaos. I’ve been toying with the idea of using &lt;a href=&quot;https://www.11ty.dev/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Eleventy&lt;/a&gt; for a while, so I’ll probably go that route.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Simplicity always wins.&lt;/strong&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>
