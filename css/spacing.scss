@@ -66,7 +66,7 @@ $spacing-sizes-mobile: (
     @each $size, $value in $spacing-sizes {
         --sp-#{$size}: #{$value};
     }
-    --sp-site-width: 45em;
+    --sp-site-width: 42em;
 }
 
 @media only screen and (max-width: #{map.get($breakpoints, 'mobile')}) {

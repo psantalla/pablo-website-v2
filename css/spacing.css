@@ -27,7 +27,7 @@
   --sp-5xl: 8rem;
   --sp-6xl: 12rem;
   --sp-7xl: 16rem;
-  --sp-site-width: 45em;
+  --sp-site-width: 42em;
 }
 
 @media only screen and (max-width: 480px) {
