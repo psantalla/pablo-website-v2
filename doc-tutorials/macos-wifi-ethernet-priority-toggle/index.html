@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			macOS Wi-Fi/Ethernet Priority Toggle in Menu Bar | Pablo Santalla</title>
+		<meta name="description" content="One-click toggle between Wi-Fi and Ethernet priority using SwiftBar and a native bash plugin">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Pablo Santalla">
+
+		
+		
+		
+		
+		<link rel="stylesheet" href="/dist/8u6UKFAZki.css">
+	</head>
+	<body>
+		<a href="#skip-link" id="skip-link" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">
+				<img src="/img/pablo-santalla-2024-small.webp" alt="" aria-hidden="true">
+				<span class="home-title">Pablo Santalla</span>
+			</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/blog/">Writing</a>
+						</li>
+						<li class="nav-item">
+							<a href="/now/">Now</a>
+						</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main">
+			
+
+<h1 id="macos-wi-fi-ethernet-priority-toggle-in-menu-bar">macOS Wi-Fi/Ethernet Priority Toggle in Menu Bar</h1>
+
+<ul class="entry-metadata">
+	<li class="entry-date">
+		Revised on <time datetime="2026-05-12">May 11, 2026</time>
+	</li>
+</ul>
+
+<blockquote>
+<p>Click in the menu bar to switch which interface gets priority. Wi-Fi when you want to move around, Ethernet when you want stability. macOS handles the fallback natively if you unplug the cable. No third-party app for the toggle itself, just a small bash plugin running inside SwiftBar. I went with a single click on the title and no dropdown to keep the surface minimal, errors are logged to a file if something fails.</p>
+</blockquote>
+<h2 id="use-case">Use Case</h2>
+<p>You are on a video call over Ethernet through a USB-C dongle. The call is stable, the cable is doing its job. Then you need to get up. Maybe pace around the room, grab water, move to the couch. Until now this meant ending the call early, or yanking the dongle and praying the Wi-Fi takes over fast enough. macOS does fall back to Wi-Fi when it loses the cable, but the transition is abrupt and apps notice. Calls drop frames. Long-lived TCP connections renegotiate. SSH sessions hang for a moment.</p>
+<p>What I actually want is the opposite flow: keep the cable plugged in, but tell macOS &quot;from now on prefer Wi-Fi&quot;, give the OS a few seconds to make Wi-Fi the active route while the cable is still there as a safety net, then unplug whenever I want without a hard cut. One click in the menu bar, three seconds of grace, done. Same scenario reversed when I sit back down: click again, priority goes back to Ethernet, no Settings panel.</p>
+<p>Other places where this is useful day to day:</p>
+<ul>
+<li><strong>Long file transfers, syncs or backups</strong> (Syncthing, Kopia, rsync) where you don't want the underlying socket to die mid-transfer just because you needed to move.</li>
+<li><strong>Local dev servers tied to a specific IP</strong> when working on something that other devices on the network are hitting. Switching priority gracefully avoids the IP shuffle that happens when the cable goes away cold.</li>
+<li><strong>Diagnostics:</strong> force traffic through Wi-Fi or Ethernet to isolate which path is causing latency, packet loss or DNS weirdness, without unplugging anything.</li>
+</ul>
+<h2 id="problem">Problem</h2>
+<p>macOS has Service Order in System Settings to prioritize one network service over another, but switching it requires opening Settings every time. Annoying when you change context often.</p>
+<h2 id="solution">Solution</h2>
+<p>A SwiftBar plugin that reads and reorders network services with <code>networksetup</code>. Left-click toggles, with a 3-second window to cancel if you misclicked.</p>
+<h3 id="install-swiftbar">Install SwiftBar</h3>
+<pre class="language-bash" tabindex="0"><code class="language-bash">brew <span class="token function">install</span> <span class="token parameter variable">--cask</span> swiftbar</code></pre>
+<p>Open it. First launch asks for the plugin folder. If you don't already have one set, pick anywhere you want, somewhere under <code>~/Documents</code> is a common default. The one I use is <code>~/SwiftBar</code> because I keep it short and out of the way. Whatever you choose, remember the path since you'll drop the script there in the next step.</p>
+<p>If SwiftBar was already installed, check the current plugin folder under SwiftBar Preferences. You can keep it as-is.</p>
+<h3 id="identify-your-network-services">Identify your network services</h3>
+<pre class="language-bash" tabindex="0"><code class="language-bash">networksetup <span class="token parameter variable">-listallnetworkservices</span></code></pre>
+<p>You need the exact names of your Wi-Fi and Ethernet entries. In my case <code>Wi-Fi</code> and <code>AX88179A</code> (USB-C dongle). Adjust the constants in the script if yours differ.</p>
+<h3 id="create-the-plugin">Create the plugin</h3>
+<p>Inside your SwiftBar plugin folder, create the script:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">touch</span> <span class="token operator">&lt;</span>plugin-folder<span class="token operator">></span>/network-priority.30s.sh
+<span class="token function">chmod</span> +x <span class="token operator">&lt;</span>plugin-folder<span class="token operator">></span>/network-priority.30s.sh</code></pre>
+<p>Open it and paste:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token comment"># &lt;xbar.title>Network Priority&lt;/xbar.title></span>
+<span class="token comment"># &lt;xbar.version>2.0&lt;/xbar.version></span>
+<span class="token comment"># &lt;xbar.desc>Toggle network service priority. Errors logged at $SWIFTBAR_PLUGIN_DATA_PATH/errors.log&lt;/xbar.desc></span>
+<span class="token comment"># &lt;swiftbar.hideAbout>true&lt;/swiftbar.hideAbout></span>
+<span class="token comment"># &lt;swiftbar.hideRunInTerminal>true&lt;/swiftbar.hideRunInTerminal></span>
+<span class="token comment"># &lt;swiftbar.hideLastUpdated>true&lt;/swiftbar.hideLastUpdated></span>
+<span class="token comment"># &lt;swiftbar.hideDisablePlugin>true&lt;/swiftbar.hideDisablePlugin></span>
+<span class="token comment"># &lt;swiftbar.hideSwiftBar>true&lt;/swiftbar.hideSwiftBar></span>
+<span class="token comment"># &lt;swiftbar.refreshOnOpen>true&lt;/swiftbar.refreshOnOpen></span>
+
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-euo</span> pipefail
+
+<span class="token builtin class-name">readonly</span> <span class="token assign-left variable">WIFI_SERVICE</span><span class="token operator">=</span><span class="token string">"Wi-Fi"</span>
+<span class="token builtin class-name">readonly</span> <span class="token assign-left variable">ETH_SERVICE</span><span class="token operator">=</span><span class="token string">"AX88179A"</span>
+<span class="token builtin class-name">readonly</span> <span class="token assign-left variable">LABEL_WIFI</span><span class="token operator">=</span><span class="token string">"WIFI"</span>
+<span class="token builtin class-name">readonly</span> <span class="token assign-left variable">LABEL_ETH</span><span class="token operator">=</span><span class="token string">"ETH"</span>
+<span class="token builtin class-name">readonly</span> <span class="token assign-left variable">PENDING_FILE</span><span class="token operator">=</span><span class="token string">"/tmp/network-priority.pending"</span>
+<span class="token builtin class-name">readonly</span> <span class="token assign-left variable">COMMIT_PID_FILE</span><span class="token operator">=</span><span class="token string">"/tmp/network-priority.commit.pid"</span>
+<span class="token builtin class-name">readonly</span> <span class="token assign-left variable">COMMIT_DELAY</span><span class="token operator">=</span><span class="token number">3</span>
+<span class="token builtin class-name">readonly</span> <span class="token assign-left variable">LOG_DIR</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${SWIFTBAR_PLUGIN_DATA_PATH<span class="token operator">:-</span><span class="token operator">/</span>tmp}</span>"</span>
+<span class="token builtin class-name">readonly</span> <span class="token assign-left variable">LOG_FILE</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${LOG_DIR}</span>/errors.log"</span>
+
+<span class="token function-name function">log_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> <span class="token string">"<span class="token variable">$LOG_DIR</span>"</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span>
+  <span class="token builtin class-name">printf</span> <span class="token string">'%s\t%s\n'</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> <span class="token parameter variable">-u</span> +%Y-%m-%dT%H:%M:%SZ<span class="token variable">)</span></span>"</span> <span class="token string">"<span class="token variable">$1</span>"</span> <span class="token operator">>></span> <span class="token string">"<span class="token variable">$LOG_FILE</span>"</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">get_service_order</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  networksetup <span class="token parameter variable">-listnetworkserviceorder</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null <span class="token operator">|</span> <span class="token function">sed</span> <span class="token parameter variable">-n</span> <span class="token string">'s/^([0-9][0-9]*) \*\{0,1\}//p'</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">get_priority</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token function">service</span>
+  <span class="token keyword">while</span> <span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span> <span class="token builtin class-name">read</span> <span class="token parameter variable">-r</span> <span class="token function">service</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token keyword">case</span> <span class="token string">"<span class="token variable">$service</span>"</span> <span class="token keyword">in</span>
+      <span class="token string">"<span class="token variable">$WIFI_SERVICE</span>"</span><span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">"wifi"</span><span class="token punctuation">;</span> <span class="token builtin class-name">return</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+      <span class="token string">"<span class="token variable">$ETH_SERVICE</span>"</span><span class="token punctuation">)</span>  <span class="token builtin class-name">echo</span> <span class="token string">"eth"</span><span class="token punctuation">;</span>  <span class="token builtin class-name">return</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token keyword">esac</span>
+  <span class="token keyword">done</span> <span class="token operator">&lt;</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span>get_service_order<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">get_active_interface</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  route <span class="token parameter variable">-n</span> get default <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'/interface:/ {print $2}'</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">get_active_service</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">iface</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$1</span>"</span>
+  <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">"<span class="token variable">$iface</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">return</span>
+  networksetup <span class="token parameter variable">-listnetworkserviceorder</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null <span class="token operator">|</span> <span class="token function">awk</span> <span class="token parameter variable">-v</span> <span class="token assign-left variable">dev</span><span class="token operator">=</span><span class="token string">"Device: <span class="token variable">${iface}</span>)"</span> <span class="token string">'
+    /^\([0-9]+\)/ { sub(/^\([0-9]+\) \*?/, ""); name = $0 }
+    /Hardware Port:/ &amp;&amp; $0 ~ ("(, |\\()" dev "$") { print name; exit }
+  '</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">label_for</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token string">"<span class="token variable">$1</span>"</span> <span class="token keyword">in</span>
+    wifi<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$LABEL_WIFI</span>"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    eth<span class="token punctuation">)</span>  <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$LABEL_ETH</span>"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span>    <span class="token builtin class-name">echo</span> <span class="token string">"-"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  <span class="token keyword">esac</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">refresh_plugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${SWIFTBAR_PLUGIN_PATH<span class="token operator">:-</span>}</span>"</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">"<span class="token variable">$name</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${name<span class="token operator">##</span>*<span class="token operator">/</span>}</span>"</span>
+    <span class="token function">open</span> <span class="token parameter variable">-g</span> <span class="token string">"swiftbar://refreshplugin?name=<span class="token variable">${name}</span>"</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span>
+  <span class="token keyword">else</span>
+    <span class="token function">open</span> <span class="token parameter variable">-g</span> <span class="token string">"swiftbar://refreshallplugins"</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span>
+  <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">reorder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">target</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$1</span>"</span>
+  <span class="token builtin class-name">local</span> <span class="token function">service</span> <span class="token assign-left variable">new_order</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span> stderr_output
+
+  <span class="token keyword">case</span> <span class="token string">"<span class="token variable">$target</span>"</span> <span class="token keyword">in</span>
+    wifi<span class="token punctuation">)</span> <span class="token assign-left variable">new_order</span><span class="token operator">+=</span><span class="token punctuation">(</span><span class="token string">"<span class="token variable">$WIFI_SERVICE</span>"</span> <span class="token string">"<span class="token variable">$ETH_SERVICE</span>"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    eth<span class="token punctuation">)</span>  <span class="token assign-left variable">new_order</span><span class="token operator">+=</span><span class="token punctuation">(</span><span class="token string">"<span class="token variable">$ETH_SERVICE</span>"</span> <span class="token string">"<span class="token variable">$WIFI_SERVICE</span>"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  <span class="token keyword">esac</span>
+
+  <span class="token keyword">while</span> <span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span> <span class="token builtin class-name">read</span> <span class="token parameter variable">-r</span> <span class="token function">service</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$service</span>"</span> <span class="token operator">==</span> <span class="token string">"<span class="token variable">$WIFI_SERVICE</span>"</span> <span class="token operator">||</span> <span class="token string">"<span class="token variable">$service</span>"</span> <span class="token operator">==</span> <span class="token string">"<span class="token variable">$ETH_SERVICE</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">continue</span>
+    <span class="token assign-left variable">new_order</span><span class="token operator">+=</span><span class="token punctuation">(</span><span class="token string">"<span class="token variable">$service</span>"</span><span class="token punctuation">)</span>
+  <span class="token keyword">done</span> <span class="token operator">&lt;</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span>get_service_order<span class="token punctuation">)</span>
+
+  <span class="token keyword">if</span> <span class="token operator">!</span> <span class="token assign-left variable">stderr_output</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>networksetup <span class="token parameter variable">-ordernetworkservices</span> <span class="token string">"<span class="token variable">${new_order<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>"</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">></span>/dev/null<span class="token variable">)</span></span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    log_error <span class="token string">"reorder to '<span class="token variable">$target</span>' failed: <span class="token variable">${stderr_output<span class="token operator">:-</span>unknown error}</span>"</span>
+    <span class="token builtin class-name">return</span> <span class="token number">1</span>
+  <span class="token keyword">fi</span>
+  <span class="token builtin class-name">return</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">kill_pending_commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token string">"<span class="token variable">$COMMIT_PID_FILE</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">local</span> old_pid
+    <span class="token assign-left variable">old_pid</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> <span class="token string">"<span class="token variable">$COMMIT_PID_FILE</span>"</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span><span class="token variable">)</span></span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">"<span class="token variable">$old_pid</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token function">kill</span> <span class="token string">"<span class="token variable">$old_pid</span>"</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span>
+    <span class="token function">rm</span> <span class="token parameter variable">-f</span> <span class="token string">"<span class="token variable">$COMMIT_PID_FILE</span>"</span>
+  <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">schedule_commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> <span class="token assign-left variable">target</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$1</span>"</span>
+  kill_pending_commit
+  <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$target</span>"</span> <span class="token operator">></span> <span class="token string">"<span class="token variable">$PENDING_FILE</span>"</span>
+  <span class="token punctuation">(</span>
+    <span class="token builtin class-name">trap</span> <span class="token string">'rm -f "$PENDING_FILE" "$COMMIT_PID_FILE"; refresh_plugin'</span> EXIT
+    <span class="token function">sleep</span> <span class="token string">"<span class="token variable">$COMMIT_DELAY</span>"</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token string">"<span class="token variable">$PENDING_FILE</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> reorder <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> <span class="token string">"<span class="token variable">$PENDING_FILE</span>"</span><span class="token variable">)</span></span>"</span> <span class="token operator">||</span> <span class="token boolean">true</span>
+  <span class="token punctuation">)</span> <span class="token operator">></span>/dev/null <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$!</span>"</span> <span class="token operator">></span> <span class="token string">"<span class="token variable">$COMMIT_PID_FILE</span>"</span>
+  disown
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">cancel_pending</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  kill_pending_commit
+  <span class="token function">rm</span> <span class="token parameter variable">-f</span> <span class="token string">"<span class="token variable">$PENDING_FILE</span>"</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">read_pending</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token string">"<span class="token variable">$PENDING_FILE</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token builtin class-name">return</span> <span class="token number">1</span>
+  <span class="token function">cat</span> <span class="token string">"<span class="token variable">$PENDING_FILE</span>"</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token variable">${1<span class="token operator">:-</span>}</span>"</span> <span class="token operator">==</span> <span class="token string">"toggle"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token keyword">if</span> read_pending <span class="token operator">></span>/dev/null<span class="token punctuation">;</span> <span class="token keyword">then</span>
+    cancel_pending
+  <span class="token keyword">else</span>
+    <span class="token assign-left variable">current</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>get_priority<span class="token variable">)</span></span>
+    <span class="token keyword">case</span> <span class="token string">"<span class="token variable">$current</span>"</span> <span class="token keyword">in</span>
+      wifi<span class="token punctuation">)</span> schedule_commit eth <span class="token punctuation">;</span><span class="token punctuation">;</span>
+      eth<span class="token punctuation">)</span>  schedule_commit wifi <span class="token punctuation">;</span><span class="token punctuation">;</span>
+      *<span class="token punctuation">)</span>    log_error <span class="token string">"toggle invoked but neither Wi-Fi nor Ethernet found as priority"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token keyword">esac</span>
+  <span class="token keyword">fi</span>
+  <span class="token builtin class-name">exit</span> <span class="token number">0</span>
+<span class="token keyword">fi</span>
+
+<span class="token assign-left variable">priority</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>get_priority<span class="token variable">)</span></span>
+<span class="token assign-left variable">active_iface</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>get_active_interface<span class="token variable">)</span></span>
+<span class="token assign-left variable">active_service</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>get_active_service <span class="token string">"<span class="token variable">$active_iface</span>"</span><span class="token variable">)</span></span>
+
+<span class="token keyword">case</span> <span class="token string">"<span class="token variable">$active_service</span>"</span> <span class="token keyword">in</span>
+  <span class="token string">"<span class="token variable">$WIFI_SERVICE</span>"</span><span class="token punctuation">)</span> <span class="token assign-left variable">active_label</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$LABEL_WIFI</span>"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  <span class="token string">"<span class="token variable">$ETH_SERVICE</span>"</span><span class="token punctuation">)</span>  <span class="token assign-left variable">active_label</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$LABEL_ETH</span>"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  *<span class="token punctuation">)</span>               <span class="token assign-left variable">active_label</span><span class="token operator">=</span><span class="token string">"-"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span>
+
+<span class="token assign-left variable">priority_label</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>label_for <span class="token string">"<span class="token variable">$priority</span>"</span><span class="token variable">)</span></span>
+
+<span class="token keyword">if</span> <span class="token assign-left variable">pending</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>read_pending<span class="token variable">)</span></span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token assign-left variable">pending_label</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>label_for <span class="token string">"<span class="token variable">$pending</span>"</span><span class="token variable">)</span></span>
+  <span class="token assign-left variable">display</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$priority_label</span> > <span class="token variable">$pending_label</span>"</span>
+<span class="token keyword">else</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$active_label</span>"</span> <span class="token operator">==</span> <span class="token string">"<span class="token variable">$priority_label</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token assign-left variable">display</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$active_label</span>"</span>
+  <span class="token keyword">else</span>
+    <span class="token assign-left variable">display</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$active_label</span> · <span class="token variable">$priority_label</span>"</span>
+  <span class="token keyword">fi</span>
+<span class="token keyword">fi</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$display</span> | shell=<span class="token variable">$0</span> param1=toggle terminal=false refresh=true"</span></code></pre>
+<p>Save. Refresh SwiftBar:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">killall</span> SwiftBar <span class="token operator">&amp;&amp;</span> <span class="token function">sleep</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token function">open</span> /Applications/SwiftBar.app</code></pre>
+<h2 id="reading-the-menu-bar">Reading the Menu Bar</h2>
+<p>First token is what macOS is actually using right now. Second token (only shown if it differs) is the priority you chose.</p>
+<table>
+<thead>
+<tr>
+<th>Display</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WIFI</code></td>
+<td>Using Wi-Fi, priority Wi-Fi</td>
+</tr>
+<tr>
+<td><code>ETH</code></td>
+<td>Using Ethernet, priority Ethernet</td>
+</tr>
+<tr>
+<td><code>WIFI · ETH</code></td>
+<td>Using Wi-Fi but priority is Ethernet (cable unplugged or no link)</td>
+</tr>
+<tr>
+<td><code>ETH · WIFI</code></td>
+<td>Using Ethernet but priority is Wi-Fi (no Wi-Fi available)</td>
+</tr>
+<tr>
+<td><code>WIFI &gt; ETH</code></td>
+<td>Pending toggle to Ethernet, applies in 3s, click again to cancel</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-it-works">How It Works</h2>
+<p>The script reorders network services with <code>networksetup -ordernetworkservices</code>. Both services stay enabled at all times, so macOS handles the fallback natively when the prioritized one loses connectivity.</p>
+<p>State lives in macOS itself, so the priority persists across reboots without the script writing anything to disk for that.</p>
+<h2 id="tweaks">Tweaks</h2>
+<ul>
+<li><strong>Different Ethernet adapter:</strong> change <code>ETH_SERVICE</code> to match the name from <code>networksetup -listallnetworkservices</code>.</li>
+<li><strong>Faster polling:</strong> rename the file from <code>.30s.sh</code> to <code>.10s.sh</code> for a 10-second refresh interval instead of 30.</li>
+<li><strong>Launch at Login:</strong> click any SwiftBar item in the menu bar, Preferences, Launch at Login.</li>
+</ul>
+<h2 id="known-issues">Known Issues</h2>
+<ul>
+<li><strong>No dropdown menu:</strong> by design. SwiftBar has open issue #244 about how titles with a shell action behave. I chose left-click as toggle and skipped the dropdown to keep the surface minimal.</li>
+<li><strong>Right-click does nothing:</strong> SwiftBar does not expose right-click as a separate event when the title has a shell action. Only left-click triggers the toggle.</li>
+<li><strong>Phantom services from old dongles:</strong> macOS keeps services from disconnected adapters in the list. Doesn't break anything, the script ignores them.</li>
+</ul>
+<h2 id="system-info">System Info</h2>
+<ul>
+<li><strong>Tested on:</strong> macOS 14 / 15, Apple Silicon</li>
+<li><strong>SwiftBar version:</strong> 2.0.1</li>
+<li><strong>Dependencies:</strong> none beyond macOS native tools (<code>networksetup</code>, <code>route</code>, <code>awk</code>, <code>sed</code>)</li>
+</ul>
+
+
+
+<ul class="entry-metadata">
+	<li><a href="/doc-topics/macos/" class="entry-taxonomy">macOS</a></li>
+	<li><a href="/doc-topics/swiftbar/" class="entry-taxonomy">SwiftBar</a></li>
+	<li><a href="/doc-topics/networking/" class="entry-taxonomy">Networking</a></li>
+</ul>
+
+		</main>
+
+		<footer>
+
+			<nav>
+				<h2 class="visually-hidden" id="footer-navigation-menu">Footer navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/contact/">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a href="/doc-tutorials/">Docs</a>
+						</li>
+						<li class="nav-item">
+							<a href="/feed/feed.xml" target="_blank" rel="noopener noreferrer">RSS</a>
+						</li>
+				</ul>
+			</nav>
+
+			<p>
+				
+				Sketched in <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">Figma</a> and mainly coded in <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VS Code</a>.
+				
+				Read the <a href="/colophon/">colophon</a> or view the <a href="https://github.com/psantalla/pablo-website-v2" target="_blank" rel="noopener noreferrer">source code</a>.
+				
+			</p>
+
+		</footer>
+
+		<!-- This page `/doc-tutorials/macos-wifi-ethernet-priority-toggle/` was built on 2026-05-12T18:47:07.488Z -->
+		
+		
+	</body>
+</html>
