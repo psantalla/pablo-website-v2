@@ -11,4 +11,4 @@ eleventyNavigation:
 
 Get in touch at [pablo@pablosantalla.com](mailto:pablo@pablosantalla.com).  
 
-Working together? Read the *[hire-me](hire-me.md)* page.
+Working together? Read the *[hire](hire.md)* page.

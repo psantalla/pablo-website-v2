@@ -1,5 +1,9 @@
 ---
 title: "Hire Me"
+redirect_from: /hire-me
+eleventyNavigation:
+  key: "Hire"
+  order: 4
 ---
 # Hire me
 
@@ -18,4 +22,4 @@ A few things that tend to make collaboration smoother (but aren’t deal-breaker
 
 If this sounds aligned, feel free to reach out at [pablo@pablosantalla.com](mailto:pablo@pablosantalla.com).
 
-[Download my resume (PDF)](https://docs.google.com/document/u/0/export?format=pdf&id=1UWdXXE6bjjfsJcR9j_cKfjRXQ4pNLcWtlQvDg-ewwls&tab=t.0)
+If you want to get a better sense of my work, you can <a href="https://docs.google.com/document/u/0/export?format=pdf&id=1UWdXXE6bjjfsJcR9j_cKfjRXQ4pNLcWtlQvDg-ewwls&tab=t.0" download>download my resume (PDF)</a> or take a look at my [latest projects](/projects/).

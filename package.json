@@ -4,6 +4,9 @@
 	"description": "Files and Eleventy (11ty) magic to run my personal website.",
 	"type": "module",
 	"scripts": {
+		"posters": "node scripts/video-posters.js",
+		"prestart": "npm run posters",
+		"prebuild": "npm run posters",
 		"build": "eleventy",
 		"build-nocolor": "cross-env NODE_DISABLE_COLORS=1 eleventy",
 		"build-ghpages": "eleventy --pathprefix=/pablo-website-v2/",

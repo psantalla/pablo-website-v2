@@ -1,0 +1,19 @@
+{% macro figure(src, caption = "", width = "", height = "") %}
+<figure class="video-control">
+	<div class="video-control__media" data-video-control>
+		<video muted loop playsinline preload="metadata" poster="{{ src | replace(r/\.mp4$/, '.webp') }}" aria-hidden="true"{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %}>
+			<source src="{{ src }}" type="video/mp4">
+		</video>
+		<button class="video-control__btn" type="button" data-video-control-btn aria-label="Pause animation">
+			<svg class="video-control__icon video-control__icon--pause" viewBox="0 0 78 78" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+				<rect x="26.9" y="21.82" width="9.5" height="34.37" rx="1.04" fill="currentColor"/>
+				<rect x="41.6" y="21.82" width="9.5" height="34.37" rx="1.04" fill="currentColor"/>
+			</svg>
+			<svg class="video-control__icon video-control__icon--play" viewBox="0 0 78 78" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+				<path d="M29.67 21.82L29.67 56.18L57.67 39Z" fill="currentColor"/>
+			</svg>
+		</button>
+	</div>
+	{% if caption %}<figcaption>{{ caption | safe }}</figcaption>{% endif %}
+</figure>
+{% endmacro %}

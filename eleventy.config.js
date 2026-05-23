@@ -23,7 +23,8 @@ export default async function(eleventyConfig) {
 			"./public/": "/"
 		})
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl")
-		.addPassthroughCopy("./content/**/*.mp4");
+		.addPassthroughCopy("./content/**/*.mp4")
+		.addPassthroughCopy("./content/projects/**/*.webp");
 
 	eleventyConfig.addWatchTarget("css/**/*.css");
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpg,jpeg,gif}");

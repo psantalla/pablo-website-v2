@@ -3,5 +3,8 @@ node_modules/
 .cache
 .vscode/
 
+# auto-generated video posters (regenerated on prestart/prebuild)
+content/projects/**/*.webp
+
 .stfolder*
 .stignore
