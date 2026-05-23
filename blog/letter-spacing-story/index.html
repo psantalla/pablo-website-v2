@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			Letter spacing as a curve, not a list of tokens | Pablo Santalla</title>
+		<meta name="description" content="A bounded reciprocal model for letter spacing in fluid type systems. One curve, four parameters, no per-size tokens.">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Pablo Santalla">
+
+		
+			
+		
+		
+		
+		
+		<link rel="stylesheet" href="/dist/8u6UKFAZki.css">
+	</head>
+	<body>
+		<a href="#skip-link" id="skip-link" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">
+				<img src="/img/pablo-santalla-2024-small.webp" alt="" aria-hidden="true">
+				<span class="home-title">Pablo Santalla</span>
+			</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/blog/">Writing</a>
+						</li>
+						<li class="nav-item">
+							<a href="/now/">Now</a>
+						</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main">
+			
+
+<h1 id="letter-spacing-as-a-curve-not-a-list-of-tokens">Letter spacing as a curve, not a list of tokens</h1>
+
+<ul class="entry-metadata">
+	<li class="entry-date">
+		<time datetime="2026-05-22">May 21, 2026</time>
+	</li>
+	
+</ul>
+
+<h2 id="the-shift">The shift</h2>
+<p>The interesting part here isn't the formula. It's who decides the values.</p>
+<p>The usual way: design dictates the values. If the existing scale happens to fit, good. If not, the dev tokenizes the loose ones, which is almost like hardcoding, a value entered once and left there. Do that enough and the work turns into data entry. Each size is a number someone typed in by hand because design asked for it.</p>
+<p>Flip it. The model doesn't produce values, it produces a curve. One continuous curve, infinite points, defined by a few parameters that mean something. There's no tracking table to type out. There's a surface, and design picks where to land on it.</p>
+<p>Size drives. Any font size already has its tracking, because the curve passes through every point. A dev doesn't ask for &quot;the value at 23px&quot;, they use 23px and the tracking is there. Define the curve once, design works on top of it.</p>
+<p>This is less, not more. Fewer tokens, fewer maps, fewer steps in between.</p>
+<blockquote>
+<p>The point isn't the micro-solution itself. It's a mindset where design and dev actually fit together as one thing, and each role picks up its part in a controlled space.</p>
+</blockquote>
+<h2 id="why-not-token-by-token">Why not token by token</h2>
+<p>The common approach is to add values one at a time and spot patterns as they show up. On a small marketing site it's fine. Few sizes, few hands, the eye keeps it coherent.</p>
+<p>It breaks at scale. Ten devs merging at once, resolving conflicts, each adding their token when they need it, and you get maybe fifty percent of the potential. The patterns a coherent design should have get diluted across decisions made at different times by different people.</p>
+<p>There's never a perfect moment to stop and unify. There's always an open branch. The more complexity and more hands, the harder DRY and consistency fall.</p>
+<p>The model flips that too. No tokens to add one by one, a curve defined in one place. Consistency isn't something ten people have to remember, the formula guarantees it. A dev doesn't invent the tracking for their new size, they take it from the curve. Merge conflicts over tracking values just disappear, because there are no values to touch, only parameters you change on purpose.</p>
+<p>This is controlled tokenization. You reduce the surface area of decisions without losing control over it. Fewer micro-adjustments that wear devs down, fewer micro-decisions that wear everyone down. Shipping gets more direct.</p>
+<h2 id="where-it-came-from">Where it came from</h2>
+<p>The starting point was a page, <a href="https://precise-type.com/models-letter-spacing.html" target="_blank" rel="noopener">precise-type.com</a>, by Adonis Raul Raduca. It collects models for a coherent type system: size, line height, letter spacing.</p>
+<p>Its letter spacing model is reciprocal, and the idea is right. Tracking decreases as size grows, and it anchors to a base pair:</p>
+<pre><code>letter-spacing = (base-letter-spacing + 3) * base-font-size / font-size - 3
+</code></pre>
+<p>The 3, or 0.03 in the em variant, sets where the curve tends at large sizes. As a conceptual base it's solid.</p>
+<h2 id="the-curve-runs-away-at-small-sizes">The curve runs away at small sizes</h2>
+<figure>
+  <img src="/blog/letter-spacing-story/sCeidP_yam-680.svg" alt="The original reciprocal letter spacing curve: tracking on the y-axis against font size on the x-axis, with a single lower asymptote." loading="lazy" decoding="async" width="680" height="440">
+  <figcaption>The original reciprocal model: tracking falls as size grows and settles into a lower asymptote. No upper bound.</figcaption>
+</figure>
+<p>The model only has one asymptote, at the bottom. It tends to a value at large sizes, but at the top it grows without limit.</p>
+<p>The smaller the size, the more tracking, no ceiling. At 1px the value is absurd.</p>
+<figure>
+  <img src="/blog/letter-spacing-story/A2-e_0KTnT-680.svg" alt="The same reciprocal curve extended toward small font sizes, where tracking grows without limit and shoots out of frame." loading="lazy" decoding="async" width="680" height="440">
+  <figcaption>Extended toward small sizes, the original curve has no ceiling and climbs out of frame.</figcaption>
+</figure>
+<p>On screen, what fails isn't the look, it's control. The curve runs away in small sizes and there's no way to cap it. The model decides the extremes for you.</p>
+<p>What was missing: declaring a max the same way there's a min. Designer sets both bounds, the curve respects them.</p>
+<h2 id="the-path-to-the-model">The path to the model</h2>
+<p>Several stops, each ruled something out.</p>
+<p>Expose the constant as a variable, so curvature isn't frozen.</p>
+<p>Add a real upper asymptote. A logistic over log size has two bounds but breaks the reciprocal form and loses the exact anchor.</p>
+<p>A damped reciprocal adds the ceiling with one denominator shift, keeps the anchor, but gives no control over the transition shape.</p>
+<p>Declare min and max directly as bounds, clamp style, and have the curve reach them as asymptotes.</p>
+<figure>
+  <img src="/blog/letter-spacing-story/cKOmec3fBY-680.svg" alt="The reciprocal curve constrained between two horizontal lines marking declared min and max bounds." loading="lazy" decoding="async" width="680" height="440">
+  <figcaption>Same curve, now with explicit min and max declared as horizontal bounds the curve must stay within.</figcaption>
+</figure>
+<p>Move into the log domain, where a straight line means tracking that decreases in perceptually equal steps, with smooth saturation between bounds.</p>
+<p>Same tension every time. Either the curve follows the original closely, or it eases out at the extremes, not both at once. Force them together and you get a kink.</p>
+<h2 id="saturate-with-an-exponential">Saturate with an exponential</h2>
+<p>Take the original's height above the floor and compress it toward the ceiling with a decreasing exponential. It's the smoothest way to approach a limit, because it brakes in proportion to what's left. It reaches the ceiling with a horizontal tangent, no kink.</p>
+<p>In the working range it follows the original, at the extremes it settles under the ceiling.</p>
+<figure>
+  <img src="/blog/letter-spacing-story/BPKZRIp7RF-680.svg" alt="Two curves overlaid: the original reciprocal dashed, and the bounded power model as a solid line, crossing at the base size anchor point." loading="lazy" decoding="async" width="680" height="440">
+  <figcaption>Original (dashed) vs the final bounded model (solid). They cross exactly at the base size and only diverge near the extremes, where the new model saturates under the ceiling.</figcaption>
+</figure>
+<h2 id="the-audit-collapsed-the-formula">The audit collapsed the formula</h2>
+<p>Auditing the math, almost everything cancelled. The raw original, the anchor parameter, the exponential with its logarithm, all of it was an algebraic detour.</p>
+<p>The final form, identical down to floating point noise, is a power:</p>
+<pre><code>ls(s) = max - (max - min) * r^(base / s)
+r     = (max - base) / (max - min)
+</code></pre>
+<p>Four parameters you control: base, track, min, max. One trivial derived value, r. A power, no transcendental functions.</p>
+<p>In CSS it's native via <code>pow()</code>, available in every modern browser since late 2023.</p>
+<h2 id="what-the-model-guarantees">What the model guarantees</h2>
+<p>Random-case auditing found no serious issues. These always hold:</p>
+<ul>
+<li>Exact anchor. At base size the result is exactly the base track.</li>
+<li>Strict monotonicity. Tracking decreases without bumps as size grows.</li>
+<li>Hard bounds. Never leaves the min to max interval.</li>
+<li>Smooth exit. Reaches the bounds with a horizontal tangent, no kink.</li>
+</ul>
+<p>The only validity condition is that base sits between min and max, which is the same as r being between 0 and 1. A guard stops compilation if that breaks, instead of shipping a broken curve.</p>
+<h2 id="when-the-ceiling-kicks-in">When the ceiling kicks in</h2>
+<p>With soft parameters, like a base track of zero, the curve barely touches the ceiling. The floor leads, the max stays a safety net. But the ceiling isn't decorative. There are cases where it carries the curve.</p>
+<p>First, starting from a sizable base tracking. If base track is already open, the curve starts high and hits the ceiling fast as size drops. Without a max it would keep climbing. With it, it flattens against the limit.</p>
+<p>Second, reaching genuinely small sizes. The reciprocal form runs away the smaller you go. However modest the base track, drop far enough and the original heads for absurd values. The ceiling stops it.</p>
+<figure>
+  <img src="/blog/letter-spacing-story/dzBh6lTar8-680.svg" alt="Bounded model with a high base tracking value: as font size drops, the curve rises quickly and flattens against the upper max bound with a horizontal tangent." loading="lazy" decoding="async" width="680" height="440">
+  <figcaption>With a high base tracking, the curve climbs fast at small sizes and settles against the max as a smooth upper asymptote, never crossing it.</figcaption>
+</figure>
+<p>In both, the upper asymptote shows up. The curve climbs, approaches the max and settles on it with a horizontal tangent, never crossing. That's what makes it viable. Not a curve that only works in the comfortable case. It holds with large base tracking and tiny sizes too, because both ends are bounded, not just one.</p>
+<h2 id="sample-values">Sample values</h2>
+<p>Base 16px, track 0, min -0.02, max 0.05, on a 1.19 ratio scale:</p>
+<table>
+<thead>
+<tr>
+<th>step</th>
+<th>px</th>
+<th>original (em)</th>
+<th>model (em)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td>13</td>
+<td>0.0038</td>
+<td>0.0031</td>
+</tr>
+<tr>
+<td>m</td>
+<td>16</td>
+<td>0.0000</td>
+<td>0.0000</td>
+</tr>
+<tr>
+<td>l</td>
+<td>19</td>
+<td>-0.0032</td>
+<td>-0.0028</td>
+</tr>
+<tr>
+<td>xl</td>
+<td>23</td>
+<td>-0.0059</td>
+<td>-0.0052</td>
+</tr>
+<tr>
+<td>2xl</td>
+<td>27</td>
+<td>-0.0081</td>
+<td>-0.0073</td>
+</tr>
+<tr>
+<td>3xl</td>
+<td>32</td>
+<td>-0.0100</td>
+<td>-0.0092</td>
+</tr>
+<tr>
+<td>4xl</td>
+<td>38</td>
+<td>-0.0116</td>
+<td>-0.0108</td>
+</tr>
+<tr>
+<td>5xl</td>
+<td>45</td>
+<td>-0.0130</td>
+<td>-0.0122</td>
+</tr>
+<tr>
+<td>6xl</td>
+<td>54</td>
+<td>-0.0141</td>
+<td>-0.0134</td>
+</tr>
+<tr>
+<td>7xl</td>
+<td>64</td>
+<td>-0.0150</td>
+<td>-0.0144</td>
+</tr>
+</tbody>
+</table>
+<p>Across the real range the two curves are nearly identical, max difference about 0.08 percent. m anchors at exactly 0. From there tracking tightens smoothly toward the displays. Sensible values, nothing extreme.</p>
+<p>The two models only diverge at tiny sizes, outside a normal scale:</p>
+<table>
+<thead>
+<tr>
+<th>px</th>
+<th>original (em)</th>
+<th>model (em)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>0.0120</td>
+<td>0.0091</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0.0200</td>
+<td>0.0143</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0.0333</td>
+<td>0.0215</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.0600</td>
+<td>0.0318</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.1400</td>
+<td>0.0453</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0.3000</td>
+<td>0.0497</td>
+</tr>
+</tbody>
+</table>
+<p>The original heads for 0.30em at 1px. The model settles under the 0.05em ceiling and never crosses. A scale starting around 13px never reaches it, so in normal use the ceiling is a safety net, not a visible change.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Real blocks using the model. Only the relevant pieces, not the whole files.</p>
+<p>The function that computes r and guards validity:</p>
+<pre class="language-scss" tabindex="0"><code class="language-scss"><span class="token keyword">@function</span> <span class="token function">t-ls-ratio</span><span class="token punctuation">(</span><span class="token variable">$ls-base</span><span class="token punctuation">,</span> <span class="token variable">$ls-min</span><span class="token punctuation">,</span> <span class="token variable">$ls-max</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">@if</span> <span class="token selector"><span class="token variable">$ls-base</span> &lt;= <span class="token variable">$ls-min</span> or <span class="token variable">$ls-base</span> >= <span class="token variable">$ls-max</span> </span><span class="token punctuation">{</span>
+        @error <span class="token string">"t-ls-base (#{$ls-base}) must sit between t-ls-min (#{$ls-min}) and t-ls-max (#{$ls-max})."</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">@return</span> math.<span class="token function">div</span><span class="token punctuation">(</span><span class="token variable">$ls-max</span> <span class="token operator">-</span> <span class="token variable">$ls-base</span><span class="token punctuation">,</span> <span class="token variable">$ls-max</span> <span class="token operator">-</span> <span class="token variable">$ls-min</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>The three params, rule in one line:</p>
+<pre class="language-scss" tabindex="0"><code class="language-scss"><span class="token comment">// ls saturates into [min, max]: max at small sizes, min at large; base must sit between</span>
+<span class="token property"><span class="token variable">$t-ls-base</span></span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$t-ls-min</span></span><span class="token punctuation">:</span>  -0.02<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$t-ls-max</span></span><span class="token punctuation">:</span>  0.05<span class="token punctuation">;</span></code></pre>
+<p>Custom properties and the letter spacing line:</p>
+<pre class="language-scss" tabindex="0"><code class="language-scss"><span class="token property">--t-ls-max</span><span class="token punctuation">:</span>     #<span class="token punctuation">{</span><span class="token variable">$t-ls-max</span> <span class="token operator">*</span> 1em<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token property">--t-ls-span</span><span class="token punctuation">:</span>    #<span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token variable">$t-ls-max</span> <span class="token operator">-</span> <span class="token variable">$t-ls-min</span><span class="token punctuation">)</span> <span class="token operator">*</span> 1em<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token property">--t-ls-r</span><span class="token punctuation">:</span>       #<span class="token punctuation">{</span>t.<span class="token function">t-ls-ratio</span><span class="token punctuation">(</span><span class="token variable">$t-ls-base</span><span class="token punctuation">,</span> <span class="token variable">$t-ls-min</span><span class="token punctuation">,</span> <span class="token variable">$t-ls-max</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token property">--t-ls-base-px</span><span class="token punctuation">:</span> #<span class="token punctuation">{</span><span class="token variable">$t-size-base</span> <span class="token operator">*</span> 1px<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-scss" tabindex="0"><code class="language-scss"><span class="token property">letter-spacing</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token function">var</span><span class="token punctuation">(</span>--t-ls-max<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">var</span><span class="token punctuation">(</span>--t-ls-span<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token function">pow</span><span class="token punctuation">(</span><span class="token function">var</span><span class="token punctuation">(</span>--t-ls-r<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">var</span><span class="token punctuation">(</span>--t-ls-base-px<span class="token punctuation">)</span> <span class="token operator">/</span> 1em<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The trick is the exponent. <code>base / s</code> is written as <code>var(--t-ls-base-px) / 1em</code>. The <code>1em</code> resolves against the element's own font size, so the browser computes the power live for each size. One valid CSS value for the whole scale, no token per size.</p>
+<h2 id="why-the-origin-model-didnt-fit-clamp">Why the origin model didn't fit clamp</h2>
+<p>The type system is fluid. Each size is a clamp interpolating between a viewport min and max:</p>
+<pre class="language-scss" tabindex="0"><code class="language-scss"><span class="token keyword">@function</span> <span class="token function">px-clamp</span><span class="token punctuation">(</span><span class="token variable">$min</span><span class="token punctuation">,</span> <span class="token variable">$max</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token property"><span class="token variable">$s</span></span><span class="token punctuation">:</span> _<span class="token function">slope</span><span class="token punctuation">(</span><span class="token variable">$min</span><span class="token punctuation">,</span> <span class="token variable">$max</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property"><span class="token variable">$i</span></span><span class="token punctuation">:</span> _<span class="token function">intercept</span><span class="token punctuation">(</span><span class="token variable">$min</span><span class="token punctuation">,</span> <span class="token variable">$s</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">@return</span> <span class="token function">clamp</span><span class="token punctuation">(</span>
+        #<span class="token punctuation">{</span>convert.<span class="token function">to-rem</span><span class="token punctuation">(</span><span class="token variable">$min</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">calc</span><span class="token punctuation">(</span>#<span class="token punctuation">{</span><span class="token variable">$s</span> <span class="token operator">*</span> 100<span class="token punctuation">}</span>vi <span class="token operator">+</span> #<span class="token punctuation">{</span>convert.<span class="token function">to-rem</span><span class="token punctuation">(</span><span class="token variable">$i</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        #<span class="token punctuation">{</span>convert.<span class="token function">to-rem</span><span class="token punctuation">(</span><span class="token variable">$max</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>A step's rendered size isn't fixed, it moves with viewport width. A step that's 28px on a narrow screen can be 32px on a wide one.</p>
+<p>The em tracking is computed on that rendered size, so it moves with the viewport too. A single token doesn't have one tracking value, it has a range that tracks the size.</p>
+<p>The origin model wouldn't handle this well, its formula needs the size at compile time. The power form solves it because the em trick leaves the whole evaluation to the browser. <code>pow(r, base / s)</code> recomputes itself with whatever s applies at each viewport. Just know that a token's tracking is a range, not a number.</p>
+<h2 id="on-calibration">On calibration</h2>
+<p>This gives a coherent base curve. What it doesn't know is how a specific typeface looks at each size.</p>
+<p>Real optical tuning depends on the family. Two fonts at the same size can want different tracking. That fine adjustment is a designer's job, done by tuning the parameters, not overwriting loose values by hand. Patching tokens breaks the consistency that justifies having a model.</p>
+<p>Calibration has limits, and design should too if we're going into fine optics. You can chase the perfect pixel at every step for every font. Past a point that stops being design and turns into obsession, and the system's consistency is worth more than the perfect tuning of a single value. A sane curve that anchors and respects bounds already handles ninety-something percent. The rest is debatable, and usually ego.</p>
+<blockquote>
+<p>Taking this to production. It'll work. The values make sense. The curve is coherent across the scale, anchors where it should, respects the bounds it's given. What's left is calibrating against the real font by tuning parameters, not patching tokens.</p>
+</blockquote>
+<h2 id="where-it-lands">Where it lands</h2>
+<p>Coherent with the origin model, keeps its reciprocal form and its anchor, adds what was missing: a declarable max acting as a smooth asymptote.</p>
+<p>Minimal math, a power with nothing spare, verified against a real compiler. Ships with native <code>pow()</code> and a guard protecting the one validity condition.</p>
+
+
+
+
+
+<ul class="entry-metadata">
+	<li><a href="/tags/web-design/" class="entry-taxonomy">web-design</a></li>
+	<li><a href="/tags/web-development/" class="entry-taxonomy">web-development</a></li>
+</ul>
+
+		</main>
+
+		<footer>
+
+			<nav>
+				<h2 class="visually-hidden" id="footer-navigation-menu">Footer navigation menu</h2>
+				<ul class="nav">
+						<li class="nav-item">
+							<a href="/contact/">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a href="/doc-tutorials/">Docs</a>
+						</li>
+						<li class="nav-item">
+							<a href="/feed/feed.xml" target="_blank" rel="noopener noreferrer">RSS</a>
+						</li>
+				</ul>
+			</nav>
+
+			<p>
+				
+				Sketched in <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">Figma</a> and mainly coded in <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VS Code</a>.
+				
+				Read the <a href="/colophon/">colophon</a> or view the <a href="https://github.com/psantalla/pablo-website-v2" target="_blank" rel="noopener noreferrer">source code</a>.
+				
+			</p>
+
+		</footer>
+
+		<!-- This page `/blog/letter-spacing-story/` was built on 2026-05-23T06:52:56.487Z -->
+		
+		
+	</body>
+</html>
