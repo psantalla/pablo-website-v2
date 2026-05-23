@@ -5,7 +5,7 @@
   <subtitle>Sharing struggles, while juggling perfectionism, growth, and joy, of a web developer with a vast amount of interests.</subtitle>
   <link href="https://pablosantalla.com/feed/feed.xml" rel="self" />
   <link href="https://pablosantalla.com/blog" />
-  <updated>2026-05-22T00:00:00Z</updated>
+  <updated>2026-05-23T00:00:00Z</updated>
   <id>https://pablosantalla.com/blog</id>
   <author>
     <name>Pablo Santalla</name>
@@ -13,87 +13,87 @@
   <entry>
     <title>Letter spacing as a curve, not a list of tokens</title>
     <link href="https://pablosantalla.com/blog/letter-spacing-story/" />
-    <updated>2026-05-22T00:00:00Z</updated>
+    <updated>2026-05-23T00:00:00Z</updated>
     <id>https://pablosantalla.com/blog/letter-spacing-story/</id>
     <content type="html">&lt;h2 id=&quot;the-shift&quot;&gt;The shift&lt;/h2&gt;
-&lt;p&gt;The interesting part here isn&#39;t the formula. It&#39;s who decides the values.&lt;/p&gt;
-&lt;p&gt;The usual way: design dictates the values. If the existing scale happens to fit, good. If not, the dev tokenizes the loose ones, which is almost like hardcoding, a value entered once and left there. Do that enough and the work turns into data entry. Each size is a number someone typed in by hand because design asked for it.&lt;/p&gt;
-&lt;p&gt;Flip it. The model doesn&#39;t produce values, it produces a curve. One continuous curve, infinite points, defined by a few parameters that mean something. There&#39;s no tracking table to type out. There&#39;s a surface, and design picks where to land on it.&lt;/p&gt;
-&lt;p&gt;Size drives. Any font size already has its tracking, because the curve passes through every point. A dev doesn&#39;t ask for &amp;quot;the value at 23px&amp;quot;, they use 23px and the tracking is there. Define the curve once, design works on top of it.&lt;/p&gt;
+&lt;p&gt;The interesting part isn&#39;t the formula. It&#39;s who decides the values.&lt;/p&gt;
+&lt;p&gt;Usually design dictates them. If the existing scale fits, fine. If not, the dev tokenizes whatever&#39;s loose, which is hardcoding with extra steps. Do it enough and the work turns into data entry, one number at a time, because design asked.&lt;/p&gt;
+&lt;p&gt;Flip it. The model doesn&#39;t produce values, it produces a curve. One curve, infinite points, a handful of parameters that actually mean something. No tracking table to maintain. A surface, and design picks where to land on it.&lt;/p&gt;
+&lt;p&gt;Size drives. Any font size already has its tracking, because the curve passes through every point. The dev doesn&#39;t ask for &amp;quot;the value at 23px&amp;quot;, they write 23px and the tracking is there. Define the curve once, design works on top of it.&lt;/p&gt;
 &lt;p&gt;This is less, not more. Fewer tokens, fewer maps, fewer steps in between.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;The point isn&#39;t the micro-solution itself. It&#39;s a mindset where design and dev actually fit together as one thing, and each role picks up its part in a controlled space.&lt;/p&gt;
+&lt;p&gt;The point isn&#39;t the micro-solution. It&#39;s a mindset where design and dev fit together as one thing, and each role picks up its part inside a controlled space.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;why-not-token-by-token&quot;&gt;Why not token by token&lt;/h2&gt;
-&lt;p&gt;The common approach is to add values one at a time and spot patterns as they show up. On a small marketing site it&#39;s fine. Few sizes, few hands, the eye keeps it coherent.&lt;/p&gt;
-&lt;p&gt;It breaks at scale. Ten devs merging at once, resolving conflicts, each adding their token when they need it, and you get maybe fifty percent of the potential. The patterns a coherent design should have get diluted across decisions made at different times by different people.&lt;/p&gt;
-&lt;p&gt;There&#39;s never a perfect moment to stop and unify. There&#39;s always an open branch. The more complexity and more hands, the harder DRY and consistency fall.&lt;/p&gt;
-&lt;p&gt;The model flips that too. No tokens to add one by one, a curve defined in one place. Consistency isn&#39;t something ten people have to remember, the formula guarantees it. A dev doesn&#39;t invent the tracking for their new size, they take it from the curve. Merge conflicts over tracking values just disappear, because there are no values to touch, only parameters you change on purpose.&lt;/p&gt;
-&lt;p&gt;This is controlled tokenization. You reduce the surface area of decisions without losing control over it. Fewer micro-adjustments that wear devs down, fewer micro-decisions that wear everyone down. Shipping gets more direct.&lt;/p&gt;
+&lt;p&gt;The usual approach is to add values one at a time and hope patterns emerge. On a small marketing site that&#39;s fine. Few sizes, few hands, the eye keeps it coherent.&lt;/p&gt;
+&lt;p&gt;It breaks at scale. Ten devs merging at once, each adding their token when they need it, and you end up with maybe half the potential. Whatever coherence the design was supposed to have gets diluted across decisions taken at different times by different people.&lt;/p&gt;
+&lt;p&gt;There&#39;s never a good moment to stop and unify. There&#39;s always an open branch. More complexity, more hands, harder fall.&lt;/p&gt;
+&lt;p&gt;The curve flips that too. Nothing to add one by one, a definition in one place. Consistency isn&#39;t something ten people need to remember, the formula gives it for free. The dev doesn&#39;t invent the tracking for a new size, they read it off the curve. Merge conflicts over tracking values disappear, because there are no values to touch, only parameters you change on purpose.&lt;/p&gt;
+&lt;p&gt;Controlled tokenization. Less surface area for decisions, same control over the outcome. Fewer micro-adjustments wearing devs down, fewer micro-decisions wearing everyone down. Shipping gets more direct.&lt;/p&gt;
 &lt;h2 id=&quot;where-it-came-from&quot;&gt;Where it came from&lt;/h2&gt;
-&lt;p&gt;The starting point was a page, &lt;a href=&quot;https://precise-type.com/models-letter-spacing.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;precise-type.com&lt;/a&gt;, by Adonis Raul Raduca. It collects models for a coherent type system: size, line height, letter spacing.&lt;/p&gt;
-&lt;p&gt;Its letter spacing model is reciprocal, and the idea is right. Tracking decreases as size grows, and it anchors to a base pair:&lt;/p&gt;
+&lt;p&gt;Starting point: &lt;a href=&quot;https://precise-type.com/models-letter-spacing.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;precise-type.com&lt;/a&gt;, by Adonis Raul Raduca. A small collection of models for a coherent type system, size, line height, letter spacing.&lt;/p&gt;
+&lt;p&gt;The letter spacing model is reciprocal, and the idea is right. Tracking decreases as size grows, anchored to a base pair:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;letter-spacing = (base-letter-spacing + 3) * base-font-size / font-size - 3
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The 3, or 0.03 in the em variant, sets where the curve tends at large sizes. As a conceptual base it&#39;s solid.&lt;/p&gt;
+&lt;p&gt;The 3, or 0.03 in the em variant, sets where the curve tends at large sizes. Conceptually solid.&lt;/p&gt;
 &lt;h2 id=&quot;the-curve-runs-away-at-small-sizes&quot;&gt;The curve runs away at small sizes&lt;/h2&gt;
 &lt;figure&gt;
   &lt;img src=&quot;https://pablosantalla.com/blog/letter-spacing-story/sCeidP_yam-680.svg&quot; alt=&quot;The original reciprocal letter spacing curve: tracking on the y-axis against font size on the x-axis, with a single lower asymptote.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;680&quot; height=&quot;440&quot;&gt;
   &lt;figcaption&gt;The original reciprocal model: tracking falls as size grows and settles into a lower asymptote. No upper bound.&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;The model only has one asymptote, at the bottom. It tends to a value at large sizes, but at the top it grows without limit.&lt;/p&gt;
-&lt;p&gt;The smaller the size, the more tracking, no ceiling. At 1px the value is absurd.&lt;/p&gt;
+&lt;p&gt;One asymptote, at the bottom. It tends to a value at large sizes. At the top it just grows.&lt;/p&gt;
+&lt;p&gt;Smaller size, more tracking, no ceiling. At 1px the value is absurd.&lt;/p&gt;
 &lt;figure&gt;
   &lt;img src=&quot;https://pablosantalla.com/blog/letter-spacing-story/A2-e_0KTnT-680.svg&quot; alt=&quot;The same reciprocal curve extended toward small font sizes, where tracking grows without limit and shoots out of frame.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;680&quot; height=&quot;440&quot;&gt;
   &lt;figcaption&gt;Extended toward small sizes, the original curve has no ceiling and climbs out of frame.&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;On screen, what fails isn&#39;t the look, it&#39;s control. The curve runs away in small sizes and there&#39;s no way to cap it. The model decides the extremes for you.&lt;/p&gt;
+&lt;p&gt;What fails on screen isn&#39;t the look, it&#39;s control. The curve runs away in small sizes and you can&#39;t cap it. The model decides the extremes for you.&lt;/p&gt;
 &lt;p&gt;What was missing: declaring a max the same way there&#39;s a min. Designer sets both bounds, the curve respects them.&lt;/p&gt;
 &lt;h2 id=&quot;the-path-to-the-model&quot;&gt;The path to the model&lt;/h2&gt;
 &lt;p&gt;Several stops, each ruled something out.&lt;/p&gt;
-&lt;p&gt;Expose the constant as a variable, so curvature isn&#39;t frozen.&lt;/p&gt;
-&lt;p&gt;Add a real upper asymptote. A logistic over log size has two bounds but breaks the reciprocal form and loses the exact anchor.&lt;/p&gt;
-&lt;p&gt;A damped reciprocal adds the ceiling with one denominator shift, keeps the anchor, but gives no control over the transition shape.&lt;/p&gt;
-&lt;p&gt;Declare min and max directly as bounds, clamp style, and have the curve reach them as asymptotes.&lt;/p&gt;
+&lt;p&gt;Expose the constant as a variable, so the curvature isn&#39;t frozen.&lt;/p&gt;
+&lt;p&gt;Add a real upper asymptote. A logistic over log size gives you two bounds, but breaks the reciprocal form and loses the anchor.&lt;/p&gt;
+&lt;p&gt;A damped reciprocal adds the ceiling with one denominator shift, keeps the anchor, gives no control over the transition.&lt;/p&gt;
+&lt;p&gt;Declare min and max as bounds directly, clamp style, and have the curve reach them as asymptotes.&lt;/p&gt;
 &lt;figure&gt;
   &lt;img src=&quot;https://pablosantalla.com/blog/letter-spacing-story/cKOmec3fBY-680.svg&quot; alt=&quot;The reciprocal curve constrained between two horizontal lines marking declared min and max bounds.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;680&quot; height=&quot;440&quot;&gt;
   &lt;figcaption&gt;Same curve, now with explicit min and max declared as horizontal bounds the curve must stay within.&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;Move into the log domain, where a straight line means tracking that decreases in perceptually equal steps, with smooth saturation between bounds.&lt;/p&gt;
-&lt;p&gt;Same tension every time. Either the curve follows the original closely, or it eases out at the extremes, not both at once. Force them together and you get a kink.&lt;/p&gt;
+&lt;p&gt;Move into log domain, where a straight line means tracking that decreases in perceptually equal steps, with smooth saturation between bounds.&lt;/p&gt;
+&lt;p&gt;Same tension every time. Either the curve follows the original closely, or it eases out at the extremes, not both. Force them together and you get a kink.&lt;/p&gt;
 &lt;h2 id=&quot;saturate-with-an-exponential&quot;&gt;Saturate with an exponential&lt;/h2&gt;
-&lt;p&gt;Take the original&#39;s height above the floor and compress it toward the ceiling with a decreasing exponential. It&#39;s the smoothest way to approach a limit, because it brakes in proportion to what&#39;s left. It reaches the ceiling with a horizontal tangent, no kink.&lt;/p&gt;
-&lt;p&gt;In the working range it follows the original, at the extremes it settles under the ceiling.&lt;/p&gt;
+&lt;p&gt;Take the original&#39;s height above the floor and compress it toward the ceiling with a decreasing exponential. Smoothest way to approach a limit, because it brakes in proportion to what&#39;s left. It reaches the ceiling with a horizontal tangent. No kink.&lt;/p&gt;
+&lt;p&gt;In the working range it follows the original. At the extremes it settles under the ceiling.&lt;/p&gt;
 &lt;figure&gt;
   &lt;img src=&quot;https://pablosantalla.com/blog/letter-spacing-story/BPKZRIp7RF-680.svg&quot; alt=&quot;Two curves overlaid: the original reciprocal dashed, and the bounded power model as a solid line, crossing at the base size anchor point.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;680&quot; height=&quot;440&quot;&gt;
   &lt;figcaption&gt;Original (dashed) vs the final bounded model (solid). They cross exactly at the base size and only diverge near the extremes, where the new model saturates under the ceiling.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;h2 id=&quot;the-audit-collapsed-the-formula&quot;&gt;The audit collapsed the formula&lt;/h2&gt;
-&lt;p&gt;Auditing the math, almost everything cancelled. The raw original, the anchor parameter, the exponential with its logarithm, all of it was an algebraic detour.&lt;/p&gt;
+&lt;p&gt;Auditing the math, almost everything cancelled. The raw original, the anchor parameter, the exponential with its logarithm, all of it an algebraic detour.&lt;/p&gt;
 &lt;p&gt;The final form, identical down to floating point noise, is a power:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ls(s) = max - (max - min) * r^(base / s)
 r     = (max - base) / (max - min)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Four parameters you control: base, track, min, max. One trivial derived value, r. A power, no transcendental functions.&lt;/p&gt;
+&lt;p&gt;Four parameters: base, track, min, max. One trivial derived value, r. A power, no transcendental functions.&lt;/p&gt;
 &lt;p&gt;In CSS it&#39;s native via &lt;code&gt;pow()&lt;/code&gt;, available in every modern browser since late 2023.&lt;/p&gt;
 &lt;h2 id=&quot;what-the-model-guarantees&quot;&gt;What the model guarantees&lt;/h2&gt;
-&lt;p&gt;Random-case auditing found no serious issues. These always hold:&lt;/p&gt;
+&lt;p&gt;Random-case auditing turned up nothing serious. These always hold:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Exact anchor. At base size the result is exactly the base track.&lt;/li&gt;
 &lt;li&gt;Strict monotonicity. Tracking decreases without bumps as size grows.&lt;/li&gt;
 &lt;li&gt;Hard bounds. Never leaves the min to max interval.&lt;/li&gt;
 &lt;li&gt;Smooth exit. Reaches the bounds with a horizontal tangent, no kink.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The only validity condition is that base sits between min and max, which is the same as r being between 0 and 1. A guard stops compilation if that breaks, instead of shipping a broken curve.&lt;/p&gt;
+&lt;p&gt;The only validity condition is base sitting between min and max, equivalent to r being between 0 and 1. A guard stops compilation if that breaks, instead of shipping a broken curve.&lt;/p&gt;
 &lt;h2 id=&quot;when-the-ceiling-kicks-in&quot;&gt;When the ceiling kicks in&lt;/h2&gt;
-&lt;p&gt;With soft parameters, like a base track of zero, the curve barely touches the ceiling. The floor leads, the max stays a safety net. But the ceiling isn&#39;t decorative. There are cases where it carries the curve.&lt;/p&gt;
-&lt;p&gt;First, starting from a sizable base tracking. If base track is already open, the curve starts high and hits the ceiling fast as size drops. Without a max it would keep climbing. With it, it flattens against the limit.&lt;/p&gt;
-&lt;p&gt;Second, reaching genuinely small sizes. The reciprocal form runs away the smaller you go. However modest the base track, drop far enough and the original heads for absurd values. The ceiling stops it.&lt;/p&gt;
+&lt;p&gt;With soft parameters, base track at zero say, the curve barely touches the ceiling. The floor leads, the max is a safety net. But the ceiling isn&#39;t decorative. There are cases where it does the work.&lt;/p&gt;
+&lt;p&gt;First, starting from a sizable base tracking. If the base track is already open, the curve starts high and hits the ceiling fast as size drops. Without a max it would keep climbing. With it, it flattens against the limit.&lt;/p&gt;
+&lt;p&gt;Second, going into genuinely small sizes. The reciprocal runs away the smaller you go. However modest the base track, drop far enough and the original heads for absurd values. The ceiling stops it.&lt;/p&gt;
 &lt;figure&gt;
   &lt;img src=&quot;https://pablosantalla.com/blog/letter-spacing-story/dzBh6lTar8-680.svg&quot; alt=&quot;Bounded model with a high base tracking value: as font size drops, the curve rises quickly and flattens against the upper max bound with a horizontal tangent.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;680&quot; height=&quot;440&quot;&gt;
   &lt;figcaption&gt;With a high base tracking, the curve climbs fast at small sizes and settles against the max as a smooth upper asymptote, never crossing it.&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;In both, the upper asymptote shows up. The curve climbs, approaches the max and settles on it with a horizontal tangent, never crossing. That&#39;s what makes it viable. Not a curve that only works in the comfortable case. It holds with large base tracking and tiny sizes too, because both ends are bounded, not just one.&lt;/p&gt;
+&lt;p&gt;In both, the upper asymptote shows up. The curve climbs, approaches the max, settles on it with a horizontal tangent, never crosses. That&#39;s what makes the model viable. It isn&#39;t a curve that only works in the comfortable case. It holds with large base tracking and tiny sizes too, because both ends are bounded, not just one.&lt;/p&gt;
 &lt;h2 id=&quot;sample-values&quot;&gt;Sample values&lt;/h2&gt;
 &lt;p&gt;Base 16px, track 0, min -0.02, max 0.05, on a 1.19 ratio scale:&lt;/p&gt;
 &lt;table&gt;
@@ -168,8 +168,8 @@ r     = (max - base) / (max - min)
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Across the real range the two curves are nearly identical, max difference about 0.08 percent. m anchors at exactly 0. From there tracking tightens smoothly toward the displays. Sensible values, nothing extreme.&lt;/p&gt;
-&lt;p&gt;The two models only diverge at tiny sizes, outside a normal scale:&lt;/p&gt;
+&lt;p&gt;Across the real range the two curves are nearly identical, max difference around 0.08 percent. m anchors at exactly 0. From there tracking tightens smoothly toward the displays. Sensible values, nothing extreme.&lt;/p&gt;
+&lt;p&gt;They only diverge at tiny sizes, outside a normal scale:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -245,14 +245,14 @@ r     = (max - base) / (max - min)
     &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;A step&#39;s rendered size isn&#39;t fixed, it moves with viewport width. A step that&#39;s 28px on a narrow screen can be 32px on a wide one.&lt;/p&gt;
-&lt;p&gt;The em tracking is computed on that rendered size, so it moves with the viewport too. A single token doesn&#39;t have one tracking value, it has a range that tracks the size.&lt;/p&gt;
-&lt;p&gt;The origin model wouldn&#39;t handle this well, its formula needs the size at compile time. The power form solves it because the em trick leaves the whole evaluation to the browser. &lt;code&gt;pow(r, base / s)&lt;/code&gt; recomputes itself with whatever s applies at each viewport. Just know that a token&#39;s tracking is a range, not a number.&lt;/p&gt;
+&lt;p&gt;The em tracking is computed on that rendered size, so it moves with the viewport too. A token doesn&#39;t have one tracking value, it has a range that tracks the size.&lt;/p&gt;
+&lt;p&gt;The origin model wouldn&#39;t handle this. Its formula needs the size at compile time. The power form solves it because the em trick leaves the whole evaluation to the browser. &lt;code&gt;pow(r, base / s)&lt;/code&gt; recomputes itself with whatever s applies at each viewport. A token&#39;s tracking is a range, not a number, and that&#39;s fine.&lt;/p&gt;
 &lt;h2 id=&quot;on-calibration&quot;&gt;On calibration&lt;/h2&gt;
 &lt;p&gt;This gives a coherent base curve. What it doesn&#39;t know is how a specific typeface looks at each size.&lt;/p&gt;
-&lt;p&gt;Real optical tuning depends on the family. Two fonts at the same size can want different tracking. That fine adjustment is a designer&#39;s job, done by tuning the parameters, not overwriting loose values by hand. Patching tokens breaks the consistency that justifies having a model.&lt;/p&gt;
+&lt;p&gt;Real optical tuning depends on the family. Two fonts at the same size can want different tracking. That fine adjustment is a designer&#39;s job, done by tuning parameters, not by overwriting loose values by hand. Patching tokens breaks the consistency that justified having a model in the first place.&lt;/p&gt;
 &lt;p&gt;Calibration has limits, and design should too if we&#39;re going into fine optics. You can chase the perfect pixel at every step for every font. Past a point that stops being design and turns into obsession, and the system&#39;s consistency is worth more than the perfect tuning of a single value. A sane curve that anchors and respects bounds already handles ninety-something percent. The rest is debatable, and usually ego.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Taking this to production. It&#39;ll work. The values make sense. The curve is coherent across the scale, anchors where it should, respects the bounds it&#39;s given. What&#39;s left is calibrating against the real font by tuning parameters, not patching tokens.&lt;/p&gt;
+&lt;p&gt;Taking this to production. It&#39;ll work. The values make sense. The curve is coherent across the scale, anchors where it should, respects the bounds it&#39;s given. What&#39;s left is calibration against the real font, by tuning parameters, not patching tokens.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;where-it-lands&quot;&gt;Where it lands&lt;/h2&gt;
 &lt;p&gt;Coherent with the origin model, keeps its reciprocal form and its anchor, adds what was missing: a declarable max acting as a smooth asymptote.&lt;/p&gt;
