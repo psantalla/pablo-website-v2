@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, statSync } from "node:fs";
 import { readdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -17,7 +17,7 @@ async function* walk(dir) {
 let made = 0;
 for await (const mp4 of walk(root)) {
 	const webp = mp4.replace(/\.mp4$/, ".webp");
-	if (existsSync(webp)) continue;
+	if (existsSync(webp) && statSync(webp).mtimeMs >= statSync(mp4).mtimeMs) continue;
 	try {
 		execFileSync("ffmpeg", ["-y", "-i", mp4, "-vframes", "1", "-c:v", "libwebp", "-quality", "80", webp], { stdio: "pipe" });
 		console.log(`poster: ${webp.replace(root + "/", "")}`);

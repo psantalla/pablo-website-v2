@@ -9,9 +9,7 @@
 		"prebuild": "npm run posters",
 		"build": "eleventy",
 		"build-nocolor": "cross-env NODE_DISABLE_COLORS=1 eleventy",
-		"build-ghpages": "eleventy --pathprefix=/pablo-website-v2/",
 		"start": "eleventy --serve --quiet",
-		"start-ghpages": "eleventy --pathprefix=/pablo-website-v2/ --serve --quiet",
 		"debug": "cross-env DEBUG=Eleventy* eleventy",
 		"debugstart": "cross-env DEBUG=Eleventy* eleventy --serve --quiet",
 		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* eleventy"
@@ -27,7 +25,7 @@
 	},
 	"license": "MIT",
 	"engines": {
-		"node": ">=18"
+		"node": ">=20"
 	},
 	"funding": {
 		"type": "opencollective",
