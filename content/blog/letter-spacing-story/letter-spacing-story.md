@@ -1,5 +1,5 @@
 ---
-title: Letter spacing as a curve, not a list of tokens
+title: Letter spacing as a curve
 description: A bounded reciprocal model for letter spacing in fluid type systems. One curve, four parameters, no per-size tokens.
 date: 2026-05-23
 tags:
