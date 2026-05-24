@@ -2,8 +2,10 @@
 title: "Hire Me"
 redirect_from: /hire-me
 eleventyNavigation:
-  key: "Hire"
-  order: 4
+  key: "Hire me"
+  parent: "footer"
+  order: 2
+  blank: false
 ---
 # Hire me
 
