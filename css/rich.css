@@ -46,7 +46,7 @@ p:not(:has(img, video, picture, iframe)) + p:not(:has(img, video, picture, ifram
 }
 
 * + :is(h1, h2, h3, h4, h5, h6) {
-	margin-top: var(--sp-xl) /* imporant increases specificity on entry list */ !important;
+	margin-top: var(--sp-2xl) /* imporant increases specificity on entry list */ !important;
 }
 
 :is(h1, h2, h3, h4, h5) + :is(h2, h3, h4, h5, h6) {
