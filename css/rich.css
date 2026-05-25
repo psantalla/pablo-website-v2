@@ -42,19 +42,15 @@ p {
 }
 
 p:not(:has(img, video, picture, iframe)) + p:not(:has(img, video, picture, iframe)) {
-	margin-top: var(--sp-l);
+	margin-top: 1.2em;
 }
 
 * + :is(h1, h2, h3, h4, h5, h6) {
-	margin-top: var(--sp-2xl) /* imporant increases specificity on entry list */ !important;
-}
-
-:is(h1, h2, h3, h4, h5) + :is(h2, h3, h4, h5, h6) {
-	margin-top: var(--sp-m);
+	margin-top: var(--sp-2xl) /* !important needed to override .entry-metadata + * */ !important;
 }
 
 :is(ul, ol):not([class]) {
-	margin: var(--sp-l) 0;
+	margin: 1.2em 0;
 	padding-left: var(--sp-xl);
 	list-style-type: disc;
 }
