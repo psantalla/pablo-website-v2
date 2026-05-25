@@ -54,18 +54,20 @@ Syncthing filters at the source. Ignore patterns on the Pi exclude `.njk`, `.js`
 
 The repository is cloned on the Pi with sparse-checkout, so only `/content` lives on disk, alongside the root files that sparse-checkout's cone mode includes by convention.
 
-A `cron` job runs every ten minutes:
+A `cron` job runs every five minutes:
 
-```bash
-cd /mnt/files/pablo/personal-website \
-  && git pull --rebase origin main \
-  && git add content/ \
-  && git diff --cached --quiet \
-  || (git commit -m "content: auto-sync" && git push origin main)
 ```
+*/5 * * * * /home/psantalla/bin/sync-content.sh
+```
+
+The script pulls with rebase and autostash first, so anything I push directly from the MacBook or from GitHub web comes down before new local changes get committed. Then it stages everything under `/content`, commits if there's a diff, and pushes.
+
+If the push is rejected because the remote moved in between, the script pulls again and retries once. If Syncthing left a conflict file behind, the script skips it — those mean two devices edited the same file at the same time and I want to resolve them by hand.
+
+A `flock` keeps two runs from overlapping. A guard at the top aborts cleanly if the repo is mid-rebase or mid-merge.
 
 `cron` because it needs no dependencies, starts with the system, and requires no maintenance. No daemons, no extra processes.
 
-Before committing, it checks for an actual diff. No changes, no commit.
-
 The push triggers GitHub Actions. Eleventy compiles. The site updates.
+
+Logs live in `/mnt/files/pablo/logs/`, rotated weekly.
