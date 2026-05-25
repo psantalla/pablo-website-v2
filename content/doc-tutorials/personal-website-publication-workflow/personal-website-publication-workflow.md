@@ -50,14 +50,18 @@ The Raspberry Pi is always on. It's the stable node of the system.
 
 `/content` lives in the repo next to project scaffolding: Nunjucks templates, Eleventy config, build data. The Pi doesn't need any of that — it's a content node, not a code node.
 
-Syncthing filters at the source. Ignore patterns on the Pi exclude `.njk`, `.js`, `/feed`, `.virtual` from the transfer. What arrives on the Pi is content only: markdown, images, video.
+The Syncthing folder shared between the MacBook and the Pi is `/content` only, not the whole repository. Everything else (`.git`, Eleventy config, dependencies) never touches Syncthing.
+
+> Syncthing is the transport. Git stays the source of truth.
+
+Inside `/content`, a small ignore list filters leftover OS files (`.DS_Store`) and generated assets the build regenerates (`.njk`, `.js`, `/feed`, `.virtual`). What flows is content only: markdown, images, video.
 
 The repository is cloned on the Pi with sparse-checkout, so only `/content` lives on disk, alongside the root files that sparse-checkout's cone mode includes by convention.
 
-A `cron` job runs every five minutes:
+A `cron` job runs every five minutes, calling a small script:
 
 ```
-*/5 * * * * /home/psantalla/bin/sync-content.sh
+*/5 * * * * ~/bin/sync-content.sh
 ```
 
 The script pulls with rebase and autostash first, so anything I push directly from the MacBook or from GitHub web comes down before new local changes get committed. Then it stages everything under `/content`, commits if there's a diff, and pushes.
@@ -70,4 +74,4 @@ A `flock` keeps two runs from overlapping. A guard at the top aborts cleanly if 
 
 The push triggers GitHub Actions. Eleventy compiles. The site updates.
 
-Logs live in `/mnt/files/pablo/logs/`, rotated weekly.
+The script writes a log on the Pi, rotated weekly.
