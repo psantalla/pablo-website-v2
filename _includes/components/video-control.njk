@@ -1,7 +1,7 @@
 {% macro figure(src, caption = "", width = "", height = "") %}
 <figure class="video-control">
 	<div class="video-control__media" data-video-control>
-		<video muted loop playsinline preload="metadata" poster="{{ src | replace(r/\.mp4$/, '.webp') }}" aria-hidden="true"{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %}>
+		<video muted loop playsinline preload="metadata" poster="{{ src | replace(r/\.mp4$/, '.poster.webp') }}" aria-hidden="true"{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %}>
 			<source src="{{ src }}" type="video/mp4">
 		</video>
 		<button class="video-control__btn" type="button" data-video-control-btn aria-label="Pause animation">

@@ -16,7 +16,7 @@ async function* walk(dir) {
 
 let made = 0;
 for await (const mp4 of walk(root)) {
-	const webp = mp4.replace(/\.mp4$/, ".webp");
+	const webp = mp4.replace(/\.mp4$/, ".poster.webp");
 	if (existsSync(webp) && statSync(webp).mtimeMs >= statSync(mp4).mtimeMs) continue;
 	try {
 		execFileSync("ffmpeg", ["-y", "-i", mp4, "-vframes", "1", "-c:v", "libwebp", "-quality", "80", webp], { stdio: "pipe" });

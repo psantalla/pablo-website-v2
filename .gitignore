@@ -4,7 +4,7 @@ node_modules/
 .vscode/
 
 # auto-generated video posters (regenerated on prestart/prebuild)
-content/**/*.webp
+content/**/*.poster.webp
 
 .stfolder*
 .stignore
