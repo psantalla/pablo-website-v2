@@ -105,6 +105,14 @@ table {
 	margin: var(--sp-xl) 0;
 }
 
+/* Tighten the gap between consecutive standalone pictures. */
+picture:has(+ picture) {
+	margin-bottom: var(--sp-m);
+}
+picture + picture {
+	margin-top: var(--sp-m);
+}
+
 /* Reset every figure descendant (direct child or nested media) except the caption. */
 figure > *:not(figcaption),
 figure :is(img, video, picture, iframe) {
