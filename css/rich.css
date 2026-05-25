@@ -60,11 +60,11 @@ ol:not([class]) {
 }
 
 :is(ul, ol):not([class]) li + li {
-	margin-top: var(--sp-xs);
+	margin-top: 0.5em;
 }
 
 :is(ul, ol):not([class]) :is(ul, ol) {
-	margin-top: var(--sp-xs);
+	margin-top: 0.5em;
 	padding-left: var(--sp-l);
 	list-style-type: circle;
 }
