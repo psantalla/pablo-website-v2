@@ -9,10 +9,19 @@
   white-space: nowrap;
 }
 
+pre {
+  margin: var(--sp-m) 0;
+}
+pre:has(+ pre) {
+  margin-bottom: var(--sp-s);
+}
+pre + pre {
+  margin-top: var(--sp-s);
+}
+
 pre:not([class*="language-"]) {
   background: var(--c-code-bg);
   padding: var(--sp-m);
-  margin: var(--sp-s) 0;
   overflow: auto;
 }
 
@@ -47,7 +56,6 @@ pre[class*="language-"] {
 
 pre[class*="language-"] {
 	padding: var(--sp-m);
-	margin: var(--sp-s) 0;
 	overflow: auto;
 }
 
