@@ -9,7 +9,7 @@ eleventyNavigation:
 ---
 # Hire me
 
-I’m generally open to conversations around new projects and collaborations, especially when there’s a good fit in how the work is approached and taken care of. To keep things clear from the start, these are some signals that usually mean a good match:
+I’m generally open to conversations around new projects and collaborations, especially when there’s a good fit in how the work is approached and taken care of. These are some signals that usually mean a good match:
 
 - Senior-level or consistently **high-quality** engineering practices **across the team**.
 - Strong designers with **real experience in complex web products and web apps**, and a solid understanding of the web’s constraints and possibilities.
