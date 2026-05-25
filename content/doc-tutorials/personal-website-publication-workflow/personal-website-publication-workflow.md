@@ -56,22 +56,24 @@ The Syncthing folder shared between the MacBook and the Pi is `/content` only, n
 
 Inside `/content`, a small ignore list filters leftover OS files (`.DS_Store`) and generated assets the build regenerates (`.njk`, `.js`, `/feed`, `.virtual`). What flows is content only: markdown, images, video.
 
-The repository is cloned on the Pi with sparse-checkout, so only `/content` lives on disk, alongside the root files that sparse-checkout's cone mode includes by convention.
+The repository is cloned on the Pi with sparse-checkout. Only `/content` and the repo's root files (`README.md`, `package.json`, the Eleventy config, etc.) end up on disk. The other directories (templates, includes, build assets, dependencies) stay out.
 
 A `cron` job runs every five minutes, calling a small script:
 
 ```
-*/5 * * * * ~/bin/sync-content.sh
+*/5 * * * * ~/.local/bin/sync-content.sh
 ```
 
 The script pulls with rebase and autostash first, so anything I push directly from the MacBook or from GitHub web comes down before new local changes get committed. Then it stages everything under `/content`, commits if there's a diff, and pushes.
 
 If the push is rejected because the remote moved in between, the script pulls again and retries once. If Syncthing left a conflict file behind, the script skips it — those mean two devices edited the same file at the same time and I want to resolve them by hand.
 
-A `flock` keeps two runs from overlapping. A guard at the top aborts cleanly if the repo is mid-rebase or mid-merge.
+A `flock` keeps two runs from overlapping. If the repo is mid-rebase or mid-merge for any reason, the script aborts cleanly instead of trying to fix it.
 
 `cron` because it needs no dependencies, starts with the system, and requires no maintenance. No daemons, no extra processes.
 
 The push triggers GitHub Actions. Eleventy compiles. The site updates.
 
-The script writes a log on the Pi, rotated weekly.
+The script writes a log on the Pi, rotated weekly. If something breaks (a real merge conflict, a push that can't recover, sync-conflict files waiting to be resolved), it sends me an email with the short reason and the relevant log lines. It sends another one when things recover. So I don't need to watch the Pi; the Pi tells me when I need to look.
+
+If the markdown I publish has a real error (broken frontmatter, an image path that doesn't exist), GitHub Actions fails the build and keeps the previous version live. GitHub emails me about the failed build. I fix the file, save it, and the next Pi run picks it up.
