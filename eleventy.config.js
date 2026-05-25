@@ -90,6 +90,18 @@ export default async function(eleventyConfig) {
 		},
 	});
 
+	// Strip the <p> wrapper that markdown-it adds around standalone images.
+	eleventyConfig.amendLibrary("md", (md) => {
+		const skip = (tokens, idx, dir) => {
+			const sibling = tokens[idx + dir];
+			return sibling?.type === "inline" && sibling.children?.length === 1 && sibling.children[0].type === "image";
+		};
+		const defaultOpen = md.renderer.rules.paragraph_open || ((t, i, o, e, s) => s.renderToken(t, i, o));
+		const defaultClose = md.renderer.rules.paragraph_close || ((t, i, o, e, s) => s.renderToken(t, i, o));
+		md.renderer.rules.paragraph_open = (t, i, o, e, s) => skip(t, i, 1) ? "" : defaultOpen(t, i, o, e, s);
+		md.renderer.rules.paragraph_close = (t, i, o, e, s) => skip(t, i, -1) ? "" : defaultClose(t, i, o, e, s);
+	});
+
 	eleventyConfig.addPlugin(pluginFilters);
 
 	eleventyConfig.addCollection("projectTopics", function(collectionApi) {
