@@ -105,7 +105,8 @@ table {
 	margin: var(--sp-xl) 0;
 }
 
-figure :is(img, video, picture, iframe) {
+/* Markdown wraps block images in <p>, so reset every figure child except the caption. */
+figure > *:not(figcaption) {
 	margin: 0;
 }
 
