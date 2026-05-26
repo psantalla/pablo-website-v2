@@ -72,7 +72,7 @@ https://nicolas-hoizey.com/feeds/all.xml
     </html>
   </xsl:template>
   <xsl:template match="atom:feed/atom:entry">
-    <div class="pb-5">
+    <div class="mt-3">
       <h3 class="my-0">
         <a>
           <xsl:attribute name="href">
