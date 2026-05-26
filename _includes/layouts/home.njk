@@ -4,18 +4,6 @@ layout: layouts/base.njk
 
 {{ content | safe }}
 
-{% set projectsCount = collections.projects | length %}
-{% set latestProjectsCount = projectsCount | min(numberOfLatestProjectsToShow) %}
-<h1>{{ latestProjectsCount }} recent project{% if latestProjectsCount != 1 %}s{% endif %}</h1>
-
-{% set projectslist = collections.projects | head(-1 * numberOfLatestProjectsToShow) %}
-{% include "projectslist.njk" %}
-
-{% set moreProjects = projectsCount - numberOfLatestProjectsToShow %}
-{% if moreProjects > 0 %}
-<p>{{ moreProjects }} more project{% if moreProjects != 1 %}s{% endif %} can be found in <a href="/projects/">the projects archive</a>.</p>
-{% endif %}
-
 {% set postsCount = collections.posts | length %}
 {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
 <h1>Latest {{ latestPostsCount }} post{% if latestPostsCount != 1 %}s{% endif %}</h1>
@@ -27,6 +15,18 @@ layout: layouts/base.njk
 {% set morePosts = postsCount - numberOfLatestPostsToShow %}
 {% if morePosts > 0 %}
 <p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="/blog/">the blog page</a>.</p>
+{% endif %}
+
+{% set projectsCount = collections.projects | length %}
+{% set latestProjectsCount = projectsCount | min(numberOfLatestProjectsToShow) %}
+<h1>{{ latestProjectsCount }} recent project{% if latestProjectsCount != 1 %}s{% endif %}</h1>
+
+{% set projectslist = collections.projects | head(-1 * numberOfLatestProjectsToShow) %}
+{% include "projectslist.njk" %}
+
+{% set moreProjects = projectsCount - numberOfLatestProjectsToShow %}
+{% if moreProjects > 0 %}
+<p>{{ moreProjects }} more project{% if moreProjects != 1 %}s{% endif %} can be found in <a href="/projects/">the projects archive</a>.</p>
 {% endif %}
 
 {# List every content page in the project #}
