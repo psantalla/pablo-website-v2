@@ -9,7 +9,7 @@ In software development, there are days that disappear while you work on a singl
 
 Momentum comes from moving from one task to the next. One thing done, onto the next. Not getting that creates, on one hand, frustration and a feeling of being stuck; and on the other, a kind of negative conformity, almost like quietly assuming that tomorrow you’ll probably still be stuck too.
 
-Some things I’ve tried, more or less. Spoiler: not many work.
+Some things I’ve tried: (Spoiler: not many work)
 
 - I set a mental timer. I’ll finish this in half an hour. Absolutely doesn’t work. Half an hour passes and, at best (when I actually check the clock), I give myself another ten minutes. Then another.
 
