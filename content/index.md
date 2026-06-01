@@ -9,8 +9,8 @@ I still wonder how operating systems back then were so easy to break in such spe
 
 Eventually, I learned that not knowing how to build something, or how to fix it when it breaks, isn’t a reason not to start.
 
-My most recent work has been part of high-impact sites, brought to life as a Senior Software Engineer at [LFL](https://www.leftfieldlabs.com/).
-
 ---
+
+My most recent work has been part of high-impact sites, brought to life as a Senior Software Engineer at [LFL](https://www.leftfieldlabs.com/).
 
 You can follow what I’m up to lately on my [now page](now), or just browse around the site where I share things I think are worth putting out there.
