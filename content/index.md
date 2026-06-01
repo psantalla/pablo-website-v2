@@ -3,9 +3,11 @@ layout: layouts/home.njk
 numberOfLatestPostsToShow: 5
 numberOfLatestProjectsToShow: 3
 ---
-No me acuerdo cuántos años tenía cuando me cargué un Windows XP entero a fuerza de borrar archivos para y comprimiendo el disco duro para instalar un juego de los Sims. Le eché un verano para repararlo. Al final ni lo reparé ni por supuesto pude jugar a ese juego de comprar un váter overpriced.
+I don’t remember how old I was when I completely wrecked a Windows XP installation by deleting random files and compressing the hard drive to make room for a Sims expansion pack. I spent an entire summer trying to fix it. In the end, I never got Windows working properly again, and I definitely never got to play that game about buying an overpriced toilet.
 
-aun me pregunto cómo aquellos OS se dejaban romper tan cool. ya luego aprendi a no cagarla de esa manera, y a construir cosas que de primeras
+I still wonder how operating systems back then were so easy to break in such spectacular ways.
+
+Eventually, I learned that not knowing how to build something, or how to fix it when it breaks, isn’t a reason not to start.
 
 My most recent work has been part of high-visibility, high-impact sites, thoughtfully brought to life as a Senior Software Engineer at [LFL](https://www.leftfieldlabs.com/).
 
