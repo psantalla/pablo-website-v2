@@ -14,22 +14,14 @@ draft: true
 
 Proyecto guay. un montón de contenido que wire bien y de forma estratégica. estamos hablando de miles de entradas y campos de contenido que tienen que estar prewireados a una implementación plenamente custom.
 
-Trabajazo del equipo de LFL tomando decisiones técnicas clave 
+Trabajazo del equipo de LFL tomando decisiones técnicas clave para llegar a una entrega sin fallos. nivel técnico muy alto, control exhaustivo de flujos de review de código, QA controlando como popula el contenido al milímetro antes de que el componente tome el control de la web.
 
-{{ vc.figure("portfolio-glabs.mp4", "", 1920, 1068) }}
+{{ vc.figure("portfolio-glabs.mp4", "", 1920, 1068) }} video aquí de la homepage
 
-It's where products like <a href="https://flow.google" target="_blank" rel="noopener noreferrer">Google Flow</a>, <a href="https://notebooklm.google/" target="_blank" rel="noopener noreferrer">NotebookLM</a>, <a href="https://stitch.withgoogle.com/" target="_blank" rel="noopener noreferrer">Stitch</a>, <a href="https://labs.google.com/pomelli/about" target="_blank" rel="noopener noreferrer">Pomelli</a> and <a href="https://www.flowmusic.app/" target="_blank" rel="noopener noreferrer">Flow Music</a> get surfaced. A lot of eyes on it, so details mattered.
+{{ vc.figure("glabs-interactions.mp4", "Close work with the motion design team. Every interaction calibrated and signed off together: in a team where rough-enough doesn't fly, that conversation is half the work.", 876, 1080) }} video aquí de moviéndose entre entradas de contenido.
 
-{{ vc.figure("glabs-interactions.mp4", "Close work with the motion design team. Every interaction calibrated and signed off together: in a team where rough-enough doesn't fly, that conversation is half the work.", 876, 1080) }}
+backupeado por un motion design que se siente premium, tomo el mando de la implementación de las implementaciones. en cuestión de una semana y con ayuda de frontend devs top, hacemos que la navegabilidad y gusto de leer la web se seinta premium y muy controlado.
 
-A lot of this comes down to looking after small details, and the shapes are a good example: here the details really show. Honestly that part was a blast. The requests got delightfully weird (draw faces on them, make them react to being poked, weird stuff like that), and chasing those down turned into some genuinely fun physics work. That kind of playing around is where the polish comes from: the team poking at odd ideas until the thing feels alive instead of just correct.
-
-{{ vc.figure("portfolio-labs-shapes.mp4", "(I may or may not have hidden a few easter eggs in there.)", 1920, 1068) }}
-
-A few things under the hood:
-
-- +15% performance on a page running ~30 videos at once, through careful loading and viewport-aware playback.
-- Physics rebuilt on Matter.js. Scroll velocity feeds into the simulation, so movement reacts to how you're actually scrolling.
-- Lottie animations that pick up on user intent: scroll harder and things speed up, which makes the interaction feel less scripted.
+Un gustazo de trabajar en este proyecto sinceramente.
 
 <script src="/js/video-control.js" defer></script>
