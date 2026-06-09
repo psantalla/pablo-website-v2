@@ -12,7 +12,9 @@ draft: true
 
 > Heads up: this one is more about how the project felt than the technical guts. A lot of what shipped came out of team iteration across <a href="https://leftfieldlabs.com/" target="_blank" rel="noopener noreferrer">Left Field Labs</a>, so I keep the deeper implementation stuff out of public writing. Happy to chat about ideas or anything that catches your eye. For the "how did you build X" kind of questions, easier to walk through in an unrelated codebase.
 
-I worked on the Google Labs update with <a href="https://leftfieldlabs.com/" target="_blank" rel="noopener noreferrer">Left Field Labs</a> across three sprints, contributing directly to Google's codebase through Gerrit. Left Field Labs led the engagement and worked closely with the Google Labs team. The level of iteration around details was high, which I genuinely enjoyed. My focus was the frontend: structure, motion, interactivity and keeping performance in good shape as the page became more demanding.
+Proyecto guay. un montón de contenido que wire bien y de forma estratégica. estamos hablando de miles de entradas y campos de contenido que tienen que estar prewireados a una implementación plenamente custom.
+
+Trabajazo del equipo de LFL tomando decisiones técnicas clave 
 
 {{ vc.figure("portfolio-glabs.mp4", "", 1920, 1068) }}
 
