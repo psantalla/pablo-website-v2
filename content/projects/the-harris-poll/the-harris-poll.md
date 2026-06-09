@@ -20,7 +20,7 @@ Trabajazo del equipo de LFL tomando decisiones técnicas clave para llegar a una
 
 {{ vc.figure("glabs-interactions.mp4", "Close work with the motion design team. Every interaction calibrated and signed off together: in a team where rough-enough doesn't fly, that conversation is half the work.", 876, 1080) }} video aquí de moviéndose entre entradas de contenido.
 
-backupeado por un motion design que se siente premium, tomo el mando de la implementación de las implementaciones. en cuestión de una semana y con ayuda de frontend devs top, hacemos que la navegabilidad y gusto de leer la web se seinta premium y muy controlado.
+backupeado por un motion design team que define al detalle el feel de transiciones de la web, tomo el mando de la implementación del motion. en cuestión de una semana y con ayuda de frontend devs top, hacemos que la navegabilidad y gusto de leer la web se seinta premium y muy controlado.
 
 Un gustazo de trabajar en este proyecto sinceramente.
 
