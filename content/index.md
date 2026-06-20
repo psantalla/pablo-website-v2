@@ -3,14 +3,10 @@ layout: layouts/home.njk
 numberOfLatestPostsToShow: 5
 numberOfLatestProjectsToShow: 3
 ---
-I don’t remember how old I was when I completely wrecked a Windows XP installation by deleting random files and compressing the hard drive to make room for a Sims expansion pack. I spent an entire summer trying to fix it. In the end, I never got Windows working properly again, and I definitely never got to play that game about buying an overpriced toilet.
+Hey, I’m Pablo, a Frontend Developer who enjoys exploring systems, patterns, and technology. My eye naturally gravitates toward thoughtful interfaces.
 
-I still wonder how operating systems back then were so easy to break in such spectacular ways.
-
-Eventually, I learned that not knowing how to build something, or how to fix it when it breaks, isn’t a reason not to start.
+This is where I write about things I encounter in work and life, always from a human perspective. I’m originally from Spain, but ended up building my career in California’s startup and creative scene.
 
 ---
 
-My most recent work has been part of high-impact sites, brought to life as a Senior Software Engineer at [LFL](https://www.leftfieldlabs.com/).
-
-You can follow what I’m up to lately on my [now page](now), or just browse around the site where I share things I think are worth putting out there.
+I think my perspective carries a certain cultural angle, empathy, and intentional directness. You’ll find some recent posts below, but if you dig around, you’ll also come across more technical documentation outside my usual day-to-day flow.
