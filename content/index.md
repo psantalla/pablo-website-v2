@@ -3,12 +3,6 @@ layout: layouts/home.njk
 numberOfLatestPostsToShow: 5
 numberOfLatestProjectsToShow: 3
 ---
-Hey, I’m Pablo, a Frontend Developer who enjoys exploring systems, patterns, and technology, with a natural pull toward thoughtful interfaces.
+Hey, I’m Pablo and I’m a frontend developer. This is also the website I share when any form asks for a “Personal Website” or “Portfolio”. I’m not sure if it really fits either term, but this is where I share my perspective on how software reaches people, some (what I think are) cool pieces of my work, and my struggles and learnings, all in a very human way.
 
-This is where I write about things I encounter in work and life, always from a human perspective.
-
----
-
-I’m originally from Spain but ended up building my career in California’s startup and creative scene. I like to think my perspective brings a cultural angle, empathy and intentional directness.
-
-This started as a personal site but it’s slowly turned into a sort of refined work journal. Hard to say where it ends up. If you dig around you’ll probably find recent posts and some more technical notes outside my usual day-to-day flow.
+When it comes to software development, most of my work has naturally leaned towards high-quality frontend products across a decent variety of modern web frameworks.
