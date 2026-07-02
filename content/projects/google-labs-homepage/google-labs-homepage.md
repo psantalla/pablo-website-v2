@@ -1,5 +1,5 @@
 ---
-title: Google Labs update
+title: Google Labs refresh
 madeAt: Left Field Labs
 date: 2026-05-20
 projectLink: https://labs.google/
@@ -13,7 +13,7 @@ draft: false
 ---
 {% import "components/video-control.njk" as vc %}
 
-> Heads up: this one is more about how the project felt than the technical guts. A lot of what shipped came out of team iteration across <a href="https://leftfieldlabs.com/" target="_blank" rel="noopener noreferrer">Left Field Labs</a>, so I keep the deeper implementation stuff out of public writing. Happy to chat about ideas or anything that catches your eye. For the "how did you build X" kind of questions, easier to walk through in an unrelated codebase.
+> Heads up: this is more about how the project felt than the technical guts. Most of what shipped came out of team iteration at <a href="https://leftfieldlabs.com/" target="_blank" rel="noopener noreferrer">Left Field Labs</a>, so I keep the deep implementation details out of public writing. Happy to chat about ideas. The "how did you build X" questions are easier to walk through in an unrelated codebase.
 
 I worked on the Google Labs update with <a href="https://leftfieldlabs.com/" target="_blank" rel="noopener noreferrer">Left Field Labs</a> across three sprints, contributing directly to Google's codebase through Gerrit. Left Field Labs led the engagement and worked closely with the Google Labs team. The level of iteration around details was high, which I genuinely enjoyed. My focus was the frontend: structure, motion, interactivity and keeping performance in good shape as the page became more demanding.
 
@@ -23,14 +23,14 @@ It's where products like <a href="https://flow.google" target="_blank" rel="noop
 
 {{ vc.figure("glabs-interactions.mp4", "Close work with the motion design team. Every interaction calibrated and signed off together: in a team where rough-enough doesn't fly, that conversation is half the work.", 876, 1080) }}
 
-A lot of this comes down to looking after small details, and the shapes are a good example: here the details really show. Honestly that part was a blast. The requests got delightfully weird (draw faces on them, make them react to being poked, weird stuff like that), and chasing those down turned into some genuinely fun physics work. That kind of playing around is where the polish comes from: the team poking at odd ideas until the thing feels alive instead of just correct.
+So much of it is the small details, and the shapes are the best example. That part was a blast. The requests got delightfully weird: draw faces on them, make them react to being poked. Chasing those down turned into some genuinely fun physics work. The polish comes from exactly that, the team poking at odd ideas until the thing feels alive instead of just correct.
 
 {{ vc.figure("portfolio-labs-shapes.mp4", "(I may or may not have hidden a few easter eggs in there.)", 1920, 1068) }}
 
 A few things under the hood:
 
-- +15% performance on a page running ~30 videos at once, through careful loading and viewport-aware playback.
-- Physics rebuilt on Matter.js. Scroll velocity feeds into the simulation, so movement reacts to how you're actually scrolling.
-- Lottie animations that pick up on user intent: scroll harder and things speed up, which makes the interaction feel less scripted.
+- +15% performance on a page running ~30 videos, via careful loading and viewport-aware playback.
+- Physics rebuilt on Matter.js: scroll velocity feeds the simulation, so movement reacts to how you actually scroll.
+- Lottie animations that read intent: scroll harder, things speed up, and it feels less scripted.
 
 <script src="/js/video-control.js" defer></script>
