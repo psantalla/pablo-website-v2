@@ -246,7 +246,7 @@ footer p {
 .entry-metadata {
 	display: inline-flex;
 	flex-wrap: wrap;
-	gap: var(--sp-xs) var(--sp-s);
+	gap: var(--sp-2xs) var(--sp-s);
 	margin: 0;
 	padding: 0;
 	list-style: none;
