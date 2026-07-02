@@ -9,7 +9,7 @@ projectTopics:
   - TypeScript
   - GSAP
   - Matter.js
-draft: true
+draft: false
 ---
 {% import "components/video-control.njk" as vc %}
 
