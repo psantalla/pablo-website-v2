@@ -17,10 +17,13 @@ If I wake up earlier than usual and I write here without taking my first coffee 
 
 ## Unconnected, potentially connected ideas
 
-I don't normally have perfectly structured, hierarchical, interconnected ideas. These patterns form over time, and that's beauty of it. When they form, learning leads into growth.
+I don't normally have perfectly structured, hierarchical, interconnected ideas. These patterns form over time, and that's beauty of it. When they form, learning leads into growth
+
+If I were using AI to connect my random thoughts.
 
 ## So, when or where do I use AI?
 
 On this website, I only use AI on certain scenarios:
 
-- Things I've done before and I just want to bring them in again. This applies to bringing a spacing system, or replicating some basic layouts I've created before.
+- Things I've done before and I just want to bring them in again. This applies to bringing a spacing system, or replicating some basic layouts.
+- Performing in-bulk or repetitive actions, such as manually f
