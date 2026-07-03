@@ -13,7 +13,7 @@ You've probably noticed already a few quirks on my writing. That's actually grea
 
 I'm fluent in English and I've lived in the US for a while, but Spanish still is my *spontaneous* language, regardless of my work and my intention to communicate broader and accessible for anybody. Hence the quirks (and I'm sure errors) you notice.
 
-If I wake up earlier than usual and I write here without taking my first coffee of the day, that needs to be represented here!
+If I wake up earlier than usual and I write here without taking my first sip coffee, that needs to be represented here!
 
 ## Unconnected, potentially connected ideas
 
