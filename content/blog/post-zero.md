@@ -11,8 +11,7 @@ This blog post talks about how this site will grow moving forward, its unique vo
 
 You've probably noticed already a few quirks on my writing. That's actually great, 'cause it'd be so easy for me to drop these paragraphs on a random LLM and ask for a some grammar and voice-tuning fixes, so you could read this blog in a more familiar combinations of words. This action could also create something I believe is locked in a predictable frame of content you've either have digested before; it'd be repetitive and boring even for your conscious mind, so I'm intentionally not contribute to it (you're welcome 😁).
 
-I'm fluent in English and I've lived in the US for a while, but Spanish still is my *spontaneous* language, regardless of my work environment and my intention to communicate broader and 
-
+I'm fluent in English and I've lived in the US for a while, but Spanish still is my *spontaneous* language, regardless of my work and my intention to communicate broader and accessible for anybody. Hence the quirks (and I'm sure errors) you notice.
 
 If I wake up earlier than usual and I write here without taking my first coffee of the day, that needs to be represented here!
 
