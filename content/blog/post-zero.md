@@ -7,7 +7,7 @@ draft: true
 ---
 This blog post talks about how this site will grow moving forward, its unique voice behind an imperfect content and ideas, and ultimately how I think AI contributes (or detriments) to it.
 
-> Even though I use AI daily and I believe in its benefits
+> Even though I use and extensively explore AI daily on my workflow, and I believe in its benefits, I choose to stay away from it as much as possible on my personal website. I see value on the unde uniqueness of a human voice pressure to moving fast
 
 Even though I've lived in the US for a while and consider myself fluent in English, I think, and naturally write in Spanish.
 
