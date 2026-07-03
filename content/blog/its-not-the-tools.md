@@ -1,7 +1,7 @@
 ---
 title: It's not the tools
 description: I don't pick a framework and behave inside it. I try everything at once, let it get messy, then set a handful of non-negotiable rules. That's the system.
-date: 2026-07-02
+date: 2026-07-02 20:00:00
 tags:
   - systems-thinking
 draft: false
