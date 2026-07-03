@@ -253,6 +253,7 @@ footer p {
 
 	&:has(.entry-taxonomy) {
 		display: flex;
+		gap: var(--sp-s);
 	}
 }
 
