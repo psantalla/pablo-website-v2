@@ -1,7 +1,7 @@
 ---
 layout: layouts/home.njk
-numberOfLatestPostsToShow: 5
-numberOfLatestProjectsToShow: 3
+numberOfLatestPostsToShow: 10
+numberOfLatestProjectsToShow: 10
 ---
 Hey, I’m Pablo and I’m a frontend developer. This is also the website I share when any form asks for a “Personal Website” or “Portfolio”. I’m not sure if it really fits either term, but this is where I share my perspective on how software reaches people, some pieces of my work, and my struggles and learnings, all in a very human way.
 
