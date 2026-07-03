@@ -21,4 +21,6 @@ I don't normally have perfectly structured, hierarchical, interconnected ideas. 
 
 ## So, when or where do I use AI?
 
-On this website, I only use AI for things that
+On this website, I only use AI on certain scenarios:
+
+- Things I've done before and I just want to bring them in again. This applies to bringing a spacing system, or replicating some basic layouts I've created before.
