@@ -5,7 +5,9 @@ date: 2026-07-03
 tags:
 draft: true
 ---
-This blog post talks about the imperfection 
+This blog post talks about how this site will grow moving forward, its unique voice behind an imperfect content and ideas, and ultimately how I think AI contributes (or detriments) to it.
+
+> Even though I use AI daily and I believe in its benefits
 
 Even though I've lived in the US for a while and consider myself fluent in English, I think, and naturally write in Spanish.
 
