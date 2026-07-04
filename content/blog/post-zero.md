@@ -4,7 +4,7 @@ description: I'm intentionally staying away from using AI  in most areas of my p
 date: 2026-07-03
 tags:
   - personal
-draft: true
+draft: false
 ---
 This blog post talks about how this site will grow moving forward, its unique voice behind an imperfect content and ideas, and ultimately how I think AI contributes (or doesn't contribute) to it.
 
@@ -14,13 +14,13 @@ This blog post talks about how this site will grow moving forward, its unique vo
 
 You've probably noticed already a few quirks on my writing. That's actually great. It'd be quite easy for me to drop these paragraphs on any LLM and ask for a some grammar and voice-tuning fixes, so you could read this blog in a more familiar combination of words. This action could also create something I believe is locked in a predictable frame you'd experience like a boring echo, so I'm intentionally not contributing to it (you're welcome 😁).
 
-English is far from being a struggle for me at this point. I learned it at school and had the privilege of attending summer classes in England and Ireland, way before moving to the US. But still, Spanish is my *spontaneous* language; hence the quirks (and I'm sure errors) you noticed.
+English is far from being a struggle for me at this point. I learned it in school and had the privilege of attending summer classes in England and Ireland, way before moving to the US. But still, Spanish is my *spontaneous* language; hence the quirks (and I'm sure errors) you noticed.
 
 ## Avoiding AI
 
 Here are a few more aspects of me, my writing, my work, and my personality I don't want to be shadowed by AI:
 
-- **What the moment feels like.** If I wake up and I start writing before taking my first sip coffee, that needs to be represented here somehow. I want to be able to circle back on vague phrases and expand or synthesize them my own way.
+- **What the moment feels like.** If I wake up and I start writing on my blog before taking my first sip coffee, that needs to be represented here somehow. I want to be able to circle back on vague phrases and expand or synthesize them my own way.
 - **Isolated ideas.** At first, I want to be OK keeping ideas unconnected, or deciding to bury them if I don't find the potential to be part of a mesh of interconnected concepts. I want to grow as I'm able to link and emerge thoughts; I don't want AI to "guess" those connections for me.
 
 ## Allowing AI
