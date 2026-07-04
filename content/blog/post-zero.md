@@ -4,7 +4,7 @@ description: I'm intentionally staying away from using AI  in most areas of my p
 date: 2026-07-03
 tags:
   - personal
-draft: false
+draft: true
 ---
 This blog post talks about how this site will grow moving forward, its unique voice behind an imperfect content and ideas, and ultimately how I think AI contributes (or doesn't contribute) to it.
 
@@ -14,7 +14,7 @@ This blog post talks about how this site will grow moving forward, its unique vo
 
 You've probably noticed already a few quirks on my writing. That's actually great. It'd be quite easy for me to drop these paragraphs on any LLM and ask for a some grammar and voice-tuning fixes, so you could read this blog in a more familiar combination of words. This action could also create something I believe is locked in a predictable frame you'd experience like a boring echo, so I'm intentionally not contributing to it (you're welcome 😁).
 
-I've lived in the US for a while. English is far from being a language barrier for me at this point, but still, Spanish is my *spontaneous* language, regardless of what language use at work and myHence the quirks (and I'm sure errors) you noticed.
+I've lived in the US for a while. English is far from being a struggle for me at this point, but still, Spanish is my *spontaneous* language, regardless of what language use the most at work, or Hence the quirks (and I'm sure errors) you noticed.
 
 ## Avoiding AI
 
