@@ -3,6 +3,7 @@ title: "Post #0"
 description:
 date: 2026-07-03
 tags:
+  - personal
 draft: true
 ---
 This blog post talks about how this site will grow moving forward, its unique voice behind an imperfect content and ideas, and ultimately how I think AI contributes (or doesn't contribute) to it.
@@ -19,12 +20,12 @@ I'm fluent in English and I've lived in the US for a while, but Spanish still is
 
 Here are a few more aspects of me, my writing, my work, and my personality I don't want to be shadowed by AI:
 
-- **What the moment feels like.** If I wake up earlier than usual and I write without taking my first sip coffee, that needs to be represented here! I want to be able to circle back on vague phrases and expand or synthesize them my own way.
+- **What the moment feels like.** If I wake up and I start writing before taking my first sip coffee, that needs to be represented here somehow. I want to be able to circle back on vague phrases and expand or synthesize them my own way.
 - **Isolated ideas.** At first, I want to be OK keeping ideas unconnected, or deciding to bury them if I don't find the potential to be part of a mesh of interconnected concepts. I want to grow as I'm able to link and emerge thoughts; I don't want AI to "guess" those connections for me.
 
 ## Allowing AI
 
 So, when or where do I use AI? On this website, I only use AI on certain scenarios:
 
-- **Things I've done before** and I just need to use reimplement. An example of this would be bringing a spacing system back from a recent project.
-- **Performing in-bulk or repetitive actions.**, like fixing an error I've just been aware of and I'd been carrying over across files.
+- **Things I've done before** and I just need to implement again. An example of this would be bringing a spacing system back from another project.
+- **Performing in-bulk or repetitive actions**, like fixing an error I've just been aware of and I'd been carrying over across multiple files.
