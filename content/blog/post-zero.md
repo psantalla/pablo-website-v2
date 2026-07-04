@@ -15,8 +15,8 @@ I'm fluent in English and I've lived in the US for a while, but Spanish still is
 
 Here are a few more aspects of me, my writing, my work, and my personality I don't want to be shadowed by AI:
 
-- **What the moment feels like.** If I wake up earlier than usual and I write without taking my first sip coffee, that needs to be represented here! I want to be able to circle back on vague concepts and expand or synthesize them my own way.
-- **Isolated ideas.** I want to keep them
+- **What the moment feels like.** If I wake up earlier than usual and I write without taking my first sip coffee, that needs to be represented here! I want to be able to circle back on vague phrases and expand or synthesize them my own way.
+- **Isolated ideas.** At first, I want to be OK keeping them unconnected, or deciding to bury them if I don't find the potential to be part of
 
 ## Unconnected, potentially connected ideas
 
