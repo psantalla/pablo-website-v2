@@ -8,7 +8,7 @@ draft: false
 ---
 This blog post talks about how this site will grow moving forward, its unique voice behind an imperfect content and ideas, and ultimately how I think AI contributes (or doesn't contribute) to it.
 
-> Even though I use AI and extensively explore different models daily, and I believe in its benefits, I choose to stay away from it as much as possible on my personal website. I do this because I see value on the [spontaneous creativity](performance-crisis.md) of a human mind and the undetachable uniqueness of its voice, and I can practice these here without the pressure of moving fast.
+> Even though I use AI and extensively explore different models daily, and I believe in its benefits, I choose to stay away from it as much as possible on my personal website. I do this because I see value in the [spontaneous creativity](performance-crisis.md) of a human mind and the undetachable uniqueness of its voice, and I can practice these here without the pressure of moving fast.
 
 ## Using a second language
 
