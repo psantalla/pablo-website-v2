@@ -15,20 +15,18 @@ You've probably noticed already a few quirks on my writing. That's actually grea
 
 I'm fluent in English and I've lived in the US for a while, but Spanish still is my *spontaneous* language, regardless of my work and my intention to communicate broader and accessible for anybody. Hence the quirks (and I'm sure errors) you notice.
 
-Apart fromHere are a few more aspects of me, my writing, my work, and my personality I don't want to be shadowed by AI:
+## Avoiding AI
+
+Here are a few more aspects of me, my writing, my work, and my personality I don't want to be shadowed by AI:
 
 - **What the moment feels like.** If I wake up earlier than usual and I write without taking my first sip coffee, that needs to be represented here! I want to be able to circle back on vague phrases and expand or synthesize them my own way.
 - **Isolated ideas.** At first, I want to be OK keeping ideas unconnected, or deciding to bury them if I don't find the potential to be part of a mesh of interconnected concepts. I want to grow as I'm able to link and emerge thoughts; I don't want AI to "guess" those connections for me.
 
-## Unconnected, potentially connected ideas
+## Allowing AI
 
-I don't normally have perfectly structured, hierarchical, interconnected ideas. These patterns form over time, and that's beauty of it. When they form, learning leads into growth
-
-If I were using AI to connect my random thoughts.
-
-## So, when or where do I use AI?
+So, when or where do I use AI?
 
 On this website, I only use AI on certain scenarios:
 
-- Things I've done before and I just want to bring them in again. This applies to bringing a spacing system, or replicating some basic layouts.
-- Performing in-bulk or repetitive actions, such as manually f
+- **Things I've done before** and I just want to bring them in again. An example of this would be bringing a spacing system back from a recent project.
+- **Performing in-bulk or repetitive actions.** 
