@@ -12,9 +12,9 @@ This blog post talks about how this site will grow moving forward, its unique vo
 
 ## Using a second language
 
-You've probably noticed already a few quirks on my writing. That's actually great. It'd be quite easy for me to drop these paragraphs on any LLM and ask for a some grammar and voice-tuning fixes, so you could read this blog in a more familiar combination of words. This action could also create something I believe is locked in a predictable frame you'd experience like a boring echo, so I'm intentionally not contribute to it (you're welcome 😁).
+You've probably noticed already a few quirks on my writing. That's actually great. It'd be quite easy for me to drop these paragraphs on any LLM and ask for a some grammar and voice-tuning fixes, so you could read this blog in a more familiar combination of words. This action could also create something I believe is locked in a predictable frame you'd experience like a boring echo, so I'm intentionally not contributing to it (you're welcome 😁).
 
-I'm fluent in English and I've lived in the US for a while, but Spanish still is my *spontaneous* language, regardless of my work and my intention to communicate broader and more accessible for anybody. Hence the quirks (and I'm sure errors) you noticed.
+I'm pretty much fluent in English and I've lived in the US for a while, but Spanish still is my *spontaneous* language, regardless of what language use at work and my intention to makefor anybody. Hence the quirks (and I'm sure errors) you noticed.
 
 ## Avoiding AI
 
