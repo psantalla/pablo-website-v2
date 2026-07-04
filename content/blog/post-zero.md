@@ -20,7 +20,7 @@ English is far from being a struggle for me at this point. I learned it in schoo
 
 Here are a few more aspects of me, my writing, my work, and my personality I don't want to be shadowed by AI:
 
-- **What the moment feels like.** If I wake up and I start writing on my blog before taking my first sip coffee, that needs to be represented here somehow. I want to be able to circle back on vague phrases and expand or synthesize them my own way.
+- **What the moment feels like.** If I wake up and I start writing here before taking my first sip coffee, that needs to be represented here somehow. I want to be able to circle back on vague phrases and expand or synthesize them my own way.
 - **Isolated ideas.** At first, I want to be OK keeping ideas unconnected, or deciding to bury them if I don't find the potential to be part of a mesh of interconnected concepts. I want to grow as I'm able to link and emerge thoughts; I don't want AI to "guess" those connections for me.
 
 ## Allowing AI
