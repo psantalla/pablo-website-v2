@@ -16,7 +16,7 @@ You've probably noticed already a few quirks on my writing. That's actually grea
 
 English is far from being a struggle for me at this point. I learned it in school and had the privilege of attending summer classes in England and Ireland, way before moving to the US. But still, Spanish is my *spontaneous* language; hence the quirks (and I'm sure errors) you noticed.
 
-## Avoiding AI
+## Avoiding AI in this areas
 
 Here are a few more aspects of me, my writing, my work, and my personality I don't want to be shadowed by AI:
 
