@@ -20,8 +20,10 @@ English is far from being a struggle for me at this point. I learned it in schoo
 
 Here are a few more aspects of me, my writing, my work, and my personality I don't want to be shadowed by AI:
 
-- **Feelings.** Not necessarily deep feelings, it can be as simple as how the moment feels like. If I want to rage in my blog after a frustrating day at work, or  I wake up and I start writing here before taking my first sip coffee, that needs to be represented here somehow. I want to be able to circle back on vague phrases and expand or synthesize them my own way.
+- **Feelings**, which don't necessarily have to be deep feelings. It can be as simple as how the moment feels like. If I want to rage after a frustrating day failing to implement a feature, that sentiment needs to be represented here somehow. 
 - **Isolated ideas.** At first, I want to be OK keeping ideas unconnected, or deciding to bury them if I don't find the potential to be part of a mesh of interconnected concepts. I want to grow as I'm able to link and emerge thoughts; I don't want AI to "guess" those connections for me.
+
+I want to be able to circle back on vague phrases and expand or synthesize them my own way.
 
 ## Allowing AI
 
