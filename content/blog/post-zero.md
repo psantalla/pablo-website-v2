@@ -4,7 +4,7 @@ description: I'm intentionally staying away from using AI  in most areas of my p
 date: 2026-07-03
 tags:
   - personal
-draft: true
+draft: false
 ---
 This blog post talks about how this site will grow moving forward, its unique voice behind an imperfect content and ideas, and ultimately how I think AI contributes (or doesn't contribute) to it.
 
