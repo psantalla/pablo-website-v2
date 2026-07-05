@@ -4,7 +4,7 @@ description: I'm intentionally staying away from using AI  in most areas of my p
 date: 2026-07-03
 tags:
   - personal
-draft: false
+draft: true
 ---
 This blog post talks about how this site will grow moving forward, its unique voice behind an imperfect content and ideas, and ultimately how I think AI contributes (or doesn't contribute) to it.
 
@@ -20,7 +20,7 @@ English is far from being a struggle for me at this point. I learned it in schoo
 
 Here are a few more aspects of me, my writing, my work, and my personality I don't want to be shadowed by AI:
 
-- **What the moment feels like.** If I wake up and I start writing here before taking my first sip coffee, that needs to be represented here somehow. I want to be able to circle back on vague phrases and expand or synthesize them my own way.
+- **Feelings.** Not necessarily deep feelings, it can be as simple as how the moment feels like. If I wake up and I start writing here before taking my first sip coffee, that needs to be represented here somehow. I want to be able to circle back on vague phrases and expand or synthesize them my own way.
 - **Isolated ideas.** At first, I want to be OK keeping ideas unconnected, or deciding to bury them if I don't find the potential to be part of a mesh of interconnected concepts. I want to grow as I'm able to link and emerge thoughts; I don't want AI to "guess" those connections for me.
 
 ## Allowing AI
