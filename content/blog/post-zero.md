@@ -20,7 +20,7 @@ English is far from being a struggle for me at this point. I learned it in schoo
 
 Here are a few more aspects of my writing I don't want to be shadowed by AI:
 
-- **Feelings**, which don't necessarily have to be deep feelings. It can be as simple as how the moment feels like. If I want to vent after a frustrating day failing to implement a feature, that sentiment needs to be represented here somehow. 
+- **Feelings**, which don't necessarily have to be deep feelings. If I want to vent after a frustrating day failing to implement a feature, that sentiment needs to be represented **in my own words**.
 - **Isolated ideas.** At first, I want to be OK keeping ideas unconnected, or deciding to bury them if I don't find the potential to be part of a mesh of interconnected concepts. I want to grow as I'm able to link and emerge thoughts; I don't want AI to "guess" those connections for me.
 - **Imperfect**, vague phrases at first, that can potentially become something meaningful. I want to be able to circle back in order to expand or synthesize them my own way.
 
