@@ -1,7 +1,7 @@
 ---
 title: "macOS Wi-Fi/Ethernet Priority Toggle in Menu Bar"
 description: "One-click toggle between Wi-Fi and Ethernet priority using SwiftBar and a native bash plugin"
-order: 1
+order: 0
 date: 2026-05-12
 docTopics:
   - macOS
