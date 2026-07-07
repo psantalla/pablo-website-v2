@@ -1,12 +1,12 @@
 ---
 title: The Harris Poll
 madeAt: Left Field Labs
-date: 2026-05-20
+date: 2026-05-19
 projectLink: https://theharrispoll.com/
 description: "Frontend engineering with Left Field Labs on The Harris Poll refresh: content wiring, motion, delivery discipline."
 projectTopics:
   - Frontend
-draft: true
+draft: false
 ---
 {% import "components/video-control.njk" as vc %}
 
