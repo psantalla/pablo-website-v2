@@ -3,25 +3,23 @@ title: The Harris Poll
 madeAt: Left Field Labs
 date: 2026-05-20
 projectLink: https://theharrispoll.com/
-description: "Frontend engineering on the Google Labs update across three sprints with Left Field Labs: structure, motion, interactivity, performance."
+description: "Frontend engineering with Left Field Labs on The Harris Poll refresh: content wiring, motion, delivery discipline."
 projectTopics:
   - Frontend
 draft: true
 ---
 {% import "components/video-control.njk" as vc %}
 
-> Heads up: this one is more about how the project felt than the technical guts. A lot of what shipped came out of team iteration across <a href="https://leftfieldlabs.com/" target="_blank" rel="noopener noreferrer">Left Field Labs</a>, so I keep the deeper implementation stuff out of public writing. Happy to chat about ideas or anything that catches your eye. For the "how did you build X" kind of questions, easier to walk through in an unrelated codebase.
+> Heads up: this is more about how the project felt than the technical guts. Most of what shipped came out of team iteration at <a href="https://leftfieldlabs.com/" target="_blank" rel="noopener noreferrer">Left Field Labs</a>, so I keep the deep implementation details out of public writing. Happy to chat about ideas. The "how did you build X" questions are easier to walk through in an unrelated codebase.
 
-Proyecto guay. un montón de contenido que wire bien y de forma estratégica. estamos hablando de miles de entradas y campos de contenido que tienen que estar prewireados a una implementación plenamente custom.
+Great project. Thousands of content entries and fields to wire strategically to a fully custom implementation, so the frontend could take over cleanly.
 
-Trabajazo del equipo de LFL tomando decisiones técnicas clave para llegar a una entrega sin fallos. nivel técnico muy alto, control exhaustivo de flujos de review de código, QA controlando como popula el contenido al milímetro antes de que el componente tome el control de la web.
+Real work by the LFL team on the technical calls that got us to a clean release. High bar all around: tight code review flow, and QA verifying content population to the millimetre before the component took control.
 
-{{ vc.figure("portfolio-glabs.mp4", "", 1920, 1068) }} video aquí de la homepage
+{# {{ vc.figure("portfolio-harris.mp4", "", 1920, 1068) }} #}
 
-{{ vc.figure("glabs-interactions.mp4", "Close work with the motion design team. Every interaction calibrated and signed off together: in a team where rough-enough doesn't fly, that conversation is half the work.", 876, 1080) }} video aquí de moviéndose entre entradas de contenido.
+Backed by a motion design team that defined the feel of transitions in detail, I took the lead on the motion implementation. In about a week, with top frontend devs, we landed navigation and reading that felt premium and highly controlled.
 
-backupeado por un motion design team que define al detalle el feel de transiciones de la web, tomo el mando de la implementación del motion. en cuestión de una semana y con ayuda de frontend devs top, hacemos que la navegabilidad y gusto de leer la web se seinta premium y muy controlado.
-
-Un gustazo de trabajar en este proyecto sinceramente.
+Genuinely a pleasure to work on.
 
 <script src="/js/video-control.js" defer></script>
