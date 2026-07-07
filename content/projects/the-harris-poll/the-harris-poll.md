@@ -16,7 +16,7 @@ Great project. Thousands of content entries and fields to wire strategically to 
 
 Real work by the LFL team on the technical calls that got us to a clean release. High bar all around: tight code review flow, and QA verifying content population to the millimetre before the component took control.
 
-{# {{ vc.figure("portfolio-harris.mp4", "", 1920, 1068) }} #}
+{{ vc.figure("portfolio-harris.mp4", "", 1920, 1080) }}
 
 Backed by a motion design team that defined the feel of transitions in detail, I took the lead on the motion implementation. In about a week, with top frontend devs, we landed navigation and reading that felt premium and highly controlled.
 
