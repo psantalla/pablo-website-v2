@@ -1,13 +1,17 @@
 import { DateTime } from "luxon";
+import metadata from "../_data/metadata.js";
+
+// Single source of truth, see _data/metadata.js.
+const SITE_TIMEZONE = metadata.timezone || "utc";
 
 export default function(eleventyConfig) {
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
-		const dt = DateTime.fromJSDate(dateObj, { zone: zone || "America/Los_Angeles" });
+		const dt = DateTime.fromJSDate(dateObj, { zone: zone || SITE_TIMEZONE });
 		return format ? dt.toFormat(format) : dt.toLocaleString(DateTime.DATE_FULL);
 	});
 
 	eleventyConfig.addFilter("htmlDateString", (dateObj) => {
-		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat('yyyy-LL-dd');
+		return DateTime.fromJSDate(dateObj, { zone: SITE_TIMEZONE }).toFormat('yyyy-LL-dd');
 	});
 
 	eleventyConfig.addFilter("head", (array, n) => {
