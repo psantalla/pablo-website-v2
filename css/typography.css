@@ -1,48 +1,39 @@
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter-Regular.woff2") format("woff2");
-  font-weight: 400;
+  src: url("/fonts/InterVariable.woff2") format("woff2-variations");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
+  src: url("/fonts/InterVariable-Italic.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: italic;
   font-display: swap;
 }
+
 :root {
-  --t-ff-h: "Inter", -apple-system, system-ui, sans-serif;
-  --t-ff-p: "Inter", -apple-system, system-ui, sans-serif;
+  --t-ff-sans: "Inter", -apple-system, system-ui, sans-serif;
   --t-ff-mono: "Andale Mono", Consolas, Menlo, Monaco, "Courier New", monospace;
   --t-lh-flat: 100%;
   --t-lh-dense: 130%;
   --t-lh-loose: 150%;
   --t-base-size: 16px;
   --t-fw-r: 400;
-  --t-fw-m: 500;
+  --t-fw-sb: 600;
   --t-ls-tight: -.015em;
   --t-ls-normal: 0;
   --t-ls-wide: .15em;
+  --t-s-s: 0.875rem;
+  --t-s-m: 1rem;
+  --t-s-l: 1.125rem;
+  --t-s-xl: 1.375rem;
+  --t-s-2xl: 1.5rem;
 }
 
-:root {
-  --t-s-s: clamp(0.8883333333rem, -0.0330802213vi + 0.8982573997rem, 0.8823788935rem);
-  --t-s-m: clamp(0.999375rem, 0.0034722222vi + 0.9983333333rem, 1rem);
-  --t-s-l: clamp(1.124296875rem, 0.0500173611vi + 1.1092916667rem, 1.1333rem);
-  --t-s-xl: clamp(1.2648339844rem, 0.1085272535vi + 1.2322758083rem, 1.28436889rem);
-  --t-s-2xl: clamp(1.4229382324rem, 0.1813168368vi + 1.3685431814rem, 1.455575263rem);
-}
-
-html,
-body {
-  font-family: var(--t-ff-p);
-}
-
-html {
-  font-size: var(--t-base-size);
-}
+html, body { font-family: var(--t-ff-sans); }
+html { font-size: var(--t-base-size); }
 
 body {
   font-size: var(--t-s-m);
@@ -51,126 +42,17 @@ body {
   letter-spacing: var(--t-ls-normal);
 }
 
-strong {
-  font-weight: 500;
-}
+strong { font-weight: var(--t-fw-sb); }
+em { font-style: italic; }
+small { font-size: var(--t-s-s); }
 
-em {
-  font-style: italic;
-}
-
-small, .t-s-s {
-  font-size: var(--t-s-s);
-  line-height: var(--t-lh-loose);
-  font-weight: var(--t-fw-r);
-  font-family: var(--t-ff-p);
-  letter-spacing: var(--t-ls-normal);
-}
-
-p, .t-s-m {
-  font-size: var(--t-s-m);
-  line-height: var(--t-lh-loose);
-  font-weight: var(--t-fw-r);
-  font-family: var(--t-ff-p);
-  letter-spacing: var(--t-ls-normal);
-}
-
-h3, .t-s-l {
-  font-size: var(--t-s-l);
+h1, h2, h3 {
   line-height: var(--t-lh-dense);
-  font-weight: var(--t-fw-m);
-  font-family: var(--t-ff-p);
-  letter-spacing: var(--t-ls-normal);
+  font-weight: var(--t-fw-sb);
 }
 
-h2, .t-s-xl {
-  font-size: var(--t-s-xl);
-  line-height: var(--t-lh-dense);
-  font-weight: var(--t-fw-m);
-  font-family: var(--t-ff-h);
-  letter-spacing: var(--t-ls-tight);
-}
+h1, h2 { letter-spacing: var(--t-ls-tight); }
 
-h1, .t-s-2xl {
-  font-size: var(--t-s-2xl);
-  line-height: var(--t-lh-dense);
-  font-weight: var(--t-fw-m);
-  font-family: var(--t-ff-h);
-  letter-spacing: var(--t-ls-tight);
-}
-
-.t-lh-flat {
-  line-height: var(--t-lh-flat);
-}
-
-.t-lh-dense {
-  line-height: var(--t-lh-dense);
-}
-
-.t-lh-loose {
-  line-height: var(--t-lh-loose);
-}
-
-.t-fw-r {
-  font-weight: var(--t-fw-r);
-}
-
-.t-fw-m {
-  font-weight: var(--t-fw-m);
-}
-
-.t-ff-p {
-  font-family: var(--t-ff-p);
-}
-
-.t-ff-h {
-  font-family: var(--t-ff-h);
-}
-
-.t-ff-mono {
-  font-family: var(--t-ff-mono);
-}
-
-.t-ls-tight {
-  letter-spacing: var(--t-ls-tight);
-}
-
-.t-ls-normal {
-  letter-spacing: var(--t-ls-normal);
-}
-
-.t-ls-wide {
-  letter-spacing: var(--t-ls-wide);
-}
-
-.t-tt-none {
-  text-transform: none;
-}
-
-.t-tt-uppercase {
-  text-transform: uppercase;
-}
-
-.t-ta-center {
-  text-align: center;
-}
-
-.t-ta-left {
-  text-align: left;
-}
-
-.t-ta-right {
-  text-align: right;
-}
-
-.t-tw-pretty {
-  text-wrap: pretty;
-}
-
-.t-tw-balance {
-  text-wrap: balance;
-}
-
-.t-tw-nowrap {
-  text-wrap: nowrap;
-}/*# sourceMappingURL=typography.css.map */
+h1 { font-size: var(--t-s-2xl); }
+h2 { font-size: var(--t-s-xl); }
+h3 { font-size: var(--t-s-l); }

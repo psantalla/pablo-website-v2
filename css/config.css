@@ -122,7 +122,7 @@ header {
 	align-items: center;
 	gap: var(--sp-s);
 	font-size: 1em;
-	font-weight: var(--t-fw-m);
+	font-weight: var(--t-fw-sb);
 	text-decoration: none;
 	flex-shrink: 1;
 	flex-grow: 0;
@@ -233,7 +233,7 @@ footer p {
 }
 
 .entry-title {
-	font-weight: var(--t-fw-m);
+	font-weight: var(--t-fw-sb);
 	color: var(--c-foreground);
 	overflow-wrap: break-word;
 	width: fit-content;

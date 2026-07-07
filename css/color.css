@@ -1,16 +1,14 @@
 :root {
   --c-foreground: #131117;
-  --c-foreground-hint: rgba(19, 17, 23, 0.8588235294);
+  --c-foreground-hint: rgba(19, 17, 23, 0.85);
   --c-foreground-reduced: rgba(19, 17, 23, 0.8);
-  --c-foreground-muted: rgba(19, 17, 23, 0.7019607843);
-  --c-foreground-off: rgba(19, 17, 23, 0.5294117647);
+  --c-foreground-muted: rgba(19, 17, 23, 0.75);
   --c-background: #f5f5f5;
   --c-accent: #F55D3E;
-  --c-accent-a: rgba(245, 93, 62, 0.6549019608);
   --c-code-keyword: #F55D3E;
   --c-code-string: #2eb8a7;
   --c-code-number: #2eb8a7;
-  --c-code-comment: rgba(19, 17, 23, 0.3137254902);
+  --c-code-comment: rgba(19, 17, 23, 0.3);
   --c-code-bg: #e8e8e8;
   --c-code-deleted-bg: #F55D3E;
   --c-code-inserted-bg: #3EF5DF;
@@ -19,19 +17,13 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --c-foreground: #f5f5f5;
-    --c-foreground-hint: rgba(245, 245, 245, 0.9450980392);
-    --c-foreground-reduced: rgba(245, 245, 245, 0.8784313725);
-    --c-foreground-muted: rgba(245, 245, 245, 0.8509803922);
-    --c-foreground-off: rgba(245, 245, 245, 0.4901960784);
+    --c-foreground-hint: rgba(245, 245, 245, 0.95);
+    --c-foreground-reduced: rgba(245, 245, 245, 0.9);
+    --c-foreground-muted: rgba(245, 245, 245, 0.85);
     --c-background: #0c0b0f;
-    --c-accent: #F55D3E;
-    --c-accent-a: rgba(245, 93, 62, 0.6549019608);
-    --c-code-keyword: #F55D3E;
     --c-code-string: #3EF5DF;
     --c-code-number: #3EF5DF;
-    --c-code-comment: rgba(255, 255, 255, 0.4078431373);
+    --c-code-comment: rgba(255, 255, 255, 0.4);
     --c-code-bg: #27242c;
-    --c-code-deleted-bg: #F55D3E;
-    --c-code-inserted-bg: #3EF5DF;
   }
-}/*# sourceMappingURL=color.css.map */
+}
