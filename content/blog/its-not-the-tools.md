@@ -4,7 +4,7 @@ description: I don't pick a framework and behave inside it. I try everything at 
 date: 2026-07-02 20:00:00
 tags:
   - systems-thinking
-draft: false
+draft: true
 ---
 There are two ways to do things: complete chaos, or slightly less chaos. Most people pick the second. That's where tools like Notion, Linear, and countless others come in. They give you a safe framework to operate in.
 
