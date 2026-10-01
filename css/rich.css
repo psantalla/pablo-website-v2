@@ -39,6 +39,7 @@ li::marker {
 
 p {
 	margin: 0;
+	text-wrap: pretty;
 }
 
 p:not(:has(img, video, picture, iframe)) + p:not(:has(img, video, picture, iframe)) {
