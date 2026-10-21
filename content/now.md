@@ -12,7 +12,7 @@ date: 2026-10-20
 
 ## Work (and work and life)
 
-I've started to feel more and more confident about the workflows and dynamics at <a href="https://www.leftfieldlabs.com" target="_blank" rel="noopener noreferrer">Left Field Labs</a>. I've also been able to get to know more of the creative and smart people here.
+I've started to feel more and more confortable with the workflows and dynamics at <a href="https://www.leftfieldlabs.com" target="_blank" rel="noopener noreferrer">Left Field Labs</a>. I've also been able to get to know more of the creative and smart people here.
 
 I thought it was the right time to step back a bit from side projects and collabs so I could spend more of my free time with my family. The only thing I’m really keeping an eye on is finishing [The Sternberg Clinic](/projects/sternberg-clinic/), which I think is in a good spot, and I’m hoping to launch relatively soon.
 
