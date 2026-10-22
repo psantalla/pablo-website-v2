@@ -6,7 +6,7 @@ layout: layouts/base.njk
 
 {% set postsCount = collections.posts | length %}
 {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} post{% if latestPostsCount != 1 %}s{% endif %}</h1>
+<h1>Latest {{ latestPostsCount }} thing{% if latestPostsCount != 1 %}s{% endif %} I wrote</h1>
 
 {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
 {% set postslistCounter = postsCount %}
@@ -19,7 +19,7 @@ layout: layouts/base.njk
 
 {% set projectsCount = collections.projects | length %}
 {% set latestProjectsCount = projectsCount | min(numberOfLatestProjectsToShow) %}
-<h1>{{ latestProjectsCount }} recent project{% if latestProjectsCount != 1 %}s{% endif %}</h1>
+<h1>Latest {{ latestProjectsCount }} project{% if latestProjectsCount != 1 %}s{% endif %} I worked on</h1>
 
 {% set projectslist = collections.projects | head(-1 * numberOfLatestProjectsToShow) %}
 {% include "projectslist.njk" %}
