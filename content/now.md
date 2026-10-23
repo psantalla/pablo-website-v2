@@ -28,10 +28,10 @@ For now, I'm reading <a href="https://www.goodreads.com/book/show/7171637-clockw
 
 We moved to a new place. We're still in San Pedro, CA. I'm intentionally keeping things low-key so I can finally get around to unpacking the boxes that have been sitting there for two months. Moving is hard for me.
 
-### Short-term micro-projects
+Short-term micro-projects I'm keeping an eye on:
 
-- Take a flight with our little one, who's a year and a half old.
-- Get the house fully set up and comfortable before Christmas.
+- [ ] Take a flight with our little one, who's a year and a half old.
+- [ ] Get the house fully set up and comfortable before Christmas.
 
 ---
 

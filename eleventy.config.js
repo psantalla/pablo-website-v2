@@ -5,6 +5,7 @@ import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 import pluginFilters from "./_config/filters.js";
+import markdownTaskLists from "./_config/markdown-task-lists.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
@@ -101,6 +102,8 @@ export default async function(eleventyConfig) {
 		md.renderer.rules.paragraph_open = (t, i, o, e, s) => skip(t, i, 1) ? "" : defaultOpen(t, i, o, e, s);
 		md.renderer.rules.paragraph_close = (t, i, o, e, s) => skip(t, i, -1) ? "" : defaultClose(t, i, o, e, s);
 	});
+
+	eleventyConfig.amendLibrary("md", (md) => md.use(markdownTaskLists));
 
 	eleventyConfig.addPlugin(pluginFilters);
 

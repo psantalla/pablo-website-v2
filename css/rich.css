@@ -50,8 +50,12 @@ p:not(:has(img, video, picture, iframe)) + p:not(:has(img, video, picture, ifram
 	margin-top: var(--sp-2xl) /* !important needed to override .entry-metadata + * */ !important;
 }
 
-:is(ul, ol):not([class]) {
+:is(ul, ol):not([class]),
+.contains-task-list {
 	margin: 1.2em 0;
+}
+
+:is(ul, ol):not([class]) {
 	padding-left: var(--sp-xl);
 	list-style-type: disc;
 }
@@ -60,7 +64,8 @@ ol:not([class]) {
 	list-style-type: decimal;
 }
 
-:is(ul, ol):not([class]) li + li {
+:is(ul, ol):not([class]) li + li,
+.task-list-item + .task-list-item {
 	margin-top: 0.5em;
 }
 
@@ -155,5 +160,41 @@ hr::before {
 	content: '***';
 	letter-spacing: .55em;
 	color: var(--c-foreground-muted);
+}
+
+.contains-task-list {
+	padding-left: 0;
+}
+
+.task-list-item label {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.45em;
+}
+
+.task-list-item-checkbox {
+	appearance: none;
+	-webkit-appearance: none;
+	flex: none;
+	position: relative;
+	width: 1em;
+	height: 1em;
+	margin: 0;
+	border: 1px solid var(--c-foreground-muted);
+	border-radius: 0.2em;
+	background: none;
+	translate: 0 0.08em; /* +align with text */
+}
+
+.task-list-item-checkbox:checked::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 0.22em;
+	height: 0.22em;
+	border-radius: 50%;
+	background: var(--c-accent);
+	translate: -50% -50%;
 }
 
