@@ -1,5 +1,5 @@
 ---
-title: Slip
+title: Slip (discontinued)
 date: 2026-10-24
 projectLink: https://github.com/psantalla/slip
 description: "Native macOS menu-bar app that syncs clipboard, files and keyboard/mouse between two Macs over the LAN. No account, no cloud."
