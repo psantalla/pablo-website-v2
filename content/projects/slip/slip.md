@@ -13,6 +13,8 @@ draft: false
 
 ![Slip](slip.png)
 
+> A weekend project. Fighting the double-cursor bug, I found a better approach and landed on <a href="https://beamerapp.co.uk" target="_blank" rel="noopener noreferrer">Beamer</a>. I'll keep using that one.
+
 A small thing I built for myself: two Macs on the same desk, one clipboard, one keyboard. Slip syncs clipboard, files and (opt-in) keyboard and mouse between them over the LAN. Native Swift, lives in the menu bar, no account, no cloud.
 
 Free to use. Open to anyone who wants to test it, run it, or <a href="https://github.com/psantalla/slip" target="_blank" rel="noopener noreferrer">poke at the repo</a> and collaborate. Apple Silicon only for now.
