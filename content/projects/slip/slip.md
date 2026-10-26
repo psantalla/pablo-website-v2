@@ -13,7 +13,7 @@ draft: false
 
 ![Slip](slip.png)
 
-> A weekend project. Fighting the double-cursor bug, I found a better approach and landed on <a href="https://beamerapp.co.uk" target="_blank" rel="noopener noreferrer">Beamer</a>. I'll keep using that one.
+> A weekend project, now discontinued. I ran into a stubborn double-cursor bug, found that a more polished tool already did the job, and switched to <a href="https://beamerapp.co.uk" target="_blank" rel="noopener noreferrer">Beamer</a> for good.
 
 A small thing I built for myself: two Macs on the same desk, one clipboard, one keyboard. Slip syncs clipboard, files and (opt-in) keyboard and mouse between them over the LAN. Native Swift, lives in the menu bar, no account, no cloud.
 
